@@ -1,0 +1,4 @@
+**/.idea
+**/dist
+**/npm-*.log
+**/node_modules
