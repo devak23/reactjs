@@ -5,11 +5,11 @@ import { Home } from './components/Home';
 
 class App extends React.Component {
     render() {
-        var abhay = {
-            name: "Abhay K",
-            age: 38,
+        var sandeep = {
+            name: "Sandeep K",
+            age: 40,
             department: 'Software',
-            team: ["Datta", "Sandeep", "Vidyadhar", "Pratima", "Ranjit", "Madhuri"]
+            team: ["Abhay", "Datta", "Vidyadhar", "Pratima", "Ranjit", "Madhuri", "Komal", "Akshayee"]
         };
 
         var vinod = {
@@ -28,8 +28,12 @@ class App extends React.Component {
               </div>
               <div className="row">
                   <div className="col-xs-10 col-offset-1">
-                      <Home user={abhay}/>
-                      <Home user={vinod}/>
+                      <Home user={sandeep}>
+                          Birth date: Dec 24, 1975
+                      </Home>
+                      <Home user={vinod}>
+                          Birth date: Jun 13, 1978
+                      </Home>
                   </div>
               </div>
           </div>
