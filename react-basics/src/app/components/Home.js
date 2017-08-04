@@ -5,7 +5,8 @@ export class Home extends React.Component {
         super();
         this.state = {
             age: props.user.age,
-            status: 'Active'
+            status: 'Active',
+            homeLink: 'Changed Link'
         }
     }
 
@@ -15,10 +16,18 @@ export class Home extends React.Component {
         });
     }
 
+    onChangeLinkText() {
+        console.log("user object's link name: ", this.props.user.linkName);
+        this.state.homeLink = this.props.user.linkName;
+
+        this.props.changeLinkName(this.state.homeLink);
+        //this.props.changeLinkName(this.props.user.linkName);
+    }
+
     render() {
         return (
             <div className="row">
-                <div className="col-xs-4 col-offset-1">
+                <div className="col-xs-8 col-offset-1">
                     <div className="panel panel-default">
                         <div className="panel-heading">
                             <span className="pull-left">{this.props.user.name} ({this.state.age})</span>
@@ -34,14 +43,14 @@ export class Home extends React.Component {
                             <p></p>
                         </div>
                         <hr />
-                        <div className="pull-left">
+                        <div>
                             {this.props.children}
                         </div>
-                        <div className="pull-right">
+                        <div>
                             <button onClick={this.makeMeOlder.bind(this)}>Make me Older</button>
                             <button onClick={this.props.greet}>Greet</button>
+                            <button onClick={this.onChangeLinkText.bind(this)}>Change Text</button>
                         </div>
-                        <div className="clearfix"></div>
                     </div>
                 </div>
             </div>
