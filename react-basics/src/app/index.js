@@ -48,12 +48,20 @@ class App extends React.Component {
               </div>
               <div className="row">
                   <div className="col-md-6">
-                      <Home user={sandeep} greet={this.sayHello} changeLinkName={this.onChangeLinkText.bind(this)}>
+                      <Home
+                          user={sandeep}
+                          greet={this.sayHello}
+                          initialLinkName={this.state.homeLinkText}
+                          changeLinkName={this.onChangeLinkText.bind(this)}>
                           Birth date: Dec 24, 1974
                       </Home>
                   </div>
                   <div className="col-md-6">
-                      <Home user={vinod} greet={this.sayHello} changeLinkName={this.onChangeLinkText.bind(this)}>
+                      <Home
+                          user={vinod}
+                          greet={this.sayHello}
+                          initialLinkName={this.state.homeLinkText}
+                          changeLinkName={this.onChangeLinkText.bind(this)}>
                           Birth date: Jun 13, 1978
                       </Home>
                   </div>

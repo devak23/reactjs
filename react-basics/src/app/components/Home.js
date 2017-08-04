@@ -6,7 +6,8 @@ export class Home extends React.Component {
         this.state = {
             age: props.user.age,
             status: 'Active',
-            homeLink: 'Changed Link'
+            // homeLink: 'Changed Link'
+            homeLink: props.initialLinkName
         }
     }
 
@@ -17,11 +18,15 @@ export class Home extends React.Component {
     }
 
     onChangeLinkText() {
-        console.log("user object's link name: ", this.props.user.linkName);
-        this.state.homeLink = this.props.user.linkName;
-
+        //console.log("user object's link name: ", this.props.user.linkName);
+        //this.state.homeLink = this.props.user.linkName;
         this.props.changeLinkName(this.state.homeLink);
-        //this.props.changeLinkName(this.props.user.linkName);
+    }
+
+    handleLinkNameChange(event) {
+        this.setState({
+            homeLink: event.target.value
+        });
     }
 
     render() {
@@ -40,7 +45,8 @@ export class Home extends React.Component {
                             <ul>
                                 {this.props.user.team.map((member, index) => <li key={index} value={index}>{member}</li>)}
                             </ul>
-                            <p></p>
+                            <input type="text" value={this.state.homeLink} onChange={(event)=> this.handleLinkNameChange(event)}/>
+                            <button onClick={this.onChangeLinkText.bind(this)}>Change Home Link</button>
                         </div>
                         <hr />
                         <div>
@@ -62,5 +68,6 @@ export class Home extends React.Component {
 Home.PropTypes = {
     user: React.PropTypes.object,
     children: React.PropTypes.element.isRequired,
-    greet: React.PropTypes.func
+    greet: React.PropTypes.func,
+    initialLinkName: React.PropTypes.string
 };
