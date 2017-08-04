@@ -4,6 +4,11 @@ import { Header } from './components/Header';
 import { Home } from './components/Home';
 
 class App extends React.Component {
+    sayHello() {
+        alert('Hello Sandeep');
+        return 'Hello Sandeep';
+    }
+    
     render() {
         var sandeep = {
             name: "Sandeep K",
@@ -28,10 +33,10 @@ class App extends React.Component {
               </div>
               <div className="row">
                   <div className="col-xs-10 col-offset-1">
-                      <Home user={sandeep}>
+                      <Home user={sandeep} greet={this.sayHello}>
                           Birth date: Dec 24, 1975
                       </Home>
-                      <Home user={vinod}>
+                      <Home user={vinod} greet={this.sayHello}>
                           Birth date: Jun 13, 1978
                       </Home>
                   </div>
