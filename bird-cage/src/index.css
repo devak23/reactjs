@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, .container-table {
+  margin-top: 10px;
+  height: 100%;
+}
+
+.container-table {
+  display: table;
+}
+
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}
