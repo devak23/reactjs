@@ -1,0 +1,13 @@
+.MessagePane {
+    flex: 1;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.MessagePane-List {
+    border-bottom: 1px solid black;
+    flex: 1;
+    overflow: auto;
+}
