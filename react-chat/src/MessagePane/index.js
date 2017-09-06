@@ -17,10 +17,10 @@ const ListOfMessages = ({messages}) => (
   </div>
 );
 
-const MessagePane = ({chatMessages}) => (
+const MessagePane = ({chatMessages, onSendMessage}) => (
   <div className="MessagePane">
     <ListOfMessages messages={chatMessages} />
-    <Form/>
+    <Form onSend={onSendMessage}/>
   </div>
 );
 

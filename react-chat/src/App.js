@@ -37,10 +37,31 @@ const channels = [
 ];
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      messages: userMessages
+    };
+    this.onSendMessage = this.onSendMessage.bind(this);
+  }
+
+  onSendMessage = (author, text) => {
+    const newMessage = {
+      id: this.state.messages[this.state.messages.length - 1].id + 1,
+      text, // equivalent to text: text,
+      author, // equivalent to author: author,
+      channel_id: 1
+    };
+
+    const messages = [...this.state.messages, newMessage]; // new way of array concatenation in ES6
+    //this.state.messages.push(newMessage);
+    this.setState({messages});
+  };
+
   render() {
     return (
       <div className="App">
-        <MessagePane chatMessages={userMessages}/>
+        <MessagePane chatMessages={this.state.messages} onSendMessage={this.onSendMessage}/>
         {/*<MessagePane/>*/}
       </div>
     );

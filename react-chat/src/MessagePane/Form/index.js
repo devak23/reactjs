@@ -16,6 +16,12 @@ class Form extends Component {
   onSubmit() {
     const {name, message} = this.state;
     console.log(name, message);
+    // invoke the function on the parent (MessagePane). We are going to require
+    // the MessagePane use this Form element with an attribute which points to
+    // a parent function. This child element is saying it will invoke a onSend
+    // function on the passed in prop. It doesn't need to know what the onSend
+    // does in the parent. It simply knows that the onSend requires a name
+    // and message.
     this.props.onSend(name, message);
     this.setState({name: '', message: ''});
 
@@ -29,7 +35,7 @@ class Form extends Component {
 
   updateMessage(event) {
     this.setState({
-      message: event.target.value.trim()
+      message: event.target.value
     });
   }
 
