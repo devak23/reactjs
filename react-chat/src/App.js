@@ -41,6 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <MessagePane chatMessages={userMessages}/>
+        {/*<MessagePane/>*/}
       </div>
     );
   }
