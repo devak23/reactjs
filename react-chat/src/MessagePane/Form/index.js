@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Props from "prop-types";
 
-// this is a stateful component. Hence needs to extend the component.
+// this is a stateful component. Hence needs to extend the Component.
 // else a stateless component (like MessagePane) would suffice.
 class Form extends Component {
   constructor() {
