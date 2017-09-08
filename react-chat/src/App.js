@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import MessagePane from './MessagePane';
 import ChannelList from './ChannelList';
-import { getMessages, getChannels, saveMessage } from "./remote_storage";
+import { getMessages, getChannels, saveMessage, onNewMessage } from "./remote_storage";
 
 class App extends Component {
   constructor() {
@@ -25,6 +25,11 @@ class App extends Component {
 
     console.log('loading messages...');
     getMessages().then(messages => this.setState({messages}));
+
+    onNewMessage(newMessage => {
+      const messages = [...this.state.messages, newMessage];
+      this.setState({messages});
+    });
   }
 
   onSendMessage = (author, text) => {
