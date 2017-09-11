@@ -41,7 +41,7 @@ class LoginForm extends Component {
     // pass the input to the function passed in to the prop.
     if (Object.keys(errors).length === 0) {
       this.props.signIn(this.state.data);
-      this.setState({username: '', password: ''});
+      this.setState({data: {username: '', password: ''}});
     }
   }
 
