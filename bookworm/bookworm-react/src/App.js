@@ -7,6 +7,6 @@ const App = () =>
   <div className="ui container">
     <Route path="/" exact component={HomePage} />
     <Route path="/login" exact component={LoginPage} />
-  </div>;
+  </div>
 
 export default App;
