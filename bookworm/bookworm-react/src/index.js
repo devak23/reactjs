@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 import App from './App';
 import rootReducer from './rootReducer';
+import { userLoggedIn } from './actions/auth';
 
 /**
 * The application submits a form that makes a synchronous request to the server.
@@ -21,6 +22,15 @@ const store = createStore(
   rootReducer, // this is the whole state tree/object. This will be used via the combiners
   composeWithDevTools(applyMiddleware(thunk)),
 );
+
+// check if the localstorage contains a JWT token. If so, create a user object
+// containing the token and pass it to the userLoggedIn method inside the store's
+// dispatch method to redux
+
+if (localStorage.bookwormJWT) {
+  const user = { token: localStorage.bookwormJWT };
+  store.dispatch(userLoggedIn(user));
+}
 
 // The react-router enables us to navigate between pages. So we import the
 // BrowserRouter and enclose the <App/> component inside it. What we are essentially
