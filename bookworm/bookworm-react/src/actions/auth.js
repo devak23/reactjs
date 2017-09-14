@@ -8,7 +8,7 @@ export const userLoggedIn = user => ({
 });
 
 export const userLoggedOut = () => ({
-  type: USER_LOGGED_OUT
+  type: USER_LOGGED_OUT,
 });
 
 // a thunk action is just a function which returns another function
@@ -23,7 +23,7 @@ export const login = credentials => dispatch =>
       dispatch(userLoggedIn(user));
     });
 
-export const logout = () => {
+export const logout = () => dispatch => {
   localStorage.removeItem('bookwormJWT');
-  dispatch.(userLoggedOut());
+  dispatch(userLoggedOut());
 };
