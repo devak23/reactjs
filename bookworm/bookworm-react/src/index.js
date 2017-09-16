@@ -28,7 +28,11 @@ const store = createStore(
 // dispatch method to redux
 
 if (localStorage.bookwormJWT) {
-  const user = { token: localStorage.bookwormJWT };
+  const user = {
+    token: localStorage.bookwormJWT,
+    firstname: localStorage.firstname,
+    lastname: localStorage.lastname
+  };
   store.dispatch(userLoggedIn(user));
 }
 

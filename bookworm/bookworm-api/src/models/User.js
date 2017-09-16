@@ -14,6 +14,14 @@ const schema = new mongoose.Schema(
       lowercase: true,
       index: true,
     },
+    firstname: {
+      type: String,
+      required: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
+    },
     passwordHash: { type: String, required: true },
   },
   { timestamps: true },
@@ -32,6 +40,8 @@ schema.methods.generateJWT = function generateJWT() {
   return jwt.sign(
     {
       email: this.email,
+      firstname: this.firstname,
+      lastname: this.lastname,
     },
     process.env.JWT_SECRET, // access the secret from the environment variable
   );

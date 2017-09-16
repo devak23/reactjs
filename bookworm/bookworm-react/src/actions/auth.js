@@ -19,11 +19,15 @@ export const login = credentials => dispatch =>
     .then(user => {
       // save the Token into the local storage (browser)
       localStorage.bookwormJWT = user.token;
+      localStorage.firstname = user.firstname;
+      localStorage.lastname = user.lastname;
       // dispatch redux action
       dispatch(userLoggedIn(user));
     });
 
 export const logout = () => dispatch => {
   localStorage.removeItem('bookwormJWT');
+  localStorage.removeItem('lastname');
+  localStorage.removeItem('firstname');
   dispatch(userLoggedOut());
 };
