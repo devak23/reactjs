@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
-const DashboardPage = ({confirmed}) => (
+const DashboardPage = ({ confirmed }) => (
   <div>
     { !confirmed && <ConfirmEmailMessage /> }
   </div>
@@ -17,6 +17,10 @@ function mapStateToProps(state) {
 
 DashboardPage.propTypes = {
   confirmed: PropTypes.bool.isRequired
+}
+
+DashboardPage.defaultProps = {
+  confirmed: false
 }
 
 export default connect(mapStateToProps)(DashboardPage);
