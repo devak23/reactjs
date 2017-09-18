@@ -3,8 +3,6 @@ import bcrypt from 'bcrypt'; // import encryption library. One way hash
 import jwt from 'jsonwebtoken'; // import JSON web token library
 import uniqueValidator from 'mongoose-unique-validator';
 
-// TODO: add uniqueness and email validation to email fields
-
 // define a new schema defined by this structure (dont confuse the word schema with Oracle schema
 // Schema in this sense means the layout of the object... not the db concept)
 const schema = new mongoose.Schema(
@@ -26,6 +24,7 @@ const schema = new mongoose.Schema(
     },
     passwordHash: { type: String, required: true },
     confirmed: { type: Boolean, default: false },
+    confirmationToken: { type: String, default: '' },
   },
   { timestamps: true },
 );
@@ -62,8 +61,16 @@ schema.methods.toAuthJSON = function toAuthJSON() {
   };
 };
 
+schema.methods.setConfirmationToken = function setConfirmationToken() {
+  this.confirmationToken = this.generateJWT();
+};
+
 schema.methods.setPassword = function setPassword(password) {
   this.passwordHash = bcrypt.hashSync(password, 10);
+};
+
+schema.methods.generateConfirmationUrl = function generateConfirmationUrl() {
+  return `${process.env.HOST}/confirmation/${this.confirmationToken}`;
 };
 
 schema.plugin(uniqueValidator, { message: 'This email is already taken' });
