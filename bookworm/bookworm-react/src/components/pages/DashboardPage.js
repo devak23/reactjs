@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
 const DashboardPage = ({ confirmed }) => (
-  <div>
-    { !confirmed && <ConfirmEmailMessage /> }
+  <div style={{ margin: '20px 0' }}>
+    {!confirmed && <ConfirmEmailMessage />}
   </div>
 );
 
 function mapStateToProps(state) {
   return {
-    confirmed: state.user.confirmed
-  }
+    confirmed: state.user.confirmed,
+  };
 }
 
 DashboardPage.propTypes = {
-  confirmed: PropTypes.bool.isRequired
-}
+  confirmed: PropTypes.bool.isRequired,
+};
 
 DashboardPage.defaultProps = {
-  confirmed: false
-}
+  confirmed: false,
+};
 
 export default connect(mapStateToProps)(DashboardPage);

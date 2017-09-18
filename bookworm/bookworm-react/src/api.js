@@ -5,5 +5,7 @@ export default {
     // the login on successful will contain email and JWT token
     login: credentials =>
       axios.post('/api/auth', { credentials }).then(res => res.data.user),
+    signup: user =>
+      axios.post('/api/users', { user }).then(res => res.data.user),
   },
 };

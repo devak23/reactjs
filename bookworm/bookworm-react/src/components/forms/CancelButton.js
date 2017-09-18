@@ -9,7 +9,7 @@ const CancelButton = ({ path, text }) => (
       <Button
         className="ui default button"
         style={{ margin: '0 0 0 10px' }}
-        onClick={() => history.push({ path })}
+        onClick={() => history.push(path)}
       >
         {text}
       </Button>

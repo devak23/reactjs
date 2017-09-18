@@ -7,14 +7,16 @@ import * as actions from '../../actions/auth';
 // Again this is a functional component as no state is required to be
 // maintained
 const HomePage = ({ isAuthenticated, logout }) => (
-  <div>
+  <div style={{ margin: '20px 0' }}>
     <h1>Home Page</h1>
     {isAuthenticated ? (
       <button className="ui primary button" onClick={() => logout()}>
         Logout
       </button>
     ) : (
-      <Link to="/login">Login</Link>
+      <div>
+        <Link to="/login">Login</Link> or <Link to="/signup">Sign Up</Link>
+      </div>
     )}
   </div>
 );
