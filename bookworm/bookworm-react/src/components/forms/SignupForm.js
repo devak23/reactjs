@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Tab } from 'semantic-ui-react';
 import isEmpty from 'lodash/isEmpty';
 import isEmail from 'validator/lib/isEmail';
 
-import InlineError from '../messages/InlineError';
+// import InlineError from '../messages/InlineError';
 import CancelButton from '../forms/CancelButton';
+import PersonalInfo from '../forms/PersonalInfo';
+import ContactInfo from '../forms/ContactInfo';
 
 class SignupForm extends Component {
   state = {
@@ -54,61 +56,40 @@ class SignupForm extends Component {
 
   render() {
     const { data, errors, loading } = this.state;
+    const panes = [
+      {
+        menuItem: 'PersonalInfo',
+        render: () => (
+          <Tab.Pane attached={false}>
+            <PersonalInfo
+              data={data}
+              errors={errors}
+              handleOnChange={this.handleOnChange}
+            />
+          </Tab.Pane>
+        ),
+      },
+      { menuItem: 'Educational Info', pane: 'Tab 2 Content' },
+      {
+        menuItem: 'Contact Info',
+        render: () => (
+          <Tab.Pane attached={false}>
+            <ContactInfo
+              data={data}
+              errors={errors}
+              handleOnChange={this.handleOnChange}
+            />
+          </Tab.Pane>
+        ),
+      },
+    ];
 
     return (
       <div>
         <Form onSubmit={this.handleSubmit} loading={loading}>
-          <Form.Field error={!!errors.email}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={data.email}
-              placeholder="my.email@example.com"
-              onChange={this.handleOnChange}
-            />
-            {errors.email && <InlineError text={errors.email} />}
+          <Form.Field>
+            <Tab panes={panes} menu={{ secondary: true, pointing: true }} />
           </Form.Field>
-          <Form.Field error={!!errors.password}>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={data.password}
-              placeholder="Create a secure password"
-              onChange={this.handleOnChange}
-            />
-            {errors.password && <InlineError text={errors.password} />}
-          </Form.Field>
-
-          <Form.Field error={!!errors.firstname}>
-            <label htmlFor="firstname">Firstname</label>
-            <input
-              type="text"
-              name="firstname"
-              id="firstname"
-              placeholder="John"
-              value={data.firstname}
-              onChange={this.handleOnChange}
-            />
-            {errors.firstname && <InlineError text={errors.firstname} />}
-          </Form.Field>
-
-          <Form.Field error={!!errors.lastname}>
-            <label htmlFor="lastname">Lastname</label>
-            <input
-              type="text"
-              name="lastname"
-              id="lastname"
-              placeholder="Doe"
-              value={data.lastname}
-              onChange={this.handleOnChange}
-            />
-            {errors.lastname && <InlineError text={errors.lastname} />}
-          </Form.Field>
-
           <Form.Field>
             <Button primary>Sign up</Button>
             <CancelButton to="/" text="Back to homepage" />
