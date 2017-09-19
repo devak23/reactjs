@@ -1,14 +1,14 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../types';
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
 
-import api from '../api';
+import api from "../api";
 
 export const userLoggedIn = user => ({
   type: USER_LOGGED_IN,
-  user,
+  user
 });
 
 export const userLoggedOut = () => ({
-  type: USER_LOGGED_OUT,
+  type: USER_LOGGED_OUT
 });
 
 // a thunk action is just a function which returns another function
@@ -26,8 +26,16 @@ export const login = credentials => dispatch =>
     });
 
 export const logout = () => dispatch => {
-  localStorage.removeItem('bookwormJWT');
-  localStorage.removeItem('lastname');
-  localStorage.removeItem('firstname');
+  localStorage.removeItem("bookwormJWT");
+  localStorage.removeItem("lastname");
+  localStorage.removeItem("firstname");
   dispatch(userLoggedOut());
 };
+
+export const confirm = token => dispatch =>
+  api.user.confirm(token).then(user => {
+    localStorage.bookwormJWT = user.token;
+    localStorage.firstname = user.firstname;
+    localStorage.lastname = user.lastname;
+    dispatch(userLoggedIn);
+  });

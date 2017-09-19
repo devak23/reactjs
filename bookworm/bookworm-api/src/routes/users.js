@@ -18,7 +18,9 @@ router.post('/', (req, res) => {
       try {
         sendConfirmationEmail(userRecord);
       } catch (e) {
+        /* eslint-disable */
         console.log(e);
+        /* eslint-enable */
       }
 
       res.json({ user: userRecord.toAuthJSON() });

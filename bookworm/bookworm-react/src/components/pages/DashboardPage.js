@@ -1,26 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Message } from 'semantic-ui-react';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
-const DashboardPage = ({ confirmed }) => (
+const DashboardPage = ({ isConfirmed }) => (
   <div style={{ margin: '20px 0' }}>
-    {!confirmed && <ConfirmEmailMessage />}
+    {!isConfirmed && <ConfirmEmailMessage />}
+    {isConfirmed && (
+      <Message>
+        <Message.Header>Welcome!</Message.Header>
+        <Message.Content>
+          Hello there. Welcome to your dashboard
+        </Message.Content>
+      </Message>
+    )}
   </div>
 );
 
 function mapStateToProps(state) {
   return {
-    confirmed: state.user.confirmed,
+    isConfirmed: !!state.user.confirmed,
   };
 }
 
 DashboardPage.propTypes = {
-  confirmed: PropTypes.bool.isRequired,
+  isConfirmed: PropTypes.bool.isRequired,
 };
 
-DashboardPage.defaultProps = {
-  confirmed: false,
-};
+// DashboardPage.defaultProps = {
+//   isConfirmed: false,
+// };
 
 export default connect(mapStateToProps)(DashboardPage);
