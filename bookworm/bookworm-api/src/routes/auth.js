@@ -1,10 +1,11 @@
-import express from "express"; // import the express library
-import User from "../models/User"; // import the User model object defined by us User.js
+import express from 'express'; // import the express library
+import User from '../models/User'; // import the User model object defined by us User.js
+import { sendResetPasswordEmail } from '../mailer/mailer';
 
 const router = express.Router(); // create a router
 
 // handle the post request on the root path
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   // read the credentials from the request. This is is a JSON object converted by the body-parser library
   const { credentials } = req.body;
 
@@ -18,27 +19,44 @@ router.post("/", (req, res) => {
       } else {
         res
           .status(400)
-          .json({ errors: { global: "You have entered invalid credentials" } });
+          .json({ errors: { global: 'You have entered invalid credentials' } });
       }
     });
 });
 
-router.post("/confirmation", (req, res) => {
+router.post('/confirmation', (req, res) => {
   const token = req.body.token;
   User.findOneAndUpdate(
     { confirmationToken: token },
-    { confirmationToken: "", confirmed: true },
-    { new: true }
+    { confirmationToken: '', confirmed: true },
+    { new: true },
   ).then(
     user =>
       user
         ? res.json({ user: user.toAuthJSON() })
         : res.status(400).json({
             errors: {
-              global: "Couldn't find the user for the requested token"
-            }
-          })
+              global: "Couldn't find the user for the requested token",
+            },
+          }),
   );
+});
+
+router.post('/resetPasswordRequest', (req, res) => {
+  User.findOne({ email: req.body.email }).then(user => {
+    try {
+      sendResetPasswordEmail(user);
+      res.send({});
+    } catch (e) {
+      console.log(e);
+      res.status(400).json({
+        errors: {
+          global:
+            'If the email is registered with us, you should receive a reset email in your inbox',
+        },
+      });
+    }
+  });
 });
 
 export default router; // expose the router to the index page where it can be imported

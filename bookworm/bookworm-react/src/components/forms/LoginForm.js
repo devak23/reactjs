@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { Form, Button, Message } from 'semantic-ui-react';
 import InlineError from '../messages/InlineError';
-import CancelButton from '../buttons/CancelButton';
+import HomeButton from '../buttons/HomeButton';
 
 /**
  * The LoginForm is going to store state. One approach is to store everything
@@ -103,7 +103,7 @@ class LoginForm extends React.Component {
 
         <Form.Field>
           <Button primary>Login</Button>
-          <CancelButton to="/" text="Back to homepage" />
+          <HomeButton to="/" text="Back to homepage" />
         </Form.Field>
       </Form>
     );

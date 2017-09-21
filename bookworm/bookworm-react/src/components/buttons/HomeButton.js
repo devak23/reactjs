@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-const CancelButton = ({ path, text }) => (
+const HomeButton = ({ path, text }) => (
   <Route
     render={({ history }) => (
       <Button
@@ -17,14 +17,14 @@ const CancelButton = ({ path, text }) => (
   />
 );
 
-CancelButton.propTypes = {
+HomeButton.propTypes = {
   path: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
-CancelButton.defaultProps = {
+HomeButton.defaultProps = {
   path: '/',
   text: 'Cancel',
 };
 
-export default CancelButton;
+export default HomeButton;

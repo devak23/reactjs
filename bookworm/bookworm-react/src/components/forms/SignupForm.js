@@ -4,7 +4,7 @@ import { Form, Button, Tab } from 'semantic-ui-react';
 import isEmpty from 'lodash/isEmpty';
 import isEmail from 'validator/lib/isEmail';
 
-import CancelButton from '../buttons/CancelButton';
+import HomeButton from '../buttons/HomeButton';
 import PersonalInfo from '../forms/PersonalInfo';
 import ContactInfo from '../forms/ContactInfo';
 import EducationInfo from '../forms/EducationInfo';
@@ -104,7 +104,7 @@ class SignupForm extends Component {
           </Form.Field>
           <Form.Field>
             <Button primary>Sign up</Button>
-            <CancelButton to="/" text="Back to homepage" />
+            <HomeButton to="/" text="Back to homepage" />
           </Form.Field>
         </Form>
       </div>

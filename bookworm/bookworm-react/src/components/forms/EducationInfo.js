@@ -30,12 +30,12 @@ const EducationInfo = ({ data, errors }) => (
 
 EducationInfo.propTypes = {
   data: PropTypes.shape({
-    sscPercentage: PropTypes.number.isRequired,
-    hscPercentage: PropTypes.number.isRequired,
+    sscPercentage: PropTypes.number,
+    hscPercentage: PropTypes.number,
   }).isRequired,
   errors: PropTypes.shape({
-    sscPercentage: PropTypes.number.isRequired,
-    hscPercentage: PropTypes.number.isRequired,
+    sscPercentage: PropTypes.number,
+    hscPercentage: PropTypes.number,
   }).isRequired,
 };
 
