@@ -7,6 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 import CancelButton from '../buttons/CancelButton';
 import PersonalInfo from '../forms/PersonalInfo';
 import ContactInfo from '../forms/ContactInfo';
+import EducationInfo from '../forms/EducationInfo';
 
 class SignupForm extends Component {
   state = {
@@ -68,7 +69,19 @@ class SignupForm extends Component {
           </Tab.Pane>
         ),
       },
-      { menuItem: 'Educational Info', pane: 'Tab 2 Content' },
+      {
+        menuItem: 'Educational Info',
+        render: () => (
+          <Tab.Pane attached={false}>
+            {' '}
+            <EducationInfo
+              data={data}
+              errors={errors}
+              handleOnChange={this.handleOnChange}
+            />
+          </Tab.Pane>
+        ),
+      },
       {
         menuItem: 'Contact Info',
         render: () => (

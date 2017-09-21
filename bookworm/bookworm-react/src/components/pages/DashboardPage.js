@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
+import * as actions from '../../actions/auth';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
+import LogoutLink from '../buttons/LogoutLink';
 
-const DashboardPage = ({ isConfirmed }) => (
+const DashboardPage = ({ isConfirmed, logout }) => (
   <div style={{ margin: '20px 0' }}>
     {!isConfirmed && <ConfirmEmailMessage />}
     {isConfirmed && (
@@ -15,6 +17,7 @@ const DashboardPage = ({ isConfirmed }) => (
         </Message.Content>
       </Message>
     )}
+    <LogoutLink signOff={logout} />
   </div>
 );
 
@@ -26,10 +29,9 @@ function mapStateToProps(state) {
 
 DashboardPage.propTypes = {
   isConfirmed: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
-// DashboardPage.defaultProps = {
-//   isConfirmed: false,
-// };
-
-export default connect(mapStateToProps)(DashboardPage);
+export default connect(mapStateToProps, { logout: actions.logout })(
+  DashboardPage,
+);

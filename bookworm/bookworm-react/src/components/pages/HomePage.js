@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions/auth';
+import LogoutLink from '../buttons/LogoutLink';
 
 // Again this is a functional component as no state is required to be
 // maintained
@@ -10,9 +11,7 @@ const HomePage = ({ isAuthenticated, logout }) => (
   <div style={{ margin: '20px 0' }}>
     <h1>Home Page</h1>
     {isAuthenticated ? (
-      <button className="ui primary button" onClick={() => logout()}>
-        Logout
-      </button>
+      <LogoutLink signOff={logout} />
     ) : (
       <div>
         <Link to="/login">Login</Link> or <Link to="/signup">Sign Up</Link>
