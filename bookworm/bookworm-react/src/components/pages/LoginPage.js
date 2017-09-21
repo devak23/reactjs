@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Grid } from 'semantic-ui-react';
 import LoginForm from '../forms/LoginForm';
 import { login } from '../../actions/auth';
 
@@ -21,7 +22,11 @@ class LoginPage extends React.Component {
     return (
       <div>
         <h1> Login Page</h1>
-        <LoginForm submit={this.submit} />
+        <Grid columns={2} relaxed>
+          <Grid.Column>
+            <LoginForm submit={this.submit} />
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }

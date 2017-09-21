@@ -4,8 +4,7 @@ import { Form, Button, Tab } from 'semantic-ui-react';
 import isEmpty from 'lodash/isEmpty';
 import isEmail from 'validator/lib/isEmail';
 
-// import InlineError from '../messages/InlineError';
-import CancelButton from '../forms/CancelButton';
+import CancelButton from '../buttons/CancelButton';
 import PersonalInfo from '../forms/PersonalInfo';
 import ContactInfo from '../forms/ContactInfo';
 
