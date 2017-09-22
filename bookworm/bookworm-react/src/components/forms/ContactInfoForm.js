@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import InlineError from '../messages/InlineError';
 
-const ContactInfo = ({ data, errors, handleOnChange }) => (
+const ContactInfoForm = ({ data, errors, handleOnChange }) => (
   <div>
     <Form.Field error={!!errors.line1}>
       <label htmlFor="line1">Line 1</label>
@@ -77,7 +77,7 @@ const ContactInfo = ({ data, errors, handleOnChange }) => (
   </div>
 );
 
-ContactInfo.propTypes = {
+ContactInfoForm.propTypes = {
   data: PropTypes.shape({
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
@@ -99,4 +99,4 @@ ContactInfo.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
 };
 
-export default ContactInfo;
+export default ContactInfoForm;

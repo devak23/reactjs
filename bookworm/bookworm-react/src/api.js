@@ -13,7 +13,9 @@ export default {
         .then(res => res.data.user),
     resetPassword: email =>
       axios
-        .post('/api/auth/resetPasswordRequest', { email })
+        .post('/api/auth/reset_password_request', { email })
         .then({ success: true }),
+    validateToken: token =>
+      axios.post('/api/auth/validate_token', { token }).then({ success: true }),
   },
 };

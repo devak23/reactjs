@@ -5,9 +5,9 @@ import isEmpty from 'lodash/isEmpty';
 import isEmail from 'validator/lib/isEmail';
 
 import HomeButton from '../buttons/HomeButton';
-import PersonalInfo from '../forms/PersonalInfo';
-import ContactInfo from '../forms/ContactInfo';
-import EducationInfo from '../forms/EducationInfo';
+import PersonalInfoForm from '../forms/PersonalInfoForm';
+import ContactInfoForm from '../forms/ContactInfoForm';
+import EducationalInfoForm from '../forms/EducationalInfoForm';
 
 class SignupForm extends Component {
   state = {
@@ -58,10 +58,10 @@ class SignupForm extends Component {
     const { data, errors, loading } = this.state;
     const panes = [
       {
-        menuItem: 'PersonalInfo',
+        menuItem: 'PersonalInfoForm',
         render: () => (
           <Tab.Pane attached={false}>
-            <PersonalInfo
+            <PersonalInfoForm
               data={data}
               errors={errors}
               handleOnChange={this.handleOnChange}
@@ -74,7 +74,7 @@ class SignupForm extends Component {
         render: () => (
           <Tab.Pane attached={false}>
             {' '}
-            <EducationInfo
+            <EducationalInfoForm
               data={data}
               errors={errors}
               handleOnChange={this.handleOnChange}
@@ -86,7 +86,7 @@ class SignupForm extends Component {
         menuItem: 'Contact Info',
         render: () => (
           <Tab.Pane attached={false}>
-            <ContactInfo
+            <ContactInfoForm
               data={data}
               errors={errors}
               handleOnChange={this.handleOnChange}

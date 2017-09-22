@@ -50,18 +50,6 @@ schema.methods.generateJWT = function generateJWT() {
   );
 };
 
-schema.methods.generateResetPasswordToken = function generateResetPasswordToken() {
-  // the first part of the object are all the public claims that you want the user to see. This
-  // intentional
-  return jwt.sign(
-    {
-      _id: this._id,
-    },
-    process.env.JWT_SECRET, // access the secret from the environment variable
-    { expires: '1s' },
-  );
-};
-
 // define the method toAuthJSON that will convert the User object into a JSON
 schema.methods.toAuthJSON = function toAuthJSON() {
   return {
@@ -87,7 +75,19 @@ schema.methods.generateConfirmationUrl = function generateConfirmationUrl() {
 
 schema.methods.generateResetPasswordLink = function generateResetPasswordLink() {
   return `${process.env
-    .HOST}/resetPassword/${this.generateRestPasswordToken()}`;
+    .HOST}/reset_password/${this.generateResetPasswordToken()}`;
+};
+
+schema.methods.generateResetPasswordToken = function generateResetPasswordToken() {
+  // the first part of the object are all the public claims that you want the user to see. This
+  // intentional
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.JWT_SECRET, // access the secret from the environment variable
+    { expiresIn: '1h' },
+  );
 };
 
 schema.plugin(uniqueValidator, { message: 'This email is already taken' });

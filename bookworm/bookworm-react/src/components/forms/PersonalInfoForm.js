@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import InlineError from '../messages/InlineError';
 
-const PersonalInfo = ({ data, errors, handleOnChange }) => (
+const PersonalInfoForm = ({ data, errors, handleOnChange }) => (
   <div style={{ margin: '10px 0' }}>
     <Form.Field error={!!errors.email}>
       <label htmlFor="email">Email</label>
@@ -58,7 +58,7 @@ const PersonalInfo = ({ data, errors, handleOnChange }) => (
   </div>
 );
 
-PersonalInfo.propTypes = {
+PersonalInfoForm.propTypes = {
   data: PropTypes.shape({
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,
@@ -74,4 +74,4 @@ PersonalInfo.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
 };
 
-export default PersonalInfo;
+export default PersonalInfoForm;

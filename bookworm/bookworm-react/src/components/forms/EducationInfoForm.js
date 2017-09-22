@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import InlineError from '../messages/InlineError';
 
-const EducationInfo = ({ data, errors }) => (
+const EducationalInfoForm = ({ data, errors }) => (
   <div>
     <Form.Field error={!!errors.sscPercentage}>
       <label htmlFor="sscPercentage">SSC Percentage</label>
@@ -28,7 +28,7 @@ const EducationInfo = ({ data, errors }) => (
   </div>
 );
 
-EducationInfo.propTypes = {
+EducationalInfoForm.propTypes = {
   data: PropTypes.shape({
     sscPercentage: PropTypes.number,
     hscPercentage: PropTypes.number,
@@ -39,4 +39,4 @@ EducationInfo.propTypes = {
   }).isRequired,
 };
 
-export default EducationInfo;
+export default EducationalInfoForm;

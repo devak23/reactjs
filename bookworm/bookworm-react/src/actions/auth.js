@@ -42,3 +42,5 @@ export const confirm = token => dispatch =>
 
 export const resetPasswordRequest = ({ email }) => () =>
   api.user.resetPassword(email);
+
+export const validateToken = token => () => api.user.validateToken(token);

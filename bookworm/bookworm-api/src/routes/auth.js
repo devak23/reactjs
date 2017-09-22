@@ -1,4 +1,5 @@
 import express from 'express'; // import the express library
+import jwt from 'jsonwebtoken';
 import User from '../models/User'; // import the User model object defined by us User.js
 import { sendResetPasswordEmail } from '../mailer/mailer';
 
@@ -42,7 +43,7 @@ router.post('/confirmation', (req, res) => {
   );
 });
 
-router.post('/resetPasswordRequest', (req, res) => {
+router.post('/reset_password_request', (req, res) => {
   User.findOne({ email: req.body.email }).then(user => {
     try {
       sendResetPasswordEmail(user);
@@ -55,6 +56,17 @@ router.post('/resetPasswordRequest', (req, res) => {
             'If the email is registered with us, you should receive a reset email in your inbox',
         },
       });
+    }
+  });
+});
+
+router.post('/validate_token', (req, res) => {
+  jwt.verify(req.body.token, process.env.JWT_SECRET, err => {
+    if (err) {
+      console.log(err);
+      res.status(401).json({ message: 'Invalid token' });
+    } else {
+      res.json({});
     }
   });
 });
