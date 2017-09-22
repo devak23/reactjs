@@ -81,7 +81,7 @@ class ResetPasswordForm extends Component {
                   </List.Item>
                 </List>
               </Header.Content>
-              <Divider />
+              <p />
               <Form loading={loading} onSubmit={this.handleSubmit}>
                 <Form.Field error={!!errors.oldPassword}>
                   <label htmlFor="oldPassword">Old Password</label>

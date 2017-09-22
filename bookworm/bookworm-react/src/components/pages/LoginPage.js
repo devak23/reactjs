@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import LoginForm from '../forms/LoginForm';
 import { login } from '../../actions/auth';
 
@@ -26,7 +25,6 @@ class LoginPage extends React.Component {
         <Grid columns={2} relaxed>
           <Grid.Column>
             <LoginForm submit={this.submit} />
-            <Link to="/forgot_password">Forgot Password</Link>
           </Grid.Column>
         </Grid>
       </div>

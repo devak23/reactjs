@@ -3,6 +3,7 @@ import Validator from 'validator';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { Form, Button, Message } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import InlineError from '../messages/InlineError';
 import HomeButton from '../buttons/HomeButton';
 
@@ -104,6 +105,9 @@ class LoginForm extends React.Component {
         <Form.Field>
           <Button primary>Login</Button>
           <HomeButton to="/" text="Back to homepage" />
+          <span style={{ margin: '0px 10px' }}>
+            <Link to="/forgot_password">Forgot Password</Link>
+          </span>
         </Form.Field>
       </Form>
     );
