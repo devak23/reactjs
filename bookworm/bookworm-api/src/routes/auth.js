@@ -71,4 +71,26 @@ router.post('/validate_token', (req, res) => {
   });
 });
 
+router.post('/reset_password', (req, res) => {
+  // get the token and new password
+  const { token, password } = req.body.data;
+  // verify the token
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      res.status(401).json({ errors: { global: 'Invalid token' } });
+    } else {
+      User.findOne({ _id: decoded._id }).then(user => {
+        if (user) {
+          user.setPassword(password);
+          user.save();
+          res.json({});
+        } else {
+          res.status(400).json({ errors: { global: 'Invalid user!' } });
+        }
+      });
+    }
+  });
+});
+
 export default router; // expose the router to the index page where it can be imported

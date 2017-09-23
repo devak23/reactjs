@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ResetPasswordForm from '../forms/ResetPasswordForm';
-import { validateToken } from '../../actions/auth';
+import { validateToken, resetPassword } from '../../actions/auth';
 
 class ResetPasswordPage extends Component {
   state = {
     loading: true,
     success: false,
+    token: '',
   };
 
   componentDidMount() {
@@ -19,12 +20,15 @@ class ResetPasswordPage extends Component {
       .catch(() => this.setState({ loading: false, success: false }));
   }
 
-  onSubmit = e => {
-    e.preventDefault();
-  };
+  handleSubmit = data =>
+    this.props
+      .resetPassword(data)
+      .then(() => this.props.history.push('/login'));
 
   render() {
     const { loading, success } = this.state;
+    const token = this.props.match.params.token;
+
     return (
       <div style={{ margin: '10px 0' }}>
         {loading &&
@@ -37,7 +41,10 @@ class ResetPasswordPage extends Component {
             </Message>
           )}
 
-        {!loading && success && <ResetPasswordForm submit={this.onSubmit} />}
+        {!loading &&
+          success && (
+            <ResetPasswordForm submit={this.handleSubmit} token={token} />
+          )}
 
         {!loading &&
           !success && (
@@ -55,11 +62,17 @@ class ResetPasswordPage extends Component {
 
 ResetPasswordPage.propTypes = {
   validateToken: PropTypes.func.isRequired,
+  resetPassword: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       token: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default connect(null, { validateToken })(ResetPasswordPage);
+export default connect(null, { validateToken, resetPassword })(
+  ResetPasswordPage,
+);

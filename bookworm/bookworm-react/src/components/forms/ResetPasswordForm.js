@@ -17,8 +17,9 @@ import HomeButton from '../buttons/HomeButton';
 class ResetPasswordForm extends Component {
   state = {
     data: {
-      oldPassword: '',
-      newPassword: '',
+      token: this.props.token,
+      password: '',
+      confirmPassword: '',
     },
     loading: false,
     errors: {},
@@ -48,10 +49,11 @@ class ResetPasswordForm extends Component {
 
   validate = data => {
     const errors = {};
-    if (isEmpty(data.oldPassword))
-      errors.oldPassword = 'Old Password cannot be blank';
-    if (isEmpty(data.newPassword))
-      errors.newPassword = 'New Password cannot be blank';
+    if (isEmpty(data.confirmPassword))
+      errors.confirmPassword = 'Confirm Password cannot be blank';
+    if (isEmpty(data.password)) errors.password = 'Password cannot be blank';
+    if (data.password !== data.confirmPassword)
+      errors.password = 'Passwords dont match';
 
     return errors;
   };
@@ -83,30 +85,28 @@ class ResetPasswordForm extends Component {
               </Header.Content>
               <p />
               <Form loading={loading} onSubmit={this.handleSubmit}>
-                <Form.Field error={!!errors.oldPassword}>
-                  <label htmlFor="oldPassword">Old Password</label>
+                <Form.Field error={!!errors.password}>
+                  <label htmlFor="password">New Password</label>
                   <input
                     type="text"
-                    name="oldPassword"
-                    id="oldPassword"
-                    value={data.oldPassword}
+                    name="password"
+                    id="password"
+                    value={data.password}
                     onChange={this.handleOnChange}
                   />
-                  {errors.oldPassword && (
-                    <InlineError text={errors.oldPassword} />
-                  )}
+                  {errors.password && <InlineError text={errors.password} />}
                 </Form.Field>
-                <Form.Field error={!!errors.newPassword}>
-                  <label htmlFor="newPassword">New Password</label>
+                <Form.Field error={!!errors.confirmPassword}>
+                  <label htmlFor="confirmPassword">Confirm Password</label>
                   <input
                     type="text"
-                    name="newPassword"
-                    id="newPassword"
-                    value={data.newPassword}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    value={data.confirmPassword}
                     onChange={this.handleOnChange}
                   />
-                  {errors.newPassword && (
-                    <InlineError text={errors.newPassword} />
+                  {errors.confirmPassword && (
+                    <InlineError text={errors.confirmPassword} />
                   )}
                 </Form.Field>
                 <Form.Field>
@@ -124,6 +124,7 @@ class ResetPasswordForm extends Component {
 
 ResetPasswordForm.propTypes = {
   submit: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default ResetPasswordForm;

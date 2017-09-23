@@ -11,11 +11,11 @@ export default {
       axios
         .post('/api/auth/confirmation', { token })
         .then(res => res.data.user),
-    resetPassword: email =>
+    resetPasswordRequest: email =>
       axios
         .post('/api/auth/reset_password_request', { email })
         .then({ success: true }),
-    validateToken: token =>
-      axios.post('/api/auth/validate_token', { token }).then({ success: true }),
+    validateToken: token => axios.post('/api/auth/validate_token', { token }),
+    resetPassword: data => axios.post('/api/auth/reset_password', { data }),
   },
 };

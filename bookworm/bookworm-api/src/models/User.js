@@ -86,7 +86,7 @@ schema.methods.generateResetPasswordToken = function generateResetPasswordToken(
       _id: this._id,
     },
     process.env.JWT_SECRET, // access the secret from the environment variable
-    { expiresIn: '1h' },
+    { expiresIn: '24h' },
   );
 };
 
