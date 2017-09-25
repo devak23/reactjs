@@ -32,7 +32,7 @@ class Results extends Component {
     return (
       <div>
         <span className="label label-primary">
-          Angular: {`${this.votesAngularInPercent().toFixed(2)}%`}
+          Angular: {`${this.votesReactInPercent().toFixed(2)}%`}
         </span>
         <div className="progress progress-striped active">
           <div
