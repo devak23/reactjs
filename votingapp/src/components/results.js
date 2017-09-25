@@ -4,29 +4,26 @@ import PropTypes from 'prop-types';
 class Results extends Component {
   state = {};
 
-  votesAngularInPercent = () =>
-    this.props.store &&
-    this.props.store.getState().angular /
-      (this.props.store.getState().angular +
-        this.props.store.getState().react +
-        this.props.store.getState().vuejs) *
-      100;
+  votesAngularInPercent = () => {
+    const state = this.props.store.getState();
+    return state.angular <= 0
+      ? 0
+      : state.angular / (state.angular + state.react + state.vuejs) * 100;
+  };
 
-  votesReactInPercent = () =>
-    this.props.store &&
-    this.props.store.getState().react /
-      (this.props.store.getState().angular +
-        this.props.store.getState().react +
-        this.props.store.getState().vuejs) *
-      100;
+  votesReactInPercent = () => {
+    const state = this.props.store.getState();
+    return state.react <= 0
+      ? 0
+      : state.react / (state.angular + state.react + state.vuejs) * 100;
+  };
 
-  votesVueJsInPercent = () =>
-    this.props.store &&
-    this.props.store.getState().vuejs /
-      (this.props.store.getState().angular +
-        this.props.store.getState().react +
-        this.props.store.getState().vuejs) *
-      100;
+  votesVueJsInPercent = () => {
+    const state = this.props.store.getState();
+    return state.vuejs <= 0
+      ? 0
+      : state.vuejs / (state.angular + state.react + state.vuejs) * 100;
+  };
 
   progressBarForAngular = () => ({
     width: `${this.votesAngularInPercent()}%`,
