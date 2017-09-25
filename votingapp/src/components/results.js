@@ -2,28 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Results extends Component {
-  state = {};
-
-  votesAngularInPercent = () => {
-    const state = this.props.store.getState();
-    return state.angular <= 0
-      ? 0
-      : state.angular / (state.angular + state.react + state.vuejs) * 100;
+  calculatePercentage = tech => {
+    const { angular, react, vuejs } = this.props.store.getState();
+    return tech <= 0 ? 0 : tech / (angular + react + vuejs) * 100;
   };
 
-  votesReactInPercent = () => {
-    const state = this.props.store.getState();
-    return state.react <= 0
-      ? 0
-      : state.react / (state.angular + state.react + state.vuejs) * 100;
-  };
+  votesAngularInPercent = () =>
+    this.calculatePercentage(this.props.store.getState().angular);
 
-  votesVueJsInPercent = () => {
-    const state = this.props.store.getState();
-    return state.vuejs <= 0
-      ? 0
-      : state.vuejs / (state.angular + state.react + state.vuejs) * 100;
-  };
+  votesReactInPercent = () =>
+    this.calculatePercentage(this.props.store.getState().react);
+
+  votesVueJsInPercent = () =>
+    this.calculatePercentage(this.props.store.getState().react);
 
   progressBarForAngular = () => ({
     width: `${this.votesAngularInPercent()}%`,

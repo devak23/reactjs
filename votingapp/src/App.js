@@ -3,16 +3,8 @@ import PropTypes from 'prop-types';
 import { voteAngular, voteReact, voteVueJS } from './actions';
 
 class App extends Component {
-  handleVoteAngular = () => {
-    this.props.store.dispatch(voteAngular());
-  };
-
-  handleVoteReact = () => {
-    this.props.store.dispatch(voteReact());
-  };
-
-  handleVoteVueJS = () => {
-    this.props.store.dispatch(voteVueJS());
+  handleVote = voteFunc => {
+    this.props.store.dispatch(voteFunc());
   };
 
   render() {
@@ -24,17 +16,29 @@ class App extends Component {
           <br />
           <div className="row">
             <div className="col-xs-offset-3 col-xs-2">
-              <a onClick={this.handleVoteAngular} role="link" tabIndex="0">
+              <a
+                onClick={() => this.handleVote(voteAngular)}
+                role="link"
+                tabIndex="0"
+              >
                 <img src="./angular_logo.png" height="96" alt="Angular Logo" />
               </a>
             </div>
             <div className="col-xs-2">
-              <a onClick={this.handleVoteReact} role="link" tabIndex="0">
+              <a
+                onClick={() => this.handleVote(voteReact)}
+                role="link"
+                tabIndex="0"
+              >
                 <img src="./react_logo.png" height="96" alt="React Logo" />
               </a>
             </div>
             <div className="col-xs-2">
-              <a onClick={this.handleVoteVueJS} role="link" tabIndex="0">
+              <a
+                onClick={() => this.handleVote(voteVueJS)}
+                role="link"
+                tabIndex="0"
+              >
                 <img src="./vuejs_logo.png" height="96" alt="VueJs Logo" />
               </a>
             </div>
