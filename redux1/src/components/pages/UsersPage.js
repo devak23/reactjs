@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import selectUser from '../../actions/userActions';
 
 class UsersPage extends Component {
-  handleClick = user => selectUser(user);
-
   renderUsers = () =>
     this.props.users.map(usr => (
       <li key={usr.id}>
@@ -13,7 +12,7 @@ class UsersPage extends Component {
           style={{ cursor: 'pointer' }}
           role="link"
           tabIndex="0"
-          onClick={() => this.handleClick(usr)}
+          onClick={() => this.props.selectUser(usr)}
         >
           {usr.first} {usr.last}
         </a>
@@ -35,6 +34,10 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectUser }, dispatch);
+}
+
 UsersPage.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
@@ -43,6 +46,7 @@ UsersPage.propTypes = {
       last: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  selectUser: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(UsersPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);

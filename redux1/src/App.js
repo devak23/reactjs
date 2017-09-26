@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Divider, Segment } from 'semantic-ui-react';
+import { Divider, Header, Segment, Icon } from 'semantic-ui-react';
 import UsersPage from './components/pages/UsersPage';
+import UserDetails from './components/pages/UserDetailsPage';
 
 class App extends Component {
   state = {};
@@ -8,11 +9,19 @@ class App extends Component {
   render() {
     return (
       <div className="ui container" style={{ margin: '20px 0' }}>
+        <Header textAlign="center" size="huge">
+          <Icon name="address book outline" />Employee Yellow Pages
+        </Header>
         <Segment stacked>
-          <h2>Users</h2>
+          <h4>
+            <Icon name="users" /> Employees
+          </h4>
           <UsersPage />
           <Divider />
-          <h2>Details</h2>
+          <h4>
+            <Icon name="list" />Details
+          </h4>
+          <UserDetails />
         </Segment>
       </div>
     );
