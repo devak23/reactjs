@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import selectUser from '../../actions/userActions';
 
 class UsersPage extends Component {
+  handleClick = user => selectUser(user);
+
   renderUsers = () =>
     this.props.users.map(usr => (
       <li key={usr.id}>
-        {' '}
-        {usr.first} {usr.last}
+        <a
+          style={{ cursor: 'pointer' }}
+          role="link"
+          tabIndex="0"
+          onClick={() => this.handleClick(usr)}
+        >
+          {usr.first} {usr.last}
+        </a>
       </li>
     ));
 
