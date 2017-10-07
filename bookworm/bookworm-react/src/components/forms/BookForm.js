@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
-import { Form, Button, Grid, Image, Segment } from 'semantic-ui-react';
+import { Form, Rating, Button, Grid, Image, Segment } from 'semantic-ui-react';
 import InlineError from '../messages/InlineError';
 
 class BookForm extends Component {
@@ -13,6 +13,7 @@ class BookForm extends Component {
       authors: this.props.book.authors,
       pages: this.props.book.pages,
       cover: this.props.book.covers[0],
+      averageRating: this.props.book.averageRating,
     },
     covers: this.props.book.covers,
     index: 0,
@@ -27,6 +28,7 @@ class BookForm extends Component {
         authors: props.book.authors,
         pages: props.book.pages,
         cover: props.book.covers[0],
+        averageRating: props.book.averageRating,
       },
       covers: props.book.covers,
       index: 0, // we need to reset the index when new book is loaded
@@ -123,6 +125,13 @@ class BookForm extends Component {
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
+                <p>
+                  <Rating
+                    defaultRating={data.averageRating}
+                    maxRating={5}
+                    disabled
+                  />
+                </p>
                 <Image size="small" src={data.cover} />
                 {this.state.covers.length > 1 && (
                   <a
@@ -151,10 +160,11 @@ class BookForm extends Component {
 BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
   book: PropTypes.shape({
-    goodreadsId: PropTypes.number.isRequired,
+    goodreadsId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
     pages: PropTypes.number.isRequired,
+    averageRating: PropTypes.number,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
 };
