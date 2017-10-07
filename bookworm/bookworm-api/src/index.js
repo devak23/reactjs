@@ -10,6 +10,7 @@ import BlueBirdPromise from 'bluebird';
 // import a module which sets the routing the application.
 import auth from './routes/auth';
 import users from './routes/users';
+import books from './routes/books';
 
 dotenv.config({ path: path.join(__dirname, '.env') }); // read the environment configuration
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGODB_URL, { useMongoClient: true }); // connect 
 
 app.use('/api/auth', auth); // route all the paths with '/api/auth' to the auth module
 app.use('/api/users', users);
+app.use('/api/books', books);
 
 // capture all the generic requests to the application and route them to a static index page
 app.get('/*', (req, res) => {

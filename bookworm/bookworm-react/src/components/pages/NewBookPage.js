@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
+import { Segment } from 'semantic-ui-react';
 
-class AddNewBook extends Component {
-  state = {};
+import SearchBookForm from '../forms/SearchBookForm';
+import BookForm from '../forms/BookForm';
+
+class NewBookPage extends Component {
+  state = {
+    book: null,
+  };
+
+  handleBookSelect = book => this.setState({ book });
+
+  addBook = () => console.log('addBook invoked');
 
   render() {
-    return <div>This is the new Book Page</div>;
+    return (
+      <Segment>
+        <h1>Add new book to your collection</h1>
+        <SearchBookForm onSelect={this.handleBookSelect} />
+
+        {this.state.book && (
+          <BookForm submit={this.addBook} book={this.state.book} />
+        )}
+      </Segment>
+    );
   }
 }
 
-export default AddNewBook;
+export default NewBookPage;
