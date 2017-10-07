@@ -14,6 +14,7 @@ class BookForm extends Component {
       pages: this.props.book.pages,
       cover: this.props.book.covers[0],
       averageRating: this.props.book.averageRating,
+      thumb: this.props.book.thumb,
     },
     covers: this.props.book.covers,
     index: 0,
@@ -29,6 +30,7 @@ class BookForm extends Component {
         pages: props.book.pages,
         cover: props.book.covers[0],
         averageRating: props.book.averageRating,
+        image: props.book.thumb[0],
       },
       covers: props.book.covers,
       index: 0, // we need to reset the index when new book is loaded
@@ -166,6 +168,7 @@ BookForm.propTypes = {
     pages: PropTypes.number.isRequired,
     averageRating: PropTypes.number,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    thumb: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
 };
 

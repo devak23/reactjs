@@ -34,6 +34,7 @@ class SearchBookForm extends Component {
             key: book.goodreadsId,
             value: book.goodreadsId,
             text: book.title,
+            image: { avatar: false, src: book.thumb },
           });
         });
         this.setState({ loading: false, options, books: booksHash });
@@ -55,8 +56,8 @@ class SearchBookForm extends Component {
           value={this.state.value}
           onSearchChange={this.handleOnSearchChange}
           onChange={this.handleBookSelect}
-          options={this.state.options}
           loading={this.state.loading}
+          options={this.state.options}
         />
       </Form>
     );

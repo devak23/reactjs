@@ -22,6 +22,7 @@ router.get('/search', (req, res) => {
               authors: work.best_book[0].author[0].name[0],
               covers: [work.best_book[0].image_url[0]],
               averageRating: work.average_rating,
+              thumb: work.best_book[0].small_image_url[0],
             }),
           ),
         }),
