@@ -1,4 +1,5 @@
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../types';
+import setAuthorizationHeader from '../utils/setAuthorizationHeader';
 
 import api from '../api';
 
@@ -21,6 +22,7 @@ export const login = credentials => dispatch =>
       localStorage.bookwormJWT = user.token;
       localStorage.firstname = user.firstname;
       localStorage.lastname = user.lastname;
+      setAuthorizationHeader(user.token);
       // dispatch redux action
       dispatch(userLoggedIn(user));
     });
@@ -29,6 +31,7 @@ export const logout = () => dispatch => {
   localStorage.removeItem('bookwormJWT');
   localStorage.removeItem('lastname');
   localStorage.removeItem('firstname');
+  setAuthorizationHeader();
   dispatch(userLoggedOut());
 };
 

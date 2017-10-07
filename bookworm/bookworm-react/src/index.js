@@ -10,6 +10,7 @@ import jwtDecode from 'jwt-decode';
 import App from './App';
 import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
+import setAuthorizationHeader from './utils/setAuthorizationHeader';
 
 /**
 * The application submits a form that makes a synchronous request to the server.
@@ -36,6 +37,7 @@ if (localStorage.bookwormJWT) {
     firstname: localStorage.firstname,
     lastname: localStorage.lastname,
   };
+  setAuthorizationHeader(localStorage.bookwormJWT);
   store.dispatch(userLoggedIn(user));
 }
 
