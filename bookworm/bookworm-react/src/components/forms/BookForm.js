@@ -14,14 +14,15 @@ class BookForm extends Component {
       pages: this.props.book.pages,
       cover: this.props.book.covers[0],
       averageRating: this.props.book.averageRating,
-      thumb: this.props.book.thumb,
+      thumb: this.props.book.thumb[0],
     },
     covers: this.props.book.covers,
     index: 0,
     errors: {},
   };
 
-  componentWillReceiveProps = props =>
+  componentWillReceiveProps = props => {
+    console.log('props = ', props);
     this.setState({
       data: {
         goodreadsId: props.book.goodreadsId,
@@ -30,11 +31,12 @@ class BookForm extends Component {
         pages: props.book.pages,
         cover: props.book.covers[0],
         averageRating: props.book.averageRating,
-        image: props.book.thumb[0],
+        thumb: props.book.thumb[0],
       },
       covers: props.book.covers,
       index: 0, // we need to reset the index when new book is loaded
     });
+  };
 
   handleOnChange = e =>
     this.setState({
@@ -127,13 +129,7 @@ class BookForm extends Component {
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
-                <p>
-                  <Rating
-                    defaultRating={data.averageRating}
-                    maxRating={5}
-                    disabled
-                  />
-                </p>
+                <Rating defaultRating={data.averageRating} maxRating={5} />
                 <Image size="small" src={data.cover} />
                 {this.state.covers.length > 1 && (
                   <a
@@ -165,10 +161,10 @@ BookForm.propTypes = {
     goodreadsId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
-    pages: PropTypes.number.isRequired,
-    averageRating: PropTypes.number,
+    pages: PropTypes.string.isRequired,
+    averageRating: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    thumb: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    thumb: PropTypes.string.isRequired,
   }).isRequired,
 };
 

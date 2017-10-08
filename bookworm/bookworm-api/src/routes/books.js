@@ -21,7 +21,7 @@ router.get('/search', (req, res) => {
               title: work.best_book[0].title[0],
               authors: work.best_book[0].author[0].name[0],
               covers: [work.best_book[0].image_url[0]],
-              averageRating: work.average_rating,
+              averageRating: work.average_rating[0],
               thumb: work.best_book[0].small_image_url[0],
             }),
           ),
@@ -53,6 +53,19 @@ router.get('/search', (req, res) => {
   //     },
   //   ],
   // });
+});
+
+router.get('/fetchPages', (req, res) => {
+  request
+    .get(
+      `https://www.goodreads.com/book/show/${req.query
+        .q}.xml?key=ugaHGsexl3Yk89H3B8LrQ`,
+    )
+    .then(result =>
+      parseString(result, (err, jsonString) => {
+        res.json({ pages: jsonString.GoodreadsResponse.book[0].num_pages[0] });
+      }),
+    );
 });
 
 export default router;

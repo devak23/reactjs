@@ -42,13 +42,24 @@ class SearchBookForm extends Component {
   };
 
   handleBookSelect = (e, data) => {
-    this.setState({ query: data.value });
-    this.props.onSelect(this.state.books[data.value]);
+    this.setState({ query: data.value, loading: true });
+    const book = this.state.books[data.value];
+    axios
+      .get(`/api/books/fetchPages?q=${book.goodreadsId}`)
+      .then(res => {
+        book.pages = res.data.pages;
+        this.props.onSelect(book);
+        this.setState({ loading: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false });
+        console.log('cannot load book!', err);
+      }); // TODO: need to improve this
   };
 
   render() {
     return (
-      <Form>
+      <Form loading={this.state.loading}>
         <Dropdown
           search
           fluid
@@ -56,7 +67,6 @@ class SearchBookForm extends Component {
           value={this.state.value}
           onSearchChange={this.handleOnSearchChange}
           onChange={this.handleBookSelect}
-          loading={this.state.loading}
           options={this.state.options}
         />
       </Form>
