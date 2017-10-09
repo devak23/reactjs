@@ -10,6 +10,7 @@ import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import SignupPage from './components/pages/SignupPage';
 import NewBookPage from './components/pages/NewBookPage';
+import './app.css';
 
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';

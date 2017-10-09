@@ -138,7 +138,13 @@ class BookForm extends Component {
                   id="averageRating"
                   value={data.averageRating}
                 />
-                <Image size="small" src={data.cover} />
+                <Image
+                  size="small"
+                  name="thumb"
+                  id="thumb"
+                  src={data.cover}
+                  value={data.cover}
+                />
                 {this.state.covers.length > 1 && (
                   <a
                     role="button"

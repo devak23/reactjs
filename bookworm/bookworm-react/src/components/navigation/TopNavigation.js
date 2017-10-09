@@ -9,7 +9,7 @@ import * as actions from '../../actions/auth';
 const TopNavigation = ({ user, logout }) => (
   <Menu secondary pointing>
     <Menu.Item as={Link} to="/dashboard">
-      Dashboard
+      <h5>Dashboard</h5>
     </Menu.Item>
 
     <Menu.Menu position="right">

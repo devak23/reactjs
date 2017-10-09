@@ -21,5 +21,6 @@ export default {
   book: {
     addBook: book =>
       axios.post('/api/books', { book }).then(res => res.data.status),
+    loadBooks: () => axios.get('/api/books').then(res => res.data.books),
   },
 };

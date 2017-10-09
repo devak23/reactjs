@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema(
   {
+    goodreadsId: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -14,7 +18,11 @@ const schema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    rating: {
+    averageRating: {
+      type: String,
+      required: false,
+    },
+    cover: {
       type: String,
       required: false,
     },
@@ -22,6 +30,7 @@ const schema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// TODO: Test this!
 schema.index(
   { title: 1, authors: 1 },
   { unique: 'The book already exists in our database' },

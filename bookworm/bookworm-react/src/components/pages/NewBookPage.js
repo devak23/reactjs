@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import SearchBookForm from '../forms/SearchBookForm';
 import BookForm from '../forms/BookForm';
-import addBook from '../../actions/books';
+import { addBook } from '../../actions/books';
 
 class NewBookPage extends Component {
   state = {

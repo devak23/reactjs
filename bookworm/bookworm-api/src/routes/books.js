@@ -70,14 +70,32 @@ router.get('/fetchPages', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { title, averageRating, authors, pages } = req.body.book;
-  const book = new Book({ title, authors, pages, averageRating });
+  const {
+    goodreadsId,
+    title,
+    averageRating,
+    authors,
+    pages,
+    cover,
+  } = req.body.book;
+  const book = new Book({
+    goodreadsId,
+    title,
+    authors,
+    pages,
+    averageRating,
+    cover,
+  });
   book
     .save()
     .then(res.status(201).json({ message: 'Book was added!' }))
     .catch(err =>
       res.status(500).json({ errors: { global: 'Book was not added!' } }),
     );
+});
+
+router.get('/', (req, res) => {
+  Book.find().then(books => res.json({ books }));
 });
 
 export default router;
