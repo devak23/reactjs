@@ -53,7 +53,7 @@ class SearchBookForm extends Component {
       })
       .catch(err => {
         this.setState({ loading: false });
-        console.log('cannot load book!', err);
+        console.log('cannot load pages!', err);
       }); // TODO: need to improve this
   };
 

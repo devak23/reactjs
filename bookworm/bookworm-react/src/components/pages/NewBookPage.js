@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import SearchBookForm from '../forms/SearchBookForm';
 import BookForm from '../forms/BookForm';
+import addBook from '../../actions/books';
 
 class NewBookPage extends Component {
   state = {
@@ -11,7 +14,11 @@ class NewBookPage extends Component {
 
   handleBookSelect = book => this.setState({ book });
 
-  addBook = () => console.log('addBook invoked');
+  addBook = book =>
+    this.props
+      .addBook(book)
+      .then(() => this.props.history.push('/dashboard'))
+      .catch(err => console.log(err)); // TODO: fix this!
 
   render() {
     return (
@@ -27,4 +34,11 @@ class NewBookPage extends Component {
   }
 }
 
-export default NewBookPage;
+NewBookPage.propTypes = {
+  addBook: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default connect(null, { addBook })(NewBookPage);

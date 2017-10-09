@@ -18,4 +18,8 @@ export default {
     validateToken: token => axios.post('/api/auth/validate_token', { token }),
     resetPassword: data => axios.post('/api/auth/reset_password', { data }),
   },
+  book: {
+    addBook: book =>
+      axios.post('/api/books', { book }).then(res => res.data.status),
+  },
 };

@@ -69,7 +69,9 @@ class BookForm extends Component {
 
     if (isEmpty(errors)) {
       this.setState({ loading: true });
-      this.props.submit(this.state.data).then();
+      this.props
+        .submit(this.state.data)
+        .catch(err => console.log('Book could not be added!', err)); // TODO: fix this!
     }
   };
 
@@ -86,7 +88,7 @@ class BookForm extends Component {
 
     return (
       <Segment>
-        <Form loading={loading}>
+        <Form loading={loading} onSubmit={this.handleSubmit}>
           <Grid columns={2} stackable>
             <Grid.Row>
               <Grid.Column>
@@ -129,7 +131,13 @@ class BookForm extends Component {
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
-                <Rating defaultRating={data.averageRating} maxRating={5} />
+                <Rating
+                  defaultRating={data.averageRating}
+                  maxRating={5}
+                  name="averageRating"
+                  id="averageRating"
+                  value={data.averageRating}
+                />
                 <Image size="small" src={data.cover} />
                 {this.state.covers.length > 1 && (
                   <a

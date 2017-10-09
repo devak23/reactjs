@@ -2,6 +2,7 @@ import express from 'express';
 import request from 'request-promise';
 import { parseString } from 'xml2js';
 import authenticate from '../middlewares/authenticate';
+import Book from '../models/Book';
 
 const router = express.Router();
 router.use(authenticate);
@@ -65,6 +66,17 @@ router.get('/fetchPages', (req, res) => {
       parseString(result, (err, jsonString) => {
         res.json({ pages: jsonString.GoodreadsResponse.book[0].num_pages[0] });
       }),
+    );
+});
+
+router.post('/', (req, res) => {
+  const { title, averageRating, authors, pages } = req.body.book;
+  const book = new Book({ title, authors, pages, averageRating });
+  book
+    .save()
+    .then(res.status(201).json({ message: 'Book was added!' }))
+    .catch(err =>
+      res.status(500).json({ errors: { global: 'Book was not added!' } }),
     );
 });
 
