@@ -11,12 +11,12 @@ export const employeeSelected = employee => ({
   employee,
 });
 
+export const fetchEmployee = empno => dispatch =>
+  api.employee
+    .fetchEmployee(empno)
+    .then(emp => dispatch(employeeSelected(emp)));
+
 export const loadEmployees = () => dispatch =>
   api.employee
     .loadEmployees()
     .then(employees => dispatch(employeesLoaded(employees)));
-
-export const selectEmployee = empno => dispatch =>
-  api.employee
-    .selectEmployee(empno)
-    .then(employee => dispatch(employeeSelected(employee)));
