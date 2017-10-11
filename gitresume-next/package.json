@@ -1,0 +1,17 @@
+{
+  "name": "gitresume-next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "beta",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.74.2"
+  },
+  "scripts": {
+    "dev": "next"
+  }
+}
