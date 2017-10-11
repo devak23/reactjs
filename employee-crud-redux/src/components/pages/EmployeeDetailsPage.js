@@ -7,7 +7,7 @@ class EmployeeDetailsPage extends Component {
   render() {
     return (
       <Grid>
-        <Grid.Row columns={2}>
+        <Grid.Row>
           <Grid.Column>
             <Card
               image="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-256.png"
@@ -22,6 +22,8 @@ class EmployeeDetailsPage extends Component {
               }
             />
           </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
           <Grid.Column>
             <Card>
               <Card.Content>

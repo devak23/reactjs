@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Message, Form } from 'semantic-ui-react';
+import moment from 'moment';
+import { Message, Form, Table } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import EmpListComp from '../form/EmpListComp';
-
 import { loadEmployees } from '../../actions/employee';
-// import EmployeeRow from '../helpers/EmployeeRow';
 
 class EmployeeListPage extends Component {
   state = {
@@ -37,7 +35,28 @@ class EmployeeListPage extends Component {
             </Message.Content>
           </Message.Header>
         )}
-        <EmpListComp employees={data.employees} />
+        {/* <EmpListComp employees={data.employees} /> */}
+
+        <Table celled>
+          {/* <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Employee Name</Table.HeaderCell>
+              <Table.HeaderCell>Job</Table.HeaderCell>
+              <Table.HeaderCell>Hire Date</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header> */}
+
+          <Table.Body>
+            {data.employees &&
+              data.employees.map(emp => (
+                <Table.Row key={emp.id}>
+                  <Table.Cell>{emp.ename}</Table.Cell>
+                  <Table.Cell>{emp.job}</Table.Cell>
+                  <Table.Cell>{moment(emp.hireDate).fromNow()}</Table.Cell>
+                </Table.Row>
+              ))}
+          </Table.Body>
+        </Table>
       </Form>
     );
   }
