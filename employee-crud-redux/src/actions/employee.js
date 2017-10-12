@@ -6,17 +6,17 @@ export const employeesLoaded = employees => ({
   employees,
 });
 
-export const employeeSelected = employee => ({
+export const loadEmployees = () => dispatch =>
+  api.employee
+    .loadEmployees()
+    .then(employees => dispatch(employeesLoaded(employees)));
+
+export const employeeSelected = selectedEmployee => ({
   type: EMPLOYEE_SELECTED,
-  selectedEmployee: employee,
+  selectedEmployee,
 });
 
 export const fetchEmployee = empno => dispatch =>
   api.employee
     .fetchEmployee(empno)
     .then(emp => dispatch(employeeSelected(emp)));
-
-export const loadEmployees = () => dispatch =>
-  api.employee
-    .loadEmployees()
-    .then(employees => dispatch(employeesLoaded(employees)));
