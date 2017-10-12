@@ -8,7 +8,7 @@ export const employeesLoaded = employees => ({
 
 export const employeeSelected = employee => ({
   type: EMPLOYEE_SELECTED,
-  employee,
+  selectedEmployee: employee,
 });
 
 export const fetchEmployee = empno => dispatch =>
