@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
@@ -7,10 +6,10 @@ const EmployeeListPage = ({ employees, onSelect }) => (
   <Table celled>
     <Table.Body>
       {employees.map(emp => (
-        <Table.Row key={emp.id} onClick={() => onSelect(emp.id)}>
-          <Table.Cell>{emp.ename}</Table.Cell>
+        <Table.Row key={emp.empno} onClick={() => onSelect(emp.empno)}>
+          <Table.Cell>{`${emp.ename}, ${emp.lname}`}</Table.Cell>
           <Table.Cell>{emp.job}</Table.Cell>
-          <Table.Cell>{moment(emp.hireDate).fromNow()}</Table.Cell>
+          <Table.Cell>{emp.empno}</Table.Cell>
         </Table.Row>
       ))}
     </Table.Body>
