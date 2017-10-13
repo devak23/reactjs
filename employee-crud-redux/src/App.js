@@ -38,6 +38,8 @@ class App extends Component {
           selectedEmployee: this.props.selectedEmployee,
         },
       });
+
+      console.log('state.data: ', this.state.data);
     });
 
   render() {
@@ -83,8 +85,8 @@ function mapStateToProps(state) {
   console.log('EmployeeListPage:: mapStateToProps:: state = ', state);
 
   return {
-    employees: isEmpty(state.employees) ? [{}] : state.employees,
-    selectedEmployee: state.selectedEmployee,
+    employees: isEmpty(state.employees.all) ? [{}] : state.employees.all,
+    selectedEmployee: state.employees.selectedEmployee,
   };
 }
 
