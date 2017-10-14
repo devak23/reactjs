@@ -42,19 +42,20 @@ class SearchBookForm extends Component {
   };
 
   handleBookSelect = (e, data) => {
-    this.setState({ query: data.value, loading: true });
+    this.setState({ query: data.value });
     const book = this.state.books[data.value];
-    axios
-      .get(`/api/books/fetchPages?q=${book.goodreadsId}`)
-      .then(res => {
-        book.pages = res.data.pages;
-        this.props.onSelect(book);
-        this.setState({ loading: false });
-      })
-      .catch(err => {
-        this.setState({ loading: false });
-        console.log('cannot load pages!', err);
-      }); // TODO: need to improve this
+    this.props.onSelect(book);
+    // axios
+    //   .get(`/api/books/fetchPages?q=${book.goodreadsId}`)
+    //   .then(res => {
+    //     book.pages = res.data.pages;
+    //     this.props.onSelect(book);
+    //     this.setState({ loading: false });
+    //   })
+    //   .catch(err => {
+    //     this.setState({ loading: false });
+    //     console.log('cannot load pages!', err);
+    //   }); // TODO: need to improve this
   };
 
   render() {

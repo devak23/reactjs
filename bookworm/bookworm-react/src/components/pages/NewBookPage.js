@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import SearchBookForm from '../forms/SearchBookForm';
 import BookForm from '../forms/BookForm';
@@ -12,7 +13,14 @@ class NewBookPage extends Component {
     book: null,
   };
 
-  handleBookSelect = book => this.setState({ book });
+  handleBookSelect = book => {
+    // this.setState({ book: { ...book, pages: undefined } });
+    this.setState({ book });
+    axios
+      .get(`/api/books/fetchPages?q=${book.goodreadsId}`)
+      .then(res => res.data.pages)
+      .then(pages => this.setState({ book: { ...book, pages } }));
+  };
 
   addBook = book =>
     this.props

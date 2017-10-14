@@ -22,7 +22,6 @@ class BookForm extends Component {
   };
 
   componentWillReceiveProps = props => {
-    console.log('props = ', props);
     this.setState({
       data: {
         goodreadsId: props.book.goodreadsId,
@@ -121,10 +120,11 @@ class BookForm extends Component {
                 <Form.Field error={!!errors.pages}>
                   <label htmlFor="pages">Pages</label>
                   <input
-                    type="number"
+                    disabled={data.pages === undefined}
+                    type="text"
                     name="pages"
                     id="pages"
-                    value={data.pages}
+                    value={data.pages !== undefined ? data.pages : 'Loading...'}
                     onChange={this.handleOnChangeNumber}
                   />
                   {errors.pages && <InlineError text={errors.pages} />}
@@ -175,7 +175,7 @@ BookForm.propTypes = {
     goodreadsId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
-    pages: PropTypes.string.isRequired,
+    pages: PropTypes.number,
     averageRating: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     thumb: PropTypes.string.isRequired,

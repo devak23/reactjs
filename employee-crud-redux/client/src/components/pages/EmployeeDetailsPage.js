@@ -12,11 +12,13 @@ const EmployeeDetailsPage = ({ employee }) => (
           image="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-256.png"
           header={`${employee.ename} ${employee.lname}`}
           meta={employee.job}
-          description={numeral(employee.sal).format('$0,0.00')}
+          description={`...works in the ${employee.department
+            .dname} department located at ${employee.department.loc}`}
           extra={
             <a>
               <Icon name="calendar" />
               {moment(employee.hireDate).format('MMMM Do YYYY')}
+              <p>{numeral(employee.sal).format('$0,0.00')}</p>
             </a>
           }
         />

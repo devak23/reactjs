@@ -1,6 +1,7 @@
 import express from 'express';
 import request from 'request-promise';
 import { parseString } from 'xml2js';
+import parseErrors from '../utils/parseErrors';
 import authenticate from '../middlewares/authenticate';
 import Book from '../models/Book';
 
@@ -10,8 +11,8 @@ router.use(authenticate);
 router.get('/search', (req, res) => {
   request
     .get(
-      `https://www.goodreads.com/search/index.xml?key=ugaHGsexl3Yk89H3B8LrQ&q=${req
-        .query.q}`,
+      `https://www.goodreads.com/search/index.xml?key=${process.env
+        .GOODREADS_KEY}&q=${req.query.q}`,
     )
     .then(result =>
       parseString(result, (err, goodreadsJson) =>
@@ -29,73 +30,55 @@ router.get('/search', (req, res) => {
         }),
       ),
     );
-
-  // res.json({
-  //   books: [
-  //     {
-  //       goodreadsId: 1,
-  //       title: '1984',
-  //       authors: 'Orwell',
-  //       covers: [
-  //         'https://images.gr-assets.com/books/1348990566l/5470.jpg',
-  //         'https://images.gr-assets.com/books/1504611957l/9577857.jpg',
-  //       ],
-  //       pages: 198,
-  //     },
-  //     {
-  //       goodreadsId: 2,
-  //       title: 'Three Men in a Boat',
-  //       authors: 'Jerome K. Jerome',
-  //       covers: [
-  //         'https://images.gr-assets.com/books/1392791656l/4921.jpg',
-  //         'https://images.gr-assets.com/books/1312036878l/627830.jpg',
-  //       ],
-  //       pages: 256,
-  //     },
-  //   ],
-  // });
 });
 
 router.get('/fetchPages', (req, res) => {
   request
     .get(
-      `https://www.goodreads.com/book/show/${req.query
-        .q}.xml?key=ugaHGsexl3Yk89H3B8LrQ`,
+      `https://www.goodreads.com/book/show/${req.query.q}.xml?key=${process.env
+        .GOODREADS_KEY}`,
     )
     .then(result =>
       parseString(result, (err, jsonString) => {
-        res.json({ pages: jsonString.GoodreadsResponse.book[0].num_pages[0] });
+        const numPages = jsonString.GoodreadsResponse.book[0].num_pages[0];
+        const pages = numPages ? parseInt(numPages, 10) : 0;
+        res.json({ pages });
       }),
     );
 });
 
 router.post('/', (req, res) => {
-  const {
-    goodreadsId,
-    title,
-    averageRating,
-    authors,
-    pages,
-    cover,
-  } = req.body.book;
-  const book = new Book({
-    goodreadsId,
-    title,
-    authors,
-    pages,
-    averageRating,
-    cover,
-  });
-  book
-    .save()
-    .then(res.status(201).json({ message: 'Book was added!' }))
-    .catch(err =>
-      res.status(500).json({ errors: { global: 'Book was not added!' } }),
-    );
+  Book.create({ ...req.body.book, userId: req.currentUser._id })
+    .then(book => book.save())
+    .then(savedBook => res.status(201).json(savedBook))
+    .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
+
+  // const {
+  //   goodreadsId,
+  //   title,
+  //   averageRating,
+  //   authors,
+  //   pages,
+  //   cover,
+  // } = req.body.book;
+  // const book = new Book({
+  //   goodreadsId,
+  //   title,
+  //   authors,
+  //   pages,
+  //   averageRating,
+  //   cover,
+  // });
+  // book
+  //   .save()
+  //   .then(res.status(201).json({ message: 'Book was added!' }))
+  //   .catch(err =>
+  //     res.status(500).json({ errors: { global: 'Book was not added!' } }),
+  //   );
 });
 
 router.get('/', (req, res) => {
-  Book.find().then(books => res.json({ books }));
+  Book.find({ userId: req.currentUser._id }).then(books => res.json({ books }));
 });
 
 export default router;
