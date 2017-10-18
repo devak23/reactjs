@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Table, Header, Image, Grid, Segment, Rating } from 'semantic-ui-react';
-import * as actions from '../../actions/auth';
-import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
-import { allBooksSelector } from '../../reducers/books';
-import AddBookCTA from '../ctas/AddBookCTA';
-import { loadBooks } from '../../actions/books';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Table, Header, Image, Grid, Segment, Rating } from "semantic-ui-react";
+import * as actions from "../../actions/auth";
+import ConfirmEmailMessage from "../messages/ConfirmEmailMessage";
+import { allBooksSelector } from "../../reducers/books";
+import AddBookCTA from "../ctas/AddBookCTA";
+import { fetchBooks } from "../../actions/books";
 
 class DashboardPage extends Component {
-  state = {
-    isConfirmed: this.props.isConfirmed,
-    books: this.props.books,
-    readBooks: [],
-  };
+  componentDidMount = () => this.onInit(this.props);
 
-  componentDidMount = () =>
-    this.props.loadBooks().then(books => this.setState({ readBooks: books }));
+  onInit = props => props.fetchBooks();
 
   render() {
-    const { isConfirmed, books, readBooks } = this.state;
+    const { isConfirmed, books } = this.props;
+    console.log("books.length = ", books.length);
 
     return (
-      <div style={{ margin: '20px 0' }}>
+      <div style={{ margin: "20px 0" }}>
         {!isConfirmed && <ConfirmEmailMessage />}
         <Segment>
           <Header>Books read so far...</Header>
@@ -38,9 +34,9 @@ class DashboardPage extends Component {
                 </Table.Header>
 
                 <Table.Body>
-                  {readBooks &&
-                    readBooks.length > 0 &&
-                    readBooks.map(book => (
+                  {books &&
+                    books.length > 0 &&
+                    books.map(book => (
                       <Table.Row key={book._id}>
                         <Table.Cell>
                           <Header as="h4" image>
@@ -82,20 +78,20 @@ class DashboardPage extends Component {
 function mapStateToProps(state) {
   return {
     isConfirmed: !!state.user.confirmed,
-    books: allBooksSelector(state),
+    books: allBooksSelector(state)
   };
 }
 
 DashboardPage.propTypes = {
-  loadBooks: PropTypes.func.isRequired,
+  fetchBooks: PropTypes.func.isRequired,
   isConfirmed: PropTypes.bool.isRequired,
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+      title: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
 };
 
-export default connect(mapStateToProps, { logout: actions.logout, loadBooks })(
-  DashboardPage,
+export default connect(mapStateToProps, { logout: actions.logout, fetchBooks })(
+  DashboardPage
 );
