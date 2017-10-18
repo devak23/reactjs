@@ -4,7 +4,7 @@ import { Menu, Dropdown, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import gravatarUrl from 'gravatar-url';
 import PropTypes from 'prop-types';
-import * as actions from '../../actions/auth';
+import { logout } from '../../actions/auth';
 
 const TopNavigation = ({ user, logout }) => (
   <Menu secondary pointing>
@@ -35,6 +35,4 @@ function mapStateToPropTypes(state) {
   };
 }
 
-export default connect(mapStateToPropTypes, { logout: actions.logout })(
-  TopNavigation,
-);
+export default connect(mapStateToPropTypes, { logout })(TopNavigation);
