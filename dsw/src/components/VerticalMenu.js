@@ -49,6 +49,7 @@ class VerticalMenu extends Component {
       <Menu icon vertical>
         {refData.map(data => (
           <Menu.Item
+            key={data.id}
             name={data.iconName}
             active={activeItem === "home"}
             onClick={this.handleItemClick}
