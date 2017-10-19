@@ -2,95 +2,66 @@ import React, { Component } from "react";
 import { Icon, Menu } from "semantic-ui-react";
 
 class VerticalMenu extends Component {
-  state = { activeItem: "home" };
+  state = { activeItem: "home", refData: [] };
+
+  componentDidMount = () =>
+    this.setState({
+      refData: [
+        {
+          id: 1,
+          iconName: "home",
+          tooltip: "Home"
+        },
+        {
+          id: 2,
+          iconName: "code",
+          tooltip: "Upload an algorithm"
+        },
+        {
+          id: 3,
+          iconName: "database",
+          tooltip: "Create a dataset"
+        },
+        {
+          id: 4,
+          iconName: "bar chart",
+          tooltip: "Visualize the model"
+        },
+        {
+          id: 5,
+          iconName: "computer",
+          tooltip: "Create a model"
+        },
+        {
+          id: 6,
+          iconName: "zip",
+          tooltip: "Play in Sandbox"
+        }
+      ]
+    });
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
+    const { activeItem, refData } = this.state;
 
     return (
       <Menu icon vertical>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        >
-          <div class="ui icon" data-tooltip="Home" data-position="right center">
-            <Icon name="home" />
-          </div>
-        </Menu.Item>
-
-        <Menu.Item
-          className="ui icon button"
-          name="code"
-          active={activeItem === "code"}
-          onClick={this.handleItemClick}
-        >
-          <div
-            class="ui icon"
-            data-tooltip="Upload an algorithm"
-            data-position="right center"
+        {refData.map(data => (
+          <Menu.Item
+            name={data.iconName}
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
           >
-            <Icon name="code" />
-          </div>
-        </Menu.Item>
-
-        <Menu.Item
-          name="database"
-          active={activeItem === "database"}
-          onClick={this.handleItemClick}
-        >
-          <div
-            class="ui icon"
-            data-tooltip="Create a dataset"
-            data-position="right center"
-          >
-            <Icon name="database" />
-          </div>
-        </Menu.Item>
-
-        <Menu.Item
-          name="bar chart"
-          active={activeItem === "bar chart"}
-          onClick={this.handleItemClick}
-        >
-          <div
-            className="ui icon"
-            data-tooltip="Visualize the data"
-            data-position="right center"
-          >
-            <Icon name="bar chart" />
-          </div>
-        </Menu.Item>
-
-        <Menu.Item
-          name="computer"
-          active={activeItem === "computer"}
-          onClick={this.handleItemClick}
-        >
-          <div
-            className="ui icon"
-            data-tooltip="Create a model"
-            data-position="right center"
-          >
-            <Icon name="computer" />
-          </div>
-        </Menu.Item>
-
-        <Menu.Item
-          name="zip"
-          active={activeItem === "zip"}
-          onClick={this.handleItemClick}
-        >
-          <div
-            className="ui icon"
-            data-tooltip="Play in Sandbox"
-            data-position="right center"
-          >
-            <Icon name="zip" />
-          </div>
-        </Menu.Item>
+            <div
+              className="ui icon"
+              data-tooltip={data.tooltip}
+              data-position="right center"
+            >
+              <Icon name={data.iconName} />
+            </div>
+          </Menu.Item>
+        ))}
       </Menu>
     );
   }

@@ -1,32 +1,24 @@
 import React from "react";
-import { Menu, Dropdown, Icon, Image } from "semantic-ui-react";
+// import { Menu, Dropdown, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-dom";
 import logo from "../images/logo.png";
 
 const TopNavigation = () => (
-  <Menu secondary pointing fluid>
-    <Menu.Item as={Link} to="/dashboard">
-      <Image src={logo} />
-    </Menu.Item>
-    <Menu.Item>
-      <h4>Data Science Workbench</h4>
-    </Menu.Item>
-
-    <Menu.Menu position="right">
-      <Dropdown
-        trigger={<Icon style={{ margin: "20px 0" }} name="user" size="big" />}
-      >
-        <Dropdown.Menu>
-          <Dropdown.Item onClick={() => console.log("logout")}>
-            Logout
-          </Dropdown.Item>
-          <Dropdown.Item onClick={() => console.log("Preferences")}>
-            Preferences
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    </Menu.Menu>
-  </Menu>
+  <div
+    className="ui  inverted menu fluid"
+    style={{ background: "#06273f", borderBottom: "4px solid #CC000A" }}
+  >
+    <div className="ui container fluid">
+      <a href="#" className="header" style={{ margin: "0px 20px" }}>
+        <img className="logo" src={logo} size="huge" />
+      </a>
+      <span className="item">Data Science Workbench</span>
+      <div className="ui simple dropdown item right">
+        John Snow
+        <i className="icon power" style={{ margin: "0px 0px 0px 10px" }} />
+      </div>
+    </div>
+  </div>
 );
 
 export default TopNavigation;
