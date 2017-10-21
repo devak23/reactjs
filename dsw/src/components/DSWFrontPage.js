@@ -3,7 +3,7 @@ import { Segment, Header } from "semantic-ui-react";
 import DSWDesc from "./DSWDesc";
 
 const DSWFrontPage = () => (
-  <Segment style={{ height: "530px" }}>
+  <Segment style={{ height: "550px" }}>
     <Header as="h1" style={{ color: "#0063ad" }} textAlign="center">
       Rolta Data Science Workbench
     </Header>

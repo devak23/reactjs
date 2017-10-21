@@ -1,6 +1,5 @@
 import React from "react";
-// import { Menu, Dropdown, Icon, Image } from "semantic-ui-react";
-import { Link } from "react-dom";
+import { Image } from "semantic-ui-react";
 import logo from "../images/logo.png";
 
 const TopNavigation = () => (
@@ -9,13 +8,16 @@ const TopNavigation = () => (
     style={{ background: "#06273f", borderBottom: "4px solid #CC000A" }}
   >
     <div className="ui container fluid">
-      <a href="#" className="header" style={{ margin: "0px 20px" }}>
-        <img className="logo" src={logo} size="huge" />
+      <a href="/oneview" className="header" style={{ margin: "0px 20px" }}>
+        <Image className="logo" src={logo} />
       </a>
       <span className="item">Data Science Workbench</span>
-      <div className="ui simple dropdown item right">
+      <div
+        className="ui simple dropdown item right"
+        style={{ margin: "0 10px 0 0" }}
+      >
         John Snow
-        <i className="icon power" style={{ margin: "0px 0px 0px 10px" }} />
+        <i className="icon power" style={{ margin: "0 0 0 10px" }} />
       </div>
     </div>
   </div>
