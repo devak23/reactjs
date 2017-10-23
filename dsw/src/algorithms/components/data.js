@@ -51,5 +51,20 @@ export const advancedAlgorithms = [
     id: 5,
     name: "Water Injection Steam Filter Performance Analysis",
     desc: "Water Injection Steam Filter Performance Analysis"
+  },
+  {
+    id: 6,
+    name: "Water demand Prediction",
+    desc: "Water demand Prediction"
   }
+  // {
+  //   id: 7,
+  //   name: "Water Consumption Night Time Analysis",
+  //   desc: "Water Consumption Night Time Analysis"
+  // },
+  // {
+  //   id: 8,
+  //   name: "Pump Failure Analysis",
+  //   desc: "Pump Failure Analysis"
+  // }
 ];

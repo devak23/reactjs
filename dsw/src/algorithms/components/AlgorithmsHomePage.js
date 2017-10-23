@@ -28,7 +28,7 @@ class AlgorithmsHomePage extends React.Component {
     const { data } = this.state;
     return (
       <div>
-        <Header as="h3">Types of algorithms</Header>
+        <Header as="h3">Types Of Algorithms</Header>
         <Divider />
         <Grid columns={2}>
           <Grid.Column>

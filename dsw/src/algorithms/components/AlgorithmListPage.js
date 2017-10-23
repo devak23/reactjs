@@ -13,10 +13,10 @@ import PropTypes from "prop-types";
 
 const AlgorithmListPage = ({ image, altText, algorithms, type }) => (
   <div>
-    <Segment>
+    <Segment style={{ background: "#f4f4f4" }}>
       <Grid columns={2}>
         <Grid.Column>
-          <Image src={image} alt={altText} />
+          <Image src={image} alt={altText} size="tiny" />
           <Header
             as="h4"
             content={altText}
@@ -24,7 +24,7 @@ const AlgorithmListPage = ({ image, altText, algorithms, type }) => (
           />
         </Grid.Column>
         <Grid.Column textAlign="right" verticalAlign="top">
-          <Link to="/">
+          <Link to="/algorithms/new">
             <div
               className="ui icon"
               data-tooltip={`Add new ${type} algorithm`}
@@ -54,7 +54,7 @@ const AlgorithmListPage = ({ image, altText, algorithms, type }) => (
                   <Link to={`/algorithms/${algo.id}/edit`}>
                     <Icon name="edit" size="large" />
                   </Link>
-                  <Link to="/delete">
+                  <Link to={`/algorithms/${algo.id}/delete`}>
                     <Icon name="trash" size="large" />
                   </Link>
                 </Table.Cell>

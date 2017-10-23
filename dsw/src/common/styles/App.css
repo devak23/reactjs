@@ -1,3 +1,6 @@
+body {
+  height: 600px;
+}
 @media (min-height: 60px) {
   .ui.footer.form-page {
     /* Increased specificity for SO snippet priority */
