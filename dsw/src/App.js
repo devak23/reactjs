@@ -2,11 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "semantic-ui-react";
 import { Route } from "react-router-dom";
-import VerticalMenu from "./components/VerticalMenu";
-import TopNavigation from "./components/TopNavigation";
-import DSWPage from "./components/DSWPage";
-import AlgorithmsHomePage from "./components/AlgorithmsHomePage";
-import DSWFooter from "./components/DSWFooter";
+import VerticalMenu from "./home/components/VerticalMenu";
+import TopNavigation from "./home/components/TopNavigation";
+import DSWPage from "./home/components/DSWPage";
+import AlgorithmsHomePage from "./algorithms/components/AlgorithmsHomePage";
+import DatasetsHomePage from "./datasets/components/DatasetsHomePage";
+import VisualizeHomePage from "./visualize/components/VisualizeHomePage";
+import ModelsHomePage from "./models/components/ModelsHomePage";
+import SandboxHomePage from "./sandbox/components/SandboxHomePage";
+import DSWFooter from "./home/components/DSWFooter";
 
 const App = ({ location }) => (
   <div>
@@ -26,6 +30,30 @@ const App = ({ location }) => (
               exact
               path="/algorithms"
               component={AlgorithmsHomePage}
+            />
+            <Route
+              location={location}
+              exact
+              path="/datasets"
+              component={DatasetsHomePage}
+            />
+            <Route
+              location={location}
+              exact
+              path="/visualize"
+              component={VisualizeHomePage}
+            />
+            <Route
+              location={location}
+              exact
+              path="/models"
+              component={ModelsHomePage}
+            />
+            <Route
+              location={location}
+              exact
+              path="/sandbox"
+              component={SandboxHomePage}
             />
           </div>
         </Grid.Column>

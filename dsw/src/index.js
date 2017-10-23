@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import App from "./App";
-import "./styles/App.css";
+import "./common/styles/App.css";
 
 ReactDOM.render(
   <BrowserRouter>

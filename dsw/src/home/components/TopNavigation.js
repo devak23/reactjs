@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "semantic-ui-react";
-import logo from "../images/logo.png";
+import logo from "../../common/images/logo.png";
 
 const TopNavigation = () => (
   <div

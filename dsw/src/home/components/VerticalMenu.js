@@ -48,9 +48,9 @@ class VerticalMenu extends Component {
       ]
     });
 
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
-    this.props.history.push(name);
+  handleItemClick = data => {
+    this.setState({ activeItem: data.iconName });
+    this.props.history.push(data.path);
   };
 
   render() {
@@ -63,7 +63,8 @@ class VerticalMenu extends Component {
             key={data.id}
             name={data.iconName}
             active={activeItem === data.iconName}
-            onClick={this.handleItemClick}
+            data_path={data.path}
+            onClick={() => this.handleItemClick(data)}
           >
             <div
               className="ui icon"
