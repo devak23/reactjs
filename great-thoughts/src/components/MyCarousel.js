@@ -1,16 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Carousel from "nuka-carousel";
+// import Button from "./Button";
 
 const MyCarousel = ({ images }) => (
   <div>
-    <Carousel
-      dragging
-      slidesToShow={3}
-      slidesToScroll={3}
-      edgeEasing="easeOutCirc"
-      cellSpacing={10}
-    >
+    <Carousel cellAlign="center" dragging edgeEasing="easeOutCirc">
       {images &&
         images.length > 0 &&
         images.map(imgUrl => <img key={imgUrl} alt={imgUrl} src={imgUrl} />)}
