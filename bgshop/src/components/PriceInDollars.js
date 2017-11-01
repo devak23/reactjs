@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const PriceInDollars = ({ priceInCents }) => (
-  <span className="ui green ribbon label">
+  <span>
     $
     {priceInCents - Math.floor(priceInCents) !== 0
       ? priceInCents

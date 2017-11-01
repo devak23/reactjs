@@ -17,7 +17,9 @@ const GameCard = ({ game }) => (
 
   <div className="ui card">
     <div className="image">
-      <PriceInDollars priceInCents={game.price} />
+      <span className="ui green ribbon label">
+        <PriceInDollars priceInCents={game.price} /> {game.price < 3000 && "!"}
+      </span>
       <img src={game.thumbnail} alt="Game Cover" />
     </div>
     <div className="content">
