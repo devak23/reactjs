@@ -10,7 +10,7 @@ const gameData = [
   },
   {
     id: 2,
-    price: 42.99,
+    price: 4299,
     title: "Citadels",
     thumbnail:
       "http://crystal-cdn2.crystalcommerce.com/photos/6332426/pic3119514_md.jpg",
@@ -19,7 +19,7 @@ const gameData = [
   },
   {
     id: 3,
-    price: 20.99,
+    price: 2099,
     title: "Five Tribes",
     thumbnail: "http://i.ebayimg.com/images/i/331441948867-0-1/s-l1000.jpg",
     players: "3-4",
@@ -27,7 +27,7 @@ const gameData = [
   },
   {
     id: 4,
-    price: 29.99,
+    price: 2999,
     title: "Roll For The Galaxy",
     thumbnail:
       "https://media.brettspiel-angebote.de/2016/01/cover-roll-for-the-galaxy-400x400.jpg",
@@ -36,7 +36,7 @@ const gameData = [
   },
   {
     id: 5,
-    price: 59.99,
+    price: 5999,
     title: "Monopoly",
     thumbnail:
       "http://www.bestchoicereviews.org/wp-content/uploads/2014/12/monopoly-card-and-board-games-1-1024x1024.jpg",
@@ -45,7 +45,7 @@ const gameData = [
   },
   {
     id: 6,
-    price: 15.99,
+    price: 1599,
     title: "Ticket to Ride",
     thumbnail:
       "http://www.thirstymeeples.co.uk/images/uploads/games/Ticket_to_Ride-Card_Game.jpg",
@@ -54,7 +54,7 @@ const gameData = [
   },
   {
     id: 7,
-    price: 23.49,
+    price: 2349,
     title: "Small World",
     thumbnail:
       "https://cf.geekdo-images.com/bOLrLRE0RoCNwUJTcwuEYMPRpgc=/fit-in/1200x630/pic428828.jpg",

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PriceInDollars from "./PriceInDollars";
 
 const GameCard = ({ game }) => (
   // Emmet code used: explanation of what the code expands to
@@ -16,7 +17,7 @@ const GameCard = ({ game }) => (
 
   <div className="ui card">
     <div className="image">
-      <span className="ui green ribbon label">$ {game.price}</span>
+      <PriceInDollars priceInCents={game.price} />
       <img src={game.thumbnail} alt="Game Cover" />
     </div>
     <div className="content">
