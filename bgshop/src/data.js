@@ -6,7 +6,7 @@ const gameData = [
     thumbnail:
       "https://cf.geekdo-images.com/tthn7L9-fC_GaXJHfA20VdTrFts=/fit-in/1200x630/pic2840020.jpg",
     players: "2-4",
-    duration: "60 mins"
+    duration: 60
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const gameData = [
     thumbnail:
       "http://crystal-cdn2.crystalcommerce.com/photos/6332426/pic3119514_md.jpg",
     players: "2-4",
-    duration: "60 mins"
+    duration: 60
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const gameData = [
     title: "Five Tribes",
     thumbnail: "http://i.ebayimg.com/images/i/331441948867-0-1/s-l1000.jpg",
     players: "3-4",
-    duration: "40 mins"
+    duration: 40
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const gameData = [
     thumbnail:
       "https://media.brettspiel-angebote.de/2016/01/cover-roll-for-the-galaxy-400x400.jpg",
     players: "1-2",
-    duration: "90 mins"
+    duration: 90
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const gameData = [
     thumbnail:
       "http://www.bestchoicereviews.org/wp-content/uploads/2014/12/monopoly-card-and-board-games-1-1024x1024.jpg",
     players: "2-9",
-    duration: "120 mins"
+    duration: 120
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const gameData = [
     thumbnail:
       "http://www.thirstymeeples.co.uk/images/uploads/games/Ticket_to_Ride-Card_Game.jpg",
     players: "2-3",
-    duration: "25 mins"
+    duration: 25
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const gameData = [
     thumbnail:
       "https://cf.geekdo-images.com/bOLrLRE0RoCNwUJTcwuEYMPRpgc=/fit-in/1200x630/pic428828.jpg",
     players: "3-5",
-    duration: "45 mins"
+    duration: 45
   }
 ];
 

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const GameCard = ({ game }) => (
   // Emmet code used: explanation of what the code expands to
@@ -24,10 +25,20 @@ const GameCard = ({ game }) => (
       </a>
       <div className="meta">
         <i className="icon users" /> {game.players}&nbsp;
-        <i className="icon wait" /> {game.duration}
+        <i className="icon wait" /> {game.duration} min
       </div>
     </div>
   </div>
 );
+
+GameCard.propTypes = {
+  game: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    players: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired
+  }).isRequired
+};
 
 export default GameCard;
