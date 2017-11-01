@@ -1,5 +1,6 @@
-const games = [
+const gameData = [
   {
+    id: 1,
     price: 32.99,
     title: "Quadropolis",
     thumbnail:
@@ -8,14 +9,24 @@ const games = [
     duration: "60 mins"
   },
   {
+    id: 2,
+    price: 42.99,
+    title: "Citadels",
+    thumbnail:
+      "http://crystal-cdn2.crystalcommerce.com/photos/6332426/pic3119514_md.jpg",
+    players: "2-4",
+    duration: "60 mins"
+  },
+  {
+    id: 3,
     price: 20.99,
     title: "Five Tribes",
-    thumbnail:
-      "https://cdn1.daysofwonder.com/five-tribes/en/img/ft_1600-01.jpg",
+    thumbnail: "http://i.ebayimg.com/images/i/331441948867-0-1/s-l1000.jpg",
     players: "3-4",
     duration: "40 mins"
   },
   {
+    id: 4,
     price: 29.99,
     title: "Roll For The Galaxy",
     thumbnail:
@@ -24,13 +35,32 @@ const games = [
     duration: "90 mins"
   },
   {
+    id: 5,
     price: 59.99,
     title: "Monopoly",
     thumbnail:
       "http://www.bestchoicereviews.org/wp-content/uploads/2014/12/monopoly-card-and-board-games-1-1024x1024.jpg",
     players: "2-9",
     duration: "120 mins"
+  },
+  {
+    id: 6,
+    price: 15.99,
+    title: "Ticket to Ride",
+    thumbnail:
+      "http://www.thirstymeeples.co.uk/images/uploads/games/Ticket_to_Ride-Card_Game.jpg",
+    players: "2-3",
+    duration: "25 mins"
+  },
+  {
+    id: 7,
+    price: 23.49,
+    title: "Small World",
+    thumbnail:
+      "https://cf.geekdo-images.com/bOLrLRE0RoCNwUJTcwuEYMPRpgc=/fit-in/1200x630/pic428828.jpg",
+    players: "3-5",
+    duration: "45 mins"
   }
 ];
 
-export default games;
+export default gameData;

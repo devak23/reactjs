@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
-import GameCard from "./components/GameCard";
-import games from "./data";
+import App from "./App";
 
-ReactDOM.render(<GameCard game={games[3]} />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -2,6 +2,7 @@ import React from "react";
 
 const GameCard = ({ game }) => (
   // Emmet code used: explanation of what the code expands to
+  // ---------------------------------------------------------
   // .ui.card>.image+.content:
   //      Define a div with classes ui, card which consists of 2 sections image & content. Inside the image we
   //      will have board game cover and inside the content, its description
