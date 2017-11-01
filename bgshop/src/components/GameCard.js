@@ -14,9 +14,9 @@ const GameCard = () => (
 
   <div className="ui card">
     <div className="image">
-      <span className="ui green ribbon label">$19.99</span>
+      <span className="ui green ribbon label">$32.99</span>
       <img
-        src="https://portal.battleon.com/images/store/ult-card-big.png"
+        src="https://cf.geekdo-images.com/tthn7L9-fC_GaXJHfA20VdTrFts=/fit-in/1200x630/pic2840020.jpg"
         alt="Game Cover"
       />
     </div>
