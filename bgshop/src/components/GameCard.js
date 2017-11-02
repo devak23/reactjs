@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PriceInDollars from "./PriceInDollars";
+import Featured from "./Featured";
 
 const GameCard = ({ game }) => (
   // Emmet code used: explanation of what the code expands to
@@ -20,6 +21,7 @@ const GameCard = ({ game }) => (
       <span className="ui green ribbon label">
         <PriceInDollars priceInCents={game.price} /> {game.price < 3000 && "!"}
       </span>
+      <Featured featured={game.featured} />
       <img src={game.thumbnail} alt="Game Cover" />
     </div>
     <div className="content">
