@@ -21,7 +21,11 @@ const GameCard = ({ game, toggleFeatured }) => (
       <span className="ui green ribbon label">
         <PriceInDollars priceInCents={game.price} /> {game.price < 3000 && "!"}
       </span>
-      <Featured featured={game.featured} toggleFeatured={toggleFeatured} />
+      <Featured
+        featured={game.featured}
+        toggleFeatured={toggleFeatured}
+        gameId={game.id}
+      />
       <img src={game.thumbnail} alt="Game Cover" />
     </div>
     <div className="content">
@@ -38,6 +42,7 @@ const GameCard = ({ game, toggleFeatured }) => (
 
 GameCard.propTypes = {
   game: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
     players: PropTypes.string.isRequired,
