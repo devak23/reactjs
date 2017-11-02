@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 
 // Emmet code: a.ui.right.corner.label>i.empty.star.icon
 
-const Featured = ({ featured }) => (
+const Featured = ({ featured, toggleFeatured }) => (
   <span>
     {featured ? (
       <div>
-        <a className="ui right yellow corner label">
+        <a onClick={toggleFeatured} className="ui right yellow corner label">
           <i className="star icon" />
         </a>
       </div>
     ) : (
       <div>
-        <a className="ui right corner label">
+        <a onClick={toggleFeatured} className="ui right corner label">
           <i className="empty star icon" />
         </a>
       </div>
@@ -22,7 +22,8 @@ const Featured = ({ featured }) => (
 );
 
 Featured.propTypes = {
-  featured: PropTypes.bool.isRequired
+  featured: PropTypes.bool.isRequired,
+  toggleFeatured: PropTypes.func.isRequired
 };
 
 Featured.defaultProps = {

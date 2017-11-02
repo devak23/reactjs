@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PriceInDollars from "./PriceInDollars";
 import Featured from "./Featured";
 
-const GameCard = ({ game }) => (
+const GameCard = ({ game, toggleFeatured }) => (
   // Emmet code used: explanation of what the code expands to
   // ---------------------------------------------------------
   // .ui.card>.image+.content:
@@ -21,7 +21,7 @@ const GameCard = ({ game }) => (
       <span className="ui green ribbon label">
         <PriceInDollars priceInCents={game.price} /> {game.price < 3000 && "!"}
       </span>
-      <Featured featured={game.featured} />
+      <Featured featured={game.featured} toggleFeatured={toggleFeatured} />
       <img src={game.thumbnail} alt="Game Cover" />
     </div>
     <div className="content">
@@ -43,7 +43,8 @@ GameCard.propTypes = {
     players: PropTypes.string.isRequired,
     duration: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  toggleFeatured: PropTypes.func.isRequired
 };
 
 export default GameCard;

@@ -13,10 +13,15 @@ class App extends React.Component {
       games: _orderBy(games, ["featured", "title"], ["desc", "asc"])
     });
 
+  toggleFeatured = () => alert("Toggle");
+
   render() {
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
-        <GamesList games={this.state.games} />
+        <GamesList
+          games={this.state.games}
+          toggleFeatured={this.toggleFeatured}
+        />
       </div>
     );
   }
