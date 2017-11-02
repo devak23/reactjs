@@ -2,10 +2,20 @@ import React from "react";
 import GamesList from "./components/GamesList";
 import games from "./data";
 
-const App = () => (
-  <div className="ui container" style={{ marginTop: "40px" }}>
-    <GamesList games={games} />
-  </div>
-);
+class App extends React.Component {
+  state = {
+    games: []
+  };
+
+  componentDidMount = () => this.setState({ games });
+
+  render() {
+    return (
+      <div className="ui container" style={{ marginTop: "40px" }}>
+        <GamesList games={this.state.games} />
+      </div>
+    );
+  }
+}
 
 export default App;

@@ -8,7 +8,7 @@ const Message = ({ header, content, type }) => {
   const getIcon = type =>
     type === "error"
       ? "warning sign"
-      : type === "success" ? "checkmark" : "info"; // info to be defaulted
+      : type === "success" ? "thumbs up" : "info"; // info to be defaulted
 
   const getColor = type =>
     type === "error" ? "red" : type === "success" ? "green" : ""; //info wont have any color
