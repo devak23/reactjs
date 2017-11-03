@@ -29,13 +29,11 @@ class GameCard extends React.Component {
 
     return (
       <div className="ui card image">
-        {showDescription && (
+        {showDescription ? (
           <div className="content description">
             <p>{game.description}</p>
           </div>
-        )}
-
-        {!showDescription && (
+        ) : (
           <div className="image">
             <span className="ui green ribbon label">
               <PriceInDollars priceInCents={game.price} />
