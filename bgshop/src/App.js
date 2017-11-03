@@ -1,7 +1,7 @@
 import React from "react";
 import GamesList from "./components/GamesList";
 import _orderBy from "lodash/orderBy";
-import _find from "lodash/find";
+// import _find from "lodash/find";
 import games from "./data";
 
 class App extends React.Component {
