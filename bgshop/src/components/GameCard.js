@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PriceInDollars from "./PriceInDollars";
-import { Reveal } from "semantic-ui-react";
 import Featured from "./Featured";
 
 // Emmet code used: explanation of what the code expands to
@@ -17,39 +16,39 @@ import Featured from "./Featured";
 //
 
 class GameCard extends React.Component {
-  state = {};
+  state = {
+    showDescription: false
+  };
 
-  toggleDescription = () => console.log("Toggling description");
+  toggleDescription = () =>
+    this.setState({ showDescription: !this.state.showDescription });
 
   render() {
     const { game, toggleFeatured } = this.props;
+    const { showDescription } = this.state;
 
     return (
       <div className="ui card image">
-        <Reveal animated="move">
-          <Reveal.Content visible>
-            <div className="image">
-              <span className="ui green ribbon label">
-                <PriceInDollars priceInCents={game.price} />
-                {game.price < 3000 && "!"}
-              </span>
-              <Featured
-                featured={game.featured}
-                toggleFeatured={toggleFeatured}
-                gameId={game.id}
-              />
-              <img src={game.thumbnail} alt="Game Cover" />
-            </div>
-          </Reveal.Content>
-          <Reveal.Content hidden>
-            <div className="content description">
-              <p>{game.description}</p>
-            </div>
-          </Reveal.Content>
-        </Reveal>
-        <div className="content description">
-          <p>{game.description}</p>
-        </div>
+        {showDescription && (
+          <div className="content description">
+            <p>{game.description}</p>
+          </div>
+        )}
+
+        {!showDescription && (
+          <div className="image">
+            <span className="ui green ribbon label">
+              <PriceInDollars priceInCents={game.price} />
+              {game.price < 3000 && "!"}
+            </span>
+            <Featured
+              featured={game.featured}
+              toggleFeatured={toggleFeatured}
+              gameId={game.id}
+            />
+            <img src={game.thumbnail} alt="Game Cover" />
+          </div>
+        )}
         <div className="content">
           <a href="" className="header">
             {game.title}
