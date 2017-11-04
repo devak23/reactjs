@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Rating } from "semantic-ui-react";
 import PriceInDollars from "./PriceInDollars";
 import Featured from "./Featured";
 
@@ -22,6 +23,9 @@ class GameCard extends React.Component {
 
   toggleDescription = () =>
     this.setState({ showDescription: !this.state.showDescription });
+
+  handleOnRate = (e, data) =>
+    this.props.handleRating(this.props.game.id, data.rating);
 
   render() {
     const { game, toggleFeatured } = this.props;
@@ -55,8 +59,14 @@ class GameCard extends React.Component {
             <i className="icon users" /> {game.players}&nbsp;
             <i className="icon wait" /> {game.duration} min
             <a onClick={this.toggleDescription}>
-              <i className="right floated unhide icon" />
+              <i className="right floated large info circle icon" />
             </a>
+            <Rating
+              icon="star"
+              rating={game.rating}
+              maxRating={5}
+              onRate={this.handleOnRate}
+            />
           </div>
         </div>
       </div>
@@ -73,7 +83,8 @@ GameCard.propTypes = {
     duration: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired
   }).isRequired,
-  toggleFeatured: PropTypes.func.isRequired
+  toggleFeatured: PropTypes.func.isRequired,
+  handleRating: PropTypes.func.isRequired
 };
 
 export default GameCard;

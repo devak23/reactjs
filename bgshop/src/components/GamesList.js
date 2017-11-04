@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import GameCard from "./GameCard";
 import Message from "./Message";
 
-const GamesList = ({ games, toggleFeatured }) => (
+const GamesList = ({ games, toggleFeatured, handleRating }) => (
   <div className="ui four cards">
     {games.length === 0 ? (
       <Message
@@ -13,7 +13,12 @@ const GamesList = ({ games, toggleFeatured }) => (
       />
     ) : (
       games.map(game => (
-        <GameCard key={game.id} game={game} toggleFeatured={toggleFeatured} />
+        <GameCard
+          key={game.id}
+          game={game}
+          toggleFeatured={toggleFeatured}
+          handleRating={handleRating}
+        />
       ))
     )}
   </div>
@@ -21,7 +26,8 @@ const GamesList = ({ games, toggleFeatured }) => (
 
 GamesList.propTypes = {
   games: PropTypes.arrayOf(PropTypes.object).isRequired,
-  toggleFeatured: PropTypes.func.isRequired
+  toggleFeatured: PropTypes.func.isRequired,
+  handleRating: PropTypes.func.isRequired
 };
 
 // this is for handling the undefined or null cases!

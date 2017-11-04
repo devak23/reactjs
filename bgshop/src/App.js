@@ -10,7 +10,11 @@ class App extends React.Component {
   };
 
   sortGames(games) {
-    return _orderBy(games, ["featured", "title"], ["desc", "asc"]);
+    return _orderBy(
+      games,
+      ["rating", "featured", "title"],
+      ["desc", "asc", "asc"]
+    );
   }
 
   componentDidMount = () =>
@@ -45,12 +49,23 @@ class App extends React.Component {
     });
   };
 
+  handleRating = (id, newRating) => {
+    this.setState({
+      games: this.sortGames(
+        this.state.games.map(
+          game => (game.id === id ? { ...game, rating: newRating } : game)
+        )
+      )
+    });
+  };
+
   render() {
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
         <GamesList
           games={this.state.games}
           toggleFeatured={this.toggleFeatured}
+          handleRating={this.handleRating}
         />
       </div>
     );
