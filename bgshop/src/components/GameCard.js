@@ -61,12 +61,7 @@ class GameCard extends React.Component {
             <a onClick={this.toggleDescription}>
               <i className="right floated large info circle icon" />
             </a>
-            <Rating
-              icon="star"
-              rating={game.rating}
-              maxRating={5}
-              onRate={this.handleOnRate}
-            />
+            <Rating icon="star" rating={game.rating} maxRating={5} disabled />
           </div>
         </div>
       </div>
