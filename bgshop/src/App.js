@@ -1,6 +1,7 @@
 import React from "react";
 import GamesList from "./components/GamesList";
 import _orderBy from "lodash/orderBy";
+import GameForm from "./components/GameForm";
 // import _find from "lodash/find";
 import games from "./data";
 
@@ -62,6 +63,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
+        <GameForm />
+        <br />
         <GamesList
           games={this.state.games}
           toggleFeatured={this.toggleFeatured}
