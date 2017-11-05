@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { gameTags, gameGenres } from "../data";
+import ReactImageFallback from "react-image-fallback";
+
+// import { gameTags, gameGenres } from "../data";
 
 class GameForm extends React.Component {
   state = {
@@ -12,7 +14,8 @@ class GameForm extends React.Component {
     featured: false,
     tags: [], //contains only ids of the tag
     genre: undefined,
-    publisher: 0
+    publisher: 0,
+    thumbnail: ""
   };
 
   handleTextChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -39,27 +42,52 @@ class GameForm extends React.Component {
   render() {
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
+        <div className="ui grid">
+          <div className="twelve wide column">
+            <div className="field">
+              <label htmlFor="title">Game Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Enter full game title"
+                value={this.state.title}
+                onChange={this.handleTextChange}
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="description">Game Description</label>
+              <textarea
+                type="text"
+                name="description"
+                id="description"
+                value={this.state.description}
+                onChange={this.handleTextChange}
+              />
+            </div>
+          </div>
+          <div className="four wide column">
+            <ReactImageFallback
+              src={this.state.thumbnail}
+              fallbackImage="http://via.placeholder.com/250x250"
+              alt="Thumbnail"
+              className="ui image"
+            />
+          </div>
+        </div>
+
         <div className="field">
-          <label htmlFor="title">Game Title</label>
+          <label htmlFor="thumbnail">Thumbnail</label>
           <input
             type="text"
-            name="title"
-            id="title"
-            placeholder="Enter full game title"
-            value={this.state.title}
+            name="thumbnail"
+            id="thumbnail"
+            placeholder="Url here..."
+            value={this.state.thumbnail}
             onChange={this.handleTextChange}
           />
         </div>
-        <div className="field">
-          <label htmlFor="description">Game Description</label>
-          <textarea
-            type="text"
-            name="description"
-            id="description"
-            value={this.state.description}
-            onChange={this.handleTextChange}
-          />
-        </div>
+
         <div className="three fields">
           <div className="field">
             <label htmlFor="price">Price</label>
@@ -102,7 +130,7 @@ class GameForm extends React.Component {
           <label htmlFor="featured"> Featured ?</label>
         </div>
         <div className="ui divider" />
-        <div className="field">
+        {/* <div className="field">
           <label htmlFor="">Tags</label>
           {gameTags.map(tag => (
             <div className="inline field" key={`tag_${tag.name}`}>
@@ -131,7 +159,7 @@ class GameForm extends React.Component {
             </div>
           ))}
         </div>
-        <div className="ui divider" />
+        <div className="ui divider" /> */}
 
         <div className="field">
           <label htmlFor="publisher">Publishers</label>
@@ -142,7 +170,7 @@ class GameForm extends React.Component {
             onChange={this.handleNumberChange}
           >
             <option key={0} value={0}>
-              ---- Please Select ----
+              Please select a publisher
             </option>
             {this.props.publishers.map(option => (
               <option value={option._id} key={option._id}>
