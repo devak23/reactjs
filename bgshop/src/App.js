@@ -4,9 +4,11 @@ import _orderBy from "lodash/orderBy";
 import GameForm from "./components/GameForm";
 // import _find from "lodash/find";
 import { gameData, gamePublishers } from "./data";
+import TopNavigation from "./components/TopNavigation";
 
 class App extends React.Component {
   state = {
+    showForm: false,
     games: []
   };
 
@@ -60,16 +62,25 @@ class App extends React.Component {
     });
   };
 
+  handleShowForm = showForm => this.setState({ showForm });
+
   render() {
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
-        <GameForm publishers={gamePublishers} />
+        <TopNavigation showGameForm={this.handleShowForm} />
         <br />
-        <GamesList
-          games={this.state.games}
-          toggleFeatured={this.toggleFeatured}
-          handleRating={this.handleRating}
-        />
+        {this.state.showForm ? (
+          <GameForm
+            publishers={gamePublishers}
+            showGameForm={this.handleShowForm}
+          />
+        ) : (
+          <GamesList
+            games={this.state.games}
+            toggleFeatured={this.toggleFeatured}
+            handleRating={this.handleRating}
+          />
+        )}
       </div>
     );
   }

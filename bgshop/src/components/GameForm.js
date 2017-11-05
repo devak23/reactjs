@@ -39,6 +39,8 @@ class GameForm extends React.Component {
 
   handleRadioChanged = id => this.setState({ genre: id });
 
+  handleCancelForm = e => this.props.showGameForm(false);
+
   render() {
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
@@ -65,6 +67,24 @@ class GameForm extends React.Component {
                 onChange={this.handleTextChange}
               />
             </div>
+            <div className="field">
+              <label htmlFor="publisher">Publisher</label>
+              <select
+                name="publisher"
+                id="publisher"
+                value={this.state.publisher}
+                onChange={this.handleNumberChange}
+              >
+                <option key={0} value={0}>
+                  Please select a publisher
+                </option>
+                {this.props.publishers.map(option => (
+                  <option value={option._id} key={option._id}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="four wide column">
             <ReactImageFallback
@@ -76,13 +96,14 @@ class GameForm extends React.Component {
           </div>
         </div>
 
+        <br />
         <div className="field">
           <label htmlFor="thumbnail">Thumbnail</label>
           <input
             type="text"
             name="thumbnail"
             id="thumbnail"
-            placeholder="Url here..."
+            placeholder="Image Url here..."
             value={this.state.thumbnail}
             onChange={this.handleTextChange}
           />
@@ -161,27 +182,15 @@ class GameForm extends React.Component {
         </div>
         <div className="ui divider" /> */}
 
-        <div className="field">
-          <label htmlFor="publisher">Publishers</label>
-          <select
-            name="publisher"
-            id="publisher"
-            value={this.state.publisher}
-            onChange={this.handleNumberChange}
-          >
-            <option key={0} value={0}>
-              Please select a publisher
-            </option>
-            {this.props.publishers.map(option => (
-              <option value={option._id} key={option._id}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button className="ui button" type="submit">
+        <button className="ui primary button" type="submit">
           Create
+        </button>
+        <button
+          className="ui button"
+          type="button"
+          onClick={this.handleCancelForm}
+        >
+          Cancel
         </button>
       </form>
     );
@@ -194,7 +203,13 @@ GameForm.propTypes = {
       _id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  showGameForm: PropTypes.func.isRequired
+};
+
+GameForm.defaultProps = {
+  publishers: [],
+  showForm: false
 };
 
 export default GameForm;
