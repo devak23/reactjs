@@ -1,18 +1,6 @@
 import React from "react";
-
-const gameTags = [
-  { _id: 1, name: "Family" },
-  { _id: 2, name: "Outdoor" },
-  { _id: 3, name: "Single Player" },
-  { _id: 4, name: "Adult" },
-  { _id: 5, name: "Kids" }
-];
-
-const gameGenres = [
-  { _id: 1, name: "Euro" },
-  { _id: 2, name: "Abstract" },
-  { _id: 3, name: "Ameritrash" }
-];
+import PropTypes from "prop-types";
+import { gameTags, gameGenres } from "../data";
 
 class GameForm extends React.Component {
   state = {
@@ -23,20 +11,18 @@ class GameForm extends React.Component {
     players: "",
     featured: false,
     tags: [], //contains only ids of the tag
-    genre: undefined
+    genre: undefined,
+    publisher: 0
   };
 
-  handleOnChange = e =>
-    this.setState({
-      [e.target.name]:
-        e.target.type === "number"
-          ? parseInt(e.target.value, 10)
-          : e.target.value
-    });
+  handleTextChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleNumberChange = e =>
+    this.setState({ [e.target.name]: parseInt(e.target.value, 10) });
 
   handleChecked = e => this.setState({ [e.target.name]: e.target.checked });
 
-  toggleTag = tag =>
+  handleToggleTag = tag =>
     this.state.tags.includes(tag._id)
       ? this.setState({
           tags: this.state.tags.filter(id => id !== tag._id)
@@ -61,7 +47,7 @@ class GameForm extends React.Component {
             id="title"
             placeholder="Enter full game title"
             value={this.state.title}
-            onChange={this.handleOnChange}
+            onChange={this.handleTextChange}
           />
         </div>
         <div className="field">
@@ -71,7 +57,7 @@ class GameForm extends React.Component {
             name="description"
             id="description"
             value={this.state.description}
-            onChange={this.handleOnChange}
+            onChange={this.handleTextChange}
           />
         </div>
         <div className="three fields">
@@ -82,7 +68,7 @@ class GameForm extends React.Component {
               name="price"
               id="price"
               value={this.state.price}
-              onChange={this.handleOnChange}
+              onChange={this.handleNumberChange}
             />
           </div>
           <div className="field">
@@ -92,7 +78,7 @@ class GameForm extends React.Component {
               name="duration"
               id="duration"
               value={this.state.duration}
-              onChange={this.handleOnChange}
+              onChange={this.handleNumberChange}
             />
           </div>
           <div className="field">
@@ -102,7 +88,7 @@ class GameForm extends React.Component {
               name="players"
               id="players"
               value={this.state.players}
-              onChange={this.handleOnChange}
+              onChange={this.handleTextChange}
             />
           </div>
         </div>
@@ -124,7 +110,7 @@ class GameForm extends React.Component {
                 type="checkbox"
                 name={`tag_${tag.name}`}
                 checked={() => this.state.tags.include(tag.name)}
-                onChange={() => this.toggleTag(tag)}
+                onChange={() => this.handleToggleTag(tag)}
               />
               <label htmlFor={`tag_${tag.name}`}>{tag.name}</label>
             </div>
@@ -146,6 +132,26 @@ class GameForm extends React.Component {
           ))}
         </div>
         <div className="ui divider" />
+
+        <div className="field">
+          <label htmlFor="publisher">Publishers</label>
+          <select
+            name="publisher"
+            id="publisher"
+            value={this.state.publisher}
+            onChange={this.handleNumberChange}
+          >
+            <option key={0} value={0}>
+              ---- Please Select ----
+            </option>
+            {this.props.publishers.map(option => (
+              <option value={option._id} key={option._id}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <button className="ui button" type="submit">
           Create
         </button>
@@ -153,5 +159,14 @@ class GameForm extends React.Component {
     );
   }
 }
+
+GameForm.propTypes = {
+  publishers: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
 
 export default GameForm;

@@ -3,7 +3,7 @@ import GamesList from "./components/GamesList";
 import _orderBy from "lodash/orderBy";
 import GameForm from "./components/GameForm";
 // import _find from "lodash/find";
-import games from "./data";
+import { gameData, gamePublishers } from "./data";
 
 class App extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount = () =>
     this.setState({
-      games: this.sortGames(games)
+      games: this.sortGames(gameData)
     });
 
   toggleFeatured = id => {
@@ -63,7 +63,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
-        <GameForm />
+        <GameForm publishers={gamePublishers} />
         <br />
         <GamesList
           games={this.state.games}
