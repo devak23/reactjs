@@ -8,6 +8,12 @@ const gameTags = [
   { _id: 5, name: "Kids" }
 ];
 
+const gameGenres = [
+  { _id: 1, name: "Euro" },
+  { _id: 2, name: "Abstract" },
+  { _id: 3, name: "Ameritrash" }
+];
+
 class GameForm extends React.Component {
   state = {
     title: "",
@@ -16,7 +22,8 @@ class GameForm extends React.Component {
     price: 0,
     players: "",
     featured: false,
-    tags: [] //contains only ids of the tag
+    tags: [], //contains only ids of the tag
+    genre: undefined
   };
 
   handleOnChange = e =>
@@ -40,6 +47,8 @@ class GameForm extends React.Component {
     e.preventDefault();
     console.log(this.state);
   };
+
+  handleRadioChanged = id => this.setState({ genre: id });
 
   render() {
     return (
@@ -106,7 +115,7 @@ class GameForm extends React.Component {
           />
           <label htmlFor="featured"> Featured ?</label>
         </div>
-
+        <div className="ui divider" />
         <div className="field">
           <label htmlFor="">Tags</label>
           {gameTags.map(tag => (
@@ -121,7 +130,22 @@ class GameForm extends React.Component {
             </div>
           ))}
         </div>
-
+        <div className="ui divider" />
+        <div className="field">
+          <label htmlFor="">Genres</label>
+          {gameGenres.map(genre => (
+            <div className="inline field" key={`genre-${genre._id}`}>
+              <input
+                type="radio"
+                name="genre"
+                checked={this.state.genre === genre._id}
+                onChange={() => this.handleRadioChanged(genre._id)}
+              />
+              <label htmlFor={`genre-${genre._id}`}>{genre.name}</label>
+            </div>
+          ))}
+        </div>
+        <div className="ui divider" />
         <button className="ui button" type="submit">
           Create
         </button>
