@@ -2,7 +2,6 @@ import React from "react";
 import GamesList from "./components/GamesList";
 import _orderBy from "lodash/orderBy";
 import GameForm from "./components/GameForm";
-// import _find from "lodash/find";
 import { gameData, gamePublishers } from "./data";
 import TopNavigation from "./components/TopNavigation";
 
@@ -26,22 +25,6 @@ class App extends React.Component {
     });
 
   toggleFeatured = id => {
-    // MUTATING------------
-    // const { games } = this.state;
-    // const game = _find(games, { id });
-    // game.featured = !game.featured;
-    // this.setState({ games: this.sortGames(games) });
-
-    // NON-MUTATING------------
-    // const newGames = this.state.games.map(game => {
-    //   if (game.id === id) {
-    //     return { ...game, featured: !game.featured };
-    //   }
-    //   return game;
-    // });
-    // this.setState({ games: this.sortGames(newGames) });
-
-    // CONCISE ------------------
     this.setState({
       games: this.sortGames(
         this.state.games.map(
@@ -65,11 +48,30 @@ class App extends React.Component {
   handleShowForm = showForm => this.setState({ showForm });
 
   render() {
+    const numberOfColumns = this.state.showForm ? "ten" : "sixteen";
     return (
       <div className="ui container" style={{ marginTop: "40px" }}>
         <TopNavigation showGameForm={this.handleShowForm} />
-        <br />
-        {this.state.showForm ? (
+
+        <div className="ui stackable grid">
+          {this.state.showForm && (
+            <div className="six wide column">
+              <GameForm
+                publishers={gamePublishers}
+                showGameForm={this.handleShowForm}
+              />
+            </div>
+          )}
+
+          <div className={`${numberOfColumns} wide column`}>
+            <GamesList
+              games={this.state.games}
+              toggleFeatured={this.toggleFeatured}
+              handleRating={this.handleRating}
+            />
+          </div>
+        </div>
+        {/* {this.state.showForm ? (
           <GameForm
             publishers={gamePublishers}
             showGameForm={this.handleShowForm}
@@ -80,7 +82,7 @@ class App extends React.Component {
             toggleFeatured={this.toggleFeatured}
             handleRating={this.handleRating}
           />
-        )}
+        )} */}
       </div>
     );
   }
