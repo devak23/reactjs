@@ -4,33 +4,38 @@ import ReactImageFallback from "react-image-fallback";
 
 class GameForm extends React.Component {
   state = {
-    title: "",
-    description: "",
-    duration: 0,
-    price: 0,
-    players: "",
-    featured: false,
-    publisher: 0,
-    thumbnail: ""
+    data: {
+      title: "",
+      description: "",
+      duration: 0,
+      price: 0,
+      players: "",
+      featured: false,
+      publisher: 0,
+      thumbnail: ""
+    }
   };
 
-  handleTextChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleTextChange = e =>
+    this.setState({ data: { [e.target.name]: e.target.value } });
 
   handleNumberChange = e =>
-    this.setState({ [e.target.name]: parseInt(e.target.value, 10) });
+    this.setState({ data: { [e.target.name]: parseInt(e.target.value, 10) } });
 
-  handleChecked = e => this.setState({ [e.target.name]: e.target.checked });
+  handleChecked = e =>
+    this.setState({ data: { [e.target.name]: e.target.checked } });
 
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
   };
 
-  handleRadioChanged = id => this.setState({ genre: id });
+  handleRadioChanged = id => this.setState({ data: { genre: id } });
 
   handleCancelForm = e => this.props.showGameForm(false);
 
   render() {
+    const { data } = this.state;
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
         <div className="ui grid">
@@ -44,7 +49,7 @@ class GameForm extends React.Component {
                 name="title"
                 id="title"
                 placeholder="Enter full game title"
-                value={this.state.title}
+                value={data.title}
                 onChange={this.handleTextChange}
               />
             </div>
@@ -54,7 +59,7 @@ class GameForm extends React.Component {
                 type="text"
                 name="description"
                 id="description"
-                value={this.state.description}
+                value={data.description}
                 onChange={this.handleTextChange}
               />
             </div>
@@ -65,7 +70,7 @@ class GameForm extends React.Component {
               <select
                 name="publisher"
                 id="publisher"
-                value={this.state.publisher}
+                value={data.publisher}
                 onChange={this.handleNumberChange}
               >
                 <option key={0} value={0}>
@@ -81,7 +86,7 @@ class GameForm extends React.Component {
           </div>
           <div className="four wide column">
             <ReactImageFallback
-              src={this.state.thumbnail}
+              src={data.thumbnail}
               fallbackImage="http://via.placeholder.com/250x250"
               alt="Thumbnail"
               className="ui image"
@@ -99,7 +104,7 @@ class GameForm extends React.Component {
             name="thumbnail"
             id="thumbnail"
             placeholder="Image Url here..."
-            value={this.state.thumbnail}
+            value={data.thumbnail}
             onChange={this.handleTextChange}
           />
         </div>
@@ -113,7 +118,7 @@ class GameForm extends React.Component {
               type="number"
               name="price"
               id="price"
-              value={this.state.price}
+              value={data.price}
               onChange={this.handleNumberChange}
             />
           </div>
@@ -125,7 +130,7 @@ class GameForm extends React.Component {
               type="number"
               name="duration"
               id="duration"
-              value={this.state.duration}
+              value={data.duration}
               onChange={this.handleNumberChange}
             />
           </div>
@@ -137,7 +142,7 @@ class GameForm extends React.Component {
               type="text"
               name="players"
               id="players"
-              value={this.state.players}
+              value={data.players}
               onChange={this.handleTextChange}
             />
           </div>
@@ -146,7 +151,7 @@ class GameForm extends React.Component {
           <input
             type="checkbox"
             name="featured"
-            checked={this.state.featured}
+            checked={data.featured}
             onChange={this.handleChecked}
           />
           <label className="required" htmlFor="featured">
