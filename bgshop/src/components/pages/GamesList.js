@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GameCard from "./GameCard";
-import Message from "./Message";
+import Message from "../helpers/Message";
 
 const GamesList = ({ games, toggleFeatured, handleRating }) => (
   <div className="ui four cards">

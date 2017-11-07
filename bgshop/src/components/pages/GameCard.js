@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Rating } from "semantic-ui-react";
-import PriceInDollars from "./PriceInDollars";
-import Featured from "./Featured";
+import PriceInDollars from "../helpers/PriceInDollars";
+import Featured from "../helpers/Featured";
 
 // Emmet code used: explanation of what the code expands to
 // ---------------------------------------------------------

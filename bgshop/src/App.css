@@ -1,0 +1,14 @@
+.fullHeightContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  flex: 0.5;
+}
+
+.required:after {
+  content: " *";
+}

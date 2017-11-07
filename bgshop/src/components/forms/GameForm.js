@@ -36,7 +36,9 @@ class GameForm extends React.Component {
         <div className="ui grid">
           <div className="twelve wide column">
             <div className="field">
-              <label htmlFor="title">Game Title</label>
+              <label className="required" htmlFor="title">
+                Game Title
+              </label>
               <input
                 type="text"
                 name="title"
@@ -57,7 +59,9 @@ class GameForm extends React.Component {
               />
             </div>
             <div className="field">
-              <label htmlFor="publisher">Publisher</label>
+              <label className="required" htmlFor="publisher">
+                Publisher
+              </label>
               <select
                 name="publisher"
                 id="publisher"
@@ -87,7 +91,9 @@ class GameForm extends React.Component {
 
         <br />
         <div className="field">
-          <label htmlFor="thumbnail">Thumbnail</label>
+          <label className="required" htmlFor="thumbnail">
+            Thumbnail
+          </label>
           <input
             type="text"
             name="thumbnail"
@@ -100,7 +106,9 @@ class GameForm extends React.Component {
 
         <div className="three fields">
           <div className="field">
-            <label htmlFor="price">Price (in cents)</label>
+            <label className="required" htmlFor="price">
+              Price (in cents)
+            </label>
             <input
               type="number"
               name="price"
@@ -110,7 +118,9 @@ class GameForm extends React.Component {
             />
           </div>
           <div className="field">
-            <label htmlFor="duration">Duration (in mins) </label>
+            <label className="required" htmlFor="duration">
+              Duration (in mins){" "}
+            </label>
             <input
               type="number"
               name="duration"
@@ -120,7 +130,9 @@ class GameForm extends React.Component {
             />
           </div>
           <div className="field">
-            <label htmlFor="players">Players</label>
+            <label className="required" htmlFor="players">
+              Players
+            </label>
             <input
               type="text"
               name="players"
@@ -137,7 +149,10 @@ class GameForm extends React.Component {
             checked={this.state.featured}
             onChange={this.handleChecked}
           />
-          <label htmlFor="featured"> Featured ?</label>
+          <label className="required" htmlFor="featured">
+            {" "}
+            Featured ?
+          </label>
         </div>
         <div className="ui divider" />
         <div className="ui fluid buttons">
