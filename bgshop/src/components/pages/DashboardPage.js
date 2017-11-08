@@ -7,7 +7,7 @@ import TopNavigation from "./TopNavigation";
 
 class Dashboard extends React.Component {
   state = {
-    showForm: false,
+    showGameForm: false,
     games: []
   };
 
@@ -45,20 +45,27 @@ class Dashboard extends React.Component {
     });
   };
 
-  handleShowForm = showForm => this.setState({ showForm });
+  handleshowGameForm = showGameForm => this.setState({ showGameForm });
+
+  handleSubmit = game =>
+    this.setState({
+      games: this.sortGames([...this.state.games, { ...game }]),
+      showGameForm: false
+    });
 
   render() {
-    const numberOfColumns = this.state.showForm ? "ten" : "sixteen";
+    const numberOfColumns = this.state.showGameForm ? "ten" : "sixteen";
     return (
       <div className="ui container">
-        <TopNavigation showGameForm={this.handleShowForm} />
+        <TopNavigation showGameForm={this.handleshowGameForm} />
         <br />
         <div className="ui stackable grid">
-          {this.state.showForm && (
+          {this.state.showGameForm && (
             <div className="six wide column">
               <GameForm
                 publishers={gamePublishers}
-                showGameForm={this.handleShowForm}
+                showGameForm={this.handleshowGameForm}
+                submit={this.handleSubmit}
               />
             </div>
           )}
@@ -71,18 +78,6 @@ class Dashboard extends React.Component {
             />
           </div>
         </div>
-        {/* {this.state.showForm ? (
-          <GameForm
-            publishers={gamePublishers}
-            showGameForm={this.handleShowForm}
-          />
-        ) : (
-          <GamesList
-            games={this.state.games}
-            toggleFeatured={this.toggleFeatured}
-            handleRating={this.handleRating}
-          />
-        )} */}
       </div>
     );
   }

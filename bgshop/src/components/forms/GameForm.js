@@ -48,8 +48,8 @@ class GameForm extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (isEmpty(errors)) {
-      console.log(this.state.data);
       console.log("Sending data to server");
+      this.props.submit(this.state.data);
     } else {
       console.log("Fix the problems first");
     }
@@ -230,12 +230,14 @@ GameForm.propTypes = {
       name: PropTypes.string.isRequired
     })
   ).isRequired,
-  showGameForm: PropTypes.func.isRequired
+  showGameForm: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired
 };
 
 GameForm.defaultProps = {
   publishers: [],
-  showForm: false
+  showForm: false,
+  submit: () => {}
 };
 
 export default GameForm;

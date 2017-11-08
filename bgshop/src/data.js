@@ -129,60 +129,60 @@ export const gameData = [
     publisher: 1,
     description:
       "Merlin’s Company is a new expansion for the popular Shadows over Camelot board game. It introduces a host of new characters - including 7 new knights and Merlin himself - to the Shadows over Camelot epic. The wise old wizard is now a full-blown independent character in the game, complete with his own figure. He travels the board lending guidance and a helping hand to the embattled knights."
-  },
-  {
-    id: 9,
-    featured: false,
-    price: 2346,
-    title: "7 Wonders",
-    thumbnail:
-      "https://cf.geekdo-images.com/OEX3wOaG21_iC4G5ww_49_AhkIU=/fit-in/1200x630/pic860217.jpg",
-    players: "3-7",
-    duration: 30,
-    rating: 1,
-    publisher: 1,
-    description:
-      "7 Wonders is a card development game. Some cards have immediate effects, while others provide bonuses or upgrades later in the game. Some cards provide discounts on future purchases. Some provide military strength to overpower your neighbors and others give nothing but victory points. Each card is played immediately after being drafted, so you'll know which cards your neighbor is receiving and how his choices might affect what you've already built up. Cards are passed left-right-left over the three ages, so you need to keep an eye on the neighbors in both directions."
-  },
-  {
-    id: 10,
-    featured: true,
-    price: 2566,
-    title: "Shadows Over Camelot",
-    thumbnail:
-      "https://cf.geekdo-images.com/LhqG9KQX2NvjRYeFXpzH4sehlqI=/fit-in/1200x630/pic70547.jpg",
-    players: "2-5",
-    duration: 40,
-    rating: 2,
-    publisher: 1,
-    description:
-      "Shadows over Camelot is a cooperative/semi-cooperative hand-management and deduction-based board game for 3–7 players. Each player represents a knight of the Round Table and they must collaborate to overcome a number of quests, ranging from defeating the Black Knight to the search for the Holy Grail. Completed quests place white swords on the Round Table; failed quests add black swords and/or siege engines around Camelot."
-  },
-  {
-    id: 11,
-    featured: false,
-    price: 6966,
-    title: "Pirate's Cove",
-    thumbnail:
-      "https://blog-cdn.daysofwonder.com/dow-uploads/2007/06/pirates-cove-cover_sm.jpg",
-    players: "4-7",
-    duration: 70,
-    rating: 4,
-    publisher: 1,
-    description:
-      "Come aboard and sail to Pirate's Cove, the legendary hideaway of thieving pirates and cutthroat buccaneers. The tales of those legendary pirates of old who've fought and survived these mysterious waters still haunt all those who yearn for a life at sea. Armed with a secret map and starting with a modestly outfitted sloop salvaged from last winter's storm, you set sail to Pirate's Cove, your eyes filled with visions of treasure and fame, your lungs filled with the salty air of the high seas."
-  },
-  {
-    id: 12,
-    featured: false,
-    price: 3499,
-    title: "Colosseum",
-    thumbnail: "https://cf.geekdo-images.com/images/pic182188.jpg",
-    players: "3-5",
-    duration: 45,
-    rating: 3,
-    publisher: 1,
-    description:
-      "In Colosseum each player is a Roman impresario - producing great spectacles in his or her arena in the hopes of attracting the most spectators. Players earn wealth and glory for each event run, using it to create ever more ambitious events. They will need to improve their arena, find the best performers, lure the Emperor and his nobles, and manage assets for long-term success to be granted the title of Grand Impresario, with tales of your extraordinary spectacles acclaimed throughout the empire."
   }
+  // {
+  //   id: 9,
+  //   featured: false,
+  //   price: 2346,
+  //   title: "7 Wonders",
+  //   thumbnail:
+  //     "https://cf.geekdo-images.com/OEX3wOaG21_iC4G5ww_49_AhkIU=/fit-in/1200x630/pic860217.jpg",
+  //   players: "3-7",
+  //   duration: 30,
+  //   rating: 1,
+  //   publisher: 1,
+  //   description:
+  //     "7 Wonders is a card development game. Some cards have immediate effects, while others provide bonuses or upgrades later in the game. Some cards provide discounts on future purchases. Some provide military strength to overpower your neighbors and others give nothing but victory points. Each card is played immediately after being drafted, so you'll know which cards your neighbor is receiving and how his choices might affect what you've already built up. Cards are passed left-right-left over the three ages, so you need to keep an eye on the neighbors in both directions."
+  // },
+  // {
+  //   id: 10,
+  //   featured: true,
+  //   price: 2566,
+  //   title: "Shadows Over Camelot",
+  //   thumbnail:
+  //     "https://cf.geekdo-images.com/LhqG9KQX2NvjRYeFXpzH4sehlqI=/fit-in/1200x630/pic70547.jpg",
+  //   players: "2-5",
+  //   duration: 40,
+  //   rating: 2,
+  //   publisher: 1,
+  //   description:
+  //     "Shadows over Camelot is a cooperative/semi-cooperative hand-management and deduction-based board game for 3–7 players. Each player represents a knight of the Round Table and they must collaborate to overcome a number of quests, ranging from defeating the Black Knight to the search for the Holy Grail. Completed quests place white swords on the Round Table; failed quests add black swords and/or siege engines around Camelot."
+  // },
+  // {
+  //   id: 11,
+  //   featured: false,
+  //   price: 6966,
+  //   title: "Pirate's Cove",
+  //   thumbnail:
+  //     "https://blog-cdn.daysofwonder.com/dow-uploads/2007/06/pirates-cove-cover_sm.jpg",
+  //   players: "4-7",
+  //   duration: 70,
+  //   rating: 4,
+  //   publisher: 1,
+  //   description:
+  //     "Come aboard and sail to Pirate's Cove, the legendary hideaway of thieving pirates and cutthroat buccaneers. The tales of those legendary pirates of old who've fought and survived these mysterious waters still haunt all those who yearn for a life at sea. Armed with a secret map and starting with a modestly outfitted sloop salvaged from last winter's storm, you set sail to Pirate's Cove, your eyes filled with visions of treasure and fame, your lungs filled with the salty air of the high seas."
+  // },
+  // {
+  //   id: 12,
+  //   featured: false,
+  //   price: 3499,
+  //   title: "Colosseum",
+  //   thumbnail: "https://cf.geekdo-images.com/images/pic182188.jpg",
+  //   players: "3-5",
+  //   duration: 45,
+  //   rating: 3,
+  //   publisher: 1,
+  //   description:
+  //     "In Colosseum each player is a Roman impresario - producing great spectacles in his or her arena in the hopes of attracting the most spectators. Players earn wealth and glory for each event run, using it to create ever more ambitious events. They will need to improve their arena, find the best performers, lure the Emperor and his nobles, and manage assets for long-term success to be granted the title of Grand Impresario, with tales of your extraordinary spectacles acclaimed throughout the empire."
+  // }
 ];
