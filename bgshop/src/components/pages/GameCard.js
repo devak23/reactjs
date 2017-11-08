@@ -14,7 +14,7 @@ import Featured from "../helpers/Featured";
 // a.header+.meta>i.icon.users+i.icon.wait:
 //      Content section consists of header and meta block that will have 2 icons for number of players and duration.
 //      so we use i tag with classes icon users and i.icon.wait
-//
+// .ui.two.buttons>a.ui.basic.button*2
 
 class GameCard extends React.Component {
   state = {
@@ -64,6 +64,19 @@ class GameCard extends React.Component {
             <Rating icon="star" rating={game.rating} maxRating={5} disabled />
           </div>
         </div>
+        <div className="extra content">
+          <div className="ui two buttons">
+            <a
+              className="ui green basic button"
+              onClick={() => this.props.editGame(game)}
+            >
+              <i className="ui icon edit" />
+            </a>
+            <a className="ui red basic button">
+              <i className="ui trash icon " />
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
@@ -79,7 +92,8 @@ GameCard.propTypes = {
     price: PropTypes.number.isRequired
   }).isRequired,
   toggleFeatured: PropTypes.func.isRequired,
-  handleRating: PropTypes.func.isRequired
+  handleRating: PropTypes.func.isRequired,
+  editGame: PropTypes.func.isRequired
 };
 
 export default GameCard;

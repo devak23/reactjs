@@ -8,7 +8,8 @@ import TopNavigation from "./TopNavigation";
 class Dashboard extends React.Component {
   state = {
     showGameForm: false,
-    games: []
+    games: [],
+    selectedGame: {}
   };
 
   sortGames(games) {
@@ -53,6 +54,9 @@ class Dashboard extends React.Component {
       showGameForm: false
     });
 
+  handleEditGame = game =>
+    this.setState({ selectedGame: game, showGameForm: true });
+
   render() {
     const numberOfColumns = this.state.showGameForm ? "ten" : "sixteen";
     return (
@@ -66,6 +70,7 @@ class Dashboard extends React.Component {
                 publishers={gamePublishers}
                 showGameForm={this.handleshowGameForm}
                 submit={this.handleSubmit}
+                game={this.state.selectedGame}
               />
             </div>
           )}
@@ -75,6 +80,7 @@ class Dashboard extends React.Component {
               games={this.state.games}
               toggleFeatured={this.toggleFeatured}
               handleRating={this.handleRating}
+              editGame={this.handleEditGame}
             />
           </div>
         </div>

@@ -68,6 +68,10 @@ class GameForm extends React.Component {
     return errors;
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ data: props.game });
+  }
+
   handleCancelForm = e => this.props.showGameForm(false);
 
   render() {
@@ -231,7 +235,16 @@ GameForm.propTypes = {
     })
   ).isRequired,
   showGameForm: PropTypes.func.isRequired,
-  submit: PropTypes.func.isRequired
+  submit: PropTypes.func.isRequired,
+  game: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    players: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    publisher: PropTypes.number.isRequired
+  })
 };
 
 GameForm.defaultProps = {
