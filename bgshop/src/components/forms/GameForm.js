@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactImageFallback from "react-image-fallback";
+import FormInlineMessage from "../helpers/FormInlineMessage";
 
 class GameForm extends React.Component {
   state = {
@@ -49,12 +50,12 @@ class GameForm extends React.Component {
   handleCancelForm = e => this.props.showGameForm(false);
 
   render() {
-    const { data } = this.state;
+    const { data, errors } = this.state;
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
         <div className="ui grid">
           <div className="twelve wide column">
-            <div className="field">
+            <div className={errors.name ? "field error" : "field"}>
               <label className="required" htmlFor="title">
                 Game Title
               </label>
@@ -66,8 +67,9 @@ class GameForm extends React.Component {
                 value={data.title}
                 onChange={this.handleTextChange}
               />
+              <FormInlineMessage content={errors.name} type="error" />
             </div>
-            <div className="field">
+            <div className={errors.description ? "field error" : "field"}>
               <label htmlFor="description">Game Description</label>
               <textarea
                 type="text"
@@ -76,8 +78,9 @@ class GameForm extends React.Component {
                 value={data.description}
                 onChange={this.handleTextChange}
               />
+              <FormInlineMessage content={errors.description} type="error" />
             </div>
-            <div className="field">
+            <div className={errors.publisher ? "field error" : "field"}>
               <label className="required" htmlFor="publisher">
                 Publisher
               </label>
@@ -96,6 +99,7 @@ class GameForm extends React.Component {
                   </option>
                 ))}
               </select>
+              <FormInlineMessage content={errors.publisher} type="error" />
             </div>
           </div>
           <div className="four wide column">
@@ -109,7 +113,7 @@ class GameForm extends React.Component {
         </div>
 
         <br />
-        <div className="field">
+        <div className={errors.thumbnail ? "field error" : "field"}>
           <label className="required" htmlFor="thumbnail">
             Thumbnail
           </label>
@@ -121,10 +125,11 @@ class GameForm extends React.Component {
             value={data.thumbnail}
             onChange={this.handleTextChange}
           />
+          <FormInlineMessage content={errors.thumbnail} type="error" />
         </div>
 
         <div className="three fields">
-          <div className="field">
+          <div className={errors.price ? "field error" : "field"}>
             <label className="required" htmlFor="price">
               Price (in cents)
             </label>
@@ -135,10 +140,11 @@ class GameForm extends React.Component {
               value={data.price}
               onChange={this.handleNumberChange}
             />
+            <FormInlineMessage content={errors.price} type="error" />
           </div>
-          <div className="field">
+          <div className={errors.duration ? "field error" : "field"}>
             <label className="required" htmlFor="duration">
-              Duration (in mins){" "}
+              Duration (in mins)
             </label>
             <input
               type="number"
@@ -147,8 +153,9 @@ class GameForm extends React.Component {
               value={data.duration}
               onChange={this.handleNumberChange}
             />
+            <FormInlineMessage content={errors.duration} type="error" />
           </div>
-          <div className="field">
+          <div className={errors.players ? "field error" : "field"}>
             <label className="required" htmlFor="players">
               Players
             </label>
@@ -159,9 +166,10 @@ class GameForm extends React.Component {
               value={data.players}
               onChange={this.handleTextChange}
             />
+            <FormInlineMessage content={errors.players} type="error" />
           </div>
         </div>
-        <div className="inline field">
+        <div className={`inline ${errors.featured ? "field error" : "field"}`}>
           <input
             type="checkbox"
             name="featured"
@@ -169,9 +177,9 @@ class GameForm extends React.Component {
             onChange={this.handleChecked}
           />
           <label className="required" htmlFor="featured">
-            {" "}
             Featured ?
           </label>
+          <FormInlineMessage content={errors.featured} type="error" />
         </div>
         <div className="ui divider" />
         <div className="ui fluid buttons">
