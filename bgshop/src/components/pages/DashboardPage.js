@@ -46,7 +46,11 @@ class Dashboard extends React.Component {
     });
   };
 
-  handleshowGameForm = showGameForm => this.setState({ showGameForm });
+  handleShowGameForm = () =>
+    this.setState({ showGameForm: true, selectedGame: {} });
+
+  handleHideGameForm = () =>
+    this.setState({ showGameForm: false, selectedGame: {} });
 
   handleSubmit = game =>
     this.setState({
@@ -61,14 +65,14 @@ class Dashboard extends React.Component {
     const numberOfColumns = this.state.showGameForm ? "ten" : "sixteen";
     return (
       <div className="ui container">
-        <TopNavigation showGameForm={this.handleshowGameForm} />
+        <TopNavigation showGameForm={this.handleShowGameForm} />
         <br />
         <div className="ui stackable grid">
           {this.state.showGameForm && (
             <div className="six wide column">
               <GameForm
                 publishers={gamePublishers}
-                showGameForm={this.handleshowGameForm}
+                hideGameForm={this.handleHideGameForm}
                 submit={this.handleSubmit}
                 game={this.state.selectedGame}
               />

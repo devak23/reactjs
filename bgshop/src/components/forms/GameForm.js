@@ -4,18 +4,21 @@ import ReactImageFallback from "react-image-fallback";
 import FormInlineMessage from "../helpers/FormInlineMessage";
 import isEmpty from "lodash/isEmpty";
 
+const initialData = {
+  id: null,
+  title: "",
+  description: "",
+  duration: 0,
+  price: 0,
+  players: "",
+  featured: false,
+  publisher: 0,
+  thumbnail: ""
+};
+
 class GameForm extends React.Component {
   state = {
-    data: {
-      title: "",
-      description: "",
-      duration: 0,
-      price: 0,
-      players: "",
-      featured: false,
-      publisher: 0,
-      thumbnail: ""
-    },
+    data: initialData,
     errors: {}
   };
 
@@ -68,11 +71,21 @@ class GameForm extends React.Component {
     return errors;
   }
 
-  componentWillReceiveProps(props) {
-    this.setState({ data: props.game });
+  componentDidMount() {
+    this.props.game.id && this.setState({ data: this.props.game });
   }
 
-  handleCancelForm = e => this.props.showGameForm(false);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.game.id && nextProps.game.id !== this.state.data.id) {
+      this.setState({ data: nextProps.game });
+    }
+
+    if (!nextProps.game.id) {
+      this.setState({ data: initialData });
+    }
+  }
+
+  handleCancelForm = e => this.props.hideGameForm(false);
 
   render() {
     const { data, errors } = this.state;
@@ -234,23 +247,24 @@ GameForm.propTypes = {
       name: PropTypes.string.isRequired
     })
   ).isRequired,
-  showGameForm: PropTypes.func.isRequired,
+  hideGameForm: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
   game: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    players: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    publisher: PropTypes.number.isRequired
+    title: PropTypes.string,
+    description: PropTypes.string,
+    players: PropTypes.string,
+    thumbnail: PropTypes.string,
+    duration: PropTypes.number,
+    price: PropTypes.number,
+    publisher: PropTypes.number
   })
 };
 
 GameForm.defaultProps = {
   publishers: [],
   showForm: false,
-  submit: () => {}
+  submit: () => {},
+  game: {}
 };
 
 export default GameForm;
