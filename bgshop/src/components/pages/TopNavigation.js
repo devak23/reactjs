@@ -10,14 +10,16 @@ const TopNavigation = ({ showGameForm }) => (
       <a href="/" className="item">
         <Header as="h4">MyGameShop</Header>
       </a>
+
+      <a role="button" className="item" onClick={() => showGameForm(true)}>
+        <i className="icon plus" />Add New Game
+      </a>
+
       <a href="/login" className="item">
         Login
       </a>
       <a href="/signup" className="item">
         Sign up
-      </a>
-      <a role="button" className="item" onClick={() => showGameForm(true)}>
-        <i className="icon plus" />Add New Game
       </a>
     </div>
   </div>

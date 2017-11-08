@@ -13,24 +13,38 @@ class GameForm extends React.Component {
       featured: false,
       publisher: 0,
       thumbnail: ""
-    }
+    },
+    errors: {}
   };
 
   handleTextChange = e =>
-    this.setState({ data: { [e.target.name]: e.target.value } });
+    this.setState({
+      data: {
+        ...this.state.data,
+        [e.target.name]: e.target.value
+      }
+    });
 
   handleNumberChange = e =>
-    this.setState({ data: { [e.target.name]: parseInt(e.target.value, 10) } });
+    this.setState({
+      data: {
+        ...this.state.data,
+        [e.target.name]: parseInt(e.target.value, 10)
+      }
+    });
 
   handleChecked = e =>
-    this.setState({ data: { [e.target.name]: e.target.checked } });
+    this.setState({
+      data: {
+        ...this.state.data,
+        [e.target.name]: e.target.checked
+      }
+    });
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.state.data);
   };
-
-  handleRadioChanged = id => this.setState({ data: { genre: id } });
 
   handleCancelForm = e => this.props.showGameForm(false);
 
