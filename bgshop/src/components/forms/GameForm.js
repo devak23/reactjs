@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactImageFallback from "react-image-fallback";
 import FormInlineMessage from "../helpers/FormInlineMessage";
+import isEmpty from "lodash/isEmpty";
 
 class GameForm extends React.Component {
   state = {
@@ -44,8 +45,28 @@ class GameForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.data);
+    const errors = this.validate(this.state.data);
+    this.setState({ errors });
+    if (isEmpty(errors)) {
+      console.log(this.state.data);
+      console.log("Sending data to server");
+    } else {
+      console.log("Fix the problems first");
+    }
   };
+
+  validate(data) {
+    const errors = {};
+
+    if (!data.title) errors.title = "Title field cannot be blank!";
+    if (!data.players) errors.players = "Players field cannot be blank!";
+    if (!data.publisher) errors.publisher = "Publisher field cannot be blank!";
+
+    if (data.price <= 0) errors.price = "Price cannot be less than 0";
+    if (data.duration <= 0) errors.duration = "Duration cannot be less than 0";
+
+    return errors;
+  }
 
   handleCancelForm = e => this.props.showGameForm(false);
 
@@ -55,7 +76,7 @@ class GameForm extends React.Component {
       <form className="ui form" onSubmit={this.handleSubmit}>
         <div className="ui grid">
           <div className="twelve wide column">
-            <div className={errors.name ? "field error" : "field"}>
+            <div className={errors.title ? "field error" : "field"}>
               <label className="required" htmlFor="title">
                 Game Title
               </label>
@@ -67,7 +88,7 @@ class GameForm extends React.Component {
                 value={data.title}
                 onChange={this.handleTextChange}
               />
-              <FormInlineMessage content={errors.name} type="error" />
+              <FormInlineMessage content={errors.title} type="error" />
             </div>
             <div className={errors.description ? "field error" : "field"}>
               <label htmlFor="description">Game Description</label>
