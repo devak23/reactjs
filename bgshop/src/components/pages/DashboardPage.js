@@ -1,4 +1,5 @@
 import React from "react";
+import maxBy from "lodash/maxBy";
 import GamesList from "./GamesList";
 import _orderBy from "lodash/orderBy";
 import GameForm from "../forms/GameForm";
@@ -67,7 +68,10 @@ class Dashboard extends React.Component {
 
   addGame = game =>
     this.setState({
-      games: this.sortGames([...this.state.games, { ...game }]),
+      games: this.sortGames([
+        ...this.state.games,
+        { ...game, id: maxBy(this.state.games, "id").id + 1 }
+      ]),
       showGameForm: false
     });
 

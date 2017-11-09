@@ -59,77 +59,77 @@ export const gameData = [
     publisher: 1,
     description:
       "Crossing into the Land of 1001 Nights, your caravan arrives at the fabled Sultanate of Naqala. The old sultan just died and control of Naqala is up for grabs! The oracles foretold of strangers who would maneuver the Five Tribes to gain influence over the legendary city-state. Will you fulfill the prophecy? Invoke the old Djinns and move the Tribes into position at the right time, and the Sultanate may become yours!"
-  },
-  {
-    id: 4,
-    featured: true,
-    price: 2999,
-    title: "Roll For The Galaxy",
-    thumbnail:
-      "https://media.brettspiel-angebote.de/2016/01/cover-roll-for-the-galaxy-400x400.jpg",
-    players: "1-2",
-    duration: 90,
-    rating: 2,
-    publisher: 1,
-    description:
-      "Roll for the Galaxy is a dice game of building space empires for 2–5 players. Your dice represent your populace, whom you direct to develop new technologies, settle worlds, and ship goods. The player who best manages his workers and builds the most prosperous empire wins!"
-  },
-  {
-    id: 5,
-    featured: true,
-    price: 5999,
-    title: "Monopoly",
-    thumbnail:
-      "http://www.bestchoicereviews.org/wp-content/uploads/2014/12/monopoly-card-and-board-games-1-1024x1024.jpg",
-    players: "2-9",
-    duration: 120,
-    rating: 5,
-    publisher: 1,
-    description:
-      "Players take the part of land owners, attempting to buy and then develop their land. Income is gained by other players visiting their properties and money is spent when they visit properties belonging to other players. When times get tough, players may have to mortgage their properties to raise cash for fines, taxes and other misfortunes."
-  },
-  {
-    id: 6,
-    featured: false,
-    price: 1599,
-    title: "Ticket to Ride",
-    thumbnail:
-      "http://www.thirstymeeples.co.uk/images/uploads/games/Ticket_to_Ride-Card_Game.jpg",
-    players: "2-3",
-    duration: 25,
-    rating: 4,
-    publisher: 1,
-    description:
-      "With elegantly simple gameplay, Ticket to Ride can be learned in under 15 minutes, while providing players with intense strategic and tactical decisions every turn. Players collect cards of various types of train cars they then use to claim railway routes in North America. The longer the routes, the more points they earn. Additional points come to those who fulfill Destination Tickets – goal cards that connect distant cities; and to the player who builds the longest continuous route."
-  },
-  {
-    id: 7,
-    featured: true,
-    price: 2349,
-    title: "Small World",
-    thumbnail:
-      "https://cf.geekdo-images.com/bOLrLRE0RoCNwUJTcwuEYMPRpgc=/fit-in/1200x630/pic428828.jpg",
-    players: "3-5",
-    duration: 45,
-    rating: 3,
-    publisher: 1,
-    description:
-      "In Small World, players vie for conquest and control of a world that is simply too small to accommodate them all. Designed by Philippe Keyaerts as a fantasy follow-up to his award-winning Vinci, Small World is inhabited by a zany cast of characters such as dwarves, wizards, amazons, giants, orcs, and even humans, who use their troops to occupy territory and conquer adjacent lands in order to push the other races off the face of the earth."
-  },
-  {
-    id: 8,
-    featured: false,
-    price: 4233,
-    title: "Merlin's Company",
-    thumbnail:
-      "http://sandbox.unclesgames.com/images/products/824968819937_big.jpg",
-    players: "1-5",
-    duration: 90,
-    rating: 3,
-    publisher: 1,
-    description:
-      "Merlin’s Company is a new expansion for the popular Shadows over Camelot board game. It introduces a host of new characters - including 7 new knights and Merlin himself - to the Shadows over Camelot epic. The wise old wizard is now a full-blown independent character in the game, complete with his own figure. He travels the board lending guidance and a helping hand to the embattled knights."
   }
+  // {
+  //   id: 4,
+  //   featured: true,
+  //   price: 2999,
+  //   title: "Roll For The Galaxy",
+  //   thumbnail:
+  //     "https://media.brettspiel-angebote.de/2016/01/cover-roll-for-the-galaxy-400x400.jpg",
+  //   players: "1-2",
+  //   duration: 90,
+  //   rating: 2,
+  //   publisher: 1,
+  //   description:
+  //     "Roll for the Galaxy is a dice game of building space empires for 2–5 players. Your dice represent your populace, whom you direct to develop new technologies, settle worlds, and ship goods. The player who best manages his workers and builds the most prosperous empire wins!"
+  // },
+  // {
+  //   id: 5,
+  //   featured: true,
+  //   price: 5999,
+  //   title: "Monopoly",
+  //   thumbnail:
+  //     "http://www.bestchoicereviews.org/wp-content/uploads/2014/12/monopoly-card-and-board-games-1-1024x1024.jpg",
+  //   players: "2-9",
+  //   duration: 120,
+  //   rating: 5,
+  //   publisher: 1,
+  //   description:
+  //     "Players take the part of land owners, attempting to buy and then develop their land. Income is gained by other players visiting their properties and money is spent when they visit properties belonging to other players. When times get tough, players may have to mortgage their properties to raise cash for fines, taxes and other misfortunes."
+  // },
+  // {
+  //   id: 6,
+  //   featured: false,
+  //   price: 1599,
+  //   title: "Ticket to Ride",
+  //   thumbnail:
+  //     "http://www.thirstymeeples.co.uk/images/uploads/games/Ticket_to_Ride-Card_Game.jpg",
+  //   players: "2-3",
+  //   duration: 25,
+  //   rating: 4,
+  //   publisher: 1,
+  //   description:
+  //     "With elegantly simple gameplay, Ticket to Ride can be learned in under 15 minutes, while providing players with intense strategic and tactical decisions every turn. Players collect cards of various types of train cars they then use to claim railway routes in North America. The longer the routes, the more points they earn. Additional points come to those who fulfill Destination Tickets – goal cards that connect distant cities; and to the player who builds the longest continuous route."
+  // },
+  // {
+  //   id: 7,
+  //   featured: true,
+  //   price: 2349,
+  //   title: "Small World",
+  //   thumbnail:
+  //     "https://cf.geekdo-images.com/bOLrLRE0RoCNwUJTcwuEYMPRpgc=/fit-in/1200x630/pic428828.jpg",
+  //   players: "3-5",
+  //   duration: 45,
+  //   rating: 3,
+  //   publisher: 1,
+  //   description:
+  //     "In Small World, players vie for conquest and control of a world that is simply too small to accommodate them all. Designed by Philippe Keyaerts as a fantasy follow-up to his award-winning Vinci, Small World is inhabited by a zany cast of characters such as dwarves, wizards, amazons, giants, orcs, and even humans, who use their troops to occupy territory and conquer adjacent lands in order to push the other races off the face of the earth."
+  // },
+  // {
+  //   id: 8,
+  //   featured: false,
+  //   price: 4233,
+  //   title: "Merlin's Company",
+  //   thumbnail:
+  //     "http://sandbox.unclesgames.com/images/products/824968819937_big.jpg",
+  //   players: "1-5",
+  //   duration: 90,
+  //   rating: 3,
+  //   publisher: 1,
+  //   description:
+  //     "Merlin’s Company is a new expansion for the popular Shadows over Camelot board game. It introduces a host of new characters - including 7 new knights and Merlin himself - to the Shadows over Camelot epic. The wise old wizard is now a full-blown independent character in the game, complete with his own figure. He travels the board lending guidance and a helping hand to the embattled knights."
+  // }
   // {
   //   id: 9,
   //   featured: false,
