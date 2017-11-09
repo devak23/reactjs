@@ -222,8 +222,7 @@ class GameForm extends React.Component {
         <div className="ui divider" />
         <div className="ui fluid buttons">
           <button className="ui positive button" type="submit">
-            <i className="icon check mark" />
-            Create Game
+            Save Game
           </button>
           <div className="or" />
           <button
@@ -231,7 +230,6 @@ class GameForm extends React.Component {
             type="button"
             onClick={this.handleCancelForm}
           >
-            <i className="icon remove" />
             Cancel
           </button>
         </div>

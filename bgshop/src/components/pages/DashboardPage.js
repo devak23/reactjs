@@ -52,7 +52,20 @@ class Dashboard extends React.Component {
   handleHideGameForm = () =>
     this.setState({ showGameForm: false, selectedGame: {} });
 
-  handleSubmit = game =>
+  saveGame = game => {
+    console.log(game);
+    game.id ? this.updateGame(game) : this.addGame(game);
+  };
+
+  updateGame = game =>
+    this.setState({
+      games: this.sortGames(
+        this.state.games.map(item => (item.id === game.id ? game : item))
+      ),
+      showGameForm: false
+    });
+
+  addGame = game =>
     this.setState({
       games: this.sortGames([...this.state.games, { ...game }]),
       showGameForm: false
@@ -73,7 +86,7 @@ class Dashboard extends React.Component {
               <GameForm
                 publishers={gamePublishers}
                 hideGameForm={this.handleHideGameForm}
-                submit={this.handleSubmit}
+                submit={this.saveGame}
                 game={this.state.selectedGame}
               />
             </div>
