@@ -74,6 +74,14 @@ class Dashboard extends React.Component {
   handleEditGame = game =>
     this.setState({ selectedGame: game, showGameForm: true });
 
+  handleDeleteGame = game =>
+    this.setState({
+      games: this.sortGames(
+        this.state.games.filter(item => item.id !== game.id)
+      ),
+      showGameForm: false
+    });
+
   render() {
     const numberOfColumns = this.state.showGameForm ? "ten" : "sixteen";
     return (
@@ -98,6 +106,7 @@ class Dashboard extends React.Component {
               toggleFeatured={this.toggleFeatured}
               handleRating={this.handleRating}
               editGame={this.handleEditGame}
+              deleteGame={this.handleDeleteGame}
             />
           </div>
         </div>

@@ -18,8 +18,12 @@ import Featured from "../helpers/Featured";
 
 class GameCard extends React.Component {
   state = {
-    showDescription: false
+    showDescription: false,
+    showConfirmation: false
   };
+
+  showConfirmation = () => this.setState({ showConfirmation: true });
+  hideConfirmation = () => this.setState({ showConfirmation: false });
 
   toggleDescription = () =>
     this.setState({ showDescription: !this.state.showDescription });
@@ -65,17 +69,40 @@ class GameCard extends React.Component {
           </div>
         </div>
         <div className="extra content">
-          <div className="ui two buttons">
-            <a
-              className="ui green basic button"
-              onClick={() => this.props.editGame(game)}
-            >
-              <i className="ui icon edit" />
-            </a>
-            <a className="ui red basic button">
-              <i className="ui trash icon " />
-            </a>
-          </div>
+          {this.state.showConfirmation ? (
+            <div>
+              <p> Are you sure you want to delete the game?</p>
+              <div className="ui two buttons">
+                <a
+                  className="ui red button"
+                  onClick={() => this.props.deleteGame(game)}
+                >
+                  <i className="ui icon check mark" />YES
+                </a>
+                <a
+                  className="ui grey basic button"
+                  onClick={this.hideConfirmation}
+                >
+                  <i className="ui close icon " />NO
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="ui two buttons">
+              <a
+                className="ui green basic button"
+                onClick={() => this.props.editGame(game)}
+              >
+                <i className="ui icon edit" />
+              </a>
+              <a
+                className="ui red basic button"
+                onClick={this.showConfirmation}
+              >
+                <i className="ui trash icon " />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -93,7 +120,8 @@ GameCard.propTypes = {
   }).isRequired,
   toggleFeatured: PropTypes.func.isRequired,
   handleRating: PropTypes.func.isRequired,
-  editGame: PropTypes.func.isRequired
+  editGame: PropTypes.func.isRequired,
+  deleteGame: PropTypes.func.isRequired
 };
 
 export default GameCard;
