@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Rating } from "semantic-ui-react";
 import ReactImageFallback from "react-image-fallback";
 import FormInlineMessage from "../helpers/FormInlineMessage";
 import isEmpty from "lodash/isEmpty";
@@ -13,7 +14,8 @@ const initialData = {
   players: "",
   featured: false,
   publisher: 0,
-  thumbnail: ""
+  thumbnail: "",
+  rating: 1
 };
 
 class GameForm extends React.Component {
@@ -87,6 +89,8 @@ class GameForm extends React.Component {
 
   handleCancelForm = e => this.props.hideGameForm(false);
 
+  handleOnRate = (e, data) => this.setState({ data: { rating: data.rating } });
+
   render() {
     const { data, errors } = this.state;
     return (
@@ -146,6 +150,13 @@ class GameForm extends React.Component {
               fallbackImage="http://via.placeholder.com/250x250"
               alt="Thumbnail"
               className="ui image"
+            />
+            <Rating
+              icon="star"
+              rating={data.rating}
+              maxRating={5}
+              clearable
+              onRate={this.handleOnRate}
             />
           </div>
         </div>
@@ -246,6 +257,7 @@ GameForm.propTypes = {
     })
   ).isRequired,
   hideGameForm: PropTypes.func.isRequired,
+  handleRating: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
   game: PropTypes.shape({
     title: PropTypes.string,

@@ -28,9 +28,6 @@ class GameCard extends React.Component {
   toggleDescription = () =>
     this.setState({ showDescription: !this.state.showDescription });
 
-  handleOnRate = (e, data) =>
-    this.props.handleRating(this.props.game.id, data.rating);
-
   render() {
     const { game, toggleFeatured } = this.props;
     const { showDescription } = this.state;
@@ -119,7 +116,6 @@ GameCard.propTypes = {
     price: PropTypes.number.isRequired
   }).isRequired,
   toggleFeatured: PropTypes.func.isRequired,
-  handleRating: PropTypes.func.isRequired,
   editGame: PropTypes.func.isRequired,
   deleteGame: PropTypes.func.isRequired
 };

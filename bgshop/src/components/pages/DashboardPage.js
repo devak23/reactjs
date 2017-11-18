@@ -3,7 +3,10 @@ import maxBy from "lodash/maxBy";
 import GamesList from "./GamesList";
 import _orderBy from "lodash/orderBy";
 import GameForm from "../forms/GameForm";
-import { gameData, gamePublishers } from "../../data";
+// import { gameData, gamePublishers } from "../../data";
+import api from "../../api";
+import { gamePublishers } from "../../data";
+
 import TopNavigation from "./TopNavigation";
 
 class Dashboard extends React.Component {
@@ -22,9 +25,11 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = () =>
-    this.setState({
-      games: this.sortGames(gameData)
-    });
+    api.games.fetchAll().then(games =>
+      this.setState({
+        games: this.sortGames(games)
+      })
+    );
 
   toggleFeatured = id => {
     this.setState({
@@ -99,6 +104,7 @@ class Dashboard extends React.Component {
                 publishers={gamePublishers}
                 hideGameForm={this.handleHideGameForm}
                 submit={this.saveGame}
+                handleRating={this.handleRating}
                 game={this.state.selectedGame}
               />
             </div>
@@ -108,7 +114,6 @@ class Dashboard extends React.Component {
             <GamesList
               games={this.state.games}
               toggleFeatured={this.toggleFeatured}
-              handleRating={this.handleRating}
               editGame={this.handleEditGame}
               deleteGame={this.handleDeleteGame}
             />
