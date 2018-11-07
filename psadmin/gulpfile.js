@@ -74,6 +74,9 @@ gulp.task('images', function () {
     gulp.src(config.paths.images)
         .pipe(gulp.dest(config.paths.dist + '/images'))
         .pipe(connect.reload());
+
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest(config.paths.dist));
 });
 
 gulp.task('watch', function () {
