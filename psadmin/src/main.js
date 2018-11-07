@@ -4,6 +4,7 @@ var ReactClass = require('create-react-class');
 var ReactDOM = require('react-dom');
 var Home = require('./components/homePage');
 var About = require('./components/about/aboutPage');
+var Header = require('./components/common/headerPage');
 
 let App = ReactClass({
     render: function () {
@@ -16,6 +17,7 @@ let App = ReactClass({
 
         return (
             <div>
+                <Header />
                 <Child />
             </div>
         );
