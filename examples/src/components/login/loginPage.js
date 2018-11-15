@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import LoginForm from './loginForm';
 
 class LoginPage extends Component {
-    handleSubmit = (e) => {
-        console.log(e.target.name, e.target.value);
+    onSubmit = (data) => {
+        console.log('data from loginForm: ', data);
     }
 
     render() {
         return (
-            <LoginForm onSubmit={this.handleSubmit} />
+            <LoginForm submit={this.onSubmit} />
         )
     }
 }

@@ -6,7 +6,7 @@ import Counter from './components/counter';
 import LoginPage from './components/login/loginPage';
 
 const App = () => (
-    <div className="container">
+    <div className="ui container">
         <div className="ui grid">
             <div className="four wide column">
                 <Banner message={'There are two important days in your life. The day when you were born and the day when you know why.'}
