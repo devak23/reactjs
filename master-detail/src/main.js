@@ -5,13 +5,11 @@ import Home from './home';
 import Schedule from './schedule';
 
 const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path='/' component={Home}></Route>
-      <Route path='/roster' component={Roster}></Route>
-      <Route path='/schedule' component={Schedule}></Route>
-    </Switch>
-  </main>
+  <Switch>
+    <Route exact path='/' component={Home}></Route>
+    <Route path='/roster' component={Roster}></Route>
+    <Route path='/schedule' component={Schedule}></Route>
+  </Switch>
 );
 
 export default Main;
