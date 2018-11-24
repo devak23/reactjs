@@ -1,13 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class Post extends React.Component {
+export default class Post extends React.Component {
+  state = {
+    data: {
+      user: this.props.user,
+      content: this.props.content,
+      id: this.props.id
+    }
+  };
+
   render() {
+    let { data } = this.state;
     return (
       <div className="post">
-        <h5 className="postAuthor" id={this.props.id}>
-          {this.props.user}:
-          <span className="postBody">{this.props.content}</span>
+        <h5 className="postAuthor" id={data.id}>
+          {data.user}:<span className="postBody">{data.content}</span>
         </h5>
       </div>
     );
@@ -19,5 +27,3 @@ Post.propTypes = {
   content: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired
 };
-
-export default Post;
