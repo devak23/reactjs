@@ -11,7 +11,7 @@ export default class Comment extends React.Component {
   };
 
   render() {
-    let { data } = this.state;
+    const { data } = this.state;
     return (
       <div className="comment">
         <h2 className="commentAuthor" id={data.id}>

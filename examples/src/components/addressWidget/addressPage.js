@@ -1,16 +1,12 @@
-import React from 'react';
-import AddressForm from './addressForm';
+import React from "react";
+import AddressForm from "./addressForm";
 
-class AddressPage extends React.Component {
-    onSubmit = (data) => {
-        console.log(data);
-    }
+export default class AddressPage extends React.Component {
+  onSubmit = data => {
+    window.console.log(data);
+  };
 
-    render() {
-        return (
-            <AddressForm submit={this.onSubmit} />
-        );
-    }
+  render() {
+    return <AddressForm submit={this.onSubmit} />;
+  }
 }
-
-export default AddressPage;

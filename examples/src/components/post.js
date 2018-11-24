@@ -11,7 +11,7 @@ export default class Post extends Component {
   };
 
   render() {
-    let { data } = this.state;
+    const { data } = this.state;
     return (
       <div className="post">
         <h5 className="postAuthor" id={data.id}>
