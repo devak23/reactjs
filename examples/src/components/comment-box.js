@@ -21,7 +21,7 @@ export default class CommentBox extends Component {
   };
 
   render() {
-    let { data } = this.state;
+    const { data } = this.state;
     return (
       <form className="ui form" onSubmit={this.handleOnSubmit}>
         <input

@@ -1,16 +1,16 @@
+/* eslint linebreak-style: ["error", "unix"] */
 import React from "react";
-import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import Banner from "./components/banner";
 import Counter from "./components/counter";
 import LoginPage from "./components/login/loginPage";
 import AddressWidget from "./components/addressWidget/addressPage";
-import Comment from "./components/comment.js";
-import CommentBox from "./components/comment-box.js";
+import Comment from "./components/comment";
+import CommentBox from "./components/comment-box";
 import Post from "./components/post";
 
 export default class App extends React.Component {
-  log = data => console.log(data);
+  log = data => window.console.log(data);
 
   render() {
     return (

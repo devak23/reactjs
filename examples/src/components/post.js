@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-export default class Post extends React.Component {
+export default class Post extends Component {
   state = {
     data: {
       user: this.props.user,
