@@ -4,10 +4,10 @@ import Banner from "./components/banner";
 import Counter from "./components/counter";
 import LoginPage from "./components/login/loginPage";
 import AddressWidget from "./components/addressWidget/addressPage";
-import Comment from "./components/comment";
-import Post from "./components/post";
-import CommentBox from "./components/comment-box";
-import CommentsData from "./components/comment-data";
+import Comment from "./components/posts/comment";
+import Post from "./components/posts/post";
+import CommentBox from "./components/posts/comment-box";
+import CommentsData from "./components/posts/comment-data";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -49,7 +49,10 @@ export default class App extends React.Component {
           </div>
         </div>
         <div className="three column layout">
-          <CommentBox comments={CommentsData.comments} />
+          <CommentBox
+            comments={CommentsData.comments}
+            onCommentSubmit={this.log}
+          />
         </div>
       </div>
     );
