@@ -138,5 +138,5 @@ export default class AddressForm extends React.Component {
 }
 
 AddressForm.propTypes = {
-  submit: PropTypes.function.isRequired
+  submit: PropTypes.func.isRequired
 };

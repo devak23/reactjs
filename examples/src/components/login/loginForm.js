@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  submit: PropTypes.function.isRequired
+  submit: PropTypes.func.isRequired
 };
 
 export default LoginForm;

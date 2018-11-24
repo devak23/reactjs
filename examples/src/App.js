@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "unix"] */
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import Banner from "./components/banner";
@@ -6,8 +5,9 @@ import Counter from "./components/counter";
 import LoginPage from "./components/login/loginPage";
 import AddressWidget from "./components/addressWidget/addressPage";
 import Comment from "./components/comment";
-import CommentBox from "./components/comment-box";
 import Post from "./components/post";
+import CommentBox from "./components/comment-box";
+import CommentsData from "./components/comment-data";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -47,6 +47,9 @@ export default class App extends React.Component {
           <div className="column">
             <CommentBox onCommentSubmit={this.log} />
           </div>
+        </div>
+        <div className="three column layout">
+          <CommentBox comments={CommentsData.comments} />
         </div>
       </div>
     );

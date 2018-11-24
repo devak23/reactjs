@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export default class Comment extends React.Component {
   state = {
     data: {
-      user: this.props.user,
+      id: this.props.id,
       content: this.props.content,
-      id: this.props.id
+      user: this.props.user
     }
   };
 
