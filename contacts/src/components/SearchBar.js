@@ -12,7 +12,7 @@ const SearchBar = ({ filterText, onUserInput }) => {
   );
 };
 
-SearchBar.PropTypes = {
+SearchBar.propTypes = {
   onUserInput: PropTypes.func.isRequired,
   filterText: PropTypes.string.isRequired
 };

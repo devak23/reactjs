@@ -3,8 +3,9 @@ import SearchBar from "./SearchBar";
 import ContactList from "./ContactList";
 import PropTypes from "prop-types";
 import "./ContactsApp.css";
+import LoadingHOC from "./HOC/LoadingHOC";
 
-export default class ContactsApp extends React.Component {
+class ContactsApp extends React.Component {
   state = {
     filterText: ""
   };
@@ -16,7 +17,8 @@ export default class ContactsApp extends React.Component {
         name: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired
       })
-    ).isRequired
+    ).isRequired,
+    loadingTime: PropTypes.string
   };
 
   handleUserInput = searchTerms => this.setState({ filterText: searchTerms });
@@ -32,7 +34,11 @@ export default class ContactsApp extends React.Component {
           contacts={this.props.contacts}
           filterText={this.state.filterText}
         />
+        <p>Load time: {this.props.loadingTime} seconds</p>
       </div>
     );
   }
 }
+
+//export default LoadingHOC("contacts")(ContactsApp);
+export default LoadingHOC("contacts")(ContactsApp);
