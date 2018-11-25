@@ -4,7 +4,7 @@ class ListItem extends React.Component {
   render() {
     return (
       <li>
-        {this.props.quantity} x {this.props.name}
+        {this.props.quantity} x {this.props.children}
       </li>
     );
   }
