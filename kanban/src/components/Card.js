@@ -5,6 +5,9 @@ class Card extends React.Component {
   state = {
     showDetails: false
   };
+
+  toggleDetails = () => this.setState({ showDetails: !this.state.showDetails });
+
   render() {
     let cardDetails;
 
@@ -18,12 +21,7 @@ class Card extends React.Component {
     }
     return (
       <div className="card">
-        <div
-          className="card__title"
-          onClick={() =>
-            this.setState({ showDetails: !this.state.showDetails })
-          }
-        >
+        <div className="card__title" onClick={this.toggleDetails}>
           {this.props.title}
         </div>
         {cardDetails}

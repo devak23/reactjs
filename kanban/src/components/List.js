@@ -7,6 +7,7 @@ class List extends React.Component {
       return (
         <Card
           id={c.id}
+          key={c.id}
           title={c.title}
           description={c.description}
           tasks={c.tasks}
