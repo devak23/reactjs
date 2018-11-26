@@ -8,6 +8,7 @@ import Comment from "./components/posts/comment";
 import Post from "./components/posts/post";
 import CommentBox from "./components/posts/comment-box";
 import CommentsData from "./components/posts/comment-data";
+import HelloWithStyle from "./components/helloWithStyle";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -53,6 +54,9 @@ export default class App extends React.Component {
             comments={CommentsData.comments}
             onCommentSubmit={this.log}
           />
+        </div>
+        <div className="two column layout">
+          <HelloWithStyle />
         </div>
       </div>
     );
