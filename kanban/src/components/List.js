@@ -10,6 +10,7 @@ class List extends React.Component {
           key={c.id}
           title={c.title}
           description={c.description}
+          color={c.color}
           tasks={c.tasks}
         />
       );
