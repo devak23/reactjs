@@ -2,6 +2,15 @@ import React from "react";
 import CheckList from "./CheckList";
 import PropTypes from "prop-types";
 
+const titlePropType = (props, propName, componentName) => {
+  let value = props[propName];
+  if (value && (typeof value !== "string" || value.length > 80)) {
+    return new Error(
+      `${propName} in ${componentName} is longer than 80 characters`
+    );
+  }
+};
+
 class Card extends React.Component {
   state = {
     showDetails: false
@@ -9,7 +18,7 @@ class Card extends React.Component {
 
   static propTypes = {
     description: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    title: titlePropType,
     id: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired,
     tasks: PropTypes.arrayOf(
