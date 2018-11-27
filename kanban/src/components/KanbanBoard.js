@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./List";
+import PropTypes from "prop-types";
 
 class KanbanBoard extends React.Component {
   render() {
@@ -23,6 +24,10 @@ class KanbanBoard extends React.Component {
       </div>
     );
   }
+
+  static propTypes = {
+    cards: PropTypes.arrayOf(PropTypes.object)
+  };
 }
 
 export default KanbanBoard;

@@ -1,9 +1,24 @@
 import React from "react";
 import CheckList from "./CheckList";
+import PropTypes from "prop-types";
 
 class Card extends React.Component {
   state = {
     showDetails: false
+  };
+
+  static propTypes = {
+    description: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    tasks: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        done: PropTypes.bool
+      }).isRequired
+    )
   };
 
   toggleDetails = () => this.setState({ showDetails: !this.state.showDetails });
