@@ -39,7 +39,11 @@ class Card extends React.Component {
       cardDetails = (
         <div className="card__details">
           {this.props.description}
-          <CheckList cardId={this.props.id} tasks={this.props.tasks} />
+          <CheckList
+            cardId={this.props.id}
+            tasks={this.props.tasks}
+            taskCallbacks={this.props.taskCallbacks}
+          />
         </div>
       );
     }

@@ -5,7 +5,12 @@ import PropTypes from "prop-types";
 class List extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    cards: PropTypes.arrayOf(PropTypes.object)
+    cards: PropTypes.arrayOf(PropTypes.object),
+    taskCallbacks: PropTypes.shape({
+      addTask: PropTypes.func.isRequired,
+      deleteTask: PropTypes.func.isRequired,
+      toggleTask: PropTypes.func.isRequired
+    }).isRequired
   };
 
   render() {
@@ -18,6 +23,7 @@ class List extends React.Component {
           description={c.description}
           color={c.color}
           tasks={c.tasks}
+          taskCallbacks={this.props.taskCallbacks}
         />
       );
     });
