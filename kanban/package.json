@@ -7,6 +7,7 @@
     "fontawesome": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-addons-update": "^15.6.2",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
     "semantic-ui-css": "^2.4.1",

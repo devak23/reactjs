@@ -1,6 +1,16 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class CheckList extends Component {
+  static propTypes = {
+    cardId: PropTypes.number,
+    taskCallbacks: PropTypes.shape({
+      deleteTask: PropTypes.func.isRequired,
+      addTask: PropTypes.func.isRequired,
+      toggleTask: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   checkInputKeyPress = event => {
     if (event.key === "Enter") {
       this.props.taskCallbacks.addTask(this.props.cardId, event.target.value);
@@ -17,7 +27,7 @@ class CheckList extends Component {
           name=""
           id=""
           defaultChecked={t.done}
-          onClick={toggleTask(this.props.cardId, t.id, index)}
+          onChange={toggleTask(this.props.cardId, t.id, index)}
         />{" "}
         {t.name}{" "}
         <a
