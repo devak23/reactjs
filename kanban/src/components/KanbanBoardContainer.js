@@ -17,17 +17,17 @@ class KanbanBoardContainer extends Component {
       .catch(err => console.log("Error fetching and parsing data", err));
   }
 
-  addTask(cardId, taskName) {
+  addTask = (cardId, taskName) => {
     console.log("adding ", taskName, "to ", cardId);
-  }
+  };
 
-  deleteTask(cardId, taskId, index) {
+  deleteTask = (cardId, taskId, index) => {
     console.log("deleting ", taskId, "from ", cardId);
-  }
+  };
 
-  toggleTask(cardId, taskId, taskIndex) {
+  toggleTask = (cardId, taskId, taskIndex) => {
     console.log("toggling ", taskId, " for ", cardId);
-  }
+  };
 
   render() {
     return (

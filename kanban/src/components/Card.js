@@ -33,6 +33,8 @@ class Card extends React.Component {
   toggleDetails = () => this.setState({ showDetails: !this.state.showDetails });
 
   render() {
+    //console.log("Props in Card: ", this.props);
+
     let cardDetails;
 
     if (this.state.showDetails) {

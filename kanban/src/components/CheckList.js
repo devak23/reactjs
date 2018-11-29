@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 class CheckList extends Component {
-  checkInputKeyPress(event) {
+  checkInputKeyPress = event => {
     if (event.key === "Enter") {
       this.props.taskCallbacks.addTask(this.props.cardId, event.target.value);
       event.target.value = "";
     }
-  }
+  };
 
   render() {
     const { deleteTask, toggleTask } = this.props.taskCallbacks;
