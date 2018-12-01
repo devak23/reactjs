@@ -1,3 +1,5 @@
+import KanbanData from "../kanban-data";
+
 const API_URL = "http://kanbanapi.pro-react.com";
 const API_HEADERS = {
   "Content-Type": "application/json",
@@ -6,9 +8,7 @@ const API_HEADERS = {
 
 const API = {
   getTasks: function() {
-    return fetch(`${API_URL}` + "/cards", { headers: `${API_HEADERS}` })
-      .then(response => response.json())
-      .catch(err => console.log("Error fetching and parsing data", err));
+    return KanbanData;
   },
   addTask: function(cardId, newTask) {
     return fetch(`${API_URL}/cards/${cardId}/tasks`, {

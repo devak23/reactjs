@@ -18,8 +18,13 @@ class CheckList extends Component {
     }
   };
 
+  handleToggleTask = (taskId, index) =>
+    this.props.taskCallbacks.toggleTask(this.props.cardId, taskId, index);
+
+  handleDeleteTask = (taskId, index) =>
+    this.props.taskCallbacks.deleteTask(this.props.cardId, taskId, index);
+
   render() {
-    const { deleteTask, toggleTask } = this.props.taskCallbacks;
     let tasks = this.props.tasks.map((t, index) => (
       <li className="checklist__task" key={t.id}>
         <input
@@ -27,13 +32,13 @@ class CheckList extends Component {
           name=""
           id=""
           defaultChecked={t.done}
-          onChange={toggleTask(this.props.cardId, t.id, index)}
+          onChange={() => this.handleToggleTask(t.id, index)}
         />{" "}
         {t.name}{" "}
         <a
           href="#"
           className="checklist__task--remove fa fa-remove"
-          onClick={deleteTask(this.props.cardId, t.id, index)}
+          onClick={() => this.handleDeleteTask(t.id, index)}
         />
       </li>
     ));

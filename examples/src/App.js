@@ -9,10 +9,13 @@ import Post from "./components/posts/post";
 import CommentBox from "./components/posts/comment-box";
 import CommentsData from "./components/posts/comment-data";
 import HelloWithStyle from "./components/helloWithStyle";
-import SearchBox from "./components/searchbox.js";
+import SearchBox from "./components/searchbox";
+import ParentContainer from "./components/parent-child/parent-container";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
+
+  greet = message => `<strong>${message}</strong>`;
 
   render() {
     return (
@@ -47,6 +50,7 @@ export default class App extends React.Component {
         />
         <HelloWithStyle />
         <SearchBox />
+        <ParentContainer greet={this.greet} />
       </div>
     );
   }
