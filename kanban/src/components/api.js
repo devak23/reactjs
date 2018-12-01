@@ -15,7 +15,13 @@ const API = {
       method: "post",
       headers: API_HEADERS,
       body: JSON.stringify(newTask)
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Server response wasn't OK");
+      }
+    });
   },
   deleteTask: function(cardId, taskId) {
     return fetch(`${API_URL}/cards/${cardId}/tasks/${taskId}`, {
