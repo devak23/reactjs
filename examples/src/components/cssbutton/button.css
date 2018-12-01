@@ -1,0 +1,38 @@
+a {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #fff;
+}
+.button {
+  background-color: #bbb;
+  padding: 0.75rem 1rem;
+  box-shadow: 0;
+  border-radius: 0.3rem;
+}
+
+.button:hover {
+  background-color: #ee2222;
+  font-weight: bold;
+  box-shadow: 0 4px #990000;
+  transition: 0.9s;
+}
+
+@keyframes pulsing-heart {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: none;
+  }
+}
+.heart {
+  font-size: 10rem;
+  color: #ff0000;
+}
+.heart:hover {
+  animation: pulsing-heart 0.5s infinite;
+  transform-origin: center;
+}

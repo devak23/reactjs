@@ -11,6 +11,7 @@ import CommentsData from "./components/posts/comment-data";
 import HelloWithStyle from "./components/helloWithStyle";
 import SearchBox from "./components/searchbox";
 import ParentContainer from "./components/parent-child/parent-container";
+import AnimButton from "./components/cssbutton/button";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -37,6 +38,7 @@ export default class App extends React.Component {
             <LoginPage />
           </div>
         </div>
+        <AnimButton />
         <div className="row">
           <AddressWidget />
         </div>
