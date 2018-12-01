@@ -1,26 +1,26 @@
-import KanbanData from "../kanban-data";
-
 const API_URL = "http://kanbanapi.pro-react.com";
 const API_HEADERS = {
   "Content-Type": "application/json",
-  Authorization: "someAuth"
+  Authorization: "someAuth1"
 };
 
 const API = {
   getTasks: function() {
-    return KanbanData;
+    return fetch(API_URL + "/cards", { headers: API_HEADERS }).then(response =>
+      response.json()
+    );
   },
   addTask: function(cardId, newTask) {
     return fetch(`${API_URL}/cards/${cardId}/tasks`, {
       method: "post",
-      headers: `${API_HEADERS}`,
+      headers: API_HEADERS,
       body: JSON.stringify(newTask)
     }).then(response => response.json());
   },
   deleteTask: function(cardId, taskId) {
     return fetch(`${API_URL}/cards/${cardId}/tasks/${taskId}`, {
       method: "delete",
-      headers: `${API_HEADERS}`
+      headers: API_HEADERS
     });
   },
   toggleTask: function(cardId, taskId, newDoneValue) {
