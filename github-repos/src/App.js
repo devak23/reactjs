@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 import Repos from "./Repos";
+import RepoDetails from "./RepoDetails";
 import "./App.css";
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/repos" component={Repos} />
+        <Route exact path="/repos/details/:repoName" component={RepoDetails} />
       </div>
     );
   }
