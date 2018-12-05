@@ -1,9 +1,14 @@
 import React from "react";
 
-const About = () => (
-  <div>
-    <h1>ABOUT</h1>
-  </div>
-);
+class About extends React.Component {
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+        <h1>{this.props.match.params.title}</h1>
+      </div>
+    );
+  }
+}
 
 export default About;

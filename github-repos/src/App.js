@@ -11,21 +11,27 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Link to="/">App</Link>
+          <Link to="/" activeClassName="active">
+            App
+          </Link>
         </header>
         <menu>
           <ul>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about" activeClassName="active">
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/repos">Repos</Link>
+              <Link to="/repos" activeClassName="active">
+                Repos
+              </Link>
             </li>
           </ul>
         </menu>
 
         <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
+        <Route exact path="/about" component={About} title="About Us" />
         <Route exact path="/repos" component={Repos} />
         <Route exact path="/repos/details/:repoName" component={RepoDetails} />
       </div>
