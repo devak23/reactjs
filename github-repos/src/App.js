@@ -7,19 +7,12 @@ import RepoDetails from "./RepoDetails";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    route: window.location.hash.substr(1)
-  };
-
-  componentDidMount() {
-    window.addEventListener("hashchange", () => {
-      this.setState({ route: window.location.hash.substr(1) });
-    });
-  }
   render() {
     return (
       <div className="App">
-        <header>App</header>
+        <header>
+          <Link to="/">App</Link>
+        </header>
         <menu>
           <ul>
             <li>
