@@ -1,9 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+import topics from "./data";
 
-class Resource extends Component {
-  render() {
-    return <h1>Resource</h1>;
-  }
-}
+const Resource = ({ match }) => {
+  const topic = topics
+    .find(({ id }) => id === match.params.topicId)
+    .resources.find(({ id }) => id === match.params.resId);
+
+  return (
+    <div>
+      <h3>{topic.name}</h3>
+      <p>{topic.description}</p>
+      <a href={topic.url}>More info</a>
+    </div>
+  );
+};
 
 export default Resource;
