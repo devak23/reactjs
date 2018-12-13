@@ -9,6 +9,24 @@ const data = [
     productImageUrl: "../images/products/image-aqua.png"
   },
   {
+    id: "1003",
+    title: "Supermajority: The Fantasy Congress League",
+    description: "Earn points when your favorite politicians pass legislation",
+    url: "#",
+    votes: 45,
+    submitterAvatarUrl: "../images/avatars/steve.jpg",
+    productImageUrl: "../images/products/image-rose.png"
+  },
+  {
+    id: "1004",
+    title: "Tinfoild: Tailored tinfoil hats",
+    description: "We already have your measurements and shipping address.",
+    url: "#",
+    votes: 55,
+    submitterAvatarUrl: "../images/avatars/justen.jpg",
+    productImageUrl: "../images/products/image-yellow.png"
+  },
+  {
     id: "1002",
     title: "Yellow Pail",
     description: "On-demand sand castle construction expertise.",

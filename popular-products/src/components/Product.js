@@ -13,11 +13,17 @@ class Product extends Component {
     } = this.props;
 
     return (
-      <div className="item">
+      <div className="item" key={id}>
         <div className="image">
           <img src={productImageUrl} alt="" />
         </div>
         <div className="middle aligned content">
+          <div className="header">
+            <a>
+              <i className="large caret up icon" />
+            </a>
+            {votes}
+          </div>
           <div className="description">
             <a href={url}>{title}</a>
             <p>{description}</p>
