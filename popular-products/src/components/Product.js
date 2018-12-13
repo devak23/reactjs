@@ -5,16 +5,20 @@ class Product extends Component {
     return (
       <div className="item">
         <div className="image">
-          <img src="" alt="" />
+          <img src="../images/products/image-aqua.png" alt="" />
         </div>
         <div className="middle aligned content">
           <div className="description">
-            <a>Fort Knight</a>
+            <a href="javascript:;">Fort Knight</a>
             <p>Authentic renassaince actors delivered in just two weeks</p>
           </div>
           <div className="extra">
             <span>Submitted by:</span>
-            <img src="" className="ui avatar image" alt="" />
+            <img
+              src="../images/avatars/daniel.jpg"
+              className="ui avatar image"
+              alt=""
+            />
           </div>
         </div>
       </div>
