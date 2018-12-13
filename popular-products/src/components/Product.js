@@ -2,23 +2,29 @@ import React, { Component } from "react";
 
 class Product extends Component {
   render() {
+    const {
+      id,
+      title,
+      description,
+      url,
+      votes,
+      submitterAvatarUrl,
+      productImageUrl
+    } = this.props;
+
     return (
       <div className="item">
         <div className="image">
-          <img src="../images/products/image-aqua.png" alt="" />
+          <img src={productImageUrl} alt="" />
         </div>
         <div className="middle aligned content">
           <div className="description">
-            <a href="javascript:;">Fort Knight</a>
-            <p>Authentic renassaince actors delivered in just two weeks</p>
+            <a href={url}>{title}</a>
+            <p>{description}</p>
           </div>
           <div className="extra">
             <span>Submitted by:</span>
-            <img
-              src="../images/avatars/daniel.jpg"
-              className="ui avatar image"
-              alt=""
-            />
+            <img src={submitterAvatarUrl} className="ui avatar image" alt="" />
           </div>
         </div>
       </div>

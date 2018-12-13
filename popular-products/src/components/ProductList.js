@@ -3,11 +3,21 @@ import Product from "./Product";
 
 class ProductList extends Component {
   render() {
-    return (
-      <div className="ui unstackable items">
-        <Product />
-      </div>
-    );
+    console.log(this.props.products);
+
+    const products = this.props.products.map(p => (
+      <Product
+        id={p.id}
+        key={p.id}
+        title={p.title}
+        description={p.description}
+        url={p.url}
+        votes={p.votes}
+        submitterAvatarUrl={p.submitterAvatarUrl}
+        productImageUrl={p.productImageUrl}
+      />
+    ));
+    return <div className="ui unstackable items">{products}</div>;
   }
 }
 
