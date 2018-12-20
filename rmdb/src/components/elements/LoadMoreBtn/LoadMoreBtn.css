@@ -1,5 +1,5 @@
 .rmdb-loadmorebtn {
-  background: #16d47b;
+  background: #278659;
   width: 80%;
   min-height: 50px;
   text-align: center;
@@ -19,5 +19,5 @@
 }
 
 .rmdb-loadmorebtn:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
