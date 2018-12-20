@@ -7,8 +7,13 @@ class SearchBar extends Component {
     value: ""
   };
 
+  timeout = null;
   doSearch = e => {
     this.setState({ value: e.target.value });
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.props.callback(this.state.value);
+    }, 800);
   };
 
   render() {

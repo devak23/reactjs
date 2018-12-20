@@ -45,9 +45,9 @@ class Home extends Component {
     });
 
     if (searchTerm) {
-      endPoint = `${API_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
-    } else {
       endPoint = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`;
+    } else {
+      endPoint = `${API_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
     }
     this.fetchMovies(endPoint);
   };
