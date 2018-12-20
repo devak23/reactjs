@@ -4,7 +4,7 @@ import "./Home.css";
 import HeroImage from "../elements/HeroImage/HeroImage";
 import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
-// import MovieThumb from "../elements/MovieThumb/MovieThumb";
+import MovieThumb from "../elements/MovieThumb/MovieThumb";
 import LoadMoreBtn from "../elements/LoadMoreBtn/LoadMoreBtn";
 import Spinner from "../elements/Spinner/Spinner";
 
@@ -36,6 +36,22 @@ class Home extends Component {
     this.fetchMovies(endPoint);
   }
 
+  searchItems = searchTerm => {
+    let endPoint = "";
+    this.setState({
+      movies: [],
+      loading: true,
+      searchTerm
+    });
+
+    if (searchTerm) {
+      endPoint = `${API_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
+    } else {
+      endPoint = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`;
+    }
+    this.fetchMovies(endPoint);
+  };
+
   fetchMovies = endPoint => {
     fetch(endPoint)
       .then(response => response.json())
@@ -63,9 +79,28 @@ class Home extends Component {
               text={heroImage.overview}
             />
           )}
-          <SearchBar />
+          <SearchBar callback={this.searchItems} />
         </div>
-        <FourColGrid />
+
+        <div className="rmdb-home-grid">
+          <FourColGrid header={this.state.searchTerm ? "Search Result" : "Popular Movies"} loading={this.state.loading}>
+            {this.state.movies.map((movie, i) => {
+              return (
+                <MovieThumb
+                  key={i}
+                  clickable={true}
+                  image={
+                    movie.poster_path
+                      ? `${IMAGE_BASE_URL}/${POSTER_SIZE}/${movie.poster_path}`
+                      : "./images/no_image.jpg"
+                  }
+                  movieId={movie.id}
+                  movieName={movie.original_title}
+                />
+              );
+            })}
+          </FourColGrid>
+        </div>
         <Spinner />
         <LoadMoreBtn />
       </div>
