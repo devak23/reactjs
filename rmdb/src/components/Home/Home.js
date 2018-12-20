@@ -106,10 +106,12 @@ class Home extends Component {
         </div>
 
         {this.state.loading && <Spinner />}
-        <LoadMoreBtn
-          text={this.state.currentPage === 1 ? "Load More ..." : "... and more!"}
-          onClick={this.loadMoreItems}
-        />
+        {this.state.currentPage < this.state.totalPages && !this.state.loading && (
+          <LoadMoreBtn
+            text={this.state.currentPage === 1 ? "Load More ..." : "... and more!"}
+            onClick={this.loadMoreItems}
+          />
+        )}
       </div>
     );
   }

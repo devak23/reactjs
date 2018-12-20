@@ -5,7 +5,7 @@
   position: relative;
   padding: 25px 20px 0px 20px;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-size: 22px;
 }
 
@@ -28,10 +28,10 @@
   float: left;
 }
 
-.fa-time, .fa-revenue {
+.fa-time,
+.fa-revenue {
   float: left;
   margin-top: -4px;
-
 }
 
 .fa-budget {
