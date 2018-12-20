@@ -101,7 +101,8 @@ class Home extends Component {
             })}
           </FourColGrid>
         </div>
-        <Spinner />
+
+        {this.state.loading && <Spinner />}
         <LoadMoreBtn />
       </div>
     );
