@@ -67,11 +67,11 @@ class Home extends Component {
       .catch(error => console.error(error));
   };
 
-  handleClickMovieThumb = movieId => {
-    let selectedMovie = this.state.movies.filter(movie => movie.id === movieId);
-    console.log("selectedMovie = ", selectedMovie);
-    this.setState({ heroImage: selectedMovie[0] });
-  };
+  // handleClickMovieThumb = movieId => {
+  //   let selectedMovie = this.state.movies.filter(movie => movie.id === movieId);
+  //   console.log("selectedMovie = ", selectedMovie);
+  //   this.setState({ heroImage: selectedMovie[0] });
+  // };
 
   render() {
     const heroImage = this.state.heroImage;
@@ -103,7 +103,6 @@ class Home extends Component {
                   }
                   movieId={movie.id}
                   movieName={movie.original_title}
-                  onClick={this.handleClickMovieThumb}
                 />
               );
             })}
@@ -113,7 +112,7 @@ class Home extends Component {
         {this.state.loading && <Spinner />}
         {this.state.currentPage < this.state.totalPages && !this.state.loading && (
           <LoadMoreBtn
-            text={this.state.currentPage === 1 ? "Load More ..." : "... and more!"}
+            text={this.state.currentPage === 1 ? "Load More ..." : "... keep going!"}
             onClick={this.loadMoreItems}
           />
         )}
