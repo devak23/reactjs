@@ -8,8 +8,10 @@
 }
 
 .rmdb-moviethumb-title {
+  font-family: "Abel", sans-serif;
   text-align: center;
   font-size: xx-small;
+  font-weight: bold;
 }
 
 .clickable {

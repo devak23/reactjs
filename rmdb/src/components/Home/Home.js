@@ -67,20 +67,24 @@ class Home extends Component {
       .catch(error => console.error(error));
   };
 
+  handleClickMovieThumb = movieId => {
+    let selectedMovie = this.state.movies.filter(movie => movie.id === movieId);
+    console.log("selectedMovie = ", selectedMovie);
+    this.setState({ heroImage: selectedMovie[0] });
+  };
+
   render() {
     const heroImage = this.state.heroImage;
     return (
       <div className="rmdb-home">
-        <div>
-          {heroImage && (
-            <HeroImage
-              image={`${IMAGE_BASE_URL}/${BACKDROP_SIZE}/${heroImage.backdrop_path}`}
-              title={heroImage.original_title}
-              text={heroImage.overview}
-            />
-          )}
-          <SearchBar callback={this.searchItems} />
-        </div>
+        {heroImage && (
+          <HeroImage
+            image={`${IMAGE_BASE_URL}/${BACKDROP_SIZE}/${heroImage.backdrop_path}`}
+            title={heroImage.original_title}
+            text={heroImage.overview}
+          />
+        )}
+        <SearchBar callback={this.searchItems} />
 
         <div className="rmdb-home-grid">
           <FourColGrid
@@ -99,6 +103,7 @@ class Home extends Component {
                   }
                   movieId={movie.id}
                   movieName={movie.original_title}
+                  onClick={this.handleClickMovieThumb}
                 />
               );
             })}
