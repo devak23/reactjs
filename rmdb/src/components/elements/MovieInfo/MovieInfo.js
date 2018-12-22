@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from "../../../config";
 import FontAwesome from "react-fontawesome";
 import MovieThumb from "../MovieThumb/MovieThumb";
@@ -6,6 +6,8 @@ import "./MovieInfo.css";
 
 const MovieInfo = props => {
   const { movie, directors } = props;
+  console.log(directors);
+
   if (!movie) {
     return <div>No movie to render!</div>;
   }
@@ -36,9 +38,9 @@ const MovieInfo = props => {
           </div>
           {directors && <h3>DIRECTOR{props.directors.length > 1 ? "S" : null}</h3>}
           {directors &&
-            directors.map((dir, i) => (
+            directors.map((director, i) => (
               <p className="rmdb-director" key={i}>
-                {dir.name}
+                {director.name}
               </p>
             ))}
         </div>

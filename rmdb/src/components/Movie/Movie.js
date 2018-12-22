@@ -36,7 +36,7 @@ class Movie extends Component {
             fetch(endPoint)
               .then(response => response.json())
               .then(result => {
-                const directors = result.crew.filter(member => member.job === "director");
+                const directors = result.crew.filter(member => member.job === "Director");
                 this.setState({ actors: result.cast, directors });
                 this.setState({ loading: false });
               })
@@ -48,13 +48,19 @@ class Movie extends Component {
   };
 
   render() {
-    const { movie } = this.state;
+    const { movie, directors, actors } = this.state;
     return (
       <div className="rmdb-movie">
         {movie && <Navigation movie={movie.title} />}
-        <MovieInfo movie={movie} />
-        <MovieInfoBar />
-        <FourColGrid />
+        {movie && <MovieInfo movie={movie} directors={directors} />}
+        {movie && <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />}
+        {actors && (
+          <FourColGrid header={"Actors"} loading={this.state.loading}>
+            {actors.map((actor, i) => (
+              <Actor key={i} actor={actor} />
+            ))}
+          </FourColGrid>
+        )}
         {this.state.loading && <Spinner />}
       </div>
     );
