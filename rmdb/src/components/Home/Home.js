@@ -67,12 +67,6 @@ class Home extends Component {
       .catch(error => console.error(error));
   };
 
-  // handleClickMovieThumb = movieId => {
-  //   let selectedMovie = this.state.movies.filter(movie => movie.id === movieId);
-  //   console.log("selectedMovie = ", selectedMovie);
-  //   this.setState({ heroImage: selectedMovie[0] });
-  // };
-
   render() {
     const heroImage = this.state.heroImage;
     return (

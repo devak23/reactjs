@@ -38,6 +38,7 @@ class Movie extends Component {
               .then(result => {
                 const directors = result.crew.filter(member => member.job === "director");
                 this.setState({ actors: result.cast, directors });
+                this.setState({ loading: false });
               })
               .catch(err => console.error(err));
           });
@@ -47,10 +48,11 @@ class Movie extends Component {
   };
 
   render() {
+    const { movie } = this.state;
     return (
       <div className="rmdb-movie">
-        <Navigation />
-        <MovieInfo />
+        {movie && <Navigation movie={movie.title} />}
+        <MovieInfo movie={movie} />
         <MovieInfoBar />
         <FourColGrid />
         {this.state.loading && <Spinner />}
