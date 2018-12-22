@@ -54,13 +54,15 @@ class Movie extends Component {
         {movie && <Navigation movie={movie.title} />}
         {movie && <MovieInfo movie={movie} directors={directors} />}
         {movie && <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />}
-        {actors && (
-          <FourColGrid header={"Actors"} loading={this.state.loading}>
-            {actors.map((actor, i) => (
-              <Actor key={i} actor={actor} />
-            ))}
-          </FourColGrid>
-        )}
+        <div className="rmdb-movie-grid">
+          {actors && (
+            <FourColGrid header={"Actors"} loading={this.state.loading}>
+              {actors.map((actor, i) => (
+                <Actor key={i} actor={actor} />
+              ))}
+            </FourColGrid>
+          )}
+        </div>
         {this.state.loading && <Spinner />}
       </div>
     );
