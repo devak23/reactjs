@@ -9,7 +9,43 @@ import Spinner from "../elements/Spinner/Spinner";
 import "./Movie.css";
 
 class Movie extends Component {
-  state = {};
+  state = {
+    movie: null,
+    actors: null,
+    directors: [],
+    loading: false
+  };
+
+  componentDidMount() {
+    this.setState({ loading: true });
+    // fetch movie
+    const endPoint = `${API_URL}/movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
+    this.fetchMovie(endPoint);
+  }
+
+  fetchMovie = endPoint => {
+    fetch(endPoint)
+      .then(response => response.json())
+      .then(movie => {
+        if (movie.status_code) {
+          this.setState({ loading: false });
+        } else {
+          this.setState({ movie }, () => {
+            // fetch actors
+            const endPoint = `${API_URL}/movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`;
+            fetch(endPoint)
+              .then(response => response.json())
+              .then(result => {
+                const directors = result.crew.filter(member => member.job === "director");
+                this.setState({ actors: result.cast, directors });
+              })
+              .catch(err => console.error(err));
+          });
+        }
+      })
+      .catch(err => console.error(err));
+  };
+
   render() {
     return (
       <div className="rmdb-movie">
@@ -17,7 +53,7 @@ class Movie extends Component {
         <MovieInfo />
         <MovieInfoBar />
         <FourColGrid />
-        <Spinner />
+        {this.state.loading && <Spinner />}
       </div>
     );
   }
