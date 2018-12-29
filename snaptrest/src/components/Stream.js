@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SnapkiteStreamClient from "snapkite-stream-client";
 import StreamTweet from "./StreamTweet";
-import Header from "./Header.react";
+import Header from "./Header";
 
 class Stream extends Component {
   state = {
