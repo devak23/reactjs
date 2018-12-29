@@ -9,10 +9,16 @@ class Stream extends Component {
   };
 
   componentDidMount() {
-    SnapkiteStreamClient.initializeStream(this.handleNewTweet);
+    console.log("starting snapkite client");
+
+    SnapkiteStreamClient.initializeStream(this.handleNewTweet, {
+      port: 4000
+    });
   }
 
   componentWillUnmount() {
+    console.log("destroying snapkite client");
+
     SnapkiteStreamClient.destroyStream();
   }
 
@@ -27,6 +33,7 @@ class Stream extends Component {
 
     return (
       <div>
+        <p className="header">Stream</p>
         {!tweet && <Header text={headerText} />}
         {tweet && <StreamTweet tweet={tweet} onAddTweet={onAddTweet} />}
       </div>
