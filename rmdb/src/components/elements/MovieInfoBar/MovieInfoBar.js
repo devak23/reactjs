@@ -5,7 +5,6 @@ import "./MovieInfoBar.css";
 
 const MovieInfoBar = props => {
   const { time, revenue, budget } = props;
-  console.log(time, revenue, budget);
 
   return (
     <div className="rmdb-movieinfobar">

@@ -9,9 +9,9 @@
 }
 
 .rmdb-grid-element {
-  margin: 20px 40px 40px 20px;
+  margin: 0px 40px 40px 0px;
   background: #353535;
-  max-height: 430px;
+  max-height: 410px;
   animation: animateGrid 0.5s;
   overflow: hidden;
 }

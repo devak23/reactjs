@@ -19,7 +19,9 @@ class Movie extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     // fetch movie
-    const endPoint = `${API_URL}/movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
+    const endPoint = `${API_URL}/movie/${
+      this.props.match.params.movieId
+    }?api_key=${API_KEY}&language=en-US`;
     this.fetchMovie(endPoint);
   }
 
@@ -32,11 +34,15 @@ class Movie extends Component {
         } else {
           this.setState({ movie }, () => {
             // fetch actors
-            const endPoint = `${API_URL}/movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`;
+            const endPoint = `${API_URL}/movie/${
+              this.props.match.params.movieId
+            }/credits?api_key=${API_KEY}`;
             fetch(endPoint)
               .then(response => response.json())
               .then(result => {
-                const directors = result.crew.filter(member => member.job === "Director");
+                const directors = result.crew.filter(
+                  member => member.job === "Director"
+                );
                 this.setState({ actors: result.cast, directors });
                 this.setState({ loading: false });
               })
@@ -53,7 +59,13 @@ class Movie extends Component {
       <div className="rmdb-movie">
         {movie && <Navigation movie={movie.title} />}
         {movie && <MovieInfo movie={movie} directors={directors} />}
-        {movie && <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />}
+        {movie && (
+          <MovieInfoBar
+            time={movie.runtime}
+            budget={movie.budget}
+            revenue={movie.revenue}
+          />
+        )}
         <div className="rmdb-movie-grid">
           {actors && (
             <FourColGrid header={"Actors"} loading={this.state.loading}>
@@ -63,6 +75,7 @@ class Movie extends Component {
             </FourColGrid>
           )}
         </div>
+        {!actors && <h2>No Movie Found!</h2>}
         {this.state.loading && <Spinner />}
       </div>
     );
