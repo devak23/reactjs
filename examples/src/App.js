@@ -12,6 +12,7 @@ import HelloWithStyle from "./components/helloWithStyle";
 import SearchBox from "./components/searchbox";
 import ParentContainer from "./components/parent-child/parent-container";
 import AnimButton from "./components/cssbutton/button";
+import Badge from "./components/badge/Badge";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -20,39 +21,44 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="ui page grid">
-        <div className="three column row">
-          <div className="column">
-            <Banner
-              message={
-                "There are two important days in your life. The day when you were born and the day when you know why."
-              }
-              color={"orange"}
-              author={"Mark Twain"}
-            />
+      <div>
+        <div className="ui page grid">
+          <div className="three column row">
+            <div className="column">
+              <Banner
+                message={
+                  "There are two important days in your life. The day when you were born and the day when you know why."
+                }
+                color={"orange"}
+                author={"Mark Twain"}
+              />
+            </div>
+            <div className="column">
+              <Counter count={150} />
+            </div>
+            <div className="column">
+              <LoginPage />
+            </div>
           </div>
-          <div className="column">
-            <Counter count={150} />
+          <AnimButton />
+          <div className="row">
+            <AddressWidget />
           </div>
-          <div className="column">
-            <LoginPage />
+          <div className="row">
+            <Post id={1} content=" said: This is a post!" user="Mark" />
+            <Comment id={2} content=" said: This is a comment!" user="Philip" />
           </div>
+          <CommentBox comments={CommentsData.comments} onCommentSubmit={this.log} />
+          <HelloWithStyle />
+          <SearchBox />
+          <ParentContainer greet={this.greet} />
+          <Badge
+            image="https://avatars2.githubusercontent.com/u/17371975?s=460&v=4"
+            name="Abhay Kulkarni"
+            username="devak23"
+          />
         </div>
-        <AnimButton />
-        <div className="row">
-          <AddressWidget />
-        </div>
-        <div className="row">
-          <Post id={1} content=" said: This is a post!" user="Mark" />
-          <Comment id={2} content=" said: This is a comment!" user="Philip" />
-        </div>
-        <CommentBox
-          comments={CommentsData.comments}
-          onCommentSubmit={this.log}
-        />
-        <HelloWithStyle />
-        <SearchBox />
-        <ParentContainer greet={this.greet} />
+        <p>End of components </p>
       </div>
     );
   }
