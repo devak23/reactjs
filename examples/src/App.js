@@ -13,6 +13,7 @@ import SearchBox from "./components/searchbox";
 import ParentContainer from "./components/parent-child/parent-container";
 import AnimButton from "./components/cssbutton/button";
 import Badge from "./components/badge/Badge";
+import ColorCard from "./components/colorCard/ColorCard";
 
 export default class App extends React.Component {
   log = data => window.console.log(data);
@@ -57,6 +58,8 @@ export default class App extends React.Component {
             name="Abhay Kulkarni"
             username="devak23"
           />
+          <ColorCard color="#F02F02" />
+          <ColorCard color="#67A67A" />
         </div>
         <p>End of components </p>
       </div>
