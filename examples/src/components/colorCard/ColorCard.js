@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 const ColorCard = props => {
   const cardStyle = {
-    maxHeight: 300,
+    maxHeight: 200,
     width: 150,
-    minHeight: 300,
+    minHeight: 200,
     backgroundColor: props.color,
     padding: 10,
-    margin: 10
+    margin: 10,
+    borderRadius: 10,
+    boxShadow: `1px 3px 1px #CCC`
   };
 
   const labelStyle = {
