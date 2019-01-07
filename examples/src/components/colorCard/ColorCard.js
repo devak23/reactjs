@@ -18,7 +18,7 @@ const ColorCard = props => {
     textAlign: "center"
   };
   return (
-    <div>
+    <div style={{ float: "left" }}>
       <div style={cardStyle} />
       <div style={labelStyle}>{props.color}</div>
     </div>

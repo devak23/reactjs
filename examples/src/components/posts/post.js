@@ -12,8 +12,13 @@ export default class Post extends Component {
 
   render() {
     const { data } = this.state;
+    const postStyle = {
+      maxWidth: 300,
+      padding: 10,
+      margin: 10
+    };
     return (
-      <div className="post">
+      <div style={postStyle}>
         <h5 className="postAuthor" id={data.id}>
           {data.user}:<span className="postBody">{data.content}</span>
         </h5>

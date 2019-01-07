@@ -7,7 +7,16 @@ class LoginPage extends Component {
   };
 
   render() {
-    return <LoginForm submit={this.onSubmit} />;
+    const loginStyle = {
+      maxWidth: 300,
+      margin: 10,
+      padding: 10
+    };
+    return (
+      <div style={loginStyle}>
+        <LoginForm submit={this.onSubmit} />
+      </div>
+    );
   }
 }
 
