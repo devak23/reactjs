@@ -16,7 +16,7 @@ export default class App extends React.Component {
             Learn React and TypeScript!
           </a>
         </header>
-        <Confirm />
+        <Confirm title="First TSX component" content="Trying to learn React with typescript :)" okCaption="Alright!" />
       </div>
     );
   }
