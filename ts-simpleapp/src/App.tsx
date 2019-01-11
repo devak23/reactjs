@@ -3,7 +3,22 @@ import logo from "./logo.svg";
 import Confirm from "./Confirm";
 import "./App.css";
 
-export default class App extends React.Component {
+interface IState {
+  confirmOpen: boolean;
+}
+
+export default class App extends React.Component<{}, IState> {
+  state = {
+    confirmOpen: false
+  };
+  private handleOkClick = () => {
+    console.log("Ok was clicked");
+  };
+
+  private handleCancelClick = () => {
+    console.log("Cancel was clicked");
+  };
+
   public render() {
     return (
       <div className="App">
@@ -16,7 +31,14 @@ export default class App extends React.Component {
             Learn React and TypeScript!
           </a>
         </header>
-        <Confirm title="First TSX component" content="Trying to learn React with typescript :)" okCaption="Alright!" />
+        <Confirm
+          title="TSX component"
+          content="Try learning React with typescript :)"
+          okCaption="Okay! I'm in."
+          onOkClick={this.handleOkClick}
+          onCancelClick={this.handleCancelClick}
+          open={true}
+        />
       </div>
     );
   }
