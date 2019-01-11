@@ -2,7 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import "./Confirm.css";
 
-interface IProps {
+interface ConfirmProps {
   open: boolean;
   title: string;
   content: string;
@@ -11,7 +11,7 @@ interface IProps {
   onOkClick: () => void;
   onCancelClick: () => void;
 }
-class Confirm extends React.Component<IProps> {
+class Confirm extends React.Component<ConfirmProps> {
   public static defaultProps = {
     cancelCaption: "No way Jose!",
     okCaption: "Alrighty!"
@@ -26,7 +26,7 @@ class Confirm extends React.Component<IProps> {
   };
 
   public render() {
-    const { title, content, okCaption, cancelCaption } = this.props;
+    const { title, content, okCaption, cancelCaption, open } = this.props;
     return (
       <div className={open ? "confirm-wrapper confirm-visible" : "confirm-wrapper"}>
         <div className="confirm-container">
