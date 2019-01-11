@@ -8,6 +8,14 @@ class Confirm extends React.Component<IProps> {
     okCaption: "Alrighty!"
   };
 
+  private handleOkClick() {
+    console.log("Ok was clicked");
+  }
+
+  private handleCancelClick() {
+    console.log("Cancel was clicked");
+  }
+
   public render() {
     const { title, content, okCaption, cancelCaption } = this.props;
     return (
@@ -18,8 +26,12 @@ class Confirm extends React.Component<IProps> {
           </div>
           <div className="confirm-content-container">
             <p>{content}</p>
-            <button className="confirm-cancel">{cancelCaption}</button>
-            <button className="confirm-ok">{okCaption}</button>
+            <button className="confirm-cancel" onClick={this.handleCancelClick}>
+              {cancelCaption}
+            </button>
+            <button className="confirm-ok" onClick={this.handleOkClick}>
+              {okCaption}
+            </button>
           </div>
         </div>
       </div>
