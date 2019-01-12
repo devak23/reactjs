@@ -67,7 +67,7 @@ export default class App extends React.Component<{}, AppState> {
           </a>
         </header>
         <p>{this.state.confirmMessage}</p>
-        <button onClick={this.handleConfirmClick}>Confirm</button>
+        {this.state.confirmVisible && <button onClick={this.handleConfirmClick}>Confirm</button>}
         <Confirm
           title="Message"
           content="Would you like to learn React with Typescript :). I think it's a lot more fun than traditional javascript. What do you say?"
