@@ -1,0 +1,33 @@
+.header {
+  text-align: center;
+  background-color: #222;
+  height: 160px;
+  padding: 20px;
+  color: #aaaaaa;
+}
+
+.header-logo {
+  animation: header-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes header-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header-title {
+  font-family: 'Open Sans';
+  font-size: 1.5em;
+}
+
+.header-link {
+  font-family: 'Open Sans';
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
