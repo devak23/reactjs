@@ -10,7 +10,7 @@ interface AppState {
   countDown: number;
 }
 
-export default class App extends React.Component<{}, AppState> {
+class App extends React.Component<{}, AppState> {
   private timer: number = 0;
   private renderCount: number = 0;
 
@@ -126,3 +126,5 @@ export default class App extends React.Component<{}, AppState> {
     );
   }
 }
+
+export default App;
