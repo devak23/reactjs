@@ -6,25 +6,52 @@ import "./App.css";
 interface AppState {
   confirmMessage: string;
   confirmOpen: boolean;
+  confirmVisible: boolean;
+  countDown: number;
 }
 
 export default class App extends React.Component<{}, AppState> {
+  private timer: number = 0;
   state = {
     confirmMessage: "Please click the confirm button",
-    confirmOpen: true
+    confirmVisible: true,
+    confirmOpen: false,
+    countDown: 10
   };
+
+  public componentDidMount() {
+    this.timer = window.setInterval(() => this.handleTimerClick(), 1000);
+  }
+
+  private handleTimerClick = () => {
+    this.setState(
+      {
+        confirmMessage: `Please click the confirm button. You have ${this.state.countDown} seconds to go.`,
+        countDown: this.state.countDown - 1
+      },
+      () => {
+        if (this.state.countDown < 0) {
+          clearInterval(this.timer);
+          this.setState({ confirmMessage: "Too late!", confirmVisible: false });
+        }
+      }
+    );
+  };
+
   private handleOkClick = () => {
     console.log("Ok was clicked");
-    this.setState({ confirmOpen: false });
+    this.setState({ confirmOpen: false, confirmMessage: "Alright!! Rock on! :) :)" });
+    clearInterval(this.timer);
   };
 
   private handleCancelClick = () => {
     console.log("Cancel was clicked");
     this.setState({ confirmOpen: false, confirmMessage: "Okay, but I'm sure you will come back :)" });
+    clearInterval(this.timer);
   };
 
   private handleConfirmClick = () => {
-    this.setState({ confirmOpen: true, confirmMessage: "Alright!! Rock on! :) :)" });
+    this.setState({ confirmOpen: true });
   };
 
   public render() {
@@ -42,8 +69,8 @@ export default class App extends React.Component<{}, AppState> {
         <p>{this.state.confirmMessage}</p>
         <button onClick={this.handleConfirmClick}>Confirm</button>
         <Confirm
-          title="TSX component"
-          content="Try learning React with typescript :)"
+          title="Message"
+          content="Would you like to learn React with Typescript :). I think it's a lot more fun than traditional javascript. What do you say?"
           okCaption="Okay! I'm in."
           onOkClick={this.handleOkClick}
           onCancelClick={this.handleCancelClick}
