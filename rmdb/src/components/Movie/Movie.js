@@ -75,7 +75,7 @@ class Movie extends Component {
             </FourColGrid>
           )}
         </div>
-        {!actors && <h2>No Movie Found!</h2>}
+        {!this.state.loading && !actors && <h2>No Movie Found!</h2>}
         {this.state.loading && <Spinner />}
       </div>
     );

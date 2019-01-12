@@ -12,12 +12,42 @@ interface AppState {
 
 export default class App extends React.Component<{}, AppState> {
   private timer: number = 0;
+  private renderCount: number = 0;
+
   state = {
     confirmMessage: "Please click the confirm button",
     confirmVisible: true,
     confirmOpen: false,
     countDown: 10
   };
+
+  public getSnapshotBeforeUpdate(prevProps: {}, prevState: AppState) {
+    ++this.renderCount;
+    console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
+      renderCount: this.renderCount
+    });
+    return this.renderCount;
+  }
+
+  public componentDidUpdate(
+    prevProps: {},
+    prevState: AppState,
+    snapshot: number
+  ) {
+    console.log("componentDidUpdate", prevProps, prevState, snapshot, {
+      renderCount: this.renderCount
+    });
+  }
+
+  public static getDerivedStateFromProps(props: {}, state: AppState) {
+    console.log("getDerivedStateFromProps", props, state);
+    return null;
+  }
+
+  public shouldComponentUpdate(nextProps: {}, nextState: AppState) {
+    console.log("shouldComponentUpdate", nextProps, nextState);
+    return this.state.countDown % 2 === 0 || this.state.countDown < 0;
+  }
 
   public componentDidMount() {
     this.timer = window.setInterval(() => this.handleTimerClick(), 1000);
@@ -26,7 +56,9 @@ export default class App extends React.Component<{}, AppState> {
   private handleTimerClick = () => {
     this.setState(
       {
-        confirmMessage: `Please click the confirm button. You have ${this.state.countDown} seconds to go.`,
+        confirmMessage: `Please click the confirm button. You have ${
+          this.state.countDown
+        } seconds to go.`,
         countDown: this.state.countDown - 1
       },
       () => {
@@ -40,13 +72,19 @@ export default class App extends React.Component<{}, AppState> {
 
   private handleOkClick = () => {
     console.log("Ok was clicked");
-    this.setState({ confirmOpen: false, confirmMessage: "Alright!! Rock on! :) :)" });
+    this.setState({
+      confirmOpen: false,
+      confirmMessage: "Alright!! Rock on! :) :)"
+    });
     clearInterval(this.timer);
   };
 
   private handleCancelClick = () => {
     console.log("Cancel was clicked");
-    this.setState({ confirmOpen: false, confirmMessage: "Okay, but I'm sure you will come back :)" });
+    this.setState({
+      confirmOpen: false,
+      confirmMessage: "Okay, but I'm sure you will come back :)"
+    });
     clearInterval(this.timer);
   };
 
@@ -62,12 +100,19 @@ export default class App extends React.Component<{}, AppState> {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
-          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Learn React and TypeScript!
           </a>
         </header>
         <p>{this.state.confirmMessage}</p>
-        {this.state.confirmVisible && <button onClick={this.handleConfirmClick}>Confirm</button>}
+        {this.state.confirmVisible && (
+          <button onClick={this.handleConfirmClick}>Confirm</button>
+        )}
         <Confirm
           title="Message"
           content="Would you like to learn React with Typescript :). I think it's a lot more fun than traditional javascript. What do you say?"
