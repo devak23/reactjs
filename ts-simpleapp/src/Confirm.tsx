@@ -11,43 +11,44 @@ interface ConfirmProps {
   onOkClick: () => void;
   onCancelClick: () => void;
 }
-class Confirm extends React.Component<ConfirmProps> {
-  public static defaultProps = {
-    cancelCaption: "No way Jose!",
-    okCaption: "Alrighty!"
+
+const Confirm: React.SFC<ConfirmProps> = props => {
+  const handleOkClick = () => {
+    props.onOkClick();
   };
 
-  private handleOkClick = () => {
-    this.props.onOkClick();
+  const handleCancelClick = () => {
+    props.onCancelClick();
   };
 
-  private handleCancelClick = () => {
-    this.props.onCancelClick();
-  };
-
-  public render() {
-    const { title, content, okCaption, cancelCaption, open } = this.props;
-    return (
-      <div className={open ? "confirm-wrapper confirm-visible" : "confirm-wrapper"}>
-        <div className="confirm-container">
-          <div className="confirm-title-container">
-            <span>{title}</span>
-          </div>
-          <div className="confirm-content-container">
-            <p>{content}</p>
-            <div className="confirm-buttons-container">
-              <button className="confirm-cancel" onClick={this.handleCancelClick}>
-                {cancelCaption}
-              </button>
-              <button className="confirm-ok" onClick={this.handleOkClick}>
-                {okCaption}
-              </button>
-            </div>
+  const { title, content, okCaption, cancelCaption, open } = props;
+  return (
+    <div
+      className={open ? "confirm-wrapper confirm-visible" : "confirm-wrapper"}
+    >
+      <div className="confirm-container">
+        <div className="confirm-title-container">
+          <span>{title}</span>
+        </div>
+        <div className="confirm-content-container">
+          <p>{content}</p>
+          <div className="confirm-buttons-container">
+            <button className="confirm-cancel" onClick={handleCancelClick}>
+              {cancelCaption}
+            </button>
+            <button className="confirm-ok" onClick={handleOkClick}>
+              {okCaption}
+            </button>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+Confirm.defaultProps = {
+  cancelCaption: "No way Jose!",
+  okCaption: "Alrighty!"
+};
 
 export default Confirm;

@@ -22,7 +22,7 @@ export default class App extends React.Component<{}, AppState> {
   };
 
   public getSnapshotBeforeUpdate(prevProps: {}, prevState: AppState) {
-    ++this.renderCount;
+    this.renderCount++;
     console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
       renderCount: this.renderCount
     });
@@ -46,7 +46,7 @@ export default class App extends React.Component<{}, AppState> {
 
   public shouldComponentUpdate(nextProps: {}, nextState: AppState) {
     console.log("shouldComponentUpdate", nextProps, nextState);
-    return this.state.countDown % 2 === 0 || this.state.countDown < 0;
+    return true;
   }
 
   public componentDidMount() {
@@ -90,6 +90,7 @@ export default class App extends React.Component<{}, AppState> {
 
   private handleConfirmClick = () => {
     this.setState({ confirmOpen: true });
+    clearInterval(this.timer);
   };
 
   public render() {
