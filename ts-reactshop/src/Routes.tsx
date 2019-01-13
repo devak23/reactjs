@@ -31,6 +31,9 @@ class Routes extends Component<{}, IState> {
             <Route exact path='/products/:id' component={ProductDetailPage} />
             <Route path='/admin'>{loggedIn ? <AdminPage /> : <Redirect to='/login' />}</Route>
             <Route exact path='/login' component={LoginPage} />
+            <Route exact path=''>
+              <Redirect to='/products' />
+            </Route>
             <Route component={NotFoundPage} />
           </Switch>
         </div>

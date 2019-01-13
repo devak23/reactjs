@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { IProduct, products } from './ProductData';
+import 'url-search-params-polyfill';
 import './ProductsPage.css';
 
 interface IState {
   products: IProduct[];
+  searchTerm: string;
 }
 
-class ProductsPage extends Component<{}, IState> {
-  constructor(props: {}) {
+class ProductsPage extends Component<RouteComponentProps, IState> {
+  constructor(props: RouteComponentProps) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      searchTerm: ''
     };
   }
 
@@ -19,12 +22,26 @@ class ProductsPage extends Component<{}, IState> {
     this.setState({ products });
   }
 
+  public static getDerivedStateFromProps(props: RouteComponentProps, state: IState) {
+    const searchParams = new URLSearchParams(props.location.search);
+    const search = searchParams.get('search') || '';
+    return {
+      products: state.products,
+      searchTerm: search
+    };
+  }
+
   public render() {
-    const products = this.state.products.map(prod => (
-      <li key={prod.id} className='product-list-item'>
-        <Link to={`/products/${prod.id}`}>{prod.name}</Link>
-      </li>
-    ));
+    const { searchTerm } = this.state;
+    const products = this.state.products.map(prod => {
+      const notFound = !searchTerm || (searchTerm && prod.name.toLowerCase().indexOf(searchTerm) > -1);
+      const productDiv = (
+        <li key={prod.id} className='product-list-item'>
+          <Link to={`/products/${prod.id}`}>{prod.name}</Link>
+        </li>
+      );
+      return notFound ? productDiv : null;
+    });
 
     return (
       <div className='page-container'>
