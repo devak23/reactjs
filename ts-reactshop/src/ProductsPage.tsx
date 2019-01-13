@@ -34,7 +34,7 @@ class ProductsPage extends Component<RouteComponentProps, IState> {
   public render() {
     const { searchTerm } = this.state;
     const products = this.state.products.map(prod => {
-      const notFound = !searchTerm || (searchTerm && prod.name.toLowerCase().indexOf(searchTerm) > -1);
+      const notFound = !searchTerm || (searchTerm && prod.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
       const productDiv = (
         <li key={prod.id} className='product-list-item'>
           <Link to={`/products/${prod.id}`}>{prod.name}</Link>
