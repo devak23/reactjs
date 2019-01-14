@@ -38,3 +38,10 @@
   text-align: right;
   margin-bottom: -25px;
 }
+
+.search-container input {
+  line-height: 30px;
+  width: 230px;
+  height: 28px;
+  border-radius: 4px;
+}
