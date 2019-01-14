@@ -19,7 +19,7 @@ const AdminUser: React.SFC<RouteComponentProps<{ id: string }>> = props => {
       </div>
       <div>
         <b>
-          Is Admin:<span>{user.isAdmin.toString()}</span>
+          Is Admin: <span>{user.isAdmin ? 'Yes' : 'No'}</span>
         </b>
       </div>
     </div>
