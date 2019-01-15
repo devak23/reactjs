@@ -18,7 +18,7 @@ class Xss extends Component {
     return (
       <div className='xss'>
         <h2 className='title'>
-          <code>dangerouslySetInnerHTML</code> implementation
+          <code>dangerouslySetInnerHTML</code> (not 100% secure)
         </h2>
         {posts}
         <div className='comment'>

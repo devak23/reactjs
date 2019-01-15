@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import XssVanilla from './components/XssVanilla';
 import XssInnerHtml from './components/XssInnerHtml';
+import XssFilter from './components/XssFilter';
+import XssSerialize from './components/XssSerialize';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +17,8 @@ class App extends Component {
         <div className='xss-container'>
           <XssVanilla />
           <XssInnerHtml />
-          <XssVanilla />
+          <XssFilter />
+          <XssSerialize />
         </div>
       </div>
     );
