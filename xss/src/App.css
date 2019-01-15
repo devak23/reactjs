@@ -1,0 +1,60 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 10vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.comment {
+  font-family: 'Roboto Mono';
+  border-radius: 3px;
+  background-color: lightgreen;
+  font-size: x-small;
+  width: 50vmin;
+  border: 1px solid green;
+  margin: auto;
+}
+
+.title {
+  background-color: lightsteelblue;
+  border: 1px solid blue;
+  border-radius: 2px;
+  margin-top: 2vh;
+  margin-bottom: 10vh;
+  width: 40vh;
+  margin: auto;
+}
+
+.xss-container {
+  display: flex;
+}
+
+.xss {
+  padding: 25px;
+}
