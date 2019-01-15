@@ -18,7 +18,7 @@ class Xss extends Component {
 
     return (
       <div className='xss'>
-        <h2 className='title'>Removing Xss attacks (Partially Secure)</h2>
+        <h3 className='title'>Removing Xss attacks (Partially Secure)</h3>
         {posts}
         <div className='comment'>
           If we have an XSS attack ( &lt;script&gt; tag inside the content) in our response and then we use

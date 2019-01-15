@@ -17,7 +17,7 @@ class Xss extends Component {
 
     return (
       <div className='xss'>
-        <h2 className='title'>Vanilla implementation (Undesired)</h2>
+        <h3 className='title'>Vanilla implementation (Undesired)</h3>
         {posts}
         <div className='comment'>
           As you can see, by default, React prevents us from injecting HTML code directly into our components. It is

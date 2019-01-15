@@ -21,7 +21,7 @@ class Xss extends Component {
 
     return (
       <div className='xss'>
-        <h2 className='title'>Serialize javascript implementation (Secure)</h2>
+        <h3 className='title'>Serialize javascript implementation (Secure)</h3>
         {posts}
         <div className='comment'>
           With serialize-javascript package, we have our HTML entities (encoded) instead of directly having HTML tags.

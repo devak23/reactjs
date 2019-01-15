@@ -17,9 +17,9 @@ class Xss extends Component {
 
     return (
       <div className='xss'>
-        <h2 className='title'>
+        <h3 className='title'>
           <code>dangerouslySetInnerHTML</code> (not 100% secure)
-        </h2>
+        </h3>
         {posts}
         <div className='comment'>
           Even if we use dangerouslySetInnerHTML , React protects us from malicious scripts injections, but it is not
