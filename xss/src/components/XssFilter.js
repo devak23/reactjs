@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
+import removeXssAttacks from './util';
 import response from './data';
 
 // Let's suppose this is our initialState of Redux
 // which is injected to the DOM...
 const initialState = JSON.stringify(response);
-
-const removeXssAttacks = html => {
-  const SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-
-  // removing the script tags
-  while (SCRIPT_REGEX.test(html)) {
-    html = html.replace(SCRIPT_REGEX, '');
-  }
-
-  // remove the events
-  html = html.replace(/ on\w+="[^"]*"/g, '');
-
-  return {
-    __html: html
-  };
-};
 
 class Xss extends Component {
   render() {
