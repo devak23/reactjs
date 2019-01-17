@@ -41,7 +41,7 @@ ReactDOM.render(
     <Greeting message='Hallo' color='brown' />
     <Greeting message='Ciao' color='green' />
     <Greeting message='Привет' color='red' />
-    <MyClassComp message='Class component says - Hi there!' color='blue' />
+    <MyClassComp message='Class component says - Hi there!' />
   </React.Fragment>,
   document.getElementById('root5')
 );
