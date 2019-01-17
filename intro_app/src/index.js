@@ -1,5 +1,6 @@
 let React = require('react');
 let ReactDOM = require('react-dom');
+let MyClassComp = require('./ClassComp');
 
 let myComponent = <h1>Hello from MyComponent</h1>;
 console.log(myComponent);
@@ -40,6 +41,7 @@ ReactDOM.render(
     <Greeting message='Hallo' color='brown' />
     <Greeting message='Ciao' color='green' />
     <Greeting message='Привет' color='red' />
+    <MyClassComp message='Class component says - Hi there!' color='blue' />
   </React.Fragment>,
   document.getElementById('root5')
 );
