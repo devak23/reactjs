@@ -5,9 +5,14 @@ let Poster = require('./components/Poster');
 let Description = require('./components/Description');
 
 let Show = CreateClass({
+  getDefaultProps: function() {
+    return {
+      index: 0
+    };
+  },
   getInitialState: function() {
     return {
-      currentIndex: 0
+      currentIndex: this.props.index
     };
   },
   handleNext: function() {
