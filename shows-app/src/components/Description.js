@@ -2,13 +2,11 @@ let React = require('react');
 let CreateClass = require('create-react-class');
 
 let Description = CreateClass({
-  render: function() {
+  render: function(props) {
     return (
       <div>
-        <p>
-          Follows the personal and professional lives of six 20 to 30-something-year-old friends living in Manhattan.
-        </p>
-        <p>Rating: 9.0</p>
+        <p>{this.props.plot}</p>
+        <p>Rating: {this.props.rating}</p>
       </div>
     );
   }
