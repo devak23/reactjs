@@ -12,10 +12,17 @@ let Show = CreateClass({
       currentShow: ShowData[0]
     };
   },
-  handleOnClick: function() {
+  handleNext: function() {
     let newIndex = this.state.currentIndex + 1;
     if (newIndex >= ShowData.length) {
       newIndex = 0;
+    }
+    this.setState({ currentIndex: newIndex, currentShow: ShowData[newIndex] });
+  },
+  handlePrevious: function() {
+    let newIndex = this.state.currentIndex - 1;
+    if (newIndex < 0) {
+      newIndex = ShowData.length - 1;
     }
     this.setState({ currentIndex: newIndex, currentShow: ShowData[newIndex] });
   },
@@ -37,8 +44,11 @@ let Show = CreateClass({
             <div className='col-sm-8'>
               <Title title={currentShow.title} />
               <Description plot={currentShow.plot} rating={currentShow.imdbRating} creators={currentShow.creators} />
-              <button className='btn btn-primary' onClick={this.handleOnClick}>
-                Next Show
+              <button className='btn btn-success' onClick={this.handleNext}>
+                Next
+              </button>
+              <button className='btn btn-info' onClick={this.handlePrevious} style={{ marginLeft: 5 }}>
+                Previous
               </button>
             </div>
             <div className='clear-both' />
