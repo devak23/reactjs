@@ -1,31 +1,36 @@
 [
   {
-    "title": "Friends",
+    "title": "F.R.I.E.N.D.S",
     "poster": "https://image.tmdb.org/t/p/original/g2oEAIzLY8wjrwDvjVQDEQOoocR.jpg",
     "plot": "Follows the personal and professional lives of six 20 to 30-something-year-old friends living in Manhattan.",
+    "creators": "David Crane, Marta Kauffman",
     "imdbRating": "9.0"
   },
   {
     "title": "Game of Thrones",
     "plot": "Nine noble families fight for control over the mythical lands of Westeros. Meanwhile, a forgotten race hell-bent on destruction returns after being dormant for thousands of years.",
+    "creators": "David Benioff, D.B. Weiss",
     "poster": "https://upload.wikimedia.org/wikipedia/en/d/d1/Game_of_Thrones_Season_6.jpeg",
     "imdbRating": "9.5"
   },
   {
     "title": "Sherlock",
     "plot": "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
+    "creators": "Mark Gatiss, Steven Moffat",
     "poster": "https://static.metacritic.com/images/products/tv/4/525c42f7a1b036d6716878d6b59f28e9.jpg",
     "imdbRating": "9.2"
   },
   {
     "title": "Breaking Bad",
     "plot": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+    "creators": "Vince Gilligan",
     "poster": "https://images-na.ssl-images-amazon.com/images/I/61VxPvR30jL._SY679_.jpg",
     "imdbRating": "9.5"
   },
   {
     "title": "MADMEN",
     "plot": "A drama about one of New York's most prestigious ad agencies at the beginning of the 1960s, focusing on one of the firm's most mysterious but extremely talented ad executives, Donald Draper.",
+    "creators": "Matthew Weiner",
     "poster": "https://images-na.ssl-images-amazon.com/images/I/51lL3m00OLL.jpg",
     "imdbRating": "8.6"
   }

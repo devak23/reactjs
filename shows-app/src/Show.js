@@ -29,13 +29,20 @@ let Show = CreateClass({
       );
     } else {
       return (
-        <div className='text-center'>
-          <Title title={currentShow.title} />
-          <Poster poster={currentShow.poster} />
-          <Description plot={currentShow.plot} rating={currentShow.imdbRating} />
-          <button className='btn btn-primary' onClick={this.handleOnClick}>
-            Next Show
-          </button>
+        <div className='container' style={{ marginTop: 40 }}>
+          <div className='row'>
+            <div className='col-sm-4'>
+              <Poster poster={currentShow.poster} />
+            </div>
+            <div className='col-sm-8'>
+              <Title title={currentShow.title} />
+              <Description plot={currentShow.plot} rating={currentShow.imdbRating} creators={currentShow.creators} />
+              <button className='btn btn-primary' onClick={this.handleOnClick}>
+                Next Show
+              </button>
+            </div>
+            <div className='clear-both' />
+          </div>
         </div>
       );
     }
