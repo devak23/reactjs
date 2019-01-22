@@ -4,13 +4,22 @@ import { connect } from 'react-redux';
 import updateUser from './actions/user-action';
 import './App.css';
 
+const input = {
+ height: '28px', 
+ borderRadius: '2px', 
+ border: '1px solid #ccc', 
+ width: '200px', 
+ padding: '5px'   
+};
+
 class App extends Component {
-  handleOnUserUpdate = () => {
+  handleOnUserUpdate = e => {
     console.log('handleOnUserUpdate() invoked.');
-    this.props.onUpdateUser('Soham');
+    this.props.onUpdateUser(e.target.value);
   };
 
   render() {
+    const { user } = this.props;
     return (
       <div className='App'>
         <header className='App-header'>
@@ -20,8 +29,11 @@ class App extends Component {
           </p>
         </header>
         <div>
-          <h2>{this.props.user}</h2>
-          <button onClick={this.handleOnUserUpdate}>Update User</button>
+          {!user && <h2>Enter a name</h2>}
+          <h2>{user}</h2>
+          <input onChange={this.handleOnUserUpdate} 
+          placeholder="Enter a name" 
+          style={input} />
         </div>
       </div>
     );
