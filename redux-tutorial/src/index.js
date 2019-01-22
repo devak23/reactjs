@@ -11,12 +11,12 @@ const store = createStore(
   allReducers,
   {
     products: [{ name: 'iPhone' }],
-    user: { name: 'Michael' }
+    user: 'Michael'
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-console.log(store.getState());
+console.log('Store created with initial state: ', store.getState());
 
 // const updateUserAction = {
 //   type: 'updateUser',

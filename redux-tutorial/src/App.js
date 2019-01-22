@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { connect } from 'react-redux';
+import updateUser from './actions/user-action';
 import './App.css';
 
 class App extends Component {
-  render() {
-    console.log('props: ', this.props);
+  handleOnUserUpdate = () => {
+    console.log('handleOnUserUpdate() invoked.');
+    this.props.onUpdateUser('Soham');
+  };
 
+  render() {
     return (
       <div className='App'>
         <header className='App-header'>
@@ -15,6 +19,10 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
         </header>
+        <div>
+          <h2>{this.props.user}</h2>
+          <button onClick={this.handleOnUserUpdate}>Update User</button>
+        </div>
       </div>
     );
   }
@@ -26,4 +34,11 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(App);
+const mapActionsToProps = {
+  onUpdateUser: updateUser
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(App);
