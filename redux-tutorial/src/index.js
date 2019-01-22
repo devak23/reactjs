@@ -30,7 +30,7 @@ console.log('Store created with initial state: ', store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App lastName='Kulkarni' />
   </Provider>,
   document.getElementById('root')
 );
