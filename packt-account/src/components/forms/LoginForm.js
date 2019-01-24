@@ -13,7 +13,10 @@ import {
 
 class LoginForm extends React.Component {
   state = {
-    data: {},
+    data: {
+      email: null,
+      password: null
+    },
     errors: {
       // email: 'Email is a required field',
       // password: 'Password is a required field'
@@ -21,12 +24,17 @@ class LoginForm extends React.Component {
   };
 
   handleOnChange = e => {
-    console.log(e.target.value);
+    this.setState({
+      data: { ...this.state.data, [e.target.name]: e.target.value }
+    });
   };
 
-  handleLoginClick() {
-    console.log('Login clicked');
-  }
+  handleLoginClick = e => {
+    e.preventDefault();
+    console.log(this.state.data);
+
+    this.props.onSubmit(this.state.data);
+  };
   render() {
     const { errors } = this.state;
     return (
