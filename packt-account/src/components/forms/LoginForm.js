@@ -20,6 +20,10 @@ class LoginForm extends React.Component {
     }
   };
 
+  handleOnChange = e => {
+    console.log(e.target.value);
+  };
+
   handleLoginClick() {
     console.log('Login clicked');
   }
@@ -38,7 +42,7 @@ class LoginForm extends React.Component {
           placeholder='Email address'
           name='email'
           type='text'
-          value='abhaykulkarni23@yahoo.com'
+          onChange={this.handleOnChange}
         />
         {errors.email && <InLineMessage message={errors.email} />}
         <input
@@ -46,7 +50,7 @@ class LoginForm extends React.Component {
           placeholder='Password'
           name='password'
           type='password'
-          value='this is password'
+          onChange={this.handleOnChange}
         />
         {errors.password && <InLineMessage message={errors.password} />}
         <button style={{ ...flexItem, ...flexButton, ...loginButton }} type='submit' onClick={this.handleLoginClick}>

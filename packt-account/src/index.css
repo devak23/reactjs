@@ -3,6 +3,10 @@
 input {
   font-family: Montserrat;
 }
+a {
+  color: '#ec6611';
+  text-decoration: none;
+}
 
 button {
   font-family: Montserrat;

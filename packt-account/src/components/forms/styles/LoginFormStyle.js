@@ -34,6 +34,7 @@ export const loginButton = {
 };
 
 export const forgotLink = {
+  color: '#ec6611',
   width: 220,
   margin: '10px 55px',
   textDecoration: 'none'
