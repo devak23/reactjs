@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import InLineMessage from '../others/InLineMessage';
 import {
   flexContainer,
@@ -28,20 +29,32 @@ class LoginForm extends React.Component {
       <form style={flexContainer}>
         <p style={flexItem}>
           Please Log In, or{' '}
-          <a style={registerLink} href=''>
+          <Link to='/register' style={registerLink}>
             Register
-          </a>
+          </Link>
         </p>
-        <input style={{ ...flexItem, ...flexInput }} placeholder='Email address' name='email' type='text' value="abhaykulkarni23@yahoo.com"/>
+        <input
+          style={{ ...flexItem, ...flexInput }}
+          placeholder='Email address'
+          name='email'
+          type='text'
+          value='abhaykulkarni23@yahoo.com'
+        />
         {errors.email && <InLineMessage message={errors.email} />}
-        <input style={{ ...flexItem, ...flexInput }} placeholder='Password' name='password' type='password' value="this is password"/>
+        <input
+          style={{ ...flexItem, ...flexInput }}
+          placeholder='Password'
+          name='password'
+          type='password'
+          value='this is password'
+        />
         {errors.password && <InLineMessage message={errors.password} />}
         <button style={{ ...flexItem, ...flexButton, ...loginButton }} type='submit' onClick={this.handleLoginClick}>
           Log in
         </button>
-        <a style={{ ...flexItem, ...forgotLink }} href=''>
+        <Link to='/recovery' style={{ ...flexItem, ...forgotLink }}>
           Forgotten your password?
-        </a>
+        </Link>
       </form>
     );
   }
