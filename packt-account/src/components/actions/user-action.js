@@ -1,5 +1,4 @@
 import store from '../others/store';
-
 export const userLoggedIn = user => {
   return {
     type: 'user:loggedIn',
