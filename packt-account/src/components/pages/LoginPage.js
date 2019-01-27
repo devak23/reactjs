@@ -6,7 +6,7 @@ import LoginForm from '../forms/LoginForm';
 class LoginPage extends Component {
   handleSubmit = ({ email, password }) => {
     console.log('email, password: ', { email, password });
-    console.log('props:', this.props);
+    this.props.login({ email, password });
     this.props.history.push('/myaccount');
   };
 
