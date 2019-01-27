@@ -1,14 +1,39 @@
 import React from 'react';
+import axios from 'axios';
 
-const Home = () => (
-  <div className='container'>
-    <h4 className='center'>Home</h4>
-    Occaecat consequat ex occaecat aliquip laboris culpa amet qui. Duis minim culpa pariatur fugiat exercitation do non
-    mollit eu nostrud. Labore exercitation deserunt non pariatur ex culpa incididunt fugiat consequat excepteur do
-    tempor exercitation labore. Aliqua cillum duis laborum culpa consequat. Cupidatat deserunt commodo labore officia
-    magna cupidatat consequat Lorem anim sit. Enim eiusmod dolor id quis irure ipsum anim cillum ipsum anim officia
-    voluptate tempor. Qui id est elit tempor ut reprehenderit aute aliqua aliquip.
-  </div>
-);
+class Home extends React.Component {
+  state = {
+    posts: []
+  };
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
+      this.setState({ posts: response.data.slice(0, 10) });
+    });
+  }
+  render() {
+    const { posts } = this.state;
+    const layout = posts.length ? (
+      posts.map(post => {
+        return (
+          <div className='post card' key={post.id}>
+            <div className='card-content'>
+              <span className='card-title'>{post.title}</span>
+              <p>{post.body}</p>
+            </div>
+          </div>
+        );
+      })
+    ) : (
+      <div className='center'>No posts available</div>
+    );
+    return (
+      <div className='container'>
+        <h4 className='center'>Home</h4>
+        {layout}
+      </div>
+    );
+  }
+}
 
 export default Home;
