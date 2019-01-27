@@ -29,16 +29,14 @@ class LoginForm extends React.Component {
     });
   };
 
-  handleLoginClick = e => {
+  handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.data);
-
     this.props.onSubmit(this.state.data);
   };
   render() {
     const { errors } = this.state;
     return (
-      <form style={flexContainer}>
+      <form style={flexContainer} onSubmit={this.handleSubmit}>
         <p style={flexItem}>
           Please Log In, or{' '}
           <Link to='/register' style={registerLink}>
@@ -61,7 +59,7 @@ class LoginForm extends React.Component {
           onChange={this.handleOnChange}
         />
         {errors.password && <InLineMessage message={errors.password} />}
-        <button style={{ ...flexItem, ...flexButton, ...loginButton }} type='submit' onClick={this.handleLoginClick}>
+        <button style={{ ...flexItem, ...flexButton, ...loginButton }} type='submit'>
           Log in
         </button>
         <Link to='/recovery' style={{ ...flexItem, ...forgotLink }}>

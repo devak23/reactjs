@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../actions/user-action';
 import LoginForm from '../forms/LoginForm';
 
-class LoginPage extends React.Component {
-  handleSubmit({ email, password }) {
-    console.log('Submit is clicked. time to dispatch action: ', email, password);
-  }
+class LoginPage extends Component {
+  handleSubmit = ({ email, password }) => {
+    console.log('email, password: ', { email, password });
+    console.log('props:', this.props);
+    this.props.history.push('/myaccount');
+  };
 
   render() {
     return (
@@ -15,4 +19,7 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default connect(
+  null,
+  { login }
+)(LoginPage);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NotFoundPage from './components/pages/NotFoundPage';
 import MyAccountPage from './components/pages/MyAccountPage';
@@ -10,18 +10,16 @@ import './App.css';
 
 const App = ({ user }) => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/'>
-          <Redirect to='/login' />
-        </Route>
-        <Route exact path='/login' component={LoginPage} />
-        <Route exact path='/register' component={RegistrationPage} />
-        <Route exact path='/recovery' component={RecoveryPage} />
-        {user && <Route exact path='/myaccount' component={MyAccountPage} />}
-        <Route component={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path='/'>
+        <Redirect to='/login' />
+      </Route>
+      <Route exact path='/login' component={LoginPage} />
+      <Route exact path='/register' component={RegistrationPage} />
+      <Route exact path='/recovery' component={RecoveryPage} />
+      {user && <Route exact path='/myaccount' component={MyAccountPage} />}
+      <Route component={NotFoundPage} />
+    </Switch>
   );
 };
 
