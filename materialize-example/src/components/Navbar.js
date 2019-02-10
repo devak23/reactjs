@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNav from './sidenav';
+import SideNav from './Sidenav';
 
 const Navbar = () => (
   <div className='container'>
