@@ -28,7 +28,20 @@ h3 {
   background: transparent;
 }
 
-.material-icons .prefix :active {
+.material-icons .prefix:active,
+.datepicker-day-button:active,
+.datepicker-table td.is-selected,
+.datepicker-date-display {
+  background-color: indigo;
+  color: #fff;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done,
+.datepicker-table td.is-selected,
+.dropdown-content li > span {
   color: indigo;
 }
 
