@@ -6,6 +6,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import M from 'materialize-css';
+import 'material-icons';
 
 class App extends Component {
   componentDidMount() {
