@@ -20,12 +20,6 @@ const Contact = () => {
             laborum Lorem id adipisicing magna. Dolore anim deserunt occaecat eu excepteur in eiusmod tempor eu irure
             qui. Ad est consectetur voluptate ea.
           </p>
-          <p>
-            Aliqua non eiusmod Lorem ad reprehenderit sit adipisicing qui tempor culpa qui. Amet ullamco commodo
-            incididunt cillum sint est et exercitation. Laboris aute eu magna eu consectetur exercitation ullamco dolor
-            ullamco. Do esse dolor deserunt labore eiusmod consectetur non irure. Incididunt occaecat ad sint eu
-            adipisicing.
-          </p>
         </div>
         <div className='col s12 l5 offset-l1'>
           <form action=''>
