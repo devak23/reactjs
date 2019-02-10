@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className='section container' id='services'>
+    <section className='container section scrollspy' id='services'>
       <div className='row'>
         <div className='col s12 l4'>
           <h3 className='indigo-text text-darken-4'>What I do</h3>

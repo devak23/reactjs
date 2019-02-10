@@ -31,3 +31,7 @@ h3 {
 .material-icons .prefix :active {
   color: indigo;
 }
+
+.raise {
+  margin-top: -25px;
+}
