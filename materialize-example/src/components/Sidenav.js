@@ -3,13 +3,13 @@ import React from 'react';
 const SideNav = () => (
   <ul className='sidenav grey lighten-2' id='mobileMenu'>
     <li>
-      <a href='#'>Photos</a>
+      <a href='#photogrid'>Photos</a>
     </li>
     <li>
-      <a href='#'>Services</a>
+      <a href='#services'>Services</a>
     </li>
     <li>
-      <a href='#'>Contact</a>
+      <a href='#contact'>Contact</a>
     </li>
   </ul>
 );

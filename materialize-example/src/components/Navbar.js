@@ -7,10 +7,10 @@ const Navbar = () => (
       <a href='#!' className='brand-logo'>
         Photo Ninja
       </a>
-      <a href='#!' className='sidenav-trigger' data-target='mobile-menu'>
+      <a href='#!' className='sidenav-trigger' data-target='mobileMenu'>
         <i className='material-icons'>menu</i>
       </a>
-      <ul className='right  hide-on-med-and-down'>
+      <ul className='right hide-on-med-and-down'>
         <li>
           <a href='#photogrid'>Photos</a>
         </li>
@@ -21,8 +21,8 @@ const Navbar = () => (
           <a href='#contact'>Contact</a>
         </li>
       </ul>
+      <SideNav />
     </nav>
-    <SideNav />
   </div>
 );
 
