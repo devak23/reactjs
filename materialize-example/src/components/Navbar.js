@@ -7,7 +7,10 @@ const Navbar = () => (
       <a href='#' className='brand-logo'>
         Photo Ninja
       </a>
-      <ul className='right'>
+      <a href='#' className='sidenav-trigger' data-target='mobile-menu'>
+        <i className='material-icons'>menu</i>
+      </a>
+      <ul className='right  hide-on-med-and-down'>
         <li>
           <a href='#'>Photos</a>
         </li>

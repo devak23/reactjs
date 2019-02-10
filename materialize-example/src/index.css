@@ -1,6 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+body {
+  font-family: 'Open Sans';
+}
+
 header {
   background: url(/img/man.jpg);
   background-size: cover;
   background-position: center;
   min-height: 1000px;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+.section {
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+}
+
+.tabs .indicator {
+  background-color: #1a237e;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background: transparent;
+}
+
+.material-icons .prefix :active {
+  color: indigo;
 }

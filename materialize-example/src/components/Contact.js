@@ -5,7 +5,7 @@ const Contact = () => {
     <section className='section container' id='contact'>
       <div className='row'>
         <div className='col s12 l5'>
-          <h2 className='indigo-text text-darken-4'>Get In Touch</h2>
+          <h3 className='indigo-text text-darken-4'>Get In Touch</h3>
           <p>
             Veniam duis qui magna Lorem ut laboris consequat exercitation. Quis cillum reprehenderit dolore nostrud
             laborum minim dolore exercitation culpa pariatur tempor mollit. Quis aute deserunt cupidatat quis ut eiusmod
