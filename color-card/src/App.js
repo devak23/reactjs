@@ -6,9 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <header className='App-header'>Color Card Application</header>
+        <header className='App-header'>Color Card</header>
         <div>
-          <Card color='#33eeff' />
+          <Card color='#33e330' />
         </div>
       </div>
     );
