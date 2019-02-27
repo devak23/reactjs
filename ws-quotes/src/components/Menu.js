@@ -1,6 +1,5 @@
 import React from 'react';
 import M from 'materialize-css';
-import 'material-icons';
 
 class Menu extends React.Component {
   componentDidMount() {
@@ -16,17 +15,21 @@ class Menu extends React.Component {
             <div className='container'>
               <div className='nav-wrapper'>
                 <a href='#!' className='brand-logo'>
-                  Websocket Quotes
+                  WS-Quotes
                 </a>
-                <a href='#!' className='sidenav-trigger' data-target='mobile-menu'>
+                <a
+                  href='#!'
+                  className='sidenav-trigger'
+                  data-target='mobile-menu'
+                >
                   <i className='material-icons'>menu</i>
                 </a>
               </div>
               <ul className='right hide-on-med-and-down'>
-                <li className='waves-effect waves-light'>
+                <li className=''>
                   <a href='#!'>Connect</a>
                 </li>
-                <li className='waves-effect waves-light'>
+                <li className=''>
                   <a href='#!'>Disconnect</a>
                 </li>
               </ul>

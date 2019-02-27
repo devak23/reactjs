@@ -1,9 +1,9 @@
 import React from 'react';
 
 const MessageSearch = () => (
-  <div clasName='input-field'>
-    <input id='search' type='text' />
-    <label htmlFor='search'>Search</label>
+  <div className='input-field'>
+    <input type='text' id='search' />
+    <label for='search'>Search Messages</label>
   </div>
 );
 
