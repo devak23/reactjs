@@ -8,7 +8,11 @@ class GermanGreeter extends Component implements IGreet {
 
   public render() {
     let message = this.greetPerson('Manik');
-    return <div>A german would say - {message}</div>;
+    return (
+      <p>
+        <div className='green'>A German would say - {message}</div>
+      </p>
+    );
   }
 }
 

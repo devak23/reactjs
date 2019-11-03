@@ -14,18 +14,10 @@ render(
       <h2>Greetings</h2>
     </div>
     <div className='mtop2'>
-      <p className='blue'>
-        <IndianGreeter />
-      </p>
-      <p className='green'>
-        <GermanGreeter />
-      </p>
-      <p className='brown'>
-        <JapaneseGreeter />
-      </p>
-      <p className='red'>
-        <EnglishGreeter />
-      </p>
+      <IndianGreeter />
+      <GermanGreeter />
+      <JapaneseGreeter />
+      <EnglishGreeter />
     </div>
   </div>,
   document.querySelector('#root')
