@@ -7,7 +7,7 @@ class IndianGreeter extends Component<IGreet> {
   }
 
   public render() {
-    let message = this.greetPerson('Abhay');
+    let message = this.greetPerson(this.props.toGreet);
     return (
       <p>
         <div className='blue'>
