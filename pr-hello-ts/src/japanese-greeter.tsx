@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import IGreet from './igreet';
 
 class JapaneseGreeter extends Component<IGreet> {
-  greetPerson(username: string): string {
+  getGreetings(username: string): string {
     return `こんにちは ${username}! お元気ですか `;
   }
 
   public render() {
-    let message = this.greetPerson(this.props.toGreet);
+    let message = this.getGreetings(this.props.toGreet);
     return (
       <p>
         <div className='purple'>
