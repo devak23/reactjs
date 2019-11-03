@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IGreet from './igreet';
 
-class EnglishGreeter extends Component implements IGreet {
+class EnglishGreeter extends Component<IGreet> {
   greetPerson(username: string): string {
     return `Hello ${username}! How are you doing today?`;
   }
@@ -10,7 +10,9 @@ class EnglishGreeter extends Component implements IGreet {
     let message = this.greetPerson('Pralhad');
     return (
       <p>
-        <div className='red'>An Englishman would say - {message}</div>
+        <div className='red'>
+          Hi! I'm {this.props.name} - {message}
+        </div>
       </p>
     );
   }

@@ -14,10 +14,10 @@ render(
       <h2>Greetings</h2>
     </div>
     <div className='mtop2'>
-      <IndianGreeter />
-      <GermanGreeter />
-      <JapaneseGreeter />
-      <EnglishGreeter />
+      <IndianGreeter name='Srinivas Ramanujam' />
+      <GermanGreeter name='Albert Einstein' />
+      <JapaneseGreeter name='Goro Shimura' />
+      <EnglishGreeter name='George Boole' />
     </div>
   </div>,
   document.querySelector('#root')
