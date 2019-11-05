@@ -4,7 +4,7 @@ import PathHelper from './helpers/PathHelper';
 
 class Navbar extends Component {
   render () {
-    let pathMap = PathHelper.getAllPaths();
+    let pathMap = PathHelper.getFilteredPaths(this.props.location.pathname);
     let elements = [];
     Object.keys(pathMap).forEach((path, index) => {
       let menuitem = pathMap[path];
