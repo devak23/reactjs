@@ -1,5 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const Navbar = () => <div>Navbar</div>
+class Navbar extends Component {
+  render () {
+    console.log(this.props.);
+    return <div>Navbar</div>
+  }
+}
 
 export default Navbar;
