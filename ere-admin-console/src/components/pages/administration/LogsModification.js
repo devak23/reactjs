@@ -1,5 +1,5 @@
 import React from 'react';
 
-const LogsModification = () => <div>LogsModification</div>
+const LogsModification = () => <div>Logs Modification</div>
 
 export default LogsModification;
