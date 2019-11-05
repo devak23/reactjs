@@ -8,7 +8,7 @@ import CMSFileUpload from './administration/CMSFileUpload';
 import AWACS from './administration/AWACS';
 
 const Administration = () => (
-  <Fragment>
+  <section  className='container'>
     <Switch>
       <Route exact path='/administration/entitlements' component={Entitlements} />
       <Route exact path='/administration/logsmodification' component={LogsModification} />
@@ -18,7 +18,7 @@ const Administration = () => (
       <Route exact path='/administration/awacs' component={AWACS} />
       <div><strong>Administration</strong></div>
     </Switch>
-  </Fragment>
+  </section>
 );
 
 export default Administration;

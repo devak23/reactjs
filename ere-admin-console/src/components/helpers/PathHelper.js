@@ -32,12 +32,12 @@ export default {
     return {...this.getRootPaths(),...this.getHomePaths(), ...this.getReportPaths(), ...this.getAdministrationPaths()}
   },
   getFilteredPaths: function(path) {
-    if (path.indexOf('/home') > -1) {
-      return {...this.getRootPaths(), ...this.getHomePaths()};
-    } else if (path.indexOf('/reports') > -1) {
+    if (path.indexOf('/reports') > -1) {
       return {...this.getRootPaths(), ...this.getReportPaths()};
     } else if (path.indexOf('/administration') > -1) {
       return {...this.getRootPaths(), ...this.getAdministrationPaths()}
+    } else if (path.indexOf('/home') > -1 || path.indexOf('/') > -1) {
+      return {...this.getRootPaths(), ...this.getHomePaths()};
     }
   }
 }

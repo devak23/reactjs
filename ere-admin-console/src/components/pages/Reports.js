@@ -5,7 +5,7 @@ import Delivery from './reports/Delivery';
 import H2HDelivery from './reports/H2HDelivery';
 
 const Reports = () => (
-  <section>
+  <section className='container'>
     <Switch>
       <Route exact path='/reports/reporttemplates' component={ReportTemplates}/>
       <Route exact path='/reports/delivery' component={Delivery}/>
