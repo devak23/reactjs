@@ -12,11 +12,17 @@ class Navbar extends Component {
     });
 
     return (
-      <div>
-        <a href='#!' className='brand-logo'>ERE Admin Console</a>
-        <ul>
-          {elements}
-        </ul>
+      <div className='navbar-fixed'>
+        <nav className='indigo darken-4'>
+          <div className="container">
+            <div className="nav-wrapper">
+            <a href='#!' className='brand-logo'>ERE Admin Console</a>
+            <ul className='right'>
+              {elements}
+            </ul>
+            </div>
+          </div>
+        </nav>
       </div>
     )
   }

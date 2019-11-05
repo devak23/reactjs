@@ -5,14 +5,14 @@ import Schedules from './home/Schedules';
 import Diagnostics from './home/Diagnostics';
 
 const Home = () => (
-  <Fragment>
+  <section  className='container'>
     <Switch>
       <Route exact path='/home/dashboard' component={Dashboard} />
       <Route exact path='/home/diagnostics' component={Diagnostics} />
       <Route exact path='/home/schedules' component={Schedules} />
       <div><strong>Home</strong></div>
     </Switch>
-  </Fragment>
+  </section>
 );
 
 export default Home;
