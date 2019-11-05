@@ -9,15 +9,15 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar />
-        <Route exact path='/' component={Home} />
+        <header><Navbar location={this.props.location}/></header>
         <Route exact path='/home' component={Home} />
         <Route exact path='/home/:nextPath' component={Home} />
-        <Route exact path='/reports' component={Reports} />
         <Route exact path='/reports/:nextPath' component={Reports} />
-        <Route exact path='/administration' component={Administration} />
+        <Route exact path='/reports' component={Reports} />
         <Route exact path='/administration/:nextPath' component={Administration} />
-      </Fragment>      
+        <Route exact path='/administration' component={Administration} />
+        <Route exact path='/' component={Home} />
+      </Fragment>
     )
   }
 }

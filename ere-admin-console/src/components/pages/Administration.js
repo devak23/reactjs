@@ -9,7 +9,7 @@ import AWACS from './administration/AWACS';
 
 const Administration = () => (
   <div>
-    <div><strong>Administration</strong></div>
+    <p><strong>Administration</strong></p>
     <Route exact path='/administration/entitlements' component={Entitlements} />
     <Route exact path='/administration/logsmodification' component={LogsModification} />
     <Route exact path='/administration/repository' component={Repository} />

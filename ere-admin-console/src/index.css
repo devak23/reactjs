@@ -3,3 +3,27 @@
 body {
   font-family: 'Open Sans', serif
 }
+
+header {
+  min-height: 100px;
+}
+
+
+div {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+li {
+  float:left
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
