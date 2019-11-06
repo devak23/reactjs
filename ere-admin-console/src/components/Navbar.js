@@ -36,7 +36,7 @@ class Navbar extends Component {
 
     return (
       <div className='navbar-fixed'>
-        <nav className='blue'>
+        <nav className='blue darken-4'>
           <div className='container'>
             <div className='nav-wrapper'>
               <a href='/' className='brand-logo'>

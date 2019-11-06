@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 body {
   font-family: 'Open Sans';
@@ -42,4 +43,43 @@ li a {
 .vertical-tabs li a{
   color: black !important;
   font-size: 14px;
+}
+
+.dash-card-title {
+  font-family: 'Oswald';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card.horizontal .card-image {
+  max-width: 50%;
+  top: 25px;
+}
+
+#left {
+  width: 100px;
+  float: left;
+  height: 100px;
+}
+
+#right {
+  width: 100px;
+  float: right;
+  height: 100px;
+}
+
+.divider {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  border-left: 1px solid green;
+}
+
+#detailBox {
+  margin-top: 10%;
+}
+.title {
+  margin-top: 5%;
+  font-weight: bold;
 }
