@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import Reports from './components/pages/Reports';
 import Administration from './components/pages/Administration';
+import 'material-icons';
 
 class App extends Component {
   render() {

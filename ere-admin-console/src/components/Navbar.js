@@ -55,7 +55,7 @@ class Navbar extends Component {
               <Link to='/home' className='dropdown-trigger right topmenu' data-target='dropdown_home'>
                 Home
               </Link>
-              
+
               <ul className='right dropdown-content vertical-tabs' id='dropdown_home'>
                 {homeChildMenu}
               </ul>
