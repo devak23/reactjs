@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 
 body {
-  font-family: 'Open Sans', serif
+  font-family: 'Open Sans';
 }
-
 header {
   min-height: 100px;
 }
@@ -26,4 +25,21 @@ li a {
   padding: 12px;
   text-decoration: none;
   font-size: 0.9rem;
+}
+
+.topmenu {
+  padding: 12px;
+  margin-left: 15px;
+}
+
+.vertical-tabs{
+  border-left: #2196f3 solid;
+  border-width: 2px;
+  padding: 0 !important;
+  top: 22px;
+  width: 120px;
+}
+.vertical-tabs li a{
+  color: black !important;
+  font-size: 14px;
 }

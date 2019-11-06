@@ -17,6 +17,7 @@ export default {
     return {
       '/home/dashboard': 'Dashboard',
       '/home/diagnostics': 'Diagnostics',
+      '/home/schedules': 'Schedules'
     }
   },
   getAdministrationPaths: function() {
@@ -33,11 +34,11 @@ export default {
   },
   getFilteredPaths: function(path) {
     if (path.indexOf('/reports') > -1) {
-      return {...this.getRootPaths(), ...this.getReportPaths()};
+      return {'root': this.getRootPaths(), 'children': this.getReportPaths()};
     } else if (path.indexOf('/administration') > -1) {
-      return {...this.getRootPaths(), ...this.getAdministrationPaths()}
+      return {'root': this.getRootPaths(), 'children': this.getAdministrationPaths()}
     } else if (path.indexOf('/home') > -1 || path.indexOf('/') > -1) {
-      return {...this.getRootPaths(), ...this.getHomePaths()};
+      return {'root': this.getRootPaths(), 'children': this.getHomePaths()};
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Entitlements from './administration/Entitlements';
 import LogsModification from './administration/LogsModification';
@@ -16,7 +16,6 @@ const Administration = () => (
       <Route exact path='/administration/accountsupload' component={AccountsUpload} />
       <Route exact path='/administration/cmsfileupload' component={CMSFileUpload} />
       <Route exact path='/administration/awacs' component={AWACS} />
-      <div><strong>Administration</strong></div>
     </Switch>
   </section>
 );
