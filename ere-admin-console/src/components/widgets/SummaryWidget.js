@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Status } from '../helpers/Utils';
+import { faFile, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 class SummaryWidget extends Component {
   data = {
     statuses: [
-      { code: 'deep-orange', icon: 'report_problem', color: 'deep-orange' },
-      { code: 'amber', icon: 'report', color: 'amber' },
-      { code: 'teal', icon: 'insert_drive_file', color: 'teal' }
+      { code: Status.RED, displayIcon: faTimesCircle, color: '#d84315' },
+      { code: Status.AMBER, displayIcon: faExclamationTriangle, color: '#ffc400' },
+      { code: Status.GREEN, displayIcon: faFile, color: '#558b2f' }
     ]
   };
 
@@ -13,11 +16,12 @@ class SummaryWidget extends Component {
     let data = this.props.data;
     let status = data[0].status;
     let statusObj = this.data.statuses.filter(item => item.code === status)[0];
-    let cardImageClass = `material-icons large ${statusObj.color}-text darken-6`;
     return (
       <Fragment>
         <div className='card horizontal'>
-          <div className='card-image'>{statusObj && <i className={cardImageClass}>{statusObj.icon}</i>}</div>
+          <div className='card-image'>
+            <FontAwesomeIcon icon={statusObj.displayIcon} size='6x' color={statusObj.color} />
+          </div>
           <div className='card-stacked'>
             <div className='card-content'>
               <div className='dash-card-title'>

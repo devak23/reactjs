@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SummaryWidget from '../../widgets/SummaryWidget';
+import { Status } from '../../helpers/Utils';
 
 class Dashboard extends Component {
   render() {
@@ -27,66 +28,66 @@ class Dashboard extends Component {
   getMixedData = () => {
     return [
       {
-        status: 'amber',
+        status: Status.AMBER,
         metric1: 'Storage',
-        value1: '0.33 TB',
+        value1: '0.33 TB'
       },
       {
-        status: 'amber',
+        status: Status.AMBER,
         metric1: 'Free Space',
-        value1: '0.16TB',
+        value1: '0.16TB'
       },
       {
-        status: 'amber',
+        status: Status.AMBER,
         metric1: 'Occupied',
-        value1: '0.17TB',
+        value1: '0.17TB'
       }
-    ];    
-  }
+    ];
+  };
 
   getFailureData = () => {
     return [
       {
-        status: 'deep-orange',
+        status: Status.RED,
         metric1: 'Reports Failed',
         value1: 367,
         metric2: 'Last Hour',
         value2: 19
       },
       {
-        status: 'deep-orange',
+        status: Status.RED,
         metric1: 'Scheduled',
         value1: 345,
         metric2: 'Last Hour',
         value2: 15
       },
       {
-        status: 'deep-orange',
+        status: Status.RED,
         metric1: 'Adhoc',
         value1: 22,
         metric2: 'Last Hour',
         value2: 4
       }
     ];
-  }
+  };
   getSuccessData = () => {
     return [
       {
-        status: 'teal',
+        status: Status.GREEN,
         metric1: 'Reports Run',
         value1: 1026,
         metric2: 'Last Hour',
         value2: 52
       },
       {
-        status: 'teal',
+        status: Status.GREEN,
         metric1: 'Scheduled',
         value1: 456,
         metric2: 'Last Hour',
         value2: 21
       },
       {
-        status: 'teal',
+        status: Status.GREEN,
         metric1: 'Adhoc',
         value1: 567,
         metric2: 'Last Hour',
