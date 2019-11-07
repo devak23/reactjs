@@ -11,6 +11,7 @@ const Home = () => (
       <Route exact path='/home/diagnostics' component={Diagnostics} />
       <Route exact path='/home/schedules' component={Schedules} />
       <Route exact path='/home' component={Dashboard} />
+      <Route exact path='/' component={Dashboard} />
     </Switch>
   </section>
 );

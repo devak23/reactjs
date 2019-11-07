@@ -9,7 +9,7 @@ class Dashboard extends Component {
     let mixedData = this.getMixedData();
 
     return (
-      <section className=''>
+      <section>
         <div className='row'>
           <div className='col s12 m4'>
             <SummaryWidget data={successData} />

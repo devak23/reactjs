@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Status } from '../helpers/Utils';
-import { faFile, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faHdd, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 class SummaryWidget extends Component {
   data = {
     statuses: [
-      { code: Status.RED, displayIcon: faTimesCircle, color: '#d84315' },
-      { code: Status.AMBER, displayIcon: faExclamationTriangle, color: '#ffc400' },
-      { code: Status.GREEN, displayIcon: faFile, color: '#558b2f' }
+      { code: Status.RED, displayIcon: faExclamationTriangle, color: '#ff5722 ' },
+      { code: Status.AMBER, displayIcon: faHdd, color: '#795548' },
+      { code: Status.GREEN, displayIcon: faCheckCircle, color: '#43a047' }
     ]
   };
 
