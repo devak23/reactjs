@@ -6,4 +6,9 @@ let Status = {
   AMBER: 'amber'
 };
 
-export { chop, Status };
+let Delay = {
+  IN_DURATION: 300,
+  OUT_DURATION: 225
+}
+
+export { chop, Status, Delay };

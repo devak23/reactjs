@@ -13,48 +13,6 @@ header {
   width: 80%;
 }
 
-div {
-  display: block;
-}
-
-ul {
-  list-style-type: none;
-}
-li {
-  float:left
-}
-
-li a {
-  display: block;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.topmenu {
-  padding: 12px;
-  margin-left: 15px;
-}
-
-.vertical-tabs{
-  border-left: #2196f3 solid;
-  border-width: 2px;
-  padding: 0 !important;
-  top: 22px;
-  width: 120px;
-}
-.vertical-tabs li a{
-  color: black !important;
-  font-size: 14px;
-}
-
-.dash-card-title {
-  font-family: 'Oswald';
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .card.horizontal .card-image {
   max-width: 50%;
   top: 25px;
@@ -71,14 +29,6 @@ li a {
   width: 100px;
   float: right;
   height: 100px;
-}
-
-.divider {
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  bottom: 10%;
-  border-left: 1px solid green;
 }
 
 #detailBox {

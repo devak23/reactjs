@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SummaryWidget from '../../widgets/SummaryWidget';
+import ListWidget from '../../widgets/ListWidget';
 import { Status } from '../../helpers/Utils';
 
 class Dashboard extends Component {
@@ -19,6 +20,14 @@ class Dashboard extends Component {
           </div>
           <div className='col s12 m4'>
             <SummaryWidget data={mixedData} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12 m6">
+            <ListWidget/>
+          </div>
+          <div className="col s12 m6">
+            <ListWidget/>
           </div>
         </div>
       </section>

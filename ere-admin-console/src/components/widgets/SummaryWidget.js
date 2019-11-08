@@ -2,20 +2,38 @@ import React, { Component, Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Status } from '../helpers/Utils';
 import { faCheckCircle, faHdd, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import RefreshButton from '../widgets/RefreshButton';
+import { createUseStyles } from 'react-jss';
 
-class SummaryWidget extends Component {
-  data = {
-    statuses: [
-      { code: Status.RED, displayIcon: faExclamationTriangle, color: '#ff5722 ' },
-      { code: Status.AMBER, displayIcon: faHdd, color: '#795548' },
-      { code: Status.GREEN, displayIcon: faCheckCircle, color: '#43a047' }
-    ]
-  };
+const getStyles = createUseStyles({
+  cardTitle: {
+    fontFamily: 'Oswald',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  divider: {
+    position: 'absolute',
+    left: '50%',
+    marginTop: '30%',
+    marginLeft: '-4%',
+    top: '10%',
+    bottom: '15%',
+    borderLeft: '1px solid #CCC',
+  }
+});
 
-  render() {
-    let data = this.props.data;
+const StatusData = {
+  statuses: [
+    { code: Status.RED, displayIcon: faExclamationTriangle, color: '#ff5722 ' },
+    { code: Status.AMBER, displayIcon: faHdd, color: '#795548' },
+    { code: Status.GREEN, displayIcon: faCheckCircle, color: '#43a047' }
+  ]
+};
+
+const SummaryWidget = ({data}) =>  {
+    let classes = getStyles()
     let status = data[0].status;
-    let statusObj = this.data.statuses.filter(item => item.code === status)[0];
+    let statusObj = StatusData.statuses.filter(item => item.code === status)[0];
     return (
       <Fragment>
         <div className='card horizontal'>
@@ -24,7 +42,7 @@ class SummaryWidget extends Component {
           </div>
           <div className='card-stacked'>
             <div className='card-content'>
-              <div className='dash-card-title'>
+              <div className={classes.cardTitle}>
                 {data[0].metric1} - {data[0].value1}
               </div>
               <p className='title'>
@@ -37,7 +55,7 @@ class SummaryWidget extends Component {
                   <p className='title'>{data[2].metric1}</p>
                   <p>{data[2].value1}</p>
                 </div>
-                <div className='divider'></div>
+                <div className={classes.divider}></div>
                 <div id='right'>
                   <p className='title'>{data[1].metric2}</p>
                   <p>{data[1].value2}</p>
@@ -46,14 +64,11 @@ class SummaryWidget extends Component {
                 </div>
               </div>
             </div>
-            <a className='btn-floating halfway-fab waves-effect waves-light blue darken-2'>
-              <i className='material-icons'>refresh</i>
-            </a>
+            <RefreshButton />
           </div>
         </div>
       </Fragment>
     );
   }
-}
 
 export default SummaryWidget;
