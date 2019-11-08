@@ -18,23 +18,3 @@ header {
   top: 25px;
   margin-left: 10px;
 }
-
-#left {
-  width: 100px;
-  float: left;
-  height: 100px;
-}
-
-#right {
-  width: 100px;
-  float: right;
-  height: 100px;
-}
-
-#detailBox {
-  margin-top: 10%;
-}
-.title {
-  margin-top: 5%;
-  font-weight: bold;
-}

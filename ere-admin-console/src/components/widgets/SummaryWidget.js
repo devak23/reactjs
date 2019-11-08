@@ -11,6 +11,13 @@ const getStyles = createUseStyles({
     fontSize: 24,
     fontWeight: 'bold',
   },
+  sectionTitle: {
+    marginTop: '5%',
+    fontWeight: 'bold',    
+  },
+  detailBox: {
+    marginTop: '10%'
+  },
   divider: {
     position: 'absolute',
     left: '50%',
@@ -19,7 +26,17 @@ const getStyles = createUseStyles({
     top: '10%',
     bottom: '15%',
     borderLeft: '1px solid #CCC',
-  }
+  },
+  leftBox: {
+    width: '100px',
+    float: 'left',
+    height: '100px'
+  },
+  rightBox: {
+    width: '100px',
+    float: 'right',
+    height: '100px'
+  }  
 });
 
 const StatusData = {
@@ -45,21 +62,21 @@ const SummaryWidget = ({data}) =>  {
               <div className={classes.cardTitle}>
                 {data[0].metric1} - {data[0].value1}
               </div>
-              <p className='title'>
+              <p className={classes.sectionTitle}>
                 {data[0].metric2} - {data[0].value2}
               </p>
-              <div id='detailBox'>
-                <div id='left'>
-                  <p className='title'>{data[1].metric1}</p>
+              <div className={classes.detailBox}>
+                <div className={classes.leftBox}>
+                  <p className={classes.sectionTitle}>{data[1].metric1}</p>
                   <p>{data[1].value1}</p>
-                  <p className='title'>{data[2].metric1}</p>
+                  <p className={classes.sectionTitle}>{data[2].metric1}</p>
                   <p>{data[2].value1}</p>
                 </div>
                 <div className={classes.divider}></div>
-                <div id='right'>
-                  <p className='title'>{data[1].metric2}</p>
+                <div className={classes.rightBox}>
+                  <p className={classes.sectionTitle}>{data[1].metric2}</p>
                   <p>{data[1].value2}</p>
-                  <p className='title'>{data[2].metric2}</p>
+                  <p className={classes.sectionTitle}>{data[2].metric2}</p>
                   <p>{data[2].value2}</p>
                 </div>
               </div>
