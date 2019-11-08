@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PathHelper from './helpers/PathHelper';
-import { Delay } from './helpers/Utils';
+import { Duration } from './helpers/Utils';
 import { createUseStyles } from 'react-jss';
 import M from 'materialize-css';
 
@@ -42,8 +42,8 @@ const Navbar = () => {
       alignment: 'left',
       constrainWidth: false,
       hover: true,
-      inDuration: Delay.IN_DURATION,
-      outDuration: Delay.OUT_DURATION,
+      inDuration: Duration.IN_DURATION,
+      outDuration: Duration.OUT_DURATION,
       coverTrigger: false,
     });
   });

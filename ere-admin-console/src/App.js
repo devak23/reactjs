@@ -1,11 +1,10 @@
-import React,{Component, Fragment} from 'react';
+import React,{Fragment} from 'react';
 import {Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import Reports from './components/pages/Reports';
 import Administration from './components/pages/Administration';
 import "material-icons";
-import { createUseStyles } from 'react-jss';
 
 const App = ({location}) => {
   return (

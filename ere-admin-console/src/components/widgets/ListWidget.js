@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
-import { Delay } from '../helpers/Utils';
+import { Duration } from '../helpers/Utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import M from 'materialize-css';
 
-const ListWidget = () => {
+const ListWidget = ({data}) => {
   useEffect(() => {
     let elements = document.querySelectorAll('.collapsible');
     M.Collapsible.init(elements, {
       accordion: true,
-      inDuration: Delay.IN_DURATION,
-      outDuration: Delay.OUT_DURATION
+      inDuration: Duration.IN_DURATION,
+      outDuration: Duration.OUT_DURATION
     });
   });
-  
+
   return (
     <ul className='collapsible'>
       <li>
         <div className='collapsible-header'>
-          <i className='material-icons'>filter_drama</i>First
+          <i className='material-icons'>
+            <FontAwesomeIcon icon={data.display.icon} size={data.display.size} color={data.display.color}/>
+          </i>
+          {data.title}
         </div>
         <div className='collapsible-body'>
           <span>
