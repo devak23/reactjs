@@ -19,6 +19,9 @@ const getStyles = createUseStyles({
       color: 'black !important',
       fontSize: 14
     }
+  },
+  title: {
+    fontFamily: 'Oswald'
   }
 });
 
@@ -58,7 +61,7 @@ const Navbar = () => {
         <nav className='blue darken-4'>
           <div className='container'>
             <div className='nav-wrapper'>
-              <a href='/' className='brand-logo'>
+              <a href='/' className={`brand-logo ${classes.title}`}>
                 ERE Admin Console
               </a>
               <Link

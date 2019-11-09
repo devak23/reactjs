@@ -1,9 +1,23 @@
 import React, { useEffect } from 'react';
 import { Duration } from '../helpers/Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import RefreshButton from '../widgets/RefreshButton';
 import M from 'materialize-css';
+import { createUseStyles } from 'react-jss';
 
-const ListWidget = ({data}) => {
+const getStyles = createUseStyles({
+  title: {
+    fontFamily: 'Open Sans Condensed',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginRight: '1rem',
+  },
+  collapsibleHeader: {
+    backgroundColor: '#f7f5f5'
+  },
+});
+
+const ListWidget = ({ data }) => {
   useEffect(() => {
     let elements = document.querySelectorAll('.collapsible');
     M.Collapsible.init(elements, {
@@ -13,14 +27,18 @@ const ListWidget = ({data}) => {
     });
   });
 
-  return (
-    <ul className='collapsible'>
-      <li>
-        <div className='collapsible-header'>
+  const classes = getStyles();
+  let elements = [];
+
+  data.forEach((e, i) => {
+    elements.push(
+      <li className='active' key={i}>
+        <div className={`collapsible-header ${classes.collapsibleHeader}`}>
           <i className='material-icons'>
-            <FontAwesomeIcon icon={data.display.icon} size={data.display.size} color={data.display.color}/>
+            <FontAwesomeIcon icon={e.display.icon} size={e.display.size} color={e.display.color} />
           </i>
-          {data.title}
+          <div className={classes.title}>{e.title}</div>
+          <a href='#!' style={{marginTop: '0.2rem'}}><i className="material-icons">refresh</i></a>
         </div>
         <div className='collapsible-body'>
           <span>
@@ -34,40 +52,12 @@ const ListWidget = ({data}) => {
           </span>
         </div>
       </li>
-      <li>
-        <div className='collapsible-header'>
-          <i className='material-icons'>place</i>Second
-        </div>
-        <div className='collapsible-body'>
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </span>
-        </div>
-      </li>
-      <li>
-        <div className='collapsible-header'>
-          <i className='material-icons'>whatshot</i>Third
-        </div>
-        <div className='collapsible-body'>
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </span>
-        </div>
-      </li>
-    </ul>
-  );
+    );
+  });
+
+  return <ul className='collapsible popout'>
+    {elements}
+  </ul>;
 };
 
 export default ListWidget;

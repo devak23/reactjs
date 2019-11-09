@@ -2,7 +2,7 @@ import React from 'react';
 import SummaryWidget from '../../widgets/SummaryWidget';
 import ListWidget from '../../widgets/ListWidget';
 import { Status } from '../../helpers/Utils';
-import { faFrown, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faFrown, faServer, faClock, faFrownOpen } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
   let summarySuccessData = getSummarySuccessData();
@@ -99,33 +99,49 @@ const getSummarySuccessData = () => {
     }
   ];
 };
-const getEngineData = () => {
+
+const getEnginesData = () => {
   return {
     display: {
       icon: faServer,
       size: '1x',
-      color: '#006064',
+      color: '#4caf50',
     },
     refresh: true,
     detailsSize: 2,
-    title:'Engines',
-    details: [
-
-    ]
+    title:'Engine Health',
+    details: []
   }
-};
+}
 
-const getFailedReportsData = () => {
+const getSchedulerData = () => {
   return {
     display: {
-      icon: faFrown,
+      icon: faClock,
+      size: '1x',
+      color: '#03a9f4',
+    },
+    refresh: true,
+    detailsSize: 2,
+    title:'Scheduler Health',
+    details: []
+  }
+}
+
+const getEngineData = () => [getEnginesData(), getSchedulerData()];
+
+const getFailedReportsData = () => [getFailedReportsByDay(), getFailedReportsByHour()]
+
+const getFailedReportsByDay = () => {
+  return {
+    display: {
+      icon: faFrownOpen,
       size: '1x',
       color: '#ff9800',
     },    
     refresh: true,
-    detailsSize: 2,
-    title: 'Reports Failed with errors',
-    detailsByDay: [{
+    title: 'Report Failures by Days',
+    details: [{
         'Error Detail': 'migrationDate=2019-8-',
         'Last Day': 2
       },{
@@ -153,8 +169,19 @@ const getFailedReportsData = () => {
         'Error Detail': 'Error.ReportRunError: Error happened while running the report',
         'Last Day': 1
       }
-    ],
-    detailsByHour: [
+    ]
+  };
+};
+const getFailedReportsByHour = () => {
+  return {
+    display: {
+      icon: faFrown,
+      size: '1x',
+      color: '#ff9800',
+    },    
+    refresh: true,
+    title: 'Reports Failure By Hour',
+    details: [
       {
         'Error Detail': 'migrationDate=2019-8-',
         'Last Hour': 2

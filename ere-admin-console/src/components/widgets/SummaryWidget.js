@@ -81,7 +81,7 @@ const SummaryWidget = ({data}) =>  {
                 </div>
               </div>
             </div>
-            <RefreshButton />
+            <RefreshButton floating={true} color={'blue'}/>
           </div>
         </div>
       </Fragment>
