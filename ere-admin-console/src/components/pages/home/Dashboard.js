@@ -3,7 +3,7 @@ import SummaryWidget from '../../widgets/SummaryWidget';
 import ListWidget from '../../widgets/ListWidget';
 import { Status } from '../../helpers/Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFrown, faServer, faClock, faFrownOpen, faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFrown, faClock, faFrownOpen, faPauseCircle, faPlayCircle, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
   let summarySuccessData = getSummarySuccessData();
@@ -104,13 +104,13 @@ const getSummarySuccessData = () => {
 const getEnginesData = () => {
   return {
     display: {
-      icon: faServer,
+      icon: faNetworkWired,
       size: '1x',
-      color: '#4caf50',
+      color: '#757575',
     },
     refresh: true,
     detailsSize: 2,
-    title:'Engine Health',
+    title:'ENGINE HEALTH',
     columns : [
       { id: 'hostname', label: 'HOSTNAME'},
       { id: 'runningTasks', label: 'RUNNING TASKS'}, 
@@ -128,11 +128,11 @@ const getSchedulerData = () => {
     display: {
       icon: faClock,
       size: '1x',
-      color: '#03a9f4',
+      color: '#757575',
     },
     refresh: true,
     detailsSize: 2,
-    title:'Scheduler Health',
+    title:'SCHEDULER HEALTH',
     columns : [
       { id: 'hostname', label: 'HOSTNAME'},
       { id: 'action', label: 'ACTION'}, 
@@ -153,10 +153,10 @@ const getFailedReportsByDay = () => {
     display: {
       icon: faFrownOpen,
       size: '1x',
-      color: '#ff9800',
+      color: '#7c7c7c',
     },    
     refresh: true,
-    title: 'Report Failures by Days',
+    title: 'FAILURES PER DAY',
     columns : [
       { id: 'detailId', label: 'ERROR DETAIL'},
       { id: 'entityValue', label: 'LAST DAY'}, 
@@ -197,10 +197,10 @@ const getFailedReportsByHour = () => {
     display: {
       icon: faFrown,
       size: '1x',
-      color: '#ff9800',
+      color: '#7c7c7c',
     },    
     refresh: true,
-    title: 'Reports Failure By Hour',
+    title: 'FAILURES PER HOUR',
     columns: [
       { id: 'detailId', label: 'ERROR DETAIL'},
       { id: 'entityValue', label: 'LAST HOUR'}, 

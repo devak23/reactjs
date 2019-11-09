@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Status } from '../helpers/Utils';
-import { faCheckCircle, faHdd, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import RefreshButton from '../widgets/RefreshButton';
 import { createUseStyles } from 'react-jss';
 
@@ -41,9 +41,9 @@ const getStyles = createUseStyles({
 
 const StatusData = {
   statuses: [
-    { code: Status.RED, displayIcon: faExclamationTriangle, color: '#ff5722 ' },
-    { code: Status.AMBER, displayIcon: faHdd, color: '#795548' },
-    { code: Status.GREEN, displayIcon: faCheckCircle, color: '#43a047' }
+    { code: Status.RED, displayIcon: faThumbsDown, color: '#ff5722 ' },
+    { code: Status.AMBER, displayIcon: faDatabase, color: '#f9a825' },
+    { code: Status.GREEN, displayIcon: faThumbsUp, color: '#43a047' }
   ]
 };
 

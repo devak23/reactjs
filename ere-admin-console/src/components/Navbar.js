@@ -11,7 +11,7 @@ const getStyles = createUseStyles({
     marginLeft: 15
   },
   verticalTabs: {
-    borderLeft: '#2196f3 solid',
+    borderLeft: '#1c1c1c solid',
     borderWidth: 2,
     padding: '0 !important',
     width: 120,    
@@ -58,7 +58,7 @@ const Navbar = () => {
 
     return (
       <div className='navbar-fixed'>
-        <nav className='blue darken-4'>
+        <nav className='grey darken-4'>
           <div className='container'>
             <div className='nav-wrapper'>
               <a href='/' className={`brand-logo ${classes.title}`}>
@@ -95,6 +95,5 @@ const Navbar = () => {
   }
 
 
-// export default withStyles(Navbar, styles);
 export default Navbar;
 

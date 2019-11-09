@@ -29,7 +29,7 @@ const getStyles = createUseStyles({
     marginRight: '1rem'
   },
   headerBackground: {
-    backgroundColor: '#f7f7f7'
+    backgroundColor: '#f2f2f2'
   },  
   root: {
     width: '100%',
