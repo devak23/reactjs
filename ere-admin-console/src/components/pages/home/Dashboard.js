@@ -2,7 +2,8 @@ import React from 'react';
 import SummaryWidget from '../../widgets/SummaryWidget';
 import ListWidget from '../../widgets/ListWidget';
 import { Status } from '../../helpers/Utils';
-import { faFrown, faServer, faClock, faFrownOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFrown, faServer, faClock, faFrownOpen, faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
   let summarySuccessData = getSummarySuccessData();
@@ -110,7 +111,15 @@ const getEnginesData = () => {
     refresh: true,
     detailsSize: 2,
     title:'Engine Health',
-    details: []
+    columns : [
+      { id: 'hostname', label: 'HOSTNAME'},
+      { id: 'runningTasks', label: 'RUNNING TASKS'}, 
+      { id: 'totalTasks', label: 'TOTAL TASKS'}, 
+    ],     
+    details: [
+      {hostname: 'vsin10p6703', runningTasks: 1, totalTasks: 213},
+      {hostname: 'vsin10p6704', runningTasks: 0, totalTasks: 178},
+    ]
   }
 }
 
@@ -124,7 +133,14 @@ const getSchedulerData = () => {
     refresh: true,
     detailsSize: 2,
     title:'Scheduler Health',
-    details: []
+    columns : [
+      { id: 'hostname', label: 'HOSTNAME'},
+      { id: 'action', label: 'ACTION'}, 
+    ],     
+    details: [
+      {hostname: 'vsin10p6703', action: <a href='#!'><FontAwesomeIcon icon={faPauseCircle} size={'2x'} /></a>},
+      {hostname: 'vsin10p6704', action: <a href='#!'><FontAwesomeIcon icon={faPlayCircle} size={'2x'} /></a>}
+    ]
   }
 }
 
@@ -141,33 +157,37 @@ const getFailedReportsByDay = () => {
     },    
     refresh: true,
     title: 'Report Failures by Days',
+    columns : [
+      { id: 'detailId', label: 'ERROR DETAIL'},
+      { id: 'entityValue', label: 'LAST DAY'}, 
+    ],    
     details: [{
-        'Error Detail': 'migrationDate=2019-8-',
-        'Last Day': 2
+        'detailId': 'migrationDate=2019-8-',
+        'entityValue': 2
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128403',
-        'Last Day': 1
+        'detailId': 'IRIS REQUEST ID = 1006128403',
+        'entityValue': 1
       },{
-        'Error Detail': 'migrationDate=07/01/2019;migrationDays=63;transitio',
-        'Last Day': 1
+        'detailId': 'migrationDate=07/01/2019;migrationDays=63;transitio',
+        'entityValue': 1
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128559',
-        'Last Day': 1
+        'detailId': 'IRIS REQUEST ID = 1006128559',
+        'entityValue': 1
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128559',
-        'Last Day': 1
+        'detailId': 'IRIS REQUEST ID = 1006128559',
+        'entityValue': 1
       },{
-        'Error Detail': 'BT010: BIRT Engine task failed',
-        'Last Day': 5
+        'detailId': 'BT010: BIRT Engine task failed',
+        'entityValue': 5
       },{
-        'Error Detail': 'BT017: Error in VAM Data Source Balance Interest',
-        'Last Day': 27
+        'detailId': 'BT017: Error in VAM Data Source Balance Interest',
+        'entityValue': 27
       },{
-        'Error Detail': 'DATA ERROR: Admin Center Response Failed',
-        'Last Day': 12
+        'detailId': 'DATA ERROR: Admin Center Response Failed',
+        'entityValue': 12
       },{
-        'Error Detail': 'Error.ReportRunError: Error happened while running the report',
-        'Last Day': 1
+        'detailId': 'Error.ReportRunError: Error happened while running the report',
+        'entityValue': 1
       }
     ]
   };
@@ -181,34 +201,38 @@ const getFailedReportsByHour = () => {
     },    
     refresh: true,
     title: 'Reports Failure By Hour',
+    columns: [
+      { id: 'detailId', label: 'ERROR DETAIL'},
+      { id: 'entityValue', label: 'LAST HOUR'}, 
+    ],    
     details: [
       {
-        'Error Detail': 'migrationDate=2019-8-',
-        'Last Hour': 2
+        'detailId': 'migrationDate=2019-8-',
+        'entityValue': 2
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128403',
-        'Last Hour': 1
+        'detailId': 'IRIS REQUEST ID = 1006128403',
+        'entityValue': 1
       },{
-        'Error Detail': 'migrationDate=07/01/2019;migrationDays=63;transitio',
-        'Last Hour': 1
+        'detailId': 'migrationDate=07/01/2019;migrationDays=63;transitio',
+        'entityValue': 1
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128559',
-        'Last Hour': 1
+        'detailId': 'IRIS REQUEST ID = 1006128559',
+        'entityValue': 1
       },{
-        'Error Detail': 'IRIS REQUEST ID = 1006128559',
-        'Last Hour': 1
+        'detailId': 'IRIS REQUEST ID = 1006128559',
+        'entityValue': 1
       },{
-        'Error Detail': 'BT010: BIRT Engine task failed',
-        'Last Hour': 5
+        'detailId': 'BT010: BIRT Engine task failed',
+        'entityValue': 5
       },{
-        'Error Detail': 'BT017: Error in VAM Data Source Balance Interest',
-        'Last Hour': 27
+        'detailId': 'BT017: Error in VAM Data Source Balance Interest',
+        'entityValue': 27
       },{
-        'Error Detail': 'DATA ERROR: Admin Center Response Failed',
-        'Last Hour': 12
+        'detailId': 'DATA ERROR: Admin Center Response Failed',
+        'entityValue': 12
       },{
-        'Error Detail': 'Error.ReportRunError: Error happened while running the report',
-        'Last Hour': 1
+        'detailId': 'Error.ReportRunError: Error happened while running the report',
+        'entityValue': 1
       }
     ]
   };
