@@ -17,11 +17,20 @@ class ClassOneTimeButton extends Component {
 
 	render() {
 		return (
-			<div style={{ margin: 10, padding: 10 }}>
-				<Button color='primary' variant='contained' onClick={this.handleClick} disabled={this.state.clicked}>
-					{this.props.label}
-				</Button>
-			</div>
+			<React.Fragment>
+				<div style={{ margin: 10, paddingRight: 10, float: 'left' }}>
+					<Button
+						color='primary'
+						variant='contained'
+						onClick={this.handleClick}
+						disabled={this.state.clicked}
+					>
+						{this.props.label}
+					</Button>
+				</div>
+				<div style={{ topMargin: 5, float: 'left', padding: 25 }}>Click me once and I will get disabled!</div>
+				<div style={{ clear: 'both' }} />
+			</React.Fragment>
 		);
 	}
 }
