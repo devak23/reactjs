@@ -5,13 +5,14 @@ import { Status } from '../../helpers/Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFrown, faClock, faFrownOpen, faPauseCircle, faPlayCircle, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
-const Dashboard = () => {
+const Dashboard = ({location}) => {
   let summarySuccessData = getSummarySuccessData();
   let summaryFailureData = getSummaryFailureData();
   let summaryStorageData = getStorageSummaryData();
   let engineData = getEngineData();
   let failedReportData = getFailedReportsData();
 
+  console.log({location});
   return (
     <section>
       <div className='row'>

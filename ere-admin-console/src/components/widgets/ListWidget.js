@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Duration } from '../helpers/Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import M from 'materialize-css';
-import { createUseStyles } from 'react-jss';
 import { withStyles} from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,6 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import { getWidgetStyles } from '../helpers/StyleHelper';
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -20,25 +20,6 @@ const StyledTableCell = withStyles(theme => ({
     fontSize: 14,
   },
 }))(TableCell);
-
-const getStyles = createUseStyles({
-  title: {
-    fontFamily: 'Open Sans Condensed',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginRight: '1rem'
-  },
-  headerBackground: {
-    backgroundColor: '#f2f2f2'
-  },  
-  root: {
-    width: '100%',
-  },
-  tableWrapper: {
-    maxHeight: 440,
-    overflow: 'auto',
-  },
-});
 
 const ListWidget = ({ data }) => {
   useEffect(() => {
@@ -61,7 +42,7 @@ const ListWidget = ({ data }) => {
     setPage(0);
   };  
 
-  const classes = getStyles();
+  const classes = getWidgetStyles();
   let elements = [];
 
   data.forEach((d, i) => {
