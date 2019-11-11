@@ -111,7 +111,7 @@ const ListWidget = ({ data }) => {
     );
   });
 
-  return <ul className='collapsible popout'>{elements}</ul>;
+  return <ul className='collapsible'>{elements}</ul>;
 };
 
 export default ListWidget;
