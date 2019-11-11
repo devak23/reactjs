@@ -1,5 +1,3 @@
-let chop = (string, index) => string.substr(index);
-
 let Status = {
   GREEN: 'green',
   RED: 'red',
@@ -11,4 +9,4 @@ let Duration = {
   OUT_DURATION: 225
 }
 
-export { chop, Status, Duration };
+export { Status, Duration };
