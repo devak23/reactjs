@@ -1,26 +1,29 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import SummaryWidget from '../../widgets/SummaryWidget';
 import ListWidget from '../../widgets/ListWidget';
 import DashboardDataHelper from '../../datahelper/DashboardDataHelper';
 
 const Dashboard = () => {
-  let successSummaryData = null;
-  let failureSummaryData = null;
-  let storageSummaryData = null;
-  let engineAndSchedulerData = null;
-  let failedReportsData = null;
-  
-  useEffect(() => {
-    failureSummaryData = DashboardDataHelper.getFailureSummaryData();
-    successSummaryData = DashboardDataHelper.getSuccessSummaryData();
-    storageSummaryData = DashboardDataHelper.getStorageSummaryData();
+  // const [failureSummaryData, setFailureSummaryData] = useState({});
+  // const [successSummaryData, setSuccessSummaryData] = useState({});
+  // const [storageSummaryData, setStorageSummaryData] = useState({});
+  // const [engineAndSchedulerData, setEngineAndSchedulerData] = useState({});
+  // const [failedReportsData, setFailedReportsData] = useState({});
 
-    engineAndSchedulerData = DashboardDataHelper.getEngineAndSchedulerData();
-    failedReportsData = DashboardDataHelper.getFailedReportsData();
+  // useEffect(() => {
+  //   setFailureSummaryData();
+  //   setSuccessSummaryData();
+  //   setStorageSummaryData();
+  //   setEngineAndSchedulerData();
+  //   setFailedReportsData();
+  // })
 
-  });
+  const failureSummaryData = DashboardDataHelper.getFailureSummaryData();
+  const successSummaryData = DashboardDataHelper.getSuccessSummaryData();
+  const storageSummaryData = DashboardDataHelper.getStorageSummaryData();
+  const engineAndSchedulerData = DashboardDataHelper.getEngineAndSchedulerData();
+  const failedReportsData = DashboardDataHelper.getFailedReportsData();
 
-  console.log({location});
   return (
     <section>
       <div className='row'>

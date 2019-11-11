@@ -27,7 +27,7 @@ export default {
       }
     ];
   },
-  getSummaryFailureData: function() {
+  getFailureSummaryData: function() {
     return [
       {
         status: Status.RED,
@@ -50,7 +50,7 @@ export default {
       }
     ];
   },
-  getSummarySuccessData: function() {
+  getSuccessSummaryData: function() {
     return [
       {
         status: Status.GREEN,
