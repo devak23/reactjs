@@ -10,11 +10,11 @@ const H2HDelivery = () => {
   });
 
   const data = {
-    0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds()}
-      , {id: 'reportId', type: 'select', label: 'REPORT ID', width: 2, values: DiagnosticsDataHelper.getReportIds()}
-      , {id: 'h2hPartnerId', type: 'text', label: 'H2H PARTNER ID', width: 2, values: {}}
-      , {id: 'dropBox', type: 'text', label: 'DROPBOX', width: 2, values: {}}
-      , {id: 'outputType', type: 'select', label: 'OUTPUT TYPE', width: 2, values: DiagnosticsDataHelper.getOutputTypes()}
+    0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds(), maxColums: 5}
+      , {id: 'reportId', type: 'select', label: 'REPORT ID', width: 2, values: DiagnosticsDataHelper.getReportIds(), maxColums: 5}
+      , {id: 'h2hPartnerId', type: 'text', label: 'H2H PARTNER ID', width: 2, values: {}, maxColums: 5}
+      , {id: 'dropBox', type: 'text', label: 'DROPBOX', width: 2, values: {}, maxColums: 5}
+      , {id: 'outputType', type: 'select', label: 'OUTPUT TYPE', width: 2, values: DiagnosticsDataHelper.getOutputTypes(), maxColums: 5}
     ]
   }
 

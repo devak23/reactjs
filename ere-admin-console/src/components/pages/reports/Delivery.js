@@ -11,11 +11,11 @@ const Delivery = () => {
   });
 
   const data = {
-    0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds()}
-      , {id: 'templateName', type: 'text', label: 'TEMPLATE NAME', width: 2, values: {}}
-      , {id: 'accountNumber', type: 'text', label: 'ACCOUNT NUMBER', width: 2, values: {}}
-      , {id: 'country', type: 'select', label: 'COUNTRY', width: 2, values: DeliveryTemplateDataHelper.getCountries()}
-      , {id: 'status', type: 'select', label: 'STATUS', width: 2, values: DeliveryTemplateDataHelper.getStatuses()}
+    0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds(), maxColums: 5}
+      , {id: 'templateName', type: 'text', label: 'TEMPLATE NAME', width: 2, values: {}, maxColums: 5}
+      , {id: 'accountNumber', type: 'text', label: 'ACCOUNT NUMBER', width: 2, values: {}, maxColums: 5}
+      , {id: 'country', type: 'select', label: 'COUNTRY', width: 2, values: DeliveryTemplateDataHelper.getCountries(), maxColums: 5}
+      , {id: 'status', type: 'select', label: 'STATUS', width: 2, values: DeliveryTemplateDataHelper.getStatuses(), maxColums: 5}
     ]
   }
 

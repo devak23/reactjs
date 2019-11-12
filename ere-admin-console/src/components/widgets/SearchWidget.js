@@ -49,16 +49,36 @@ const SearchWidget = ({ data }) => {
     });
   });
 
-  const renderButtonPanel = () => (
-    <div className='col s6' key={gridData.length + 1}>
-      <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
-        Search
-      </a>
-      <a href='#!' onClick={handleSaveSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
-        Save and Search
-      </a>
-    </div>    
-  );
+  const renderButtonPanel = (index, maxCols, width) => {
+    let requiresRow = (index === maxCols)
+    if (requiresRow) {
+      console.log('creating a new row with button panel');
+      return (
+        <div className="row">
+          <div className='col s10' key={gridData.length + 1}>
+            <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+              Search
+            </a>
+            <a href='#!' onClick={handleSaveSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+              Save and Search
+            </a>
+          </div>
+        </div>
+      )
+    } else {
+      console.log('shoving the button panel in exsiting row');
+      return (
+        <div className={`col s${12- index * width}`} key={gridData.length + 1}>
+          <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+            Search
+          </a>
+          <a href='#!' onClick={handleSaveSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+            Save and Search
+          </a>
+        </div>
+      )
+    }
+  }
 
   const handleSearch = () => console.log('Search Button is clicked');
   
@@ -71,12 +91,12 @@ const SearchWidget = ({ data }) => {
       let element = row[key];
       rows.push(
         <React.Fragment key={index}>
-          <div className="col s2">
+          <div className={`col s${element.width}`}>
             {element.type === 'text' && makeTextField(element.id, element.label, element.value)}
             {element.type === 'select' && makeDropdown(element.id, element.label, element.values)}
             {element.type === 'date' && makeDateField(element.id, element.label, element.value)}
           </div>
-          {index === keys.length -1 && lastRow && renderButtonPanel()}
+          {index === keys.length -1 && lastRow && renderButtonPanel(index+1, element.maxColums, element.width)}
         </React.Fragment>
       );
     });
