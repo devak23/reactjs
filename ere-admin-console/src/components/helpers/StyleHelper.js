@@ -6,10 +6,8 @@ const getWidgetStyles = createUseStyles({
     fontSize: 20,
     fontWeight: 'bold',
     marginRight: '1rem',
-    marginLeft: '1rem'
-  },
-  headerBackground: {
-    backgroundColor: '#f2f2f2'
+    marginLeft: '1rem',
+    marginTop: '0.2rem'
   },
   tableWrapper: {
     maxHeight: 440,

@@ -50,7 +50,7 @@ const ListWidget = ({ data }) => {
     const rows = d.details;
     elements.push(
       <li className={i === 0 ? 'active': ''} key={i}>
-        <div className={`collapsible-header ${classes.headerBackground}`}>
+        <div className='collapsible-header'>
           <i className='material-icons'>
             <FontAwesomeIcon icon={d.display.icon} size={d.display.size} color={d.display.color} />
           </i>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import M from 'materialize-css';
-import DiagnosticsDataHelper from '../datahelper/DiagnosticsDataHelper';
 
 const makeTextField = (id, label) => (
   <div className='input-field'>
@@ -17,12 +16,12 @@ const makeDateField = (id, label) => (
   </div>
 );
 
-const makeDropdown = (id, label, data) => {
+const makeDropdown = (id, label, optionsData) => {
   let options = [];
-  Object.keys(data).forEach(key =>
+  Object.keys(optionsData).forEach(key =>
     options.push(
       <option key={key} value={key}>
-        {data[key]}
+        {optionsData[key]}
       </option>
     )
   );
@@ -48,29 +47,51 @@ const SearchWidget = ({ data }) => {
     });
   });
 
-  const handleSearch = () => console.log('Search Button is clicked')
+  const renderButtonPanel = () => (
+    <div className='col s6' key={gridData.length + 1}>
+      <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+        Search
+      </a>
+      <a href='#!' onClick={handleSaveSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
+        Save and Search
+      </a>
+    </div>    
+  );
+
+  const handleSearch = () => console.log('Search Button is clicked');
   
-  const handleSaveSearch = () => console.log('Search Button is clicked')
+  const handleSaveSearch = () => console.log('Save and Search Button is clicked');
 
-  const renderRowData = (row) => {
-    row.forEach(element => {
-      return <div className="col s12">
-        {element.type === 'textfield' && makeTextField(element.id, element.label, element.value)}
-        {element.type === 'select' && makeDropdown(element.id, element.label, element.optionsData)}
-        {element.type === 'date' && makeDateField(element.id, element.label, element.value)}
-      </div>
-    })
+  const renderRowData = (row, lastRow) => {
+    let rows = [];
+    let keys = Object.keys(row);
+    keys.forEach((key, index) => {
+      let element = row[key];
+      rows.push(
+        <React.Fragment key={index}>
+          <div className="col s2">
+            {element.type === 'text' && makeTextField(element.id, element.label, element.value)}
+            {element.type === 'select' && makeDropdown(element.id, element.label, element.values)}
+            {element.type === 'date' && makeDateField(element.id, element.label, element.value)}
+          </div>
+          {index === keys.length -1 && lastRow && renderButtonPanel()}
+        </React.Fragment>
+      );
+    });
+    return rows;
   }
-  const gridData = [];
-  data && data.forEach(row => {
-    gridData.push(<div className="row">{renderRowData}</div>)
-  });
-  console.log(gridData);
 
+  let gridData = [];
+  let keys = Object.keys(data);
+  keys.forEach((key, index) => {
+    let lastRow = (index === keys.length-1);
+    gridData.push(<div className='row' key={key}>{renderRowData(data[key], lastRow)}</div>);
+  });
 
   return (
     <React.Fragment>
-      <div className='row'>
+      {gridData}
+      {/* <div className='row'>
         <div className='col s2'>{makeTextField('requestId', 'REQUEST ID')}</div>
         <div className='col s2'>{makeTextField('customerId', 'CUSTOMER ID')}</div>
         <div className='col s2'>{makeDateField('startDate', 'START DATE')}</div>
@@ -104,7 +125,7 @@ const SearchWidget = ({ data }) => {
             Save and Search
           </a>
         </div>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };
