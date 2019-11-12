@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { getWidgetStyles } from '../helpers/StyleHelper';
+import ResultsWidget from './ResultsWidget';
 import M from 'materialize-css';
 
 const makeTextField = (id, label) => (
@@ -88,44 +90,28 @@ const SearchWidget = ({ data }) => {
     gridData.push(<div className='row' key={key}>{renderRowData(data[key], lastRow)}</div>);
   });
 
+  const classes = getWidgetStyles();
   return (
     <React.Fragment>
-      {gridData}
-      {/* <div className='row'>
-        <div className='col s2'>{makeTextField('requestId', 'REQUEST ID')}</div>
-        <div className='col s2'>{makeTextField('customerId', 'CUSTOMER ID')}</div>
-        <div className='col s2'>{makeDateField('startDate', 'START DATE')}</div>
-        <div className='col s2'>{makeTextField('reportName', 'REPORT NAME')}</div>
-        <div className='col s2'>
-          {makeDropdown('outputType', 'OUTPUT TYPE', DiagnosticsDataHelper.getOutputTypes())}
-        </div>
-        <div className='col s2'>
-          {makeDropdown('applicationId', 'APPLICATION', DiagnosticsDataHelper.getApplicationIds())}
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col s2'>{makeTextField('userID', 'USER ID')}</div>
-        <div className='col s2'>{makeTextField('originalRequestId', 'ORIG. REQUEST ID')}</div>
-        <div className='col s2'>{makeDateField('endDate', 'END DATE')}</div>
-        <div className='col s2'>{makeTextField('accountNumber', 'ACCOUNT NUMBER')}</div>
-        <div className='col s2'>{makeDropdown('reportId', 'REPORT ID', DiagnosticsDataHelper.getReportIds())}</div>
-        <div className='col s2'>{makeDropdown('status', 'STATUS', DiagnosticsDataHelper.getStatuses())}</div>
-      </div>
-      <div className='row'>
-        <div className='col s2'>
-          {makeDropdown('deliveryStatus', 'DELIVERY STATUS', DiagnosticsDataHelper.getDeliveryStatuses())}
-        </div>
-        <div className='col s2'>{makeDropdown('retryEnabled', 'RETRY', DiagnosticsDataHelper.getYesNoAll())}</div>
-        <div className='col s2'>{makeDropdown('scheduled', 'SCHEDULED', DiagnosticsDataHelper.getYesNoAll())}</div>
-        <div className='col s6'>
-          <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
-            Search
-          </a>
-          <a href='#!' onClick={handleSaveSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
-            Save and Search
-          </a>
-        </div>
-      </div> */}
+      <ul className='collapsible active'>
+        <li className='active'>
+          <div className='collapsible-header'>
+            <i className='material-icons'>search</i>
+            <span className={classes.title}>SEARCH</span>
+          </div>
+          <div className='collapsible-body'>
+          {gridData}
+          </div>
+        </li>
+        <li>
+          <div className='collapsible-header'>
+            <i className='material-icons'>format_list_bulleted</i><span className={classes.title}>RESULTS</span>
+          </div>
+          <div className='collapsible-body'>
+            <ResultsWidget />
+          </div>
+        </li>
+      </ul>       
     </React.Fragment>
   );
 };

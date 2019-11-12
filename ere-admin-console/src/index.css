@@ -56,7 +56,6 @@ input:focus {
   line-height: 1;
   background-color: #f2f2f2;
   border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
 }
 
 .datepicker-date-display {
