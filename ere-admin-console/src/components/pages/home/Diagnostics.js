@@ -5,7 +5,7 @@ import DiagnosticsDataHelper from '../../datahelper/DiagnosticsDataHelper';
 
 const Diagnostics = () => {
   useEffect(() => {
-    var elems = document.querySelectorAll('.collapsible');
+    let elems = document.querySelectorAll('.collapsible');
     M.Collapsible.init(elems, {});
   });
 
