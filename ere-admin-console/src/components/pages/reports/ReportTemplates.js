@@ -20,7 +20,7 @@ const ReportTemplates = () => {
 
   return (
     <div>
-      <SearchWidget data={data} />
+      <SearchWidget data={data}  title={'REPORT TEMPLATES'}/>
     </div>
   );  
 }

@@ -38,7 +38,7 @@ const makeDropdown = (id, label, optionsData) => {
 };
 
 
-const SearchWidget = ({ data }) => {
+const SearchWidget = ({ data, title }) => {
   useEffect(() => {
     let datePickers = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePickers, {});
@@ -52,7 +52,6 @@ const SearchWidget = ({ data }) => {
   const renderButtonPanel = (index, maxCols, width) => {
     let requiresRow = (index === maxCols)
     if (requiresRow) {
-      console.log('creating a new row with button panel');
       return (
         <div className="row">
           <div className='col s10' key={gridData.length + 1}>
@@ -66,7 +65,6 @@ const SearchWidget = ({ data }) => {
         </div>
       )
     } else {
-      console.log('shoving the button panel in exsiting row');
       return (
         <div className={`col s${12- index * width}`} key={gridData.length + 1}>
           <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
@@ -117,7 +115,7 @@ const SearchWidget = ({ data }) => {
         <li className='active'>
           <div className='collapsible-header'>
             <i className='material-icons'>search</i>
-            <span className={classes.title}>SEARCH</span>
+            <span className={classes.title}>SEARCH  {title}</span>
           </div>
           <div className='collapsible-body'>
           {gridData}

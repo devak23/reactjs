@@ -10,6 +10,7 @@ const Reports = () => (
       <Route exact path='/reports/reporttemplates' component={ReportTemplates}/>
       <Route exact path='/reports/delivery' component={Delivery}/>
       <Route exact path='/reports/h2hdelivery' component={H2HDelivery}/>
+      <Route exact path='/reports' component={ReportTemplates}/>
     </Switch>
   </section>
 );

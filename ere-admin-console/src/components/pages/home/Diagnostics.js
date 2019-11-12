@@ -29,7 +29,7 @@ const Diagnostics = () => {
 
   return (
     <div>
-      <SearchWidget data={data}/>
+      <SearchWidget data={data}  title={'DIAGNOSTICS'}/>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const Delivery = () => {
 
   return (
     <div>
-      <SearchWidget data={data} />
+      <SearchWidget data={data}  title={'DELIVERY TEMPLATES'}/>
     </div>
   );  
 }

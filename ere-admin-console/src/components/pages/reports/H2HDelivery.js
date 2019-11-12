@@ -20,7 +20,7 @@ const H2HDelivery = () => {
 
   return (
     <div>
-      <SearchWidget data={data} />
+      <SearchWidget data={data} title={'H2H DELIVERY TEMPLATES'} />
     </div>
   );
 }
