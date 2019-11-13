@@ -24,10 +24,10 @@ const StepTracker = () => {
 				Take a Step
 			</Button>
 			<p>
-				(StepTracker is a functional component that utilizes useState hook to keep a track of the number of the
+				StepTracker is a functional component that utilizes useState hook to keep a track of the number of the
 				times you press that button.{' '}
 				<a href='https://github.com/devak23/reactjs/blob/master/pr-usestate/src/components/StepTracker.js'>
-					Click here
+					(Click here
 				</a>{' '}
 				if you want to see the source code)
 			</p>

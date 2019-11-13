@@ -3,10 +3,6 @@ import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
-	self: {
-		margin: 10,
-		padding: 10
-	},
 	element: {
 		marginLeft: 10,
 		float: 'left'
