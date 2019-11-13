@@ -9,7 +9,7 @@ const Diagnostics = () => {
     M.Collapsible.init(elems, {});
   });
 
-  const data = {
+  const metadata = {
     0: [ {id: 'requestId', type: 'text', label: 'REQUEST ID', width: 2, values: {}, maxColums: 6}
        , {id: 'customerId', type: 'text', label: 'CUSTOMER ID', width: 2, values: {}, maxColums: 6}
        , {id: 'startDate', type: 'date', label: 'START DATE', width: 2, values: {}, maxColums: 6}
@@ -27,9 +27,14 @@ const Diagnostics = () => {
        , {id: 'scheduled', type: 'select', label: 'SCHEDULED', width: 2, values: DiagnosticsDataHelper.getYesNoAll(), maxColums: 6}]
   }
 
+  const search = (params) => {
+    console.log({params});
+    return { size: 0, results: {}}
+  }
+
   return (
     <div>
-      <SearchWidget data={data}  title={'DIAGNOSTICS'}/>
+      <SearchWidget metadata={metadata}  title={'DIAGNOSTICS'} search={search}/>
     </div>
   );
 };

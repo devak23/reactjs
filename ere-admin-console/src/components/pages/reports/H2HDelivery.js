@@ -9,7 +9,7 @@ const H2HDelivery = () => {
     M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
   });
 
-  const data = {
+  const metadata = {
     0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds(), maxColums: 5}
       , {id: 'reportId', type: 'select', label: 'REPORT ID', width: 2, values: DiagnosticsDataHelper.getReportIds(), maxColums: 5}
       , {id: 'h2hPartnerId', type: 'text', label: 'H2H PARTNER ID', width: 2, values: {}, maxColums: 5}
@@ -20,7 +20,7 @@ const H2HDelivery = () => {
 
   return (
     <div>
-      <SearchWidget data={data} title={'H2H DELIVERY TEMPLATES'} />
+      <SearchWidget metadata={metadata} title={'H2H DELIVERY TEMPLATES'} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ const Delivery = () => {
     M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
   });
 
-  const data = {
+  const metadata = {
     0: [ {id: 'applicationId', type: 'select', label: 'APPLICATION', width: 2, values: DiagnosticsDataHelper.getApplicationIds(), maxColums: 5}
       , {id: 'templateName', type: 'text', label: 'TEMPLATE NAME', width: 2, values: {}, maxColums: 5}
       , {id: 'accountNumber', type: 'text', label: 'ACCOUNT NUMBER', width: 2, values: {}, maxColums: 5}
@@ -21,7 +21,7 @@ const Delivery = () => {
 
   return (
     <div>
-      <SearchWidget data={data}  title={'DELIVERY TEMPLATES'}/>
+      <SearchWidget metadata={metadata}  title={'DELIVERY TEMPLATES'}/>
     </div>
   );  
 }

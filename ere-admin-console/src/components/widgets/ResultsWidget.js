@@ -1,10 +1,13 @@
 import React from 'react'
+import ImageHelper from '../helpers/ImageHelper';
 
 
-const ResultsWidget = () => {
+const ResultsWidget = ({data}) => {
 
   return (
-    <h4>Results Panel</h4>    
+    <section>
+      <img src={ImageHelper.noImageFound} />
+    </section>
   );
 }
 

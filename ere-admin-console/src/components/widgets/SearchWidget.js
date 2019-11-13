@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getWidgetStyles } from '../helpers/StyleHelper';
 import ResultsWidget from './ResultsWidget';
 import M from 'materialize-css';
+
+const SEARCH_PANEL = 0;
+const RESULT_PANEL = 1;
 
 const makeTextField = (id, label) => (
   <div className='input-field'>
@@ -38,7 +41,8 @@ const makeDropdown = (id, label, optionsData) => {
 };
 
 
-const SearchWidget = ({ data, title }) => {
+const SearchWidget = ({ metadata, title, search }) => {
+  const [results, setResults] = useState({});
   useEffect(() => {
     let datePickers = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePickers, {});
@@ -54,7 +58,7 @@ const SearchWidget = ({ data, title }) => {
     if (requiresRow) {
       return (
         <div className="row">
-          <div className='col s10' key={gridData.length + 1}>
+          <div className='col s10' key={index + 1}>
             <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
               Search
             </a>
@@ -66,7 +70,7 @@ const SearchWidget = ({ data, title }) => {
       )
     } else {
       return (
-        <div className={`col s${12- index * width}`} key={gridData.length + 1}>
+        <div className={`col s${12- index * width}`} key={index + 1}>
           <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
             Search
           </a>
@@ -78,9 +82,24 @@ const SearchWidget = ({ data, title }) => {
     }
   }
 
-  const handleSearch = () => console.log('Search Button is clicked');
+  const handleSearch = () => doClick();
   
-  const handleSaveSearch = () => console.log('Save and Search Button is clicked');
+  const handleSaveSearch = () => doClick(true);
+
+  const doClick = (save) => {
+    //get the instance of collapsible
+    let instance = M.Collapsible.getInstance(document.querySelector('.collapsible'));
+    instance.close(SEARCH_PANEL);
+    if (save) {
+      console.log('saving the search criteria...');
+    }
+    // perform the search
+    let results = search();
+    console.log(results);
+    setResults(results);
+    // set the results into the results tab
+    instance.open(RESULT_PANEL);
+  }
 
   const renderRowData = (row, lastRow) => {
     let rows = [];
@@ -102,16 +121,16 @@ const SearchWidget = ({ data, title }) => {
   }
 
   let gridData = [];
-  let keys = Object.keys(data);
+  let keys = Object.keys(metadata);
   keys.forEach((key, index) => {
     let lastRow = (index === keys.length-1);
-    gridData.push(<div className='row' key={key}>{renderRowData(data[key], lastRow)}</div>);
+    gridData.push(<div className='row' key={key}>{renderRowData(metadata[key], lastRow)}</div>);
   });
 
   const classes = getWidgetStyles();
   return (
     <React.Fragment>
-      <ul className='collapsible active'>
+      <ul className='collapsible'>
         <li className='active'>
           <div className='collapsible-header'>
             <i className='material-icons'>search</i>
@@ -126,7 +145,7 @@ const SearchWidget = ({ data, title }) => {
             <i className='material-icons'>format_list_bulleted</i><span className={classes.title}>RESULTS</span>
           </div>
           <div className='collapsible-body'>
-            <ResultsWidget />
+            <ResultsWidget data={results}/>
           </div>
         </li>
       </ul>       
