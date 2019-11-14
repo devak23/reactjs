@@ -13,6 +13,19 @@ const makeTextField = (id, label) => (
   </div>
 );
 
+const makeBadge = results => {
+  console.log({results})
+  let resultsDontExist = results && results.size === undefined;
+  if (resultsDontExist) {
+    return ''
+  } else if (results.size === 0) {
+    return <span className='new badge red' data-badge-caption='records found'>0</span>;
+  } else {
+    return <span className='new badge green' data-badge-caption='records found'>{results.size}</span>;
+  }
+}
+
+
 const makeDateField = (id, label) => (
   <div className='input-field'>
     <i className='material-icons prefix'>date_range</i>
@@ -43,6 +56,8 @@ const makeDropdown = (id, label, optionsData) => {
 
 const SearchWidget = ({ metadata, title, search }) => {
   const [results, setResults] = useState({});
+  const [showSpinner, setShowSpinner] = useState(false);
+
   useEffect(() => {
     let datePickers = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePickers, {});
@@ -90,6 +105,7 @@ const SearchWidget = ({ metadata, title, search }) => {
     //get the instance of collapsible
     let instance = M.Collapsible.getInstance(document.querySelector('.collapsible'));
     instance.close(SEARCH_PANEL);
+    setShowSpinner(true)
     if (save) {
       console.log('saving the search criteria...');
     }
@@ -99,6 +115,7 @@ const SearchWidget = ({ metadata, title, search }) => {
     setResults(results);
     // set the results into the results tab
     instance.open(RESULT_PANEL);
+    setShowSpinner(false);
   }
 
   const renderRowData = (row, lastRow) => {
@@ -129,6 +146,8 @@ const SearchWidget = ({ metadata, title, search }) => {
     gridData.push(<div className='row' key={key}>{renderRowData(metadata[key], lastRow)}</div>);
   });
 
+  let badge = makeBadge(results);
+
   const classes = getWidgetStyles();
   return (
     <React.Fragment>
@@ -145,9 +164,10 @@ const SearchWidget = ({ metadata, title, search }) => {
         <li>
           <div className='collapsible-header'>
             <i className='material-icons'>format_list_bulleted</i><span className={classes.title}>RESULTS</span>
+            {badge}
           </div>
           <div className='collapsible-body'>
-            <ResultsWidget data={results}/>
+            <ResultsWidget data={results} metadata={metadata} showSpinner={showSpinner}/>
           </div>
         </li>
       </ul>       
