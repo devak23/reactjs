@@ -210,14 +210,3 @@ export default {
     };
   }
 }
-
-// export {
-//   getStorageSummaryData
-//   , getSummaryFailureData
-//   , getSummarySuccessData
-//   , getSchedulerData
-//   , getEngineAndSchedulerData
-//   , getFailedReportsData
-//   , getFailedReportsByDay
-//   , getFailedReportsByHour
-// }

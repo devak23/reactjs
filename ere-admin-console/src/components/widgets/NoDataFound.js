@@ -19,7 +19,7 @@ const getStyles = createUseStyles({
 
 const NoDataFound = ({ message }) => {
 	const classes = getStyles();
-	let title = message && "Hmm... That doesn't look good!";
+	let title = message && "Close ... but no cigar!";
 	return (
 		<section>
 			<div className='row'>

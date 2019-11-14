@@ -68,6 +68,14 @@ const SearchWidget = ({ metadata, title, search }) => {
     });
   });
 
+  const getColumnsFromMetadata = metadata => {
+    let columns = [];
+    Object.keys(metadata).forEach(index => {
+      metadata[index].forEach(col => columns.push({id: col.id, label: col.label}));
+    });
+    return columns;
+  }
+
   const renderButtonPanel = (index, maxCols, totalWidth) => {
     let requiresRow = (index === maxCols)
     if (requiresRow) {
@@ -139,6 +147,7 @@ const SearchWidget = ({ metadata, title, search }) => {
     return rows;
   }
 
+  /** Build the search screen */
   let gridData = [];
   let keys = Object.keys(metadata);
   keys.forEach((key, index) => {
@@ -146,9 +155,8 @@ const SearchWidget = ({ metadata, title, search }) => {
     gridData.push(<div className='row' key={key}>{renderRowData(metadata[key], lastRow)}</div>);
   });
 
-  let badge = makeBadge(results);
-
   const classes = getWidgetStyles();
+  const columns = getColumnsFromMetadata(metadata);
   return (
     <React.Fragment>
       <ul className='collapsible'>
@@ -164,10 +172,10 @@ const SearchWidget = ({ metadata, title, search }) => {
         <li>
           <div className='collapsible-header'>
             <i className='material-icons'>format_list_bulleted</i><span className={classes.title}>RESULTS</span>
-            {badge}
+            {makeBadge(results)}
           </div>
           <div className='collapsible-body'>
-            <ResultsWidget data={results} metadata={metadata} showSpinner={showSpinner}/>
+            <ResultsWidget data={results} columns={columns} showSpinner={showSpinner}/>
           </div>
         </li>
       </ul>       
