@@ -15,6 +15,9 @@ const StyledTableCell = withStyles(theme => ({
     color: theme.palette.common.black,
     fontWeight: 900
   },
+  MuiTableCellRoot: {
+    padding: 0
+  },
   body: {
     fontSize: 14,
   },
@@ -40,10 +43,10 @@ const ResultsWidget = ({ data, columns, showSpinner }) => {
     <span>
       <div className={classes.tableWrapper}>
         <Table stickyHeader aria-label='sticky table'>
-          <TableHead style={{padding: 0}}>
+          <TableHead>
             <TableRow>
               {columns.map(column => (
-                <StyledTableCell key={column.id} align={column.align}>
+                <StyledTableCell style={{padding: 0}} key={column.id} align={column.align}>
                   {column.label}
                 </StyledTableCell>
               ))}
