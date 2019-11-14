@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageHelper from '../helpers/ImageHelper';
+import ImageRepository from '../helpers/ImageRepository';
 import { createUseStyles } from 'react-jss';
 
 const getStyles = createUseStyles({
@@ -30,7 +30,7 @@ const NoDataFound = ({ message }) => {
 				<div className='col m4' />
 			</div>
 			<div className='row'>
-				<div className='col m4'>{title && <img alt='no_data_found.png' src={ImageHelper.noImageFound} />}</div>
+				<div className='col m4'>{title && <img alt='no_data_found.png' src={ImageRepository.noImageFound} />}</div>
 				<div className='col m4'>
 					<div className={classes.mbox}>{message}</div>
 				</div>

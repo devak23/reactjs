@@ -53,7 +53,7 @@ const SearchWidget = ({ metadata, title, search }) => {
     });
   });
 
-  const renderButtonPanel = (index, maxCols, width) => {
+  const renderButtonPanel = (index, maxCols, totalWidth) => {
     let requiresRow = (index === maxCols)
     if (requiresRow) {
       return (
@@ -70,7 +70,7 @@ const SearchWidget = ({ metadata, title, search }) => {
       )
     } else {
       return (
-        <div className={`col s${12- index * width}`} key={index + 1}>
+        <div className={`col s${12 - totalWidth}`} key={index + 1} style={{width: '26%'}}>
           <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
             Search
           </a>
@@ -104,8 +104,10 @@ const SearchWidget = ({ metadata, title, search }) => {
   const renderRowData = (row, lastRow) => {
     let rows = [];
     let keys = Object.keys(row);
+    let totalWidth = 0;
     keys.forEach((key, index) => {
       let element = row[key];
+      totalWidth += element.width;
       rows.push(
         <React.Fragment key={index}>
           <div className={`col s${element.width}`}>
@@ -113,7 +115,7 @@ const SearchWidget = ({ metadata, title, search }) => {
             {element.type === 'select' && makeDropdown(element.id, element.label, element.values)}
             {element.type === 'date' && makeDateField(element.id, element.label, element.value)}
           </div>
-          {index === keys.length -1 && lastRow && renderButtonPanel(index+1, element.maxColums, element.width)}
+          {index === keys.length -1 && lastRow && renderButtonPanel(index+1, element.maxColums, totalWidth)}
         </React.Fragment>
       );
     });
