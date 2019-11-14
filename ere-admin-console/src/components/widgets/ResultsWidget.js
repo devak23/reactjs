@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { getWidgetStyles } from '../helpers/StyleHelper';
+import { isEmpty } from '../helpers/Utils';
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -37,7 +38,7 @@ const ResultsWidget = ({ data, columns, showSpinner }) => {
   };  
 
   const classes = getWidgetStyles();
-  let rows = data.results || [];
+  let rows = isEmpty(data) ? [] : isEmpty(data.results) ? [] : data.results;
   let elements = [];
   elements.push(
     <span>
