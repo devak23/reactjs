@@ -1,8 +1,11 @@
-import React from "react";
-import logo from "./logo.svg";
-import Confirm from "./Confirm";
-import "./App.css";
+import React from 'react';
+import logo from './logo.svg';
+import Confirm from './Confirm';
+import './App.css';
 
+/**
+ * Application has a state which will keep a track of following variables
+ */
 interface AppState {
   confirmMessage: string;
   confirmOpen: boolean;
@@ -15,7 +18,7 @@ class App extends React.Component<{}, AppState> {
   private renderCount: number = 0;
 
   state = {
-    confirmMessage: "Please click the confirm button",
+    confirmMessage: 'Please click the confirm button',
     confirmVisible: true,
     confirmOpen: false,
     countDown: 10
@@ -23,29 +26,25 @@ class App extends React.Component<{}, AppState> {
 
   public getSnapshotBeforeUpdate(prevProps: {}, prevState: AppState) {
     this.renderCount++;
-    console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
+    console.log('getSnapshotBeforeUpdate', prevProps, prevState, {
       renderCount: this.renderCount
     });
     return this.renderCount;
   }
 
-  public componentDidUpdate(
-    prevProps: {},
-    prevState: AppState,
-    snapshot: number
-  ) {
-    console.log("componentDidUpdate", prevProps, prevState, snapshot, {
+  public componentDidUpdate(prevProps: {}, prevState: AppState, snapshot: number) {
+    console.log('componentDidUpdate', prevProps, prevState, snapshot, {
       renderCount: this.renderCount
     });
   }
 
   public static getDerivedStateFromProps(props: {}, state: AppState) {
-    console.log("getDerivedStateFromProps", props, state);
+    console.log('getDerivedStateFromProps', props, state);
     return null;
   }
 
   public shouldComponentUpdate(nextProps: {}, nextState: AppState) {
-    console.log("shouldComponentUpdate", nextProps, nextState);
+    console.log('shouldComponentUpdate', nextProps, nextState);
     return true;
   }
 
@@ -56,31 +55,29 @@ class App extends React.Component<{}, AppState> {
   private handleTimerClick = () => {
     this.setState(
       {
-        confirmMessage: `Please click the confirm button. You have ${
-          this.state.countDown
-        } seconds to go.`,
+        confirmMessage: `Please click the confirm button. You have ${this.state.countDown} seconds to go.`,
         countDown: this.state.countDown - 1
       },
       () => {
         if (this.state.countDown < 0) {
           clearInterval(this.timer);
-          this.setState({ confirmMessage: "Too late!", confirmVisible: false });
+          this.setState({ confirmMessage: 'Too late!', confirmVisible: false });
         }
       }
     );
   };
 
   private handleOkClick = () => {
-    console.log("Ok was clicked");
+    console.log('Ok was clicked');
     this.setState({
       confirmOpen: false,
-      confirmMessage: "Alright!! Rock on! :) :)"
+      confirmMessage: 'Alright!! Rock on! :) :)'
     });
     clearInterval(this.timer);
   };
 
   private handleCancelClick = () => {
-    console.log("Cancel was clicked");
+    console.log('Cancel was clicked');
     this.setState({
       confirmOpen: false,
       confirmMessage: "Okay, but I'm sure you will come back :)"
@@ -95,27 +92,15 @@ class App extends React.Component<{}, AppState> {
 
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React and TypeScript!
-          </a>
+      <div className='App'>
+        <header className='App-header'>
+          <img src={logo} className='App-logo' alt='logo' />
+          Learn React and TypeScript!
         </header>
         <p>{this.state.confirmMessage}</p>
-        {this.state.confirmVisible && (
-          <button onClick={this.handleConfirmClick}>Confirm</button>
-        )}
+        {this.state.confirmVisible && <button onClick={this.handleConfirmClick}>Confirm</button>}
         <Confirm
-          title="Message"
+          title='Message'
           content="Would you like to learn React with Typescript :). I think it's a lot more fun than traditional javascript. What do you say?"
           okCaption="Okay! I'm in."
           onOkClick={this.handleOkClick}
