@@ -93,7 +93,7 @@ const SearchWidget = ({ metadata, title, search }) => {
       )
     } else {
       return (
-        <div className={`col s${12 - totalWidth}`} key={index + 1} style={{width: '26%'}}>
+        <div className={`col s${12 - totalWidth}`} key={index + 1}>
           <a href='#!' onClick={handleSearch} className='waves-effect waves-light btn red lighten-1 right' style={{ marginLeft: 10, marginTop: 20 }}>
             Search
           </a>
