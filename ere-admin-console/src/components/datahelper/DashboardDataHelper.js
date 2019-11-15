@@ -1,5 +1,5 @@
 import React from 'react';
-import { Status } from '../helpers/Utils';
+import {Status} from '../helpers/Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFrown
   , faClock

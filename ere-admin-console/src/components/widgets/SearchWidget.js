@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getWidgetStyles } from '../helpers/StyleHelper';
 import ResultsWidget from './ResultsWidget';
 import M from 'materialize-css';
+import SideNav from './SideNav';
 
 const SEARCH_PANEL = 0;
 const RESULT_PANEL = 1;
@@ -14,7 +15,6 @@ const makeTextField = (id, label) => (
 );
 
 const makeBadge = results => {
-  console.log({results})
   let resultsDontExist = results && results.size === undefined;
   if (resultsDontExist) {
     return ''
@@ -59,19 +59,23 @@ const SearchWidget = ({ metadata, title, search }) => {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    let datePickers = document.querySelectorAll('.datepicker');
-    M.Datepicker.init(datePickers, {});
-    let selects = document.querySelectorAll('select');
-    M.FormSelect.init(selects, {
+    M.Datepicker.init(document.querySelectorAll('.datepicker'), {});
+    M.FormSelect.init(document.querySelectorAll('select'), {
       hover: true,
       constrainWidth: false
     });
+    M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
   });
 
   const getColumnsFromMetadata = metadata => {
     let columns = [];
     Object.keys(metadata).forEach(index => {
-      metadata[index].forEach(col => columns.push({id: col.id, label: col.label}));
+      metadata[index].forEach(col => columns.push({
+        id: col.id, 
+        label: col.label,
+        align: col.align,
+        format: col.format
+      }));
     });
     return columns;
   }
@@ -159,11 +163,15 @@ const SearchWidget = ({ metadata, title, search }) => {
   const columns = getColumnsFromMetadata(metadata);
   return (
     <React.Fragment>
+      <SideNav columns={columns}/>
       <ul className='collapsible'>
         <li className='active'>
           <div className='collapsible-header'>
             <i className='material-icons'>search</i>
             <span className={classes.title}>SEARCH  {title}</span>
+            <a href="#!;" data-target="slide-out" className="sidenav-trigger">
+              <i className="material-icons">settings</i>
+            </a>
           </div>
           <div className='collapsible-body'>
           {gridData}

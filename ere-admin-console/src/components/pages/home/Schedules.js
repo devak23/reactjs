@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
-import M from 'materialize-css';
+import React from 'react';
 import SearchWidget from '../../widgets/SearchWidget';
 import DiagnosticsDataHelper from '../../datahelper/DiagnosticsDataHelper';
 import SchedulesDataHelper from '../../datahelper/SchedulesDataHelper';
 
 const Schedules = () => {
-	useEffect(() => {
-		let elems = document.querySelectorAll('.collapsible');
-		M.Collapsible.init(elems, {});
-	});
-
   const metadata = {
     0: [
       { id: 'jobName', type: 'text', label: 'JOB NAME', width: 2, values: {}, maxColums: 5 }
@@ -36,9 +30,7 @@ const Schedules = () => {
   };
     
   return (
-		<div>
 			<SearchWidget metadata={metadata} title={'SCHEDULES'} search={search} />
-		</div>
   )
 }
 

@@ -9,15 +9,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { getWidgetStyles } from '../helpers/StyleHelper';
-import { isEmpty } from '../helpers/Utils';
+import Utils from '../helpers/Utils';
 
 const StyledTableCell = withStyles(theme => ({
   head: {
     color: theme.palette.common.black,
-    fontWeight: 900
-  },
-  MuiTableCellRoot: {
-    padding: 0
+    fontWeight: 900,
+    fontFamily: 'Open Sans Condensed'
   },
   body: {
     fontSize: 14,
@@ -38,30 +36,30 @@ const ResultsWidget = ({ data, columns, showSpinner }) => {
   };  
 
   const classes = getWidgetStyles();
-  let rows = isEmpty(data) ? [] : isEmpty(data.results) ? [] : data.results;
+  let rows = Utils.isEmpty(data) ? [] : (Utils.isEmpty(data.results) ? [] : data.results);
   let elements = [];
   elements.push(
-    <span>
+    <span key={1}>
       <div className={classes.tableWrapper}>
         <Table stickyHeader aria-label='sticky table'>
           <TableHead>
             <TableRow>
               {columns.map(column => (
-                <StyledTableCell style={{padding: 0}} key={column.id} align={column.align}>
+                <StyledTableCell padding={'none'} key={column.id} align={column.align}>
                   {column.label}
                 </StyledTableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row,index) => {
               return (
-                <TableRow hover role='checkbox' tabIndex={-1} key={row.entityValue}>
+                <TableRow hover role='checkbox' tabIndex={-1} key={row.id + '-' + index}>
                   {columns.map(column => {
                     const value = row[column.id];
                     return (
                       <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                        <span>{column.format && typeof value === 'number' ? column.format(value) : value}</span>
                       </TableCell>
                     );
                   })}

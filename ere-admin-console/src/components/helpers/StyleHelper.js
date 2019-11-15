@@ -12,6 +12,14 @@ const getWidgetStyles = createUseStyles({
   tableWrapper: {
     maxHeight: 440,
     overflow: 'auto'
+  },
+  sidenav: {
+    backgroundColor: 'black',
+    color: 'white'
+  },
+  sideNavCheckBox: {
+    marginLeft: '35px',
+    color: 'black'
   }
 });
 
