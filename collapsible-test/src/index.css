@@ -1,17 +1,13 @@
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .collapsible-header {
-  position: relative;
+	position: relative;
 }
 
 .test {
-  position: absolute;
-  right: 0;
-}
-
-.testbtn {
-  float: right;
+	position: absolute;
+	right: 0;
 }

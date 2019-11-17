@@ -7,25 +7,30 @@ const RandomNumberGenerator = () => {
 
 	const [ items, setItems ] = useState([]);
 
-	const handleClick = () => {
-		setItems(...items, [
+	const handleAddNumber = () => {
+		setItems([
+			...items,
 			{
 				id: items.length,
-				value: Math.random() * 100
+				value: Math.round(Math.random() * 100, 2)
 			}
 		]);
-		console.log(items);
 	};
+
+	const handleClearNumbers = () => setItems([]);
 
 	return (
 		<div className={classes.border}>
 			<div style={{ marginLeft: 0, paddingTop: 10 }}>
-				<Button variant='contained' color='secondary' onClick={handleClick}>
+				<Button className={classes.spacing} variant='contained' onClick={handleAddNumber}>
 					Add Random number
+				</Button>
+				<Button className={classes.spacing} variant='contained' onClick={handleClearNumbers}>
+					Clear Numbers
 				</Button>
 			</div>
 			<div style={{ marginLeft: 0, paddingTop: 10 }}>
-				Random Numbers: {items.length ? items : 'No items in the list'}
+				Random Numbers: {items.map((item, index) => <span>{index !== 0 ? ',' + item.value : item.value}</span>)}
 			</div>
 		</div>
 	);
