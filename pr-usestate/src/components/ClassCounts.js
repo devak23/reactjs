@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 class ClassCounts extends React.Component {
   state = {
@@ -42,11 +43,11 @@ class ClassCounts extends React.Component {
     return (
       <>
         <h4>ClassCounts</h4>
-        <div>Count A: {counts.countA}</div>
-        <div>Count B: {counts.countB}</div>
-        <button onClick={this.incrementA}>Increment A</button>
-        <button onClick={this.incrementB}>Increment B</button>
-        <button onClick={this.badlyIncA}>Badly Increment A</button>
+        <div style={{ padding: 10 }}>Count A: {counts.countA}</div>
+        <div style={{ padding: 10 }}>Count B: {counts.countB}</div>
+        <Button color='primary' variant='contained' style={{ marginLeft: 2, marginRight: 2 }} onClick={this.incrementA}>Increment A</Button>
+        <Button color='primary' variant='contained' style={{ marginLeft: 2, marginRight: 2 }} onClick={this.incrementB}>Increment B</Button>
+        <Button color='primary' variant='contained' style={{ marginLeft: 2, marginRight: 2 }} onClick={this.badlyIncA}>Badly Increment A</Button>
       </>
     )
   }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
+import { commonStyles } from '../utils/StyleHelper';
 
 const FuncCounts = () => {
   const [counts, setCounts] = React.useState({
@@ -14,20 +16,21 @@ const FuncCounts = () => {
     countA: counts.A + 1
   })
 
+  let classes = commonStyles();
   return (
     <>
       <h4>FuncCounts</h4>
-      <div>Count A: {counts.countA}</div>
-      <div>Count B: {counts.countB}</div>
-      <button onClick={incA}>
+      <div style={{ padding: 10 }}>Count A: {counts.countA}</div>
+      <div style={{ padding: 10 }}>Count B: {counts.countB}</div>
+      <Button variant='contained' color='secondary' className={classes.spacing} onClick={incA}>
         Increment A
-      </button>
-      <button onClick={incB}>
+      </Button>
+      <Button variant='contained' color='secondary' className={classes.spacing} onClick={incB}>
         Increment B
-      </button>
-      <button onClick={badlyIncA}>
+      </Button>
+      <Button variant='contained' color='secondary' className={classes.spacing} onClick={badlyIncA}>
         Badly Inc A
-      </button>
+      </Button>
     </>
   )
 }
