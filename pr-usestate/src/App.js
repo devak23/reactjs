@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import ClickOnce from './components/ClickOnce';
 import StepTracker from './components/StepTracker';
 import RandomNumberGenerator from './components/RandomNumberGenerator';
+import Counts from './components/Counts';
 
 const App = () => {
 	return (
@@ -9,6 +10,7 @@ const App = () => {
 			<ClickOnce />
 			<StepTracker />
 			<RandomNumberGenerator />
+			<Counts />
 		</Fragment>
 	);
 };
