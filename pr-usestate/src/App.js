@@ -3,6 +3,7 @@ import ClickOnce from './components/ClickOnce';
 import StepTracker from './components/StepTracker';
 import RandomNumberGenerator from './components/RandomNumberGenerator';
 import Counts from './components/Counts';
+import ControlledInputs from './components/ControlledInputs'
 
 const App = () => {
 	return (
@@ -11,6 +12,7 @@ const App = () => {
 			<StepTracker />
 			<RandomNumberGenerator />
 			<Counts />
+			<ControlledInputs />
 		</Fragment>
 	);
 };
