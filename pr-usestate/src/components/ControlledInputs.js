@@ -8,7 +8,7 @@ const ControlledInputs = () => {
 
   useEffect(() => {
     tf.current.focus();
-    tf.current.select();
+    // tf.current.select();
   });
 
   const handleOnChange = e => {
