@@ -3,13 +3,8 @@ import { TextField } from '@material-ui/core';
 import { commonStyles } from '../utils/StyleHelper'
 
 const ControlledInputs = () => {
-  const tf = React.useRef();
-  const [text, setText] = React.useState('Please type something!');
-
-  useEffect(() => {
-    tf.current.focus();
-    // tf.current.select();
-  });
+  const [inputRef, setInputRef] = React.useState(null);
+  const [text, setText] = React.useState('This text is from state');
 
   const handleOnChange = e => {
     //console.log(e)
@@ -17,10 +12,20 @@ const ControlledInputs = () => {
     setText(e.target.value);
   }
 
+  useEffect(() => {
+    //inputRef.current.focus();
+  });
+
   const classes = commonStyles();
   return (
     <div className={classes.border}>
-      <TextField type='text' value={text} onChange={handleOnChange} ref={tf} />
+      <TextField
+        variant='outlined'
+        margin='normal'
+        type='text'
+        value={text}
+        onChange={handleOnChange}
+        ref={tf => setInputRef(tf)} />
       <p>You typed: {text}</p>
     </div>
   )

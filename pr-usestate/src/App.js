@@ -5,6 +5,7 @@ import RandomNumberGenerator from './components/RandomNumberGenerator';
 import Counts from './components/Counts';
 import ControlledInputs from './components/ControlledInputs';
 import ReducerComp from './components/ReducerComp';
+import ShoppingList from './components/ShoppingList';
 import { commonStyles } from './utils/StyleHelper';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 			<Counts />
 			<ControlledInputs />
 			<ReducerComp value={35} />
+			<ShoppingList />
 		</div>
 	);
 };

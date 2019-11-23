@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Work+Sans|Open+Sans+Condensed:300|Raleway');
 
 body {
-	font-family: 'Raleway', 'Work Sans', 'Open Sans', sans-serif;
+	font-family: 'Work Sans', 'Open Sans', sans-serif;
+	font-size: 1.5rem;
 	/* background-color: #11201f; */
 	/* color: #fff; */
 }
