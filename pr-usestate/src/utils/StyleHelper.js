@@ -9,6 +9,12 @@ const commonStyles = makeStyles({
 	spacing: {
 		marginLeft: 2,
 		marginRight: 2
+	},
+	container: {
+		maxWidth: 1280,
+		minWidth: 500,
+		width: '60%',
+		margin: 'auto'
 	}
 });
 

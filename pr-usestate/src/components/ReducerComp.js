@@ -3,8 +3,8 @@ import { commonStyles } from '../utils/StyleHelper';
 import { Button } from '@material-ui/core';
 
 const ReducerComp = ({ value }) => {
-  const [sum, dispatch] = useReducer((state, action) => {
-    return state + action;
+  const [sum, dispatch] = useReducer((oldValue, newValue) => {
+    return oldValue + newValue;
   }, value);
 
   const classes = commonStyles();

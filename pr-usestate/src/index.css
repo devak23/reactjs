@@ -5,3 +5,7 @@ body {
 	/* background-color: #11201f; */
 	/* color: #fff; */
 }
+
+div {
+	line-height: 28px;
+}
