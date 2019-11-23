@@ -1,5 +1,6 @@
-import React, { useRef, useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import { commonStyles } from '../utils/StyleHelper';
+import Title from './Title';
 import { TextField } from '@material-ui/core';
 import uuid from 'react-uuid';
 
@@ -16,23 +17,27 @@ const reducer = (state, action) => {
 }
 
 const ShoppingList = () => {
-  const inputRef = useRef();
+  const [text, setText] = useState('');
   const [items, dispatch] = useReducer(reducer, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({
       type: 'add',
-      name: inputRef.current.value
+      name: text
     });
-    inputRef.current.value = '';
+    setText('');
   }
+
+  const handleOnChange = (e) => setText(e.target.value);
 
   const classes = commonStyles();
   return (
     <div className={classes.border}>
+      <Title title='Shopping List' />
+      <p>This is our shopping cart. Please add some items</p>
       <form onSubmit={handleSubmit}>
-        <TextField ref={inputRef} label='Add an item' />
+        <TextField label='Add an item' onChange={handleOnChange} value={text} />
       </form>
       <ul>
         {

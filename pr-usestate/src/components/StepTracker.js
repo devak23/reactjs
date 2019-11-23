@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles({
-	border: {
-		border: '1px solid #DDD',
-		padding: 10,
-		margin: 10
-	}
-});
+import Title from './Title';
+import { commonStyles } from '../utils/StyleHelper';
 
 const StepTracker = () => {
-	const classes = useStyles();
-	const [ steps, setSteps ] = useState(0);
+	const classes = commonStyles();
+	const [steps, setSteps] = useState(0);
 
 	const increment = () => setSteps((steps) => steps + 1);
 
 	return (
 		<div className={classes.border}>
+			<Title title='Step Tracker' />
 			<p>Today you have taken {steps} steps!</p>
 
 			<Button variant='contained' size='large' color='secondary' onClick={increment}>

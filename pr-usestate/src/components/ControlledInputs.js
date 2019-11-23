@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { TextField } from '@material-ui/core';
 import { commonStyles } from '../utils/StyleHelper'
+import Title from './Title';
 
 const ControlledInputs = () => {
   const [inputRef, setInputRef] = React.useState(null);
@@ -19,6 +20,7 @@ const ControlledInputs = () => {
   const classes = commonStyles();
   return (
     <div className={classes.border}>
+      <Title title='Controlled Inputs' />
       <TextField
         variant='outlined'
         margin='normal'

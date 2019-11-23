@@ -1,6 +1,7 @@
 import React from 'react'
 import ClassCounts from './ClassCounts'
 import FuncCounts from './FuncCounts'
+import Title from './Title';
 import { commonStyles } from '../utils/StyleHelper'
 
 const Counts = () => {
@@ -8,6 +9,7 @@ const Counts = () => {
 
   return (
     <div className={`${classes.border}`}>
+      <Title title='Counts' />
       <ClassCounts />
       <FuncCounts />
     </div >

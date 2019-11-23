@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const commonStyles = makeStyles({
 	border: {
-		border: '1px solid #DDD',
+		border: '1px solid #AAA',
 		padding: 10,
 		margin: 10
 	},
@@ -15,6 +15,11 @@ const commonStyles = makeStyles({
 		minWidth: 500,
 		width: '60%',
 		margin: 'auto'
+	},
+	label: {
+		float: 'right',
+		backgroundColor: '#C0EB6A',
+		margin: -11
 	}
 });
 
