@@ -15,11 +15,6 @@ const commonStyles = makeStyles({
 		minWidth: 500,
 		width: '60%',
 		margin: 'auto'
-	},
-	label: {
-		float: 'right',
-		backgroundColor: '#C0EB6A',
-		margin: -11
 	}
 });
 

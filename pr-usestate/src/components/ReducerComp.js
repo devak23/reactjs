@@ -12,7 +12,7 @@ const ReducerComp = ({ value }) => {
 
   return (
     <div className={classes.border}>
-      <Title title='Reducer Example' />
+      <Title>Reducer Example</Title>
       <p>{sum}</p>
       <Button variant='contained' color='secondary' onClick={() => dispatch(1)}>+ 1</Button>
     </div>

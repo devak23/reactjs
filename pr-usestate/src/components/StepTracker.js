@@ -11,7 +11,7 @@ const StepTracker = () => {
 
 	return (
 		<div className={classes.border}>
-			<Title title='Step Tracker' />
+			<Title>Step Tracker</Title>
 			<p>Today you have taken {steps} steps!</p>
 
 			<Button variant='contained' size='large' color='secondary' onClick={increment}>

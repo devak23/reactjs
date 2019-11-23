@@ -20,7 +20,7 @@ const ControlledInputs = () => {
   const classes = commonStyles();
   return (
     <div className={classes.border}>
-      <Title title='Controlled Inputs' />
+      <Title>Controlled Inputs</Title>
       <TextField
         variant='outlined'
         margin='normal'

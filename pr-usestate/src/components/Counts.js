@@ -9,7 +9,7 @@ const Counts = () => {
 
   return (
     <div className={`${classes.border}`}>
-      <Title title='Counts' />
+      <Title>Counts</Title>
       <ClassCounts />
       <FuncCounts />
     </div >

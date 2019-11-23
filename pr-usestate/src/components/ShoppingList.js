@@ -34,7 +34,7 @@ const ShoppingList = () => {
   const classes = commonStyles();
   return (
     <div className={classes.border}>
-      <Title title='Shopping List' />
+      <Title>Shopping List</Title>
       <p>This is our shopping cart. Please add some items</p>
       <form onSubmit={handleSubmit}>
         <TextField label='Add an item' onChange={handleOnChange} value={text} />

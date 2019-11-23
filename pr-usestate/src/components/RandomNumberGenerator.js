@@ -22,7 +22,7 @@ const RandomNumberGenerator = () => {
 
 	return (
 		<div className={classes.border}>
-			<Title title='Random Number Generator' />
+			<Title>Random Number Generator</Title>
 			<div style={{ marginLeft: 0, paddingTop: 10 }}>
 				<Button className={classes.spacing} variant='contained' onClick={handleAddNumber}>
 					Add Random number

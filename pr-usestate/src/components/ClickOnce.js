@@ -10,7 +10,7 @@ const ClickOnce = () => {
 	const classes = commonStyles();
 	return (
 		<div className={classes.border}>
-			<Title title='Click Once' />
+			<Title>Click Once</Title>
 			<ClassOneTimeButton label='Class Button' onClick={() => log('Class button is clicked')} />
 			<FuncOneTimeButton label='Function Button' onClick={() => log('Function Button is clicked')} />
 		</div>
