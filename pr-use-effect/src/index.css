@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Oswald|PT+Sans|PT+Sans+Narrow&display=swap');
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.container {
+	margin: auto;
+	width: 40%;
+	max-width: 1280px;
+}
