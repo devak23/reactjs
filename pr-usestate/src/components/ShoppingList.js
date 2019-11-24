@@ -4,19 +4,22 @@ import Title from './Title';
 import { TextField } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteSweep from '@material-ui/icons/DeleteSweep';
 import uuid from 'react-uuid';
 
-const reducer = (state, action) => {
+const reducer = (items, action) => {
   switch (action.type) {
     case 'add':
-      return [...state, {
+      return [...items, {
         id: uuid(),
         name: action.name
       }];
     case 'remove':
-      return state.filter((_, index) => index !== action.index);
+      return items.filter((_, index) => index !== action.index);
+    case 'clear':
+      return [];
     default:
-      return state;
+      return items;
   }
 }
 
@@ -40,6 +43,13 @@ const ShoppingList = () => {
 
   const handleOnChange = (e) => setText(e.target.value);
 
+  const handleClearList = (e) => {
+    dispatch({
+      type: 'clear',
+    });
+    setText('');
+  }
+
   const classes = commonStyles();
   return (
     <div className={classes.border}>
@@ -47,6 +57,11 @@ const ShoppingList = () => {
       <p>This is our shopping cart. Please add some items</p>
       <form onSubmit={handleSubmit}>
         <TextField label='Add an item' onChange={handleOnChange} value={text} />
+        {items.length !== 0 &&
+          <IconButton component='span' color='primary' onClick={handleClearList}>
+            <DeleteSweep />
+          </IconButton>
+        }
       </form>
       <ul>
         {items.map((item, index) =>
