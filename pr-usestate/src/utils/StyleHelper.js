@@ -14,7 +14,8 @@ const commonStyles = makeStyles({
 		maxWidth: 1280,
 		minWidth: 500,
 		width: '60%',
-		margin: 'auto'
+		margin: 'auto',
+		backgroundColor: '#fff',
 	}
 });
 

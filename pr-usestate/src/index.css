@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Work+Sans|Open+Sans+Condensed:300|Raleway');
 
 body {
-	font-family: 'Work Sans', 'Open Sans', sans-serif;
+	font-family: 'Roboto', 'Open Sans', sans-serif;
 	font-size: 1.1rem;
-	/* background-color: #11201f; */
+	background-color: #f3f2e2;
 	/* color: #fff; */
 }
 
 div {
-	line-height: 28px;
+	line-height: 22px;
 }
