@@ -19,7 +19,7 @@ const Reddit = ({ subreddit }) => {
         const posts = response.data.data.children.map(obj => obj.data);
         setPosts(posts);
       })
-  });
+  }, [subreddit, setPosts]);
 
   console.log(posts);
   return (

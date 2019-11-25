@@ -9,7 +9,12 @@ const DatePickerTest = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    console.log('This runs after the first render. So the ref is already set');
+    console.log('This will be called when the component is mounted. ONCE! THAT\'S IT\n And it happens because you passed an empty array to the useEffect() dependencies');
+    console.log('MOUNTED!');
+  }, []);
+
+  useEffect(() => {
+    console.log('This runs after the first render and should render ONLY once! (as the ref is already set)');
     inputRef.current.focus();
   }, [inputRef]);
 
