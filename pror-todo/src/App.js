@@ -1,4 +1,8 @@
 import React from 'react';
+import { TodoBanner } from './components/TodoBanner';
+import { TodoCreator } from './components/TodoCreator';
+import { TodoRow } from './components/TodoRow';
+import { VisibilityControl } from './components/VisibilityControl';
 
 class App extends React.Component {
 	constructor(props) {
@@ -13,18 +17,14 @@ class App extends React.Component {
 				{ action: 'Buy Milk', done: false },
 				{ action: 'Learn React', done: false }
 			],
-			newItemText: ''
+			showCompleted: true
 		};
 	}
 
-	updateNewItemText = (event) => {
-		this.setState({ newItemText: event.target.value });
-	};
-
-	createNewTodo = () => {
-		if (!this.state.todoItems.find((item) => item.action === this.state.newItemText)) {
+	createNewTodo = (task) => {
+		if (!this.state.todoItems.find((item) => item.action === task)) {
 			this.setState({
-				todoItems: [ ...this.state.todoItems, { action: this.state.newItemText, done: false } ]
+				todoItems: [ ...this.state.todoItems, { action: task, done: false } ]
 			});
 		}
 	};
@@ -37,33 +37,21 @@ class App extends React.Component {
 		});
 	};
 
-	todoTableRows = () =>
-		this.state.todoItems.map((item) => (
-			<tr key={item.action}>
-				<td>{item.action}</td>
-				<td>
-					<input type='checkbox' checked={item.done} onChange={() => this.toggleTodo(item)} />
-				</td>
-			</tr>
-		));
+	handleShowCompleted = (checked) => {
+		this.setState({ showCompleted: checked });
+	};
+
+	todoTableRows = (doneValue) =>
+		this.state.todoItems
+			.filter((item) => item.done === doneValue)
+			.map((item) => <TodoRow key={item.action} item={item} callback={this.toggleTodo} />);
 
 	render = () => (
 		<div className='container'>
-			<h4 className='bg-primary text-white text-center p-2'>
-				{this.state.username}'s To Do List ({this.state.todoItems.filter((item) => !item.done).length} items
-				todo)
-			</h4>
+			<TodoBanner name={this.state.username} tasks={this.state.todoItems} />
 			<div className='container-fluid'>
 				<div className='my-2'>
-					<input
-						type='text'
-						className='form-control'
-						value={this.state.newItemText}
-						onChange={this.updateNewItemText}
-					/>
-					<button className='btn btn-primary mt-1' onClick={this.createNewTodo}>
-						Add
-					</button>
+					<TodoCreator callback={this.createNewTodo} />
 				</div>
 				<table className='table table-striped table-bordered'>
 					<thead>
@@ -72,8 +60,26 @@ class App extends React.Component {
 							<th>Done</th>
 						</tr>
 					</thead>
-					<tbody>{this.todoTableRows()}</tbody>
+					<tbody>{this.todoTableRows(false)}</tbody>
 				</table>
+				<div className='bg-secondary text-white text-center p-2'>
+					<VisibilityControl
+						description='Show Completed Tasks'
+						isChecked={this.state.showCompleted}
+						callback={(checked) => this.handleShowCompleted(checked)}
+					/>
+				</div>
+				{this.state.showCompleted && (
+					<table className='table table-striped table-bordered'>
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Done</th>
+							</tr>
+						</thead>
+						<tbody>{this.todoTableRows(true)}</tbody>
+					</table>
+				)}
 			</div>
 		</div>
 	);
