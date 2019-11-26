@@ -12,6 +12,10 @@ class TodoCreator extends React.Component {
 		this.setState({ newItemText: event.target.value });
 	};
 
+	handleOnClick = () => {
+		this.props.callback(this.state.newItemText);
+	};
+
 	render() {
 		return (
 			<React.Fragment>
@@ -21,7 +25,7 @@ class TodoCreator extends React.Component {
 					value={this.state.newItemText}
 					onChange={this.updateNewItemText}
 				/>
-				<button className='btn btn-primary mt-1' onClick={this.callback}>
+				<button className='btn btn-primary mt-1' onClick={this.handleOnClick}>
 					Add
 				</button>
 			</React.Fragment>

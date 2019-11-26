@@ -4,28 +4,38 @@ import { TodoCreator } from './components/TodoCreator';
 import { TodoRow } from './components/TodoRow';
 import { VisibilityControl } from './components/VisibilityControl';
 
+const intitalData = {
+	username: 'Adam',
+	todoItems: [
+		{ action: 'Buy flowers', done: false },
+		{ action: 'Get shoes', done: false },
+		{ action: 'Collect Tickets', done: false },
+		{ action: 'Call Joe', done: false },
+		{ action: 'Buy Milk', done: false },
+		{ action: 'Learn React', done: false }
+	],
+	showCompleted: true
+};
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			username: 'Adam',
-			todoItems: [
-				{ action: 'Buy flowers', done: false },
-				{ action: 'Get shoes', done: false },
-				{ action: 'Collect Tickets', done: false },
-				{ action: 'Call Joe', done: false },
-				{ action: 'Buy Milk', done: false },
-				{ action: 'Learn React', done: false }
-			],
-			showCompleted: true
-		};
+		this.state = intitalData;
 	}
+
+	componentDidMount = () => {
+		let data = localStorage.getItem('todos');
+		this.setState(data != null ? JSON.parse(data) : intitalData);
+	};
 
 	createNewTodo = (task) => {
 		if (!this.state.todoItems.find((item) => item.action === task)) {
-			this.setState({
-				todoItems: [ ...this.state.todoItems, { action: task, done: false } ]
-			});
+			this.setState(
+				{
+					todoItems: [ ...this.state.todoItems, { action: task, done: false } ]
+				},
+				() => localStorage.setItem('todos', JSON.stringify(this.state))
+			);
 		}
 	};
 
