@@ -7,8 +7,10 @@ const styles = () => ({
 		width: '100%',
 		display: 'flex',
 		justifyContent: 'space-between',
-		backgroundColor: '#e2d7d5',
-		border: '1px solid #CFC2BF'
+		backgroundColor: '#f7f6e7',
+		border: '1px solid #dfddc5'
+		// backgroundColor: '#e2d7d5',
+		// border: '1px solid #CFC2BF'
 	},
 	left: {
 		marginRight: 'auto',

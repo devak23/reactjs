@@ -1,1 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+body {
+	font-family: 'Source Sans Pro', 'Open Sans';
+}
+a {
+	text-decoration: none;
+}
 
+li {
+	list-style-type: none;
+}
+
+pre {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
