@@ -14,6 +14,31 @@ const styles = (theme) => ({
 	}
 });
 
+const buildGrid = (classes, xsValue, smValue, mdValue) => (
+	<Grid container spacing={4}>
+		<Grid item xs={xsValue} sm={smValue} md={mdValue}>
+			<Paper className={classes.paper}>
+				xs={xsValue} sm={smValue} md={mdValue}
+			</Paper>
+		</Grid>
+		<Grid item xs={xsValue} sm={smValue} md={mdValue}>
+			<Paper className={classes.paper}>
+				xs={xsValue} sm={smValue} md={mdValue}
+			</Paper>
+		</Grid>
+		<Grid item xs={xsValue} sm={smValue} md={mdValue}>
+			<Paper className={classes.paper}>
+				xs={xsValue} sm={smValue} md={mdValue}
+			</Paper>
+		</Grid>
+		<Grid item xs={xsValue} sm={smValue} md={mdValue}>
+			<Paper className={classes.paper}>
+				xs={xsValue} sm={smValue} md={mdValue}
+			</Paper>
+		</Grid>
+	</Grid>
+);
+
 const UnderstandingBreakPoints = ({ classes }) => (
 	<div className={classes.root}>
 		<h3>Understanding Breakpoints</h3>
@@ -23,20 +48,7 @@ const UnderstandingBreakPoints = ({ classes }) => (
 			four rows or a 2x2 grid or a line of 4 elements. Try re-sizing the screen and see how the elements get
 			re-arranged.
 		</p>
-		<Grid container spacing={4}>
-			<Grid item xs={12} sm={6} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=6 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={6} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=6 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={6} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=6 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={6} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=6 md=3</Paper>
-			</Grid>
-		</Grid>
+		{buildGrid(classes, 12, 6, 3)}
 		<p>At extremely small screen (less than 600px), the elements take up one row ie occupy 12 columns.</p>
 		<p>
 			At small screen (600px and above upto 959px), two elements take up one row comprising a grid of 2x2. So each
@@ -55,20 +67,12 @@ const UnderstandingBreakPoints = ({ classes }) => (
 			Lets say you wanted each element to occupy 75% of the screen width when small (sm) breakpoint is active. In
 			this case, you need to define the sm as 9 (9/12 = 0.75)
 		</p>
-		<Grid container spacing={4}>
-			<Grid item xs={12} sm={9} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=9 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={9} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=9 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={9} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=9 md=3</Paper>
-			</Grid>
-			<Grid item xs={12} sm={9} md={3}>
-				<Paper className={classes.paper}>xs=12 sm=9 md=3</Paper>
-			</Grid>
-		</Grid>
+		{buildGrid(classes, 12, 9, 3)}
+		<p>
+			Finally if you are unsure of what the width should be, you can use the 'auto' to set the sizes. That will
+			look as follows:
+		</p>
+		{buildGrid(classes, 'auto', 'auto', 'auto')}
 	</div>
 );
 
