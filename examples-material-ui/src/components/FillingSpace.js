@@ -97,6 +97,14 @@ const FillingSpace = ({ classes, justify }) => (
 			in the following:
 		</p>
 		{buildGrid(classes, 'center')}
+		<p>With justify = 'space-around' we get the following</p>
+		{buildGrid(classes, 'space-around')}
+		<p>
+			This value does the best job of filling all the spaces in the Grid container without having to change the
+			width of the Grid items
+		</p>
+		<p>With justify='space-between', we get the following:</p>
+		{buildGrid(classes, 'space-between')}
 	</div>
 );
 
