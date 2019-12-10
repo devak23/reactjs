@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
+import Header from './widgets/Header';
 
 const styles = (theme) => ({
 	root: {
@@ -15,7 +16,7 @@ const styles = (theme) => ({
 	}
 });
 
-const getGrid = (classes, alignment) => (
+const buildGrid = (classes, alignment) => (
 	<Grid container spacing={4}>
 		<Grid item xs={12} sm={6} md={3}>
 			<Paper className={classes.paper}>
@@ -82,20 +83,20 @@ const getGrid = (classes, alignment) => (
 
 const FillingSpace = ({ classes, justify }) => (
 	<div className={classes.root}>
-		<h3>Filling up Spaces</h3>
+		<Header title='Filling up Spaces' />
 		<p>
 			The justify property is specified on the container Grid component. In the following instance its the
 			container that contains the Chip component as items. Each container is using flex-start value which will
 			align the Grid items at the start of the container.
 		</p>
-		{getGrid(classes, justify)}
+		{buildGrid(classes, justify)}
 		<p>
 			The flex-star value aligns all of the Grid items at the start of the container. Instead of changing the
 			breakpoint property values of these items which results in changed widths, you can change the justify
 			property value to tell the Grid container how to fill empty spaces. For example using 'center' value results
 			in the following:
 		</p>
-		{getGrid(classes, 'center')}
+		{buildGrid(classes, 'center')}
 	</div>
 );
 

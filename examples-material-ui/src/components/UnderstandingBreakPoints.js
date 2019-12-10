@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Header from './widgets/Header';
 
 const styles = (theme) => ({
 	root: {
@@ -41,7 +42,7 @@ const buildGrid = (classes, xsValue, smValue, mdValue) => (
 
 const UnderstandingBreakPoints = ({ classes }) => (
 	<div className={classes.root}>
-		<h3>Understanding Breakpoints</h3>
+		<Header title='Understanding Breakpoints' />
 		<p>
 			A breakpoint is used by material-ui to determine at what point to break the flow of content on the screen
 			and continue on the next line. Depending on the screen width, the following elements will either appear as
