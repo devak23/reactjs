@@ -3,6 +3,7 @@ import FillingSpace from './FillingSpace';
 import AbstractingContainerAndItems from './AbstractingContainerAndItems';
 import FixedColumns from './FixedColumns';
 import ChangeColumnDirection from './ChangeColumnDirection.js';
+import FixedPositionBar from './FixedPositionBar.js';
 
 const PathData = [
 	{
@@ -34,6 +35,12 @@ const PathData = [
 		path: '/changedirection',
 		title: 'Changing Column Direction',
 		component: ChangeColumnDirection
+	},
+	{
+		id: 'fixedPositionAppBar',
+		path: '/fixedPosition',
+		title: 'Fixed Position AppBar',
+		component: FixedPositionBar
 	}
 ];
 

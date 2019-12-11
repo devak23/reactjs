@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HomeIcon from '@material-ui/icons/Home';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { green } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -30,7 +30,7 @@ const Header = ({ classes, title, hideHome }) => (
 		<div className={classes.right}>
 			{!hideHome && (
 				<a href='/'>
-					<HomeIcon style={{ color: green[700] }} />
+					<ExitToAppIcon style={{ color: green[700] }} />
 				</a>
 			)}
 		</div>
