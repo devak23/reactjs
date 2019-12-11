@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HomeIcon from '@material-ui/icons/Home';
+import { green } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
@@ -9,8 +11,6 @@ const styles = () => ({
 		justifyContent: 'space-between',
 		backgroundColor: '#f7f6e7',
 		border: '1px solid #dfddc5'
-		// backgroundColor: '#e2d7d5',
-		// border: '1px solid #CFC2BF'
 	},
 	left: {
 		marginRight: 'auto',
@@ -27,7 +27,13 @@ const Header = ({ classes, title, hideHome }) => (
 		<div className={classes.left}>
 			<h3>{title}</h3>
 		</div>
-		<div className={classes.right}>{!hideHome && <a href='/'>Home</a>}</div>
+		<div className={classes.right}>
+			{!hideHome && (
+				<a href='/'>
+					<HomeIcon style={{ color: green[700] }} />
+				</a>
+			)}
+		</div>
 	</div>
 );
 
