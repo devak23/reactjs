@@ -1,20 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from './components/Home';
-import UnderstandingBreakPoints from './components/UnderstandingBreakPoints';
-import FillingSpace from './components/FillingSpace';
-import AbstractingContainerAndItems from './components/AbstractingContainerAndItems';
-import FixedColumns from './components/FixedColumns';
+import PathData from './components/PathData';
 
 const App = () => (
-	<React.Fragment>
-		<Route exact path='/home' component={Home} />
-		<Route exact path='/space' component={FillingSpace} />
-		<Route exact path='/breakpoints' component={UnderstandingBreakPoints} />
-		<Route exact path='/abstracting' component={AbstractingContainerAndItems} />
-		<Route exact path='/fixedcolumns' component={FixedColumns} />
+	<div>
+		{PathData.map((item) => <Route key={item.id} exact path={item.path} component={item.component} />)}
 		<Route exact path='/' component={Home} />
-	</React.Fragment>
+	</div>
 );
 
 export default App;

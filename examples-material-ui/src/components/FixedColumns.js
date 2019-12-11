@@ -70,6 +70,42 @@ const FixedColumns = ({ classes }) => (
 			turns out to be:
 		</p>
 		{buildGrid(classes, 6)}
+		<p>
+			We can combine different widths in a fixed way. For example a header and footer that will use full width
+			layout while the elements inside will use two columns like so
+		</p>
+		<Container spacing={4}>
+			<Item xs={12}>
+				<Paper className={classes.paper}>xs=12 - Header</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item1</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item2</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item3</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item4</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item5</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item6</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item7</Paper>
+			</Item>
+			<Item xs={6}>
+				<Paper className={classes.paper}>xs=6 - Item8</Paper>
+			</Item>
+			<Item xs={12}>
+				<Paper className={classes.paper}>xs=12 - Footer</Paper>
+			</Item>
+		</Container>
 	</div>
 );
 
