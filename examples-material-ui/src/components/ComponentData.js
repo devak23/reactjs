@@ -2,8 +2,9 @@ import UnderstandingBreakPoints from './UnderstandingBreakPoints';
 import FillingSpace from './FillingSpace';
 import AbstractingContainerAndItems from './AbstractingContainerAndItems';
 import FixedColumns from './FixedColumns';
-import ChangeColumnDirection from './ChangeColumnDirection.js';
-import FixedPositionBar from './FixedPositionBar.js';
+import ChangeColumnDirection from './ChangeColumnDirection';
+import FixedPositionBar from './FixedPositionBar';
+import HideOnScroll from './HideOnScroll';
 
 const PathData = [
 	{
@@ -41,6 +42,12 @@ const PathData = [
 		path: '/fixedPosition',
 		title: 'Fixed Position AppBar',
 		component: FixedPositionBar
+	},
+	{
+		id: 'hideOnScroll',
+		path: '/hideonscroll',
+		title: 'Hide On Scroll',
+		component: HideOnScroll
 	}
 ];
 
