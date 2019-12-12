@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import { AppBar, Toolbar, IconButton, Typography, Button, Fade } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Fade, Grow } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -43,7 +43,7 @@ const ScrolledAppBar = withStyles(styles)(
 		render() {
 			const { classes } = this.props;
 			return (
-				<Fade in={!this.state.scrolling}>
+				<Grow in={!this.state.scrolling}>
 					<AppBar>
 						<Toolbar>
 							<IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
@@ -57,7 +57,7 @@ const ScrolledAppBar = withStyles(styles)(
 							</Button>
 						</Toolbar>
 					</AppBar>
-				</Fade>
+				</Grow>
 			);
 		}
 	}

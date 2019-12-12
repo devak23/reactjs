@@ -5,6 +5,7 @@ import FixedColumns from './FixedColumns';
 import ChangeColumnDirection from './ChangeColumnDirection';
 import FixedPositionBar from './FixedPositionBar';
 import HideOnScroll from './HideOnScroll';
+import ToolbarAbstraction from './ToolbarAbstraction';
 
 const PathData = [
 	{
@@ -48,6 +49,12 @@ const PathData = [
 		path: '/hideonscroll',
 		title: 'Hide On Scroll',
 		component: HideOnScroll
+	},
+	{
+		id: 'toolbarAbstraction',
+		path: '/toolbarabstraction',
+		title: 'Toolbar Abstraction',
+		component: ToolbarAbstraction
 	}
 ];
 

@@ -56,7 +56,9 @@ const Header = ({ classes, title, hideHome, hideForward, hideBack }) => (
 
 Header.propTypes = {
 	title: PropTypes.string.isRequired,
-	hideHome: PropTypes.bool
+	hideHome: PropTypes.bool,
+	hideForward: PropTypes.bool,
+	hideBack: PropTypes.bool
 };
 
 export default withStyles(styles)(Header);
