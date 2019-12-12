@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { AppBar, Toolbar, IconButton, Typography, Button, Fade } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HomeIcon from '@material-ui/icons/Home';
 
 const styles = (theme) => ({
 	root: {
@@ -53,7 +53,7 @@ const ScrolledAppBar = withStyles(styles)(
 								<h3>Hide On Scroll</h3>
 							</Typography>
 							<Button color='inherit' onClick={this.handleOnClick}>
-								<ExitToAppIcon />
+								<HomeIcon />
 							</Button>
 						</Toolbar>
 					</AppBar>

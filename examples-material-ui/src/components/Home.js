@@ -1,19 +1,30 @@
 import React from 'react';
 import Header from './widgets/Header';
+import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import ComponentData from './ComponentData';
 
-const Home = () => (
+const styles = (theme) => ({
+	root: {
+		flexGrow: 1
+	},
+	index: {
+		padding: 1,
+		fontWeight: 550
+	}
+});
+
+const Home = ({ classes }) => (
 	<React.Fragment>
-		<Header title='Topics of discussion' hideHome={true} />
+		<Header title='Topics Of Discussion' hideHome={true} hideBack={true} />
 		<ul>
-			{ComponentData.map((item) => (
+			{ComponentData.map((item, index) => (
 				<li key={item.id}>
-					<Link to={item.path}>{item.title}</Link>
+					<span className={classes.index}>{index + 1}.</span> <Link to={item.path}>{item.title}</Link>
 				</li>
 			))}
 		</ul>
 	</React.Fragment>
 );
 
-export default Home;
+export default withStyles(styles)(Home);
