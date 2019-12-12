@@ -78,7 +78,21 @@ const MyToolbar = withStyles(styles)(
 const ToolbarAbstraction = ({ classes, ...props }) => {
 	return (
 		<div className={classes.root}>
-			<MyToolbar {...props} />
+			<MyToolbar
+				MenuItems={(closeMenu) => (
+					<Fragment>
+						<MenuItem onClick={closeMenu}>Tools</MenuItem>
+						<MenuItem onClick={closeMenu}>View</MenuItem>
+						<MenuItem onClick={closeMenu}>Preferences</MenuItem>
+					</Fragment>
+				)}
+				RightButton={({ history }) => (
+					<Button color='secondary' variant='contained' onClick={() => props.history.push('/')}>
+						Logout
+					</Button>
+				)}
+				{...props}
+			/>
 		</div>
 	);
 };
