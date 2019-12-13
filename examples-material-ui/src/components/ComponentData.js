@@ -6,6 +6,7 @@ import ChangeColumnDirection from './ChangeColumnDirection';
 import FixedPositionBar from './FixedPositionBar';
 import HideOnScroll from './HideOnScroll';
 import ToolbarAbstraction from './ToolbarAbstraction';
+import Drawers from './Drawers';
 
 const PathData = [
 	{
@@ -55,6 +56,12 @@ const PathData = [
 		path: '/toolbarabstraction',
 		title: 'Toolbar Abstraction',
 		component: ToolbarAbstraction
+	},
+	{
+		id: 'drawerTypes',
+		path: '/drawers',
+		title: 'Drawers',
+		component: Drawers
 	}
 ];
 
