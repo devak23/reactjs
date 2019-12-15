@@ -9,8 +9,12 @@ import {
 	ListItem,
 	ListItemText,
 	FormControlLabel,
-	RadioGroup
+	RadioGroup,
+	Typography,
+	ListItemIcon
 } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
+import WebIcon from '@material-ui/icons/Web';
 import Header from './widgets/Header';
 
 const styles = (theme) => ({
@@ -19,6 +23,9 @@ const styles = (theme) => ({
 	},
 	flex: {
 		flex: 1
+	},
+	paper: {
+		padding: theme.spacing(2)
 	}
 });
 
@@ -28,10 +35,32 @@ const Item = (props) => <Grid item {...props} />;
 const Drawers = ({ classes }) => {
 	const [ open, setOpen ] = useState(false);
 	const [ variant, setVariant ] = useState('temporary');
+	const [ content, setContent ] = useState('Home');
+	const [ items, setItems ] = useState([
+		{ label: 'Home', Icon: HomeIcon },
+		{ label: 'Page 2', Icon: WebIcon },
+		{ label: 'Page 3', Icon: WebIcon, disabled: true },
+		{ label: 'Page 4', Icon: WebIcon },
+		{ label: 'Page 5', Icon: WebIcon, hidden: true }
+	]);
 
 	const handleChange = (e) => {
-		console.log(e.target.value);
 		setVariant(e.target.value);
+	};
+
+	const ListItems = ({ items, onClick }) =>
+		items.filter(({ hidden }) => !hidden).map(({ label, disabled, Icon }, index) => (
+			<ListItem button key={index} disabled={disabled} onClick={onClick(label)}>
+				<ListItemIcon>
+					<Icon />
+				</ListItemIcon>
+				<ListItemText>{label}</ListItemText>
+			</ListItem>
+		));
+
+	const onClick = (content) => () => {
+		setOpen(false);
+		setContent(content);
 	};
 
 	return (
@@ -41,15 +70,7 @@ const Drawers = ({ classes }) => {
 				<Item>
 					<Drawer variant={variant} open={open} onClose={() => setOpen(false)}>
 						<List>
-							<ListItem button onClick={() => setOpen(false)}>
-								<ListItemText>Home</ListItemText>
-							</ListItem>
-							<ListItem button onClick={() => setOpen(false)}>
-								<ListItemText>Page 2</ListItemText>
-							</ListItem>
-							<ListItem button onClick={() => setOpen(false)}>
-								<ListItemText>Page 3</ListItemText>
-							</ListItem>
+							<ListItems items={items} onClick={onClick} />
 						</List>
 					</Drawer>
 				</Item>
@@ -59,29 +80,29 @@ const Drawers = ({ classes }) => {
 							label='Temporary'
 							value='temporary'
 							labelPlacement='top'
-							control={<Radio color='primary' />}
+							control={<Radio color='secondary' />}
 						/>
 						<FormControlLabel
 							label='Permanent'
 							value='permanent'
 							labelPlacement='top'
-							control={<Radio color='primary' />}
+							control={<Radio color='secondary' />}
 						/>
 						<FormControlLabel
 							label='Persistent'
 							value='persistent'
 							labelPlacement='top'
-							control={<Radio color='primary' />}
+							control={<Radio color='secondary' />}
 						/>
 					</RadioGroup>
 
 					<Button onClick={() => setOpen(!open)}>{open ? 'Hide' : 'Show'} Drawer</Button>
 				</Item>
 			</Container>
-			<p>
+			<Typography>
 				The variant property of the drawer determines what type of drawer to render. A permanent drawer is
-				always visible and is always in the same place on the screen
-			</p>
+				always visible and is always in the same place on the screen.
+			</Typography>
 		</div>
 	);
 };

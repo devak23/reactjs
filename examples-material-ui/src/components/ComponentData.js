@@ -7,6 +7,8 @@ import FixedPositionBar from './FixedPositionBar';
 import HideOnScroll from './HideOnScroll';
 import ToolbarAbstraction from './ToolbarAbstraction';
 import Drawers from './Drawers';
+import DrawerWithNavigation from './DrawerWithNavigation';
+import AppbarTabIntegration from './AppbarTabIntegration';
 
 const PathData = [
 	{
@@ -35,13 +37,13 @@ const PathData = [
 	},
 	{
 		id: 'changingColumnDirection',
-		path: '/changedirection',
+		path: '/changingcolumndirection',
 		title: 'Changing Column Direction',
 		component: ChangeColumnDirection
 	},
 	{
 		id: 'fixedPositionAppBar',
-		path: '/fixedPosition',
+		path: '/fixedPositionAppBar',
 		title: 'Fixed Position AppBar',
 		component: FixedPositionBar
 	},
@@ -59,9 +61,21 @@ const PathData = [
 	},
 	{
 		id: 'drawerTypes',
-		path: '/drawers',
-		title: 'Drawers',
+		path: '/drawerTypes',
+		title: 'Drawer Types',
 		component: Drawers
+	},
+	{
+		id: 'drawerWithNavigation',
+		path: '/drawerwithnavigation',
+		title: 'Drawer with Navigation',
+		component: DrawerWithNavigation
+	},
+	{
+		id: 'appbarTagIntegration',
+		path: '/appbartabintegration',
+		title: 'Tabs and Integration with AppBar',
+		component: AppbarTabIntegration
 	}
 ];
 
