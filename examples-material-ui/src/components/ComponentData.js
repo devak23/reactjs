@@ -10,6 +10,7 @@ import Drawers from './Drawers';
 import DrawerWithNavigation from './DrawerWithNavigation';
 import AppbarTabIntegration from './AppbarTabIntegration';
 import StateBasedTabs from './StateBasedTabs';
+import StatefulExpansionPanels from './StatefulExpansionPanels';
 
 const PathData = [
 	{
@@ -83,6 +84,12 @@ const PathData = [
 		path: '/statebasedtabs',
 		title: 'State based Tabs',
 		component: StateBasedTabs
+	},
+	{
+		id: 'statefulExpansionPanels',
+		path: '/statefulexpansionpanels',
+		title: 'Stateful Expansion Panels',
+		component: StatefulExpansionPanels
 	}
 ];
 
