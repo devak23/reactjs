@@ -3,6 +3,7 @@ import compose from 'recompose/compose';
 import withWidth from '@material-ui/core/withWidth';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Tabs, Tab, Typography } from '@material-ui/core';
+import Header from './widgets/Header';
 
 const styles = (theme) => ({
 	root: {
@@ -20,6 +21,7 @@ const AppbarTabIntegration = ({ classes, width }) => {
 	const handleOnChange = (e, value) => setValue(value);
 	return (
 		<div className={classes.root}>
+			<Header title='Tabs and Integration with AppBar' />
 			<AppBar position='static'>
 				<Tabs
 					value={value}

@@ -9,6 +9,7 @@ import ToolbarAbstraction from './ToolbarAbstraction';
 import Drawers from './Drawers';
 import DrawerWithNavigation from './DrawerWithNavigation';
 import AppbarTabIntegration from './AppbarTabIntegration';
+import StateBasedTabs from './StateBasedTabs';
 
 const PathData = [
 	{
@@ -76,6 +77,12 @@ const PathData = [
 		path: '/appbartabintegration',
 		title: 'Tabs and Integration with AppBar',
 		component: AppbarTabIntegration
+	},
+	{
+		id: 'stateBasedTabs',
+		path: '/statebasedtabs',
+		title: 'State based Tabs',
+		component: StateBasedTabs
 	}
 ];
 
