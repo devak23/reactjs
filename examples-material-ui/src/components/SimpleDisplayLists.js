@@ -5,6 +5,7 @@ import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import WifiRoundedIcon from '@material-ui/icons/WifiRounded';
 import NetworkCellIcon from '@material-ui/icons/NetworkCell';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const styles = (theme) => ({
 	root: {
@@ -12,11 +13,13 @@ const styles = (theme) => ({
 	}
 });
 
+const MaybeSelectedIcon = ({ selected, Icon }) => (selected ? <CheckCircleIcon /> : <Icon />);
+
 const SimpleDisplayLists = ({ classes }) => {
 	const [ items, setItems ] = useState([
-		{ name: 'Account', timestamp: new Date(), Icon: <AccountCircleIcon /> },
-		{ name: 'Wi-Fi & Internet', timestamp: new Date(), Icon: <WifiRoundedIcon /> },
-		{ name: 'Mobile data', timestamp: new Date(), Icon: <NetworkCellIcon /> }
+		{ name: 'Account', timestamp: new Date(), icon: AccountCircleIcon },
+		{ name: 'Wi-Fi & Internet', timestamp: new Date(), icon: WifiRoundedIcon },
+		{ name: 'Mobile data', timestamp: new Date(), icon: NetworkCellIcon }
 	]);
 
 	const handleOnClick = (index) => () => {
@@ -33,12 +36,14 @@ const SimpleDisplayLists = ({ classes }) => {
 			<List>
 				{items.map((item, index) => (
 					<ListItem key={index} button dense selected={item.selected} onClick={handleOnClick(index)}>
-						<ListItemIcon>{item.Icon}</ListItemIcon>
 						<ListItemText
 							primary={item.name}
 							secondary={item.timestamp.toLocaleString()}
 							primaryTypographyProps={{ color: item.selected ? 'primary' : undefined }}
 						/>
+						<ListItemIcon>
+							<MaybeSelectedIcon selected={item.selected} Icon={item.icon} />
+						</ListItemIcon>
 					</ListItem>
 				))}
 			</List>
