@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import Header from './widgets/Header';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import WifiRoundedIcon from '@material-ui/icons/WifiRounded';
+import NetworkCellIcon from '@material-ui/icons/NetworkCell';
 
 const styles = (theme) => ({
 	root: {
@@ -11,9 +14,9 @@ const styles = (theme) => ({
 
 const SimpleDisplayLists = ({ classes }) => {
 	const [ items, setItems ] = useState([
-		{ name: 'Cash Position', timestamp: new Date() },
-		{ name: 'Transaction Status', timestamp: new Date() },
-		{ name: 'Liquidity', timestamp: new Date() }
+		{ name: 'Account', timestamp: new Date(), Icon: <AccountCircleIcon /> },
+		{ name: 'Wi-Fi & Internet', timestamp: new Date(), Icon: <WifiRoundedIcon /> },
+		{ name: 'Mobile data', timestamp: new Date(), Icon: <NetworkCellIcon /> }
 	]);
 
 	const handleOnClick = (index) => () => {
@@ -30,6 +33,7 @@ const SimpleDisplayLists = ({ classes }) => {
 			<List>
 				{items.map((item, index) => (
 					<ListItem key={index} button dense selected={item.selected} onClick={handleOnClick(index)}>
+						<ListItemIcon>{item.Icon}</ListItemIcon>
 						<ListItemText
 							primary={item.name}
 							secondary={item.timestamp.toLocaleString()}
