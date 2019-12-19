@@ -11,6 +11,7 @@ import DrawerWithNavigation from './DrawerWithNavigation';
 import AppbarTabIntegration from './AppbarTabIntegration';
 import StateBasedTabs from './StateBasedTabs';
 import StatefulExpansionPanels from './StatefulExpansionPanels';
+import SimpleDisplayLists from './SimpleDisplayLists';
 
 const PathData = [
 	{
@@ -90,6 +91,12 @@ const PathData = [
 		path: '/statefulexpansionpanels',
 		title: 'Stateful Expansion Panels',
 		component: StatefulExpansionPanels
+	},
+	{
+		id: 'simpleDisplayLists',
+		path: '/simpledisplaylists',
+		title: 'Simple Display Lists',
+		component: SimpleDisplayLists
 	}
 ];
 
