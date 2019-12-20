@@ -12,6 +12,7 @@ import AppbarTabIntegration from './AppbarTabIntegration';
 import StateBasedTabs from './StateBasedTabs';
 import StatefulExpansionPanels from './StatefulExpansionPanels';
 import SimpleDisplayLists from './SimpleDisplayLists';
+import AvatarsAndTexts from './AvatarsAndTexts';
 
 const PathData = [
 	{
@@ -97,6 +98,12 @@ const PathData = [
 		path: '/simpledisplaylists',
 		title: 'Simple Display Lists',
 		component: SimpleDisplayLists
+	},
+	{
+		id: 'avatarsAndText',
+		path: '/avatarsandtexts',
+		title: 'Avatars And Texts',
+		component: AvatarsAndTexts
 	}
 ];
 
