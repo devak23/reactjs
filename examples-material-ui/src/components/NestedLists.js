@@ -14,7 +14,10 @@ const styles = (theme) => ({
 		flexGrow: 1
 	},
 	content: {
-		width: 250
+		width: 350
+	},
+	subItem: {
+		paddingLeft: theme.spacing(4) // to indent the sub items
 	}
 });
 
@@ -62,7 +65,7 @@ const NestedLists = ({ classes }) => {
 							</ListItem>
 							<Collapse in={item.expanded}>
 								{item.children.map((item, index) => (
-									<ListItem key={item.name} button dense>
+									<ListItem key={item.name} button dense className={classes.subItem}>
 										<ListItemIcon>
 											<item.Icon />
 										</ListItemIcon>
