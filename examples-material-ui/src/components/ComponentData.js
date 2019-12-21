@@ -13,6 +13,8 @@ import StateBasedTabs from './StateBasedTabs';
 import StatefulExpansionPanels from './StatefulExpansionPanels';
 import SimpleDisplayLists from './SimpleDisplayLists';
 import AvatarsAndTexts from './AvatarsAndTexts';
+import ListSections from './ListSections';
+import NestedLists from './NestedLists';
 
 const PathData = [
 	{
@@ -104,6 +106,18 @@ const PathData = [
 		path: '/avatarsandtexts',
 		title: 'Avatars And Texts',
 		component: AvatarsAndTexts
+	},
+	{
+		id: 'listSections',
+		path: '/listsections',
+		title: 'List Sections',
+		component: ListSections
+	},
+	{
+		id: 'nestedLists',
+		path: '/nestedlists',
+		title: 'Nested Lists',
+		component: NestedLists
 	}
 ];
 
