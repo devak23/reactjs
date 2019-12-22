@@ -15,6 +15,7 @@ import SimpleDisplayLists from './SimpleDisplayLists';
 import AvatarsAndTexts from './AvatarsAndTexts';
 import ListSections from './ListSections';
 import NestedLists from './NestedLists';
+import ListControls from './ListControls';
 
 const PathData = [
 	{
@@ -118,6 +119,12 @@ const PathData = [
 		path: '/nestedlists',
 		title: 'Nested Lists',
 		component: NestedLists
+	},
+	{
+		id: 'listControls',
+		path: '/listcontrols',
+		title: 'List Controls',
+		component: ListControls
 	}
 ];
 
