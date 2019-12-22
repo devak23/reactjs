@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/styles';
 import DevicesIcon from '@material-ui/icons/Devices';
 import BluetoothIcon from '@material-ui/icons/Bluetooth';
 import BluetoothDisabledIcon from '@material-ui/icons/BluetoothDisabled';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+
 import { List, ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction, IconButton } from '@material-ui/core';
 
 const styles = (theme) => ({
@@ -20,24 +22,27 @@ const ListControls = ({ classes }) => {
 		{
 			name: 'OnePlus 5',
 			bluetooth: true,
+			power: true,
 			Icon: DevicesIcon
 		},
 		{
 			name: 'Google Pixel',
 			bluetooth: true,
+			power: true,
 			Icon: DevicesIcon
 		},
 		{
 			name: 'iPhone 11',
 			bluetooth: true,
+			power: true,
 			Icon: DevicesIcon
 		}
 	]);
 
-	const handleOnClick = (index) => () => {
+	const toggleControl = (index, prop) => () => {
 		const newItems = [ ...items ];
 		const item = items[index];
-		newItems[index] = { ...item, bluetooth: !item.bluetooth };
+		newItems[index] = { ...item, [prop]: !item[prop] };
 		setItems(newItems);
 	};
 
@@ -49,14 +54,25 @@ const ListControls = ({ classes }) => {
 			<div className={classes.content}>
 				<List>
 					{items.map(({ Icon, ...item }, index) => (
-						<ListItem key={index} button onClick={handleOnClick(index)}>
+						<ListItem key={index} onClick={toggleControl(index, 'power')} button disabled={!item.power}>
 							<ListItemIcon>
 								<Icon />
 							</ListItemIcon>
 							<ListItemText primary={item.name} />
 							<ListItemSecondaryAction>
-								<IconButton onClick={handleOnClick(index)}>
-									<MaybeBluetoothIcon bluetooth={item.bluetooth} />
+								{item.power && (
+									<IconButton
+										onClick={toggleControl(index, 'bluetooth')}
+										color={!item.bluetooth ? 'secondary' : 'default'}
+									>
+										<MaybeBluetoothIcon bluetooth={item.bluetooth} />
+									</IconButton>
+								)}
+								<IconButton
+									onClick={toggleControl(index, 'power')}
+									color={!item.power ? 'secondary' : 'default'}
+								>
+									<PowerSettingsNewIcon />
 								</IconButton>
 							</ListItemSecondaryAction>
 						</ListItem>
