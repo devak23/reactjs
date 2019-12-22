@@ -16,6 +16,7 @@ import AvatarsAndTexts from './AvatarsAndTexts';
 import ListSections from './ListSections';
 import NestedLists from './NestedLists';
 import ListControls from './ListControls';
+import ScrollingLists from './ScrollingLists';
 
 const PathData = [
 	{
@@ -125,6 +126,12 @@ const PathData = [
 		path: '/listcontrols',
 		title: 'List Controls',
 		component: ListControls
+	},
+	{
+		id: 'scrollingLists',
+		path: '/scrollinglists',
+		title: 'Scrolling Lists',
+		component: ScrollingLists
 	}
 ];
 
