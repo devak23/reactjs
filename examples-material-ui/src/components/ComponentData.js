@@ -18,6 +18,7 @@ import NestedLists from './NestedLists';
 import ListControls from './ListControls';
 import ScrollingLists from './ScrollingLists';
 import ShowSnackbar from './ShowSnackbar';
+import SnackbarTransitions from './SnackbarTransitions';
 
 const PathData = [
 	{
@@ -139,6 +140,12 @@ const PathData = [
 		path: '/snackbar',
 		title: 'Snackbar',
 		component: ShowSnackbar
+	},
+	{
+		id: 'snackbarTransitions',
+		path: '/snackbartransitions',
+		title: 'Snackbar Transitions',
+		component: SnackbarTransitions
 	}
 ];
 
