@@ -19,6 +19,7 @@ import ListControls from './ListControls';
 import ScrollingLists from './ScrollingLists';
 import ShowSnackbar from './ShowSnackbar';
 import SnackbarTransitions from './SnackbarTransitions';
+import SnackbarPositions from './SnackbarPositions';
 
 const PathData = [
 	{
@@ -146,6 +147,12 @@ const PathData = [
 		path: '/snackbartransitions',
 		title: 'Snackbar Transitions',
 		component: SnackbarTransitions
+	},
+	{
+		id: 'snackbarPositions',
+		path: '/snackbarpositions',
+		title: 'Snackbar Positions',
+		component: SnackbarPositions
 	}
 ];
 
