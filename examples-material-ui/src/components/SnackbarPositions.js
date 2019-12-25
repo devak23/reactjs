@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
-import { FormControl, FormLabel, RadioGroup, Radio, FormControlLabel, Snackbar } from '@material-ui/core';
+import { FormControl, FormLabel, RadioGroup, Radio, FormControlLabel, Snackbar, Typography } from '@material-ui/core';
 
 const styles = (theme) => ({
 	root: {
@@ -16,8 +16,8 @@ const styles = (theme) => ({
 });
 
 const SnackbarPositions = ({ classes }) => {
-	const [ vertical, setVertical ] = useState('bottom');
-	const [ horizontal, setHorizontal ] = useState('left');
+	const [ vertical, setVertical ] = useState('top');
+	const [ horizontal, setHorizontal ] = useState('center');
 
 	const handleVerticalChange = (e) => setVertical(e.target.value);
 
@@ -35,8 +35,8 @@ const SnackbarPositions = ({ classes }) => {
 						value={vertical}
 						onChange={handleVerticalChange}
 					>
-						<FormControlLabel value='top' control={<Radio />} label='top' />
-						<FormControlLabel value='bottom' control={<Radio />} label='bottom' />
+						<FormControlLabel value='top' control={<Radio />} label='Top' />
+						<FormControlLabel value='bottom' control={<Radio />} label='Bottom' />
 					</RadioGroup>
 				</FormControl>
 				<FormControl component='fieldset' className={classes.formControl}>
@@ -54,6 +54,15 @@ const SnackbarPositions = ({ classes }) => {
 				</FormControl>
 				<Snackbar anchorOrigin={{ vertical, horizontal }} open={true} message='Positioned snackbar' />
 			</div>
+			<Typography>The code that actually positions the snackbar is: </Typography>
+			<pre>
+				{`<Snackbar anchorOrigin={{ vertical, horizontal }} open={true} message='Positioned snackbar' />`}
+			</pre>
+			<Typography>
+				{'...'}
+				where the values of the anchorOrigin values for vertical and horizontal are any one of (top, bottom) and
+				(left, center and right) respectively
+			</Typography>
 		</div>
 	);
 };

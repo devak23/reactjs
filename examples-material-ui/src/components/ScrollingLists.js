@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
-import { Paper, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import { List as VirtualList, AutoSizer } from 'react-virtualized';
 
 const styles = (theme) => ({
@@ -42,7 +42,7 @@ const ScrollingLists = ({ classes }) => {
 		<div className={classes.root}>
 			<Header title='Scrolling Lists' />
 			<div className={classes.body}>
-				<Typography>List of Items</Typography>
+				<Typography>List of 1000 lazily loaded Items</Typography>
 				<List className={classes.list}>
 					<AutoSizer>
 						{({ width }) => (
