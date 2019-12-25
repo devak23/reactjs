@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import ComponentData from './ComponentData';
+import Routes from '../routes';
 
 const styles = (theme) => ({
 	root: {
@@ -18,7 +18,7 @@ const Home = ({ classes }) => (
 	<React.Fragment>
 		<Header title='Topics Of Discussion' hideHome={true} hideBack={true} />
 		<ul>
-			{ComponentData.map((item, index) => (
+			{Routes.map((item, index) => (
 				<li key={item.id}>
 					<span className={classes.index}>{index + 1}.</span> <Link to={item.path}>{item.title}</Link>
 				</li>

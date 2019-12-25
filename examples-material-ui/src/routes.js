@@ -1,25 +1,26 @@
-import UnderstandingBreakPoints from './UnderstandingBreakPoints';
-import FillingSpace from './FillingSpace';
-import AbstractingContainerAndItems from './AbstractingContainerAndItems';
-import FixedColumns from './FixedColumns';
-import ChangeColumnDirection from './ChangeColumnDirection';
-import FixedPositionBar from './FixedPositionBar';
-import HideOnScroll from './HideOnScroll';
-import ToolbarAbstraction from './ToolbarAbstraction';
-import Drawers from './Drawers';
-import DrawerWithNavigation from './DrawerWithNavigation';
-import AppbarTabIntegration from './AppbarTabIntegration';
-import StateBasedTabs from './StateBasedTabs';
-import StatefulExpansionPanels from './StatefulExpansionPanels';
-import SimpleDisplayLists from './SimpleDisplayLists';
-import AvatarsAndTexts from './AvatarsAndTexts';
-import ListSections from './ListSections';
-import NestedLists from './NestedLists';
-import ListControls from './ListControls';
-import ScrollingLists from './ScrollingLists';
-import ShowSnackbar from './ShowSnackbar';
-import SnackbarTransitions from './SnackbarTransitions';
-import SnackbarPositions from './SnackbarPositions';
+import UnderstandingBreakPoints from './components/UnderstandingBreakPoints';
+import FillingSpace from './components/FillingSpace';
+import AbstractingContainerAndItems from './components/AbstractingContainerAndItems';
+import FixedColumns from './components/FixedColumns';
+import ChangeColumnDirection from './components/ChangeColumnDirection';
+import FixedPositionBar from './components/FixedPositionBar';
+import HideOnScroll from './components/HideOnScroll';
+import ToolbarAbstraction from './components/ToolbarAbstraction';
+import Drawers from './components/Drawers';
+import DrawerWithNavigation from './components/DrawerWithNavigation';
+import AppbarTabIntegration from './components/AppbarTabIntegration';
+import StateBasedTabs from './components/StateBasedTabs';
+import StatefulExpansionPanels from './components/StatefulExpansionPanels';
+import SimpleDisplayLists from './components/SimpleDisplayLists';
+import AvatarsAndTexts from './components/AvatarsAndTexts';
+import ListSections from './components/ListSections';
+import NestedLists from './components/NestedLists';
+import ListControls from './components/ListControls';
+import ScrollingLists from './components/ScrollingLists';
+import ShowSnackbar from './components/ShowSnackbar';
+import SnackbarTransitions from './components/SnackbarTransitions';
+import SnackbarPositions from './components/SnackbarPositions';
+import SnackbarErrorBoundaries from './components/SnackbarErrorBoundaries';
 
 const PathData = [
 	{
@@ -153,6 +154,12 @@ const PathData = [
 		path: '/snackbarpositions',
 		title: 'Snackbar Positions',
 		component: SnackbarPositions
+	},
+	{
+		id: 'snackbarErrorBoundaries',
+		path: '/snackbarerrorboundaries',
+		title: 'Snackbar Error Boundaries',
+		component: SnackbarErrorBoundaries
 	}
 ];
 
