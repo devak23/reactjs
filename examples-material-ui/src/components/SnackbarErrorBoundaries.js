@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
-import { Snackbar, Typography } from '@material-ui/core';
+import { Snackbar, Typography, Button } from '@material-ui/core';
 
 const styles = (theme) => ({
 	root: {
@@ -13,6 +13,9 @@ const styles = (theme) => ({
 	error: {
 		backgroundColor: theme.palette.error.main,
 		color: theme.palette.error.constrastText
+	},
+	button: {
+		background: theme.palette.primary
 	}
 });
 
@@ -44,8 +47,12 @@ const ErrorBoundary = withStyles(styles)(
 	}
 );
 
-const FaultyButton = () => {
-	throw new Error('You opened a faulty page');
+const MyButton = ({ label, throwError }) => {
+	if (throwError) {
+		throw new Error('Page not loaded. Error found while processing the page.');
+	} else {
+		return <Button>{label}</Button>;
+	}
 };
 
 const SnackbarErrorBoundaries = ({ classes }) => {
@@ -53,9 +60,6 @@ const SnackbarErrorBoundaries = ({ classes }) => {
 		<div className={classes.root}>
 			<Header title='Error Boundary' />
 			<div className={classes.content}>
-				<ErrorBoundary>
-					<FaultyButton />
-				</ErrorBoundary>
 				<Typography>
 					The componentDidCatch() life-cycle method captures the error and sets the state of the ErrorBoundary
 					component, which then displays the Snackbar component with the appropriate message. The error state
@@ -65,16 +69,27 @@ const SnackbarErrorBoundaries = ({ classes }) => {
 				<pre>
 					<code>
 						{`
-    <ErrorBoundary>
-      <FaultyButton />
-    </ErrorBoundary>
+		<ErrorBoundary>
+			<MyButton label='Good Button' />
+		</ErrorBoundary>
+		<ErrorBoundary>
+			<MyButton label='Yet another Good Button' throwError />
+		</ErrorBoundary>		
             `}
 					</code>
 				</pre>
 				<Typography>
-					Here the 'FaultyButton' is used to generate the error, but, in real life, the children enclosed
-					within the ErrorBoundary could generate the error.
+					Here the 'MyButton' is used to generate the error, but, in real life, the children enclosed within
+					the ErrorBoundary could generate the error. The ContentProps property on the Snackbar is used to
+					style the Snackbar to make it look like an error which uses the background and color values from the
+					theme.
 				</Typography>
+				<ErrorBoundary>
+					<MyButton label='Good Button' />
+				</ErrorBoundary>
+				<ErrorBoundary>
+					<MyButton label='Yet another Good Button' throwError />
+				</ErrorBoundary>
 			</div>
 		</div>
 	);
