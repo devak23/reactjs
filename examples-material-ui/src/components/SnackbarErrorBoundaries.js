@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
-import { Snackbar, Typography, Button } from '@material-ui/core';
+import { Snackbar, Typography, Button, IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 const styles = (theme) => ({
 	root: {
@@ -22,14 +23,17 @@ const styles = (theme) => ({
 const ErrorBoundary = withStyles(styles)(
 	class extends React.Component {
 		state = {
-			error: null
+			error: null,
+			open: false
 		};
 
-		handleClose = () => this.setState({ error: null });
+		handleClose = () => this.setState({ error: null, open: false });
 
 		componentDidCatch(error) {
-			this.setState({ error });
+			this.setState({ error: error, open: true });
 		}
+
+		handleCloseSnackbar = () => this.setState({ error: this.state.error, open: false });
 
 		render() {
 			const { classes } = this.props;
@@ -37,9 +41,14 @@ const ErrorBoundary = withStyles(styles)(
 				<Fragment>
 					{this.state.error === null && this.props.children}
 					<Snackbar
-						open={Boolean(this.state.error)}
+						open={this.state.open}
 						message={this.state.error !== null && this.state.error.toString()}
 						ContentProps={{ classes: { root: classes.error } }}
+						action={[
+							<IconButton color='inherit' onClick={this.handleCloseSnackbar}>
+								<CloseIcon />
+							</IconButton>
+						]}
 					/>
 				</Fragment>
 			);
@@ -85,7 +94,7 @@ const SnackbarErrorBoundaries = ({ classes }) => {
 					theme.
 				</Typography>
 				<ErrorBoundary>
-					<MyButton label='Good Button' />
+					<MyButton label='Good Component' />
 				</ErrorBoundary>
 				<ErrorBoundary>
 					<MyButton label='Yet another Good Button' throwError />
