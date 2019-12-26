@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import Routes from '../routes';
+import Routes from '../Routes';
 
 const styles = (theme) => ({
 	root: {

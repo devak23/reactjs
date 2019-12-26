@@ -4,6 +4,7 @@ import withWidth from '@material-ui/core/withWidth';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Tabs, Tab, Typography } from '@material-ui/core';
 import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -15,13 +16,13 @@ const styles = (theme) => ({
 	}
 });
 
-const AppbarTabIntegration = ({ classes, width }) => {
+const AppbarTabIntegration = ({ classes, width, title, githubPath }) => {
 	const [ value, setValue ] = useState(0);
 
 	const handleOnChange = (e, value) => setValue(value);
 	return (
 		<div className={classes.root}>
-			<Header title='Tabs and Integration with AppBar' />
+			<Header title={title} />
 			<AppBar position='static'>
 				<Tabs
 					value={value}
@@ -39,6 +40,7 @@ const AppbarTabIntegration = ({ classes, width }) => {
 			{value === 1 && <Typography className={classes.tabContent}>Accounts</Typography>}
 			{value === 2 && <Typography className={classes.tabContent}>Data and display</Typography>}
 			{value === 3 && <Typography className={classes.tabContent}>Schedule</Typography>}
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

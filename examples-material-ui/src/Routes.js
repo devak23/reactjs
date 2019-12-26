@@ -21,145 +21,179 @@ import ShowSnackbar from './components/ShowSnackbar';
 import SnackbarTransitions from './components/SnackbarTransitions';
 import SnackbarPositions from './components/SnackbarPositions';
 import SnackbarErrorBoundaries from './components/SnackbarErrorBoundaries';
+import QueuingSnackbarMessages from './components/QueuingSnackbarMessages';
 
+const GITHUB_ROOT = 'https://github.com/devak23';
+const GITHUB_PROJECT = GITHUB_ROOT + '/reactjs/blob/master/examples-material-ui';
+const GITHUB_SRC_FILE = GITHUB_PROJECT + '/src/components';
 const PathData = [
 	{
 		id: 'understandingBreakPoints',
 		path: '/breakpoints',
 		title: 'Understanding Break Points',
-		component: UnderstandingBreakPoints
+		CustomComponent: UnderstandingBreakPoints,
+		githubPath: GITHUB_SRC_FILE + '/UnderstandingBreakPoints.js'
 	},
 	{
 		id: 'fillingSpace',
-		path: '/space',
+		path: '/fillingspace',
 		title: 'Filling Space',
-		component: FillingSpace
+		CustomComponent: FillingSpace,
+		githubPath: GITHUB_SRC_FILE + '/FillingSpace.js'
 	},
 	{
 		id: 'abstractingContainerAndItems',
-		path: '/abstracting',
+		path: '/abstractingcontaineranditems',
 		title: 'Abstracting Container and Items',
-		component: AbstractingContainerAndItems
+		CustomComponent: AbstractingContainerAndItems,
+		githubPath: GITHUB_SRC_FILE + '/AbstractingContainerAndItems.js'
 	},
 	{
 		id: 'fixedColumnLayout',
-		path: '/fixedcolumns',
+		path: '/fixedcolumnlayout',
 		title: 'Fixed Column Layout',
-		component: FixedColumns
+		CustomComponent: FixedColumns,
+		githubPath: GITHUB_SRC_FILE + '/FixedColumns.js'
 	},
 	{
 		id: 'changingColumnDirection',
 		path: '/changingcolumndirection',
 		title: 'Changing Column Direction',
-		component: ChangeColumnDirection
+		CustomComponent: ChangeColumnDirection,
+		githubPath: GITHUB_SRC_FILE + '/ChangeColumnDirection.js'
 	},
 	{
 		id: 'fixedPositionAppBar',
 		path: '/fixedPositionAppBar',
 		title: 'Fixed Position AppBar',
-		component: FixedPositionBar
+		CustomComponent: FixedPositionBar,
+		githubPath: GITHUB_SRC_FILE + '/FixedPositionBar.js'
 	},
 	{
 		id: 'hideOnScroll',
 		path: '/hideonscroll',
 		title: 'Hide On Scroll',
-		component: HideOnScroll
+		CustomComponent: HideOnScroll,
+		githubPath: GITHUB_SRC_FILE + '/HideOnScroll.js'
 	},
 	{
 		id: 'toolbarAbstraction',
 		path: '/toolbarabstraction',
 		title: 'Toolbar Abstraction',
-		component: ToolbarAbstraction
+		CustomComponent: ToolbarAbstraction,
+		githubPath: GITHUB_SRC_FILE + '/ToolbarAbstraction.js'
 	},
 	{
 		id: 'drawerTypes',
-		path: '/drawerTypes',
+		path: '/drawertypes',
 		title: 'Drawer Types',
-		component: Drawers
+		CustomComponent: Drawers,
+		githubPath: GITHUB_SRC_FILE + '/Drawers.js'
 	},
 	{
 		id: 'drawerWithNavigation',
 		path: '/drawerwithnavigation',
 		title: 'Drawer with Navigation',
-		component: DrawerWithNavigation
+		CustomComponent: DrawerWithNavigation,
+		githubPath: GITHUB_SRC_FILE + '/DrawerWithNavigation.js'
 	},
 	{
 		id: 'appbarTagIntegration',
 		path: '/appbartabintegration',
 		title: 'Tabs and Integration with AppBar',
-		component: AppbarTabIntegration
+		CustomComponent: AppbarTabIntegration,
+		githubPath: GITHUB_SRC_FILE + '/AppbarTabIntegration.js'
 	},
 	{
 		id: 'stateBasedTabs',
 		path: '/statebasedtabs',
 		title: 'State based Tabs',
-		component: StateBasedTabs
+		CustomComponent: StateBasedTabs,
+		githubPath: GITHUB_SRC_FILE + '/StateBasedTabs.js'
 	},
 	{
 		id: 'statefulExpansionPanels',
 		path: '/statefulexpansionpanels',
 		title: 'Stateful Expansion Panels',
-		component: StatefulExpansionPanels
+		CustomComponent: StatefulExpansionPanels,
+		githubPath: GITHUB_SRC_FILE + '/StatefulExpansionPanels.js'
 	},
 	{
 		id: 'simpleDisplayLists',
 		path: '/simpledisplaylists',
 		title: 'Simple Display Lists',
-		component: SimpleDisplayLists
+		CustomComponent: SimpleDisplayLists,
+		githubPath: GITHUB_SRC_FILE + '/SimpleDisplayLists.js'
 	},
 	{
 		id: 'avatarsAndText',
 		path: '/avatarsandtexts',
 		title: 'Avatars And Texts',
-		component: AvatarsAndTexts
+		CustomComponent: AvatarsAndTexts,
+		githubPath: GITHUB_SRC_FILE + '/AvatarsAndTexts.js'
 	},
 	{
 		id: 'listSections',
 		path: '/listsections',
 		title: 'List Sections',
-		component: ListSections
+		CustomComponent: ListSections,
+		githubPath: GITHUB_SRC_FILE + '/ListSections.js'
 	},
 	{
 		id: 'nestedLists',
 		path: '/nestedlists',
 		title: 'Nested Lists',
-		component: NestedLists
+		CustomComponent: NestedLists,
+		githubPath: GITHUB_SRC_FILE + '/NestedLists.js'
 	},
 	{
 		id: 'listControls',
 		path: '/listcontrols',
 		title: 'List Controls',
-		component: ListControls
+		CustomComponent: ListControls,
+		githubPath: GITHUB_SRC_FILE + '/ListControls.js'
 	},
 	{
 		id: 'scrollingLists',
 		path: '/scrollinglists',
 		title: 'Scrolling Lists',
-		component: ScrollingLists
+		CustomComponent: ScrollingLists,
+		githubPath: GITHUB_SRC_FILE + '/ScrollingLists.js'
 	},
 	{
 		id: 'snackbar',
 		path: '/snackbar',
 		title: 'Snackbar',
-		component: ShowSnackbar
+		CustomComponent: ShowSnackbar,
+		githubPath: GITHUB_SRC_FILE + '/ShowSnackbar.js'
 	},
 	{
 		id: 'snackbarTransitions',
 		path: '/snackbartransitions',
 		title: 'Snackbar Transitions',
-		component: SnackbarTransitions
+		CustomComponent: SnackbarTransitions,
+		githubPath: GITHUB_SRC_FILE + '/SnackbarTransitions.js'
 	},
 	{
 		id: 'snackbarPositions',
 		path: '/snackbarpositions',
 		title: 'Snackbar Positions',
-		component: SnackbarPositions
+		CustomComponent: SnackbarPositions,
+		githubPath: GITHUB_SRC_FILE + '/SnackbarPositions.js'
 	},
 	{
 		id: 'snackbarErrorBoundaries',
 		path: '/snackbarerrorboundaries',
 		title: 'Snackbar Error Boundaries',
-		component: SnackbarErrorBoundaries
+		CustomComponent: SnackbarErrorBoundaries,
+		githubPath: GITHUB_SRC_FILE + '/SnackbarErrorBoundaries.js'
+	},
+	{
+		id: 'queuingSnackbarMessages',
+		path: '/queuingsnackbarmessages',
+		title: 'Queuing Snackbar Messages',
+		CustomComponent: QueuingSnackbarMessages,
+		githubPath: GITHUB_SRC_FILE + '/QueuingSnackbarMessages.js'
 	}
 ];
 
