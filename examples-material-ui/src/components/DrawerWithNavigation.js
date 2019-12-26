@@ -5,6 +5,7 @@ import { Grid, Typography, Drawer, List, ListItem, ListItemIcon, ListItemText, B
 import HomeIcon from '@material-ui/icons/Home';
 import WebIcon from '@material-ui/icons/Web';
 import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -26,12 +27,12 @@ const ListMenuItem = ({ path, Icon, text, onClick }) => (
 	</ListItem>
 );
 
-const DrawerWithNavigation = ({ classes }) => {
+const DrawerWithNavigation = ({ classes, title, githubPath }) => {
 	const [ open, setOpen ] = useState(false);
 
 	return (
 		<div className='root'>
-			<Header title='Drawer With Navigation' />
+			<Header title={title} />
 			<Container justify='space-between'>
 				<Item className={classes.alignContent}>
 					<Route exact path='/drawerwithnavigation' render={() => <Typography>Home</Typography>} />
@@ -68,6 +69,7 @@ const DrawerWithNavigation = ({ classes }) => {
 					<Button onClick={() => setOpen(!open)}>{open ? 'Hide' : 'Show'} Drawer</Button>
 				</Item>
 			</Container>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

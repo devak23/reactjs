@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
 import { FormControl, FormLabel, RadioGroup, Radio, FormControlLabel, Snackbar, Typography } from '@material-ui/core';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -15,7 +16,7 @@ const styles = (theme) => ({
 	}
 });
 
-const SnackbarPositions = ({ classes }) => {
+const SnackbarPositions = ({ classes, title, githubPath }) => {
 	const [ vertical, setVertical ] = useState('top');
 	const [ horizontal, setHorizontal ] = useState('center');
 
@@ -25,7 +26,7 @@ const SnackbarPositions = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Snackbar Positions' />
+			<Header title={title} />
 			<div className={classes.content}>
 				<FormControl component='fieldset' className={classes.formControl}>
 					<FormLabel component='legend'>Vertical</FormLabel>
@@ -63,6 +64,7 @@ const SnackbarPositions = ({ classes }) => {
 				where the values of the anchorOrigin values for vertical and horizontal are any one of (top, bottom) and
 				(left, center and right) respectively
 			</Typography>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

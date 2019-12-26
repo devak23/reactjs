@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import WifiRoundedIcon from '@material-ui/icons/WifiRounded';
@@ -15,7 +16,7 @@ const styles = (theme) => ({
 
 const MaybeSelectedIcon = ({ selected, Icon }) => (selected ? <CheckCircleIcon /> : <Icon />);
 
-const SimpleDisplayLists = ({ classes }) => {
+const SimpleDisplayLists = ({ classes, title, githubPath }) => {
 	const [ items, setItems ] = useState([
 		{ name: 'Account', timestamp: new Date(), icon: AccountCircleIcon },
 		{ name: 'Wi-Fi & Internet', timestamp: new Date(), icon: WifiRoundedIcon },
@@ -32,7 +33,7 @@ const SimpleDisplayLists = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Simple Display Lists' />
+			<Header title={title} />
 			<List>
 				{items.map((item, index) => (
 					<ListItem key={index} button dense selected={item.selected} onClick={handleOnClick(index)}>
@@ -47,6 +48,7 @@ const SimpleDisplayLists = ({ classes }) => {
 					</ListItem>
 				))}
 			</List>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

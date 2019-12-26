@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import Header from './widgets/Header';
 import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -14,9 +15,9 @@ const styles = (theme) => ({
 	}
 });
 
-const ListSections = ({ classes }) => (
+const ListSections = ({ classes, title, githubPath }) => (
 	<div className={classes.root}>
-		<Header title='List Sections' />
+		<Header title={title} />
 		<div className={classes.content}>
 			<Typography variant='h6'>First Section</Typography>
 			<List>
@@ -46,6 +47,7 @@ const ListSections = ({ classes }) => (
 				</ListItem>
 			</List>
 		</div>
+		<Footer githubPath={githubPath} />
 	</div>
 );
 

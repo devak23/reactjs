@@ -3,6 +3,7 @@ import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
 import { Snackbar, Typography, Button, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -64,10 +65,10 @@ const MyButton = ({ label, throwError }) => {
 	}
 };
 
-const SnackbarErrorBoundaries = ({ classes }) => {
+const SnackbarErrorBoundaries = ({ classes, title, githubPath }) => {
 	return (
 		<div className={classes.root}>
-			<Header title='Error Boundary' />
+			<Header title={title} />
 			<div className={classes.content}>
 				<Typography>
 					The componentDidCatch() life-cycle method captures the error and sets the state of the ErrorBoundary
@@ -100,6 +101,7 @@ const SnackbarErrorBoundaries = ({ classes }) => {
 					<MyButton label='Yet another Good Button' throwError />
 				</ErrorBoundary>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

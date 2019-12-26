@@ -7,6 +7,7 @@ import BluetoothDisabledIcon from '@material-ui/icons/BluetoothDisabled';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 import { List, ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction, IconButton } from '@material-ui/core';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -17,7 +18,7 @@ const styles = (theme) => ({
 	}
 });
 
-const ListControls = ({ classes }) => {
+const ListControls = ({ classes, title, githubPath }) => {
 	const [ items, setItems ] = useState([
 		{
 			name: 'OnePlus 5',
@@ -50,7 +51,7 @@ const ListControls = ({ classes }) => {
 
 	return (
 		<div className='root'>
-			<Header title='List Controls' />
+			<Header title={title} />
 			<div className={classes.content}>
 				<List>
 					{items.map(({ Icon, ...item }, index) => (
@@ -79,6 +80,7 @@ const ListControls = ({ classes }) => {
 					))}
 				</List>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

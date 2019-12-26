@@ -3,6 +3,7 @@ import Header from './widgets/Header';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -47,9 +48,9 @@ const buildGrid = (classes, width) => (
 	</Container>
 );
 
-const FixedColumns = ({ classes }) => (
+const FixedColumns = ({ classes, title, githubPath }) => (
 	<div>
-		<Header title='Fixed Column Layout' />
+		<Header title={title} />
 		<p>
 			When using Grid components in the layout, they often result in changes to your layout depending on the
 			breakpoint settings and the width of the screen. If the user makes the window smaller, the layout may change
@@ -106,6 +107,7 @@ const FixedColumns = ({ classes }) => (
 				<Paper className={classes.paper}>xs=12 - Footer</Paper>
 			</Item>
 		</Container>
+		<Footer githubPath={githubPath} />
 	</div>
 );
 

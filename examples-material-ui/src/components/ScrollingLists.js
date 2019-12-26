@@ -3,6 +3,7 @@ import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
 import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import { List as VirtualList, AutoSizer } from 'react-virtualized';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -26,7 +27,7 @@ function* generateItems() {
 	}
 }
 
-const ScrollingLists = ({ classes }) => {
+const ScrollingLists = ({ classes, title, githubPath }) => {
 	const [ items ] = useState([ ...generateItems() ]);
 
 	const rowRenderer = ({ index, isScrolling, key, style }) => {
@@ -40,7 +41,7 @@ const ScrollingLists = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Scrolling Lists' />
+			<Header title={title} />
 			<div className={classes.body}>
 				<Typography>List of 1000 lazily loaded Items</Typography>
 				<List className={classes.list}>
@@ -57,6 +58,7 @@ const ScrollingLists = ({ classes }) => {
 					</AutoSizer>
 				</List>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

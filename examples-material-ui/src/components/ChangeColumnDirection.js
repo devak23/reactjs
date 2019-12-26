@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -37,9 +38,9 @@ const buildItem = (classes, label1, label2) => (
 	</Item>
 );
 
-const ChangeColumnDirection = ({ classes }) => (
+const ChangeColumnDirection = ({ classes, title, githubPath }) => (
 	<div className={classes.root}>
-		<Header title='Change Column Direction' />
+		<Header title={title} />
 		<p>
 			Very often, the elements are placed from left to right in a Grid. We would like to have more control over it
 			as to which element goes where. How about if we had the elements in a vertical fashion from top to bottom
@@ -70,6 +71,7 @@ const ChangeColumnDirection = ({ classes }) => (
 			That specifies that for the screen size 'smDown' (small and down) hide the last column. Try resizing the
 			page and you will see the last column hiding when the page is shrunk
 		</p>
+		<Footer githubPath={githubPath} />
 	</div>
 );
 

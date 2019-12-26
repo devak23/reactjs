@@ -9,6 +9,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import StorageIcon from '@material-ui/icons/Storage';
 import uuidv4 from 'uuid/v4';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -24,7 +25,7 @@ const styles = (theme) => ({
 	}
 });
 
-const StatefulExpansionPanels = ({ classes }) => {
+const StatefulExpansionPanels = ({ classes, title, githubPath }) => {
 	const [ expanded, setExpanded ] = useState(0);
 	const [ panels ] = useState([
 		{
@@ -86,7 +87,7 @@ const StatefulExpansionPanels = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Stateful Expansion Panels' />
+			<Header title={title} />
 			{panels.filter((panel) => !panel.hidden).map((panel, index) => (
 				<ExpansionPanel
 					key={index}
@@ -106,6 +107,7 @@ const StatefulExpansionPanels = ({ classes }) => {
 			<div>
 				<Typography>The notifications panel is hidden</Typography>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

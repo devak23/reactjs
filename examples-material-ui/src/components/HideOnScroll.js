@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/styles';
 import { AppBar, Toolbar, IconButton, Typography, Button, Fade, Grow } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -50,7 +51,7 @@ const ScrolledAppBar = withStyles(styles)(
 								<MenuIcon />
 							</IconButton>
 							<Typography className={classes.flex} variant='title' color='inherit'>
-								<h3>Hide On Scroll</h3>
+								<h3>{this.props.title}</h3>
 							</Typography>
 							<Button color='inherit' onClick={this.handleOnClick}>
 								<HomeIcon />
@@ -69,6 +70,7 @@ const HideOnScroll = (props) => {
 			<ScrolledAppBar {...props} />
 			<div className={props.classes.toolbarMargin} />
 			<ul>{new Array(500).fill(null).map((v, i) => <li key={i}>{i}</li>)}</ul>
+			<Footer githubPath={props.githubPath} />
 		</div>
 	);
 };

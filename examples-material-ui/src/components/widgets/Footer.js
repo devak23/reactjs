@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = (theme) => ({
 	root: {
+		marginTop: 15,
 		flexGrow: 1,
 		fontSize: 12
 	}
@@ -11,9 +12,9 @@ const styles = (theme) => ({
 
 const Footer = ({ classes, githubPath }) => (
 	<div className={classes.root}>
-		Source code for this program:{' '}
+		To view the source code for this program,{' '}
 		<a target='_blank' href={githubPath}>
-			Click Here
+			click here.
 		</a>
 	</div>
 );

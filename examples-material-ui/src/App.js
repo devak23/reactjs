@@ -2,6 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from './components/Home';
 import Routes from './Routes';
+import { GITHUB_SRC_FILE } from './utils/Constants';
+import Footer from './components/widgets/Footer';
 
 const App = ({ location }) => (
 	<div>
@@ -13,7 +15,14 @@ const App = ({ location }) => (
 				render={(props) => <CustomComponent {...props} githubPath={githubPath} title={title} />}
 			/>
 		))}
-		<Route exact path='/' component={Home} location={location} />
+		<Route
+			exact
+			path='/'
+			render={(props) => (
+				<Home {...props} githubPath={GITHUB_SRC_FILE + '/Home.js'} title='Topics Of Discussion' />
+			)}
+			location={location}
+		/>
 	</div>
 );
 

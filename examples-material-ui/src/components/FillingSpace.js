@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -81,7 +82,7 @@ const buildGrid = (classes, alignment) => (
 	</Grid>
 );
 
-const FillingSpace = ({ classes, justify }) => (
+const FillingSpace = ({ classes, justify, title, githubPath }) => (
 	<div className={classes.root}>
 		<Header title='Filling up Spaces' />
 		<p>
@@ -105,6 +106,7 @@ const FillingSpace = ({ classes, justify }) => (
 		</p>
 		<p>With justify='space-between', we get the following:</p>
 		{buildGrid(classes, 'space-between')}
+		<Footer githubPath={githubPath} />
 	</div>
 );
 

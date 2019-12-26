@@ -7,6 +7,7 @@ import MarkunreadIcon from '@material-ui/icons/Markunread';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { List, ListItem, Avatar, ListItemText, ListItemIcon, Badge } from '@material-ui/core';
 import clsx from 'clsx';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -17,7 +18,7 @@ const styles = (theme) => ({
 	}
 });
 
-const AvatarsAndTexts = ({ classes }) => {
+const AvatarsAndTexts = ({ classes, title, githubPath }) => {
 	const [ items, setItems ] = useState([
 		{
 			name: 'Unread',
@@ -43,7 +44,7 @@ const AvatarsAndTexts = ({ classes }) => {
 	]);
 	return (
 		<div className={classes.root}>
-			<Header title='Avatars and Texts' />
+			<Header title={title} />
 			<List>
 				{items.map(({ Icon, ...item }, index) => (
 					<ListItem button>
@@ -61,6 +62,7 @@ const AvatarsAndTexts = ({ classes }) => {
 					</ListItem>
 				))}
 			</List>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

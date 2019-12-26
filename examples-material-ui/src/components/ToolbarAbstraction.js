@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/styles';
 import { MenuItem, Button, AppBar, Toolbar, IconButton, Menu, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import Footer from './widgets/Footer';
+import Header from './widgets/Header';
 
 const styles = (theme) => ({
 	root: {
@@ -75,7 +77,7 @@ const MyToolbar = withStyles(styles)(
 	}
 );
 
-const ToolbarAbstraction = ({ classes, ...props }) => {
+const ToolbarAbstraction = ({ classes, title, githubPath, ...props }) => {
 	return (
 		<div className={classes.root}>
 			<MyToolbar
@@ -93,6 +95,9 @@ const ToolbarAbstraction = ({ classes, ...props }) => {
 				)}
 				{...props}
 			/>
+			<Header title={title} />
+
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

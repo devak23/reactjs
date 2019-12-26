@@ -3,6 +3,7 @@ import Header from './widgets/Header';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -14,9 +15,9 @@ const styles = (theme) => ({
 	}
 });
 
-const Home = ({ classes }) => (
+const Home = ({ classes, title, githubPath }) => (
 	<React.Fragment>
-		<Header title='Topics Of Discussion' hideHome={true} hideBack={true} />
+		<Header title={title} hideHome={true} hideBack={true} />
 		<ul>
 			{Routes.map((item, index) => (
 				<li key={item.id}>
@@ -24,6 +25,7 @@ const Home = ({ classes }) => (
 				</li>
 			))}
 		</ul>
+		<Footer githubPath={githubPath} />
 	</React.Fragment>
 );
 

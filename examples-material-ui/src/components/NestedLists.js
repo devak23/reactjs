@@ -8,6 +8,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -23,7 +24,7 @@ const styles = (theme) => ({
 
 const ExpandedIcon = ({ expanded }) => (expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />);
 
-const NestedLists = ({ classes }) => {
+const NestedLists = ({ classes, title, githubPath }) => {
 	const [ items, setItems ] = useState([
 		{
 			name: 'Messages',
@@ -51,7 +52,7 @@ const NestedLists = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Nested Lists' />
+			<Header title={title} />
 			<div className={classes.content}>
 				<List>
 					{items.map(({ Icon, ...item }, index) => (
@@ -77,6 +78,7 @@ const NestedLists = ({ classes }) => {
 					))}
 				</List>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

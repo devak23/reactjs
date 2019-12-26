@@ -22,10 +22,8 @@ import SnackbarTransitions from './components/SnackbarTransitions';
 import SnackbarPositions from './components/SnackbarPositions';
 import SnackbarErrorBoundaries from './components/SnackbarErrorBoundaries';
 import QueuingSnackbarMessages from './components/QueuingSnackbarMessages';
+import { GITHUB_SRC_FILE } from './utils/Constants';
 
-const GITHUB_ROOT = 'https://github.com/devak23';
-const GITHUB_PROJECT = GITHUB_ROOT + '/reactjs/blob/master/examples-material-ui';
-const GITHUB_SRC_FILE = GITHUB_PROJECT + '/src/components';
 const PathData = [
 	{
 		id: 'understandingBreakPoints',

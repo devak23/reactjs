@@ -5,6 +5,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import WebIcon from '@material-ui/icons/Web';
 import SettingsIcon from '@material-ui/icons/Settings';
+import Footer from './widgets/Footer';
+import Header from './widgets/Header';
 
 const styles = (theme) => ({
 	root: {
@@ -16,7 +18,7 @@ const styles = (theme) => ({
 	}
 });
 
-const StateBasedTabs = ({ classes }) => {
+const StateBasedTabs = ({ classes, title, githubPath }) => {
 	const [ tabs, setTabs ] = useState([
 		{
 			active: true,
@@ -59,12 +61,14 @@ const StateBasedTabs = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
+			<Header title={title} />
 			<Tabs value={active} onChange={handleOnChange}>
 				{tabs.map((tab) => <Tab key={tab.label} label={tab.label} disabled={tab.disabled} icon={tab.icon} />)}
 			</Tabs>
 			<Typography component='div' className={classes.tabConent}>
 				{content}
 			</Typography>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

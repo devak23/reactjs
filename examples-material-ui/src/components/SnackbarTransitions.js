@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './widgets/Header';
 import { withStyles } from '@material-ui/styles';
 import { Grid, Button, Snackbar, Slide, Grow, Fade } from '@material-ui/core';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -21,7 +22,7 @@ const MySnackbar = ({ transition, direction, ...rest }) => (
 	/>
 );
 
-const SnackbarTransitions = ({ classes }) => {
+const SnackbarTransitions = ({ classes, title, githubPath }) => {
 	const [ first, setFirst ] = useState(false);
 	const [ second, setSecond ] = useState(false);
 	const [ third, setThird ] = useState(false);
@@ -29,7 +30,7 @@ const SnackbarTransitions = ({ classes }) => {
 
 	return (
 		<div className={classes.root}>
-			<Header title='Snackbar Transitions' />
+			<Header title={title} />
 			<div className={classes.content}>
 				<Grid container spacing={8}>
 					<Grid item>
@@ -85,6 +86,7 @@ const SnackbarTransitions = ({ classes }) => {
 					transition='fade'
 				/>
 			</div>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };

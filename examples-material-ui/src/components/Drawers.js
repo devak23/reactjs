@@ -16,6 +16,7 @@ import {
 import HomeIcon from '@material-ui/icons/Home';
 import WebIcon from '@material-ui/icons/Web';
 import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 
 const styles = (theme) => ({
 	root: {
@@ -32,7 +33,7 @@ const styles = (theme) => ({
 const Container = (props) => <Grid container {...props} />;
 const Item = (props) => <Grid item {...props} />;
 
-const Drawers = ({ classes }) => {
+const Drawers = ({ classes, title, githubPath }) => {
 	const [ open, setOpen ] = useState(false);
 	const [ variant, setVariant ] = useState('temporary');
 	const [ content, setContent ] = useState('Home');
@@ -65,7 +66,7 @@ const Drawers = ({ classes }) => {
 
 	return (
 		<div className='root'>
-			<Header title='Drawers' />
+			<Header title={title} />
 			<Container justify='space-between'>
 				<Item>
 					<Drawer variant={variant} open={open} onClose={() => setOpen(false)}>
@@ -103,6 +104,7 @@ const Drawers = ({ classes }) => {
 				The variant property of the drawer determines what type of drawer to render. A permanent drawer is
 				always visible and is always in the same place on the screen.
 			</Typography>
+			<Footer githubPath={githubPath} />
 		</div>
 	);
 };
