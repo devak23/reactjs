@@ -1,16 +1,15 @@
 {
-  "name": "pr-reddit-axios",
+  "name": "text-input-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.25.2",
-    "axios": "^0.19.0",
+    "@cib-jpm-ui-toolkit/components": "^19.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "set PORT=3600 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
