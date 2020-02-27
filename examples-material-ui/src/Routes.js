@@ -22,6 +22,7 @@ import SnackbarTransitions from './components/SnackbarTransitions';
 import SnackbarPositions from './components/SnackbarPositions';
 import SnackbarErrorBoundaries from './components/SnackbarErrorBoundaries';
 import QueuingSnackbarMessages from './components/QueuingSnackbarMessages';
+import ButonsInitiatingActions from './components/ButonsInitiatingActions';
 import { GITHUB_SRC_FILE } from './utils/Constants';
 
 const PathData = [
@@ -192,6 +193,13 @@ const PathData = [
 		title: 'Queuing Snackbar Messages',
 		CustomComponent: QueuingSnackbarMessages,
 		githubPath: GITHUB_SRC_FILE + '/QueuingSnackbarMessages.js'
+	},
+	{
+		id: 'butonsinitiatingactions',
+		path: '/buttonsinitatingactions',
+		title: 'Buttons Initiating Actions',
+		CustomComponent: ButonsInitiatingActions,
+		githubPath: GITHUB_SRC_FILE + '/ButonsInitiatingActions.js'
 	}
 ];
 

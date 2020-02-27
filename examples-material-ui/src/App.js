@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import Home from './components/Home';
 import Routes from './Routes';
 import { GITHUB_SRC_FILE } from './utils/Constants';
-import Footer from './components/widgets/Footer';
 
 const App = ({ location }) => (
 	<div>
