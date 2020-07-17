@@ -7,7 +7,7 @@
     "babel-eslint": "^8.0.0",
     "gravatar-url": "^2.0.0",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "normalizr": "^3.2.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
