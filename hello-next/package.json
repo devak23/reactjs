@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.1",
+    "express": "^4.17.3",
     "next": "beta",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
