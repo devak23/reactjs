@@ -1,0 +1,15 @@
+@import "style/variables.css";
+
+.app {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 97vh;
+    min-width: 10vw;
+    background-color: var(--background);
+    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+}
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+}

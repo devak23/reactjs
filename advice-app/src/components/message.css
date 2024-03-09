@@ -1,0 +1,5 @@
+.message {
+    font-weight: 600;
+    font-size: small;
+    color: var(--fadedGray);
+}

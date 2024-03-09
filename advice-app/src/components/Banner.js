@@ -1,7 +1,7 @@
 export default function Banner({ message }) {
   return (
     <div>
-      <h1>{message}</h1>
+      <h4>{message}</h4>
     </div>
   );
 }
