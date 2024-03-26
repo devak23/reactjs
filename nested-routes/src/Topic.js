@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import Resource from "./Resource";
-import topics from "./data";
+import topics from "./data/resources";
 
 const Topic = ({ match }) => {
   const topic = topics.find(topic => topic.id === match.params.topicId);
@@ -17,7 +17,6 @@ const Topic = ({ match }) => {
           </li>
         ))}
       </ul>
-      <hr />
       <Route path={`${match.path}/:resId`} component={Resource} />
     </div>
   );

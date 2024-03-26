@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import Topic from "./Topic";
-import data from "./data";
+import data from "./data/resources";
 
 class Topics extends Component {
   render() {
@@ -17,7 +17,6 @@ class Topics extends Component {
             </li>
           ))}
         </ul>
-        <hr />
         <Route path={`${match.path}/:topicId`} component={Topic} />
       </div>
     );

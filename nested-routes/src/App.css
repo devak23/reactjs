@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    width: 900px;
+    justify-content: flex-start;
+    /*border: 1px solid #999;*/
+}
+.left {
+    display: flex;
+    min-width: 100px;
+    margin: 10px 15px 10px 15px;
+    /*border: 1px solid #999;*/
+}
+.middle {
+    display: flex;
+    min-width: 100px;
+    margin: 10px 15px 10px 15px;
+    /*border: 1px solid #999;*/
+}
+.right {
+    display: flex;
+    min-width: 300px;
+    margin: 10px 15px 10px 15px;
+    /*border: 1px solid #999;*/
+}
