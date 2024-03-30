@@ -2,23 +2,23 @@
     display: flex;
     width: 900px;
     justify-content: flex-start;
-    /*border: 1px solid #999;*/
+    border: 1px solid #999;
 }
-.left {
+.one {
     display: flex;
     min-width: 100px;
     margin: 10px 15px 10px 15px;
-    /*border: 1px solid #999;*/
+    border: 1px solid #999;
 }
-.middle {
+.two {
     display: flex;
     min-width: 100px;
     margin: 10px 15px 10px 15px;
-    /*border: 1px solid #999;*/
+    border: 1px solid #999;
 }
-.right {
+.three {
     display: flex;
-    min-width: 300px;
+    min-width: 200px;
     margin: 10px 15px 10px 15px;
-    /*border: 1px solid #999;*/
+    border: 1px solid #999;
 }

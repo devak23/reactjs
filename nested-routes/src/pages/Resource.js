@@ -1,5 +1,5 @@
 import React from "react";
-import topics from "./data/resources";
+import topics from "../data/resources";
 
 const Resource = ({ match }) => {
   const topic = topics

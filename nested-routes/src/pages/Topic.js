@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import Resource from "./Resource";
-import topics from "./data/resources";
+import topics from "../data/resources";
 
 const Topic = ({ match }) => {
   const topic = topics.find(topic => topic.id === match.params.topicId);

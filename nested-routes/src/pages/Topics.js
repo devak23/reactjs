@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import Topic from "./Topic";
-import data from "./data/resources";
+import data from "../data/resources";
 
 class Topics extends Component {
   render() {

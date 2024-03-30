@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {BrowserRouter, Link, Route} from "react-router-dom";
-import Topics from "./Topics";
-import Home from "./Home";
+import {Home, Widget, Topics} from "./pages";
 import "./App.css";
 
 class App extends Component {
@@ -9,7 +8,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <div className="left">
+          <div className="one">
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -17,15 +16,23 @@ class App extends Component {
               <li>
                 <Link to="/topics">Topics</Link>
               </li>
+              <li>
+                <Link to="/widget">Widget</Link>
+              </li>
             </ul>
           </div>
 
-            <div className="middle">
+            <div className="two">
               <Route exact path="/" component={Home}/>
             </div>
-            <div className="right">
+
+            <div className="three">
               <Route path="/topics" component={Topics}/>
             </div>
+
+          <div className="three">
+            <Route path="/widget" component={Widget}/>
+          </div>
         </div>
       </BrowserRouter>
     );
