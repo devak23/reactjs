@@ -2,7 +2,7 @@
 import React from "react";
 import GridLayout from "react-grid-layout";
 import {getLayouts} from "./Layouts";
-import Elements from "./Elements";
+import Elements from "./components/Elements";
 
 class MyFirstGrid extends React.Component {
   render() {

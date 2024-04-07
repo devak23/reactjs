@@ -1,14 +1,14 @@
 import './App.css';
-import MyFirstGrid from "./MyFirstGrid";
-import MyResponsiveGrid from "./MyResponsiveGrid";
+import DesignArena from "./components/DesignArena";
 import "./react-grid-layout.css";
 import "./react-resizable.css";
+import ComponentPanel from "./components/ComponentPanel";
 
 function App() {
   return (
     <div className="App">
-      <MyFirstGrid />
-      {/*<MyResponsiveGrid />*/}
+      <ComponentPanel />
+      <DesignArena />
     </div>
   );
 }

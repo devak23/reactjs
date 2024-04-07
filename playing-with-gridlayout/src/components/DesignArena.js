@@ -1,12 +1,11 @@
 import React from "react";
-import {getLayouts} from "./Layouts";
+import {getLayouts} from "../Layouts";
 import {Responsive, WidthProvider} from "react-grid-layout";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-class MyResponsiveGrid extends React.Component {
+class DesignArena extends React.Component {
   render() {
-    // {lg: layout1, md: layout2, ...}
     var layouts = getLayouts();
     return (
       <ResponsiveGridLayout
@@ -24,4 +23,4 @@ class MyResponsiveGrid extends React.Component {
   }
 }
 
-export default MyResponsiveGrid;
+export default DesignArena;

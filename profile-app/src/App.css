@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nodata {
+  background-color: rgba(255, 220, 186, 0.493);
+  border-radius: 10px;
+  min-width: 500px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.fade {
+  -webkit-animation: fadeinout 0.5s linear;
+  animation: fadeinout 0.5s linear;
+  animation-iteration-count: initial;
+}
+
+@-webkit-keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.nodata button {
+  width: 95px;
+  height: 35px;
+}
