@@ -13,6 +13,7 @@ const data = [
     image: Me,
     level: 603,
     bloodGroup: "B+",
+    rating: 2,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const data = [
     image: Varkha,
     level: 601,
     bloodGroup: "A+",
+    rating: 5,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const data = [
     image: Nimisha,
     level: 602,
     bloodGroup: "AB+",
+    rating: 3,
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const data = [
     image: Kavita,
     level: 602,
     bloodGroup: "O+",
+    rating: 5,
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const data = [
     image: Dhiren,
     level: 601,
     bloodGroup: "O-",
+    rating: 4,
   },
 ];
 

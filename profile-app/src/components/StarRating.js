@@ -1,13 +1,15 @@
 import { FaStar } from "react-icons/fa";
 
-const StarRating = () => {
+const Star = ({ selected }) => {
+  return <FaStar color={selected ? "green" : "grey"} />;
+};
+
+const StarRating = ({ rating }) => {
   return (
     <div>
-      <FaStar color="green" />
-      <FaStar color="green" />
-      <FaStar color="green" />
-      <FaStar color="green" />
-      <FaStar color="green" />
+      {[...Array(rating).keys()].map((key) => (
+        <Star key={key} selected={true} />
+      ))}
     </div>
   );
 };
