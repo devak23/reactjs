@@ -1,26 +1,40 @@
-import React from "react";
-import {getLayouts} from "../Layouts";
-import {Responsive, WidthProvider} from "react-grid-layout";
+import GridLayout from "react-grid-layout";
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
+const DesignArena = () => {
+  const layout = [
+    { i: "1", x: 0, y: 0, w: 1, h: 1 },
+    { i: "2", x: 1, y: 0, w: 1, h: 1 },
+    { i: "3", x: 2, y: 0, w: 1, h: 1 },
+    { i: "4", x: 3, y: 0, w: 1, h: 1 },
+    { i: "5", x: 3, y: 0, w: 1, h: 1 },
+  ];
 
-class DesignArena extends React.Component {
-  render() {
-    var layouts = getLayouts();
-    return (
-      <ResponsiveGridLayout
-        className="layout"
-        layouts={layouts}
-        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-      >
-        <div style={{width: 500, height: 500, border: "1px solid red"}} key="a">Div A</div>
-        <div style={{width: 500, height: 500, border: "1px solid green"}} key="b">Div B</div>
-        <div style={{width: 500, height: 500, border: "1px solid blue"}} key="c">Div C</div>
-
-      </ResponsiveGridLayout>
-    );
-  }
-}
+  return (
+    <GridLayout
+      className="layout"
+      layout={layout}
+      cols={12}
+      rowHeight={20}
+      width={1200}
+      style={{ border: "1px solid black" }}
+    >
+      <div className="card" key="1">
+        Amount
+      </div>
+      <div className="card" key="2">
+        Bank
+      </div>
+      <div className="card" key="3">
+        Branch
+      </div>
+      <div className="card" key="4">
+        CCN Number
+      </div>
+      <div className="card" key="5">
+        Logo
+      </div>
+    </GridLayout>
+  );
+};
 
 export default DesignArena;

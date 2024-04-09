@@ -3,8 +3,15 @@
   flex-direction: column;
   width: 250px;
   height: 300px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .profile img {
   border-radius: 20px;
+}
+
+.profile span {
+  padding: 2px;
+  margin: 2px;
 }
