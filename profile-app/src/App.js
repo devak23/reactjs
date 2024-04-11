@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="appContainer">
       {data && data.map((p) => <Profile key={p.id} profile={p} />)}
 
       {data && !data.length && (

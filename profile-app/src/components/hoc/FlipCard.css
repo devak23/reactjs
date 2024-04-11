@@ -1,0 +1,44 @@
+.flipContainer {
+  width: 230px;
+  height: 300px;
+  background: none;
+  margin: 20px;
+  padding: 10px;
+}
+
+.theCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+
+.theCard:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.theFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  backface-visibility: hidden;
+  color: #000;
+}
+
+.theBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: #fafafa;
+  columns: #333;
+  transform: rotateY(180deg);
+}
