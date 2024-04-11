@@ -39,9 +39,11 @@
 
 .editProfile input {
   line-height: 23px;
+  border: 1px solid #CCC;
 }
 
 .editProfile button {
   height: 30px;
   margin-bottom: 15px;
+  border: 1px solid #CCC;
 }

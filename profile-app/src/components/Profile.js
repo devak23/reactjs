@@ -4,7 +4,7 @@ import FlipCard from "./hoc/FlipCard";
 import StarRating from "./StarRating";
 import {useState} from "react";
 
-const ProfileInfo = ({profile}) => (
+const ProfileInfo = ({profile, onProfileUpdate}) => (
   <div className="profile fade">
     <span>
       <img src={profile.image} alt="" width="170" height="150"/>
@@ -22,19 +22,19 @@ const ProfileInfo = ({profile}) => (
   </div>
 );
 
-const ProfileForm = ({profile}) => {
+const ProfileForm = ({profile, onProfileUpdate}) => {
   const [level, setLevel] = useState(profile.level);
   const [bloodGroup, setBloodGroup] = useState(profile.bloodGroup);
   const [rating, setRating] = useState(profile.rating);
 
   const handleUpdate = () => {
     const data = {
-      name: profile.name,
+      ...profile,
       level: level,
       bloodGroup: bloodGroup,
       rating: rating
     }
-    alert(JSON.stringify(data));
+    onProfileUpdate(data);
   }
   return (
     <div className="profile editProfile">
