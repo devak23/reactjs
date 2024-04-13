@@ -4,8 +4,10 @@ import DesignArena from "./components/DesignArena";
 
 function App() {
   return (
-    <div className="App">
-      <DesignArena />
+    <div className="container">
+      <div className="designArena">
+        <DesignArena/>
+      </div>
     </div>
   );
 }

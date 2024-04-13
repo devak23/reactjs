@@ -1,13 +1,15 @@
 .card {
     display: flex;
+    background-color: #d3f4fb;
     border: 1px solid #0a4b3e;
     border-radius: 2px;
     align-items: center;
+    justify-content: center;
     font-size: x-small;
 }
 
-card:hover {
-    cursor: pointer;
+.card:hover {
+    cursor: move;
 }
 
 .grid {

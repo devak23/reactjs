@@ -4,7 +4,7 @@ const elements = [
     'Transaction Type', 'Senders Reference', 'Sender Bank', 'Ordering Bank', 'Ordering Customer', 'Logo'
 ];
 
-export const getLayout = () => {
+export const getInitialLayout = () => {
     return elements.map((e, i) => {
         return {
             i: i,
@@ -16,8 +16,15 @@ export const getLayout = () => {
     });
 }
 
-
 export const getCards = () => {
-    return elements.map((name, index) => <div className="card" key={index}>{name}</div>);
+    return elements.map((name, index) => <div className="card" style={{width: 25}} key={index}>{name}</div>);
 }
 
+let savedLayout = [];
+
+export const saveLayout = (newLayout) => {
+    savedLayout.length = 0;
+    savedLayout = [...newLayout];
+}
+
+export const loadLayout = () => savedLayout;

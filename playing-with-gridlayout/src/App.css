@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    min-width: 1200px;
+    width: 1900px;
+    min-height: 920px;
+    margin: auto;
+    /*border: 1px solid #0FA0CE;*/
+}
+
+.design {
+    min-width: 800px;
+    height: 100%;
+    border: 1px solid crimson;
+}
