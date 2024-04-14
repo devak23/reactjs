@@ -1,0 +1,14 @@
+.configurationPanel {
+    font-size: 12px;
+    width: 350px;
+    height: 800px;
+}
+
+.configurationPanel ul {
+    padding-left: 0;
+}
+
+.configurationPanel li {
+    list-style: none;
+    margin-top: 5px;
+}
