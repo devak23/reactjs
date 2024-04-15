@@ -7,3 +7,17 @@ html {
     font-style: normal;
     font-variation-settings: "slnt" 0;
 }
+
+input[type="checkbox"] {
+    border: 1px solid #728782;
+    cursor: pointer;
+}
+
+button:hover {
+    border: 1px solid #18c7e8;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #fff;
+}

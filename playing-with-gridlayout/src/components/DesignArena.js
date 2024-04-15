@@ -1,17 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import GridLayout from "react-grid-layout";
 import "./DesignArena.css"
-import {getCards, getLayout} from "../data/Elements";
+import {getCards, getInitialLayout} from "../data/Elements";
 import {toast, Toaster} from "react-hot-toast";
+import {DesignContext} from "../context/DesignContext";
 
 const DesignArena = ({selectedItems}) => {
   const [layout, setLayout] = useState([])
   const [cards, setCards] = useState([])
-  const [savedLayout, setSavedLayout] = useState([])
+  const {savedLayout, setSavedLayout} = useContext(DesignContext);
 
   const handleSaveLayout = () => {
     if (layout.length) {
       setSavedLayout(layout);
+
       notify('Layout saved successfully.', true);
     } else {
       toast.error("Nothing to save!")
@@ -36,20 +38,23 @@ const DesignArena = ({selectedItems}) => {
   }
 
   const handleResetLayout = () => {
-    setLayout(getLayout(selectedItems));
+    setLayout(getInitialLayout(selectedItems));
   }
 
   useEffect(() => {
-    if (layout.length) {
-      setSavedLayout(layout);
-    }
-    setLayout(getLayout(selectedItems));
+    setLayout(getInitialLayout(selectedItems));
     setCards(getCards(selectedItems));
     setLayout(savedLayout)
   }, [selectedItems]);
 
+
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
+    <div className="designArenaContainer">
+      <div className="buttonBar">
+        <button style={{margin: 5, height: 30}} onClick={handleSaveLayout}>Save Layout</button>
+        <button style={{margin: 5, height: 30}} onClick={handleLoadLayout}>Load Layout</button>
+        <button style={{margin: 5, height: 30}} onClick={handleResetLayout}>Reset Layout</button>
+      </div>
       <div className="grid">
         <GridLayout
           layout={layout}
@@ -65,11 +70,6 @@ const DesignArena = ({selectedItems}) => {
           {cards}
 
         </GridLayout>
-      </div>
-      <div style={{display: "flex", marginTop: 20}}>
-        <button style={{margin: "auto", height: 30}} onClick={handleSaveLayout}>Save Layout</button>
-        <button style={{margin: "auto", height: 30}} onClick={handleLoadLayout}>Load Layout</button>
-        <button style={{margin: "auto", height: 30}} onClick={handleResetLayout}>Reset Layout</button>
       </div>
       <Toaster/>
     </div>

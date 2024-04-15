@@ -6,7 +6,7 @@ const elements = [
 
 export const getElements = () => elements
 
-export const getLayout = (elements) => {
+export const getInitialLayout = (elements) => {
   return elements && elements.map((e, i) => {
     return {
       i: e.name,

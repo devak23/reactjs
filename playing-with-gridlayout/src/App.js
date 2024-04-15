@@ -1,11 +1,14 @@
-import './App.css';
-import "react-grid-layout/css/styles.css";
 import DesignArena from "./components/DesignArena";
 import ConfigurationPanel from "./components/ConfigurationPanel";
 import {useState} from "react";
+import './App.css';
+import "react-grid-layout/css/styles.css";
+import {DesignContext} from "./context/DesignContext";
 
-function App() {
-  const [selectedItems, setSelectedItems] = useState([])
+
+const App = () => {
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [savedLayout, setSavedLayout] = useState([]);
 
   const handleItemSelected = (item) => {
     if (item.checked) {
@@ -18,8 +21,10 @@ function App() {
 
   return (
     <div className="container">
-      <ConfigurationPanel onItemSelected={handleItemSelected}/>
-      <DesignArena selectedItems={selectedItems}/>
+      <DesignContext.Provider value={{savedLayout, setSavedLayout}}>
+        <ConfigurationPanel onItemSelected={handleItemSelected}/>
+        <DesignArena selectedItems={selectedItems}/>
+      </DesignContext.Provider>
     </div>
   );
 }
