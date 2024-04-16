@@ -43,7 +43,7 @@ const DesignArena = ({selectedItems}) => {
 
   useEffect(() => {
     setLayout(getInitialLayout(selectedItems));
-    setCards(getCards(selectedItems));
+    setCards(getCards(selectedItems, "card onPage"));
     setLayout(savedLayout)
   }, [selectedItems]);
 

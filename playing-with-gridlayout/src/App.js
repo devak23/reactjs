@@ -1,9 +1,9 @@
 import DesignArena from "./components/DesignArena";
-import ConfigurationPanel from "./components/ConfigurationPanel";
 import {useState} from "react";
 import './App.css';
 import "react-grid-layout/css/styles.css";
 import {DesignContext} from "./context/DesignContext";
+import ConfigurationPanelWithItems from "./components/ConfigurationPanelWithItems";
 
 
 const App = () => {
@@ -22,7 +22,8 @@ const App = () => {
   return (
     <div className="container">
       <DesignContext.Provider value={{savedLayout, setSavedLayout}}>
-        <ConfigurationPanel onItemSelected={handleItemSelected}/>
+        {/*<ConfigurationPanel onItemSelected={handleItemSelected}/>*/}
+        <ConfigurationPanelWithItems onItemSelected={handleItemSelected}/>
         <DesignArena selectedItems={selectedItems}/>
       </DesignContext.Provider>
     </div>
