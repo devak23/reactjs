@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 const elements = [
   'Bank Name', 'Bank Address', 'Branch Code', 'Description', 'Currency', 'Amount', 'Advice Name',
   'Transaction Date', 'Value Date', 'Account Number', 'B/O Customer', 'Payment Details', 'Chop', 'Bank Reference',
@@ -13,15 +15,15 @@ export const getInitialLayout = (elements) => {
       x: i,
       y: 0,
       w: 1,
-      h: 1
+      h: 1,
+      isDraggable: true,
+      isResizable: true
     }
   });
 }
 
-export const getCards = (elements, className) => {
-  return elements && elements.map((e, index) =>
-    <div className={className ? className : 'card'}
-         style={{width: 25}}
-         key={index}>{e.name}
-    </div>);
+
+export const getCards = (elements, clazzName) => {
+  return elements && elements.map((element, index) => <Card key={index} clazzName={clazzName}
+                                                            element={element}/>);
 }

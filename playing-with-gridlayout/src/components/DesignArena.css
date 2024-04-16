@@ -5,20 +5,6 @@
     /*border: 1px solid brown;*/
 }
 
-.card {
-    display: flex;
-    background-color: #d3f4fb;
-    border: 1px solid #728782;
-    border-radius: 2px;
-    align-items: center;
-    justify-content: center;
-    font-size: x-small;
-}
-
-.card:hover {
-    cursor: move;
-}
-
 .grid {
     width: 900px;
     height: 800px;

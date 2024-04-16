@@ -1,0 +1,15 @@
+.card {
+    display: flex;
+    background-color: #d3f4fb;
+    border: 1px solid #728782;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    font-size: x-small;
+    width: 50px;
+    height: 30px;
+}
+
+.card:hover {
+    cursor: move;
+}
