@@ -1,21 +1,16 @@
 import "./Card.css";
 import {useDrag} from "react-dnd";
-import ItemTypes from "../data/ItemTypes";
+import {ItemTypes} from "../data/ItemTypes";
 
 const Card2 = ({isDragging, item}) => {
-  const [{ opacity }, dragRef] = useDrag(
-    () => ({
-      type: ItemTypes.CARD,
-      item: { item },
-      collect: (monitor) => ({
-        opacity: monitor.isDragging() ? 0.5 : 1
-      })
-    }),
-    []
-  );
+  const [_, drag] = useDrag(() => ({
+    type: ItemTypes.CARD,
+    item: isDragging ? {item} : null
+  }));
+
 
   return (
-    <div ref={dragRef} key={item.id} className="card inTransit"> {item.name}</div>
+    <div key={item.id} ref={drag} className="card inTransit"> {item.name}</div>
   );
 }
 

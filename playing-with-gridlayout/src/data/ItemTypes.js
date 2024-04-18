@@ -1,7 +1,4 @@
-const ItemTypes = () => {
-  return {
-    CARD: 'Card'
-  }
+export const ItemTypes = {
+  CARD: 'Card'
 }
 
-export default ItemTypes;
