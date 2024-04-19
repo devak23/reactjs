@@ -1,4 +1,4 @@
-import Card from "../components/Card2";
+import Card from "../components/Card";
 
 const elements = [
   'Bank Name', 'Bank Address', 'Branch Code', 'Description', 'Currency', 'Amount', 'Advice Name',

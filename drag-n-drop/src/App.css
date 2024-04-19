@@ -1,0 +1,6 @@
+.app {
+    min-width: 1200px;
+    min-height: 800px;
+    display: flex;
+    border: 1px solid black;
+}

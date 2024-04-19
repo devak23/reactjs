@@ -1,12 +1,14 @@
 import "./Card.css";
+
 import {useDrag} from "react-dnd";
 import {ItemTypes} from "../data/ItemTypes";
 
-const Card2 = ({isDragging, item}) => {
-  const [_, drag] = useDrag(() => ({
+const Card = ({isDragging, item}) => {
+  const [collected, drag] = useDrag(() => ({
     type: ItemTypes.CARD,
     item: isDragging ? {item} : null
   }));
+
 
 
   return (
@@ -14,4 +16,4 @@ const Card2 = ({isDragging, item}) => {
   );
 }
 
-export default Card2
+export default Card

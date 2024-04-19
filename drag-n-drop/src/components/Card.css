@@ -1,0 +1,24 @@
+.card {
+    display: flex;
+    background-color: #d3f4fb;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    font-size: x-small;
+    width: 60px;
+    height: 27px;
+    margin: 3px;
+    padding: 1px;
+}
+
+.card, .inTransit {
+    border: 1px dashed #728782;
+}
+
+.card .onPage {
+    border: 1px solid #728782;
+}
+
+.card:hover {
+    cursor: move;
+}

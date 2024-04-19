@@ -1,7 +1,7 @@
-import "./ConfigurationPanel.css";
 import {useState} from "react";
 import {getElements} from "../data/Elements";
-import Card2 from "./Card2";
+import Card from "./Card";
+import "./ConfigurationPanel.css";
 
 
 const ConfigurationPanelWithElements = () => {
@@ -14,7 +14,7 @@ const ConfigurationPanelWithElements = () => {
     <div className="configurationPanel">
       <span><strong>Please select elements:</strong></span>
       <ul style={{marginTop: 20}}>
-        {items.map(element => <Card2 key={element.id} isDragging={true} item={element}/>)}
+        {items.map(element => <Card key={element.id} isDragging={true} item={element}/>)}
       </ul>
     </div>
   );

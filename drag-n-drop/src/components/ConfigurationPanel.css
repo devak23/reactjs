@@ -1,0 +1,16 @@
+.configurationPanel {
+    min-width: 20%;
+    min-height: 100%;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid blue;
+}
+
+.configurationPanel ul {
+    padding-left: 0;
+}
+
+.configurationPanel li {
+    list-style: none;
+    margin-top: 5px;
+}
