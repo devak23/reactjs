@@ -1,0 +1,21 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user {
+    padding: 10px;
+}
+
+.user:hover {
+    cursor: grab;
+}
+
+.user:active {
+    cursor: grabbing;
+}
+
+.users-form {
+    margin-bottom: 20px;
+}

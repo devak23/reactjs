@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+html {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+
+button:hover {
+    border: 1px solid #18c7e8;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #fff;
+}
