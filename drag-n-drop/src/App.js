@@ -6,6 +6,7 @@ import {HTML5Backend} from "react-dnd-html5-backend";
 
 
 const App = () => {
+  console.log("App.js: Before calling Render");
   return (
     <div className="app">
       <DndProvider backend={HTML5Backend}>

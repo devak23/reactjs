@@ -1,4 +1,4 @@
-import Card from "../components/Card";
+import ReportField from "../components/ReportField";
 
 const elements = [
   'Bank Name', 'Bank Address', 'Branch Code', 'Description', 'Currency', 'Amount', 'Advice Name',
@@ -10,5 +10,6 @@ export const getElements = () => elements
 
 
 export const getCards = (elements) => {
-  return elements && elements.map((element, index) => <Card key={index} element={element}/>);
+  console.log("Elements.js: Generating Cards with elements: ", elements);
+  return elements && elements.map(element => <ReportField key={element.id} element={element}/>);
 }
