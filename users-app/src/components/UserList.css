@@ -4,6 +4,7 @@
     padding: 10px;
     width: 91.5%;
     height: 540px;
+    border-radius: 4px;
 }
 
 .user {
@@ -12,6 +13,7 @@
     padding: 4px;
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: 10px;
     width: 50%;
     /*border: 1px dashed #8a6d3b;*/
 }

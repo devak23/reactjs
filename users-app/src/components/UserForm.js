@@ -32,6 +32,7 @@ const UserForm = ({ handleUserAdded }) => {
 
   return (
     <div className="userFormContainer">
+      <div className="title">Add a user</div>
       <input
         ref={userInput}
         type="text"

@@ -9,6 +9,7 @@ const UserList = ({ users, handleDeleteUser }) => {
 
   return (
     <div className="userListContainer">
+      <div className="title">User List</div>
       {users.map((user) => (
         <div className="user" key={user.id}>
           {user.name}

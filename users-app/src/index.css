@@ -10,13 +10,17 @@ html {
 
 button {
     height: 35px;
-    margin: 10px
+    margin: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 2px;
 }
 
 input[type="text"] {
-    line-height: 27.5px;
+    line-height: 29px;
     margin: 10px;
     outline: none;
+    border: 1px solid #afafaf;
+    border-radius: 2px;
 }
 
 input[type="text"]:hover, input[type="text"]:active {
@@ -32,4 +36,14 @@ button:hover {
 
 button:active {
     background-color: #fff;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bolder;
+    margin-left: 10px;
+    color: #6f6f6f;
 }
