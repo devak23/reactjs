@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect, useState} from 'react';
+import { useState } from 'react';
 import UserForm from './components/UserForm';
 import UserList from './components/UserList';
 import { Users } from './data/users';
@@ -8,22 +8,22 @@ const App = () => {
   const [users, setUsers] = useState(Users);
 
   const updateUser = (user) => {
-    console.log("users: ", users);
     setUsers((users) => {
-      let userIndex = users.findIndex((u) => u.name !== user.name);
-      return userIndex > 0 ? users : [...users, user];
-      },
-    );
+      const userFoundIndex = users
+        .map((u) => u.name.toLowerCase())
+        .indexOf(user.name.toLowerCase());
+      return userFoundIndex >= 0 ? users : [...users, user];
+    });
   };
 
-  useEffect(() => {
-    console.log("users: ", users);
-  }, [users]);
+  const deleteUser = (user) => {
+    setUsers((prevUsers) => users.filter((u) => u.id !== user.id));
+  };
 
   return (
     <div className="appContainer">
       <UserForm handleUserAdded={updateUser} />
-      <UserList users={users} />
+      <UserList users={users} handleDeleteUser={deleteUser} />
     </div>
   );
 };

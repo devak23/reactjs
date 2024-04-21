@@ -7,7 +7,15 @@
 }
 
 .user {
+    display: flex;
+    justify-content: space-between;
     padding: 4px;
     margin-top: 4px;
     margin-bottom: 4px;
+    width: 50%;
+    /*border: 1px dashed #8a6d3b;*/
+}
+
+.user a {
+    text-decoration: none;
 }
