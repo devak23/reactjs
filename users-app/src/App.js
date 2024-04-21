@@ -2,10 +2,9 @@ import './App.css';
 import { useState } from 'react';
 import UserForm from './components/UserForm';
 import UserList from './components/UserList';
-import { Users } from './data/users';
 
 const App = () => {
-  const [users, setUsers] = useState(Users);
+  const [users, setUsers] = useState([]);
 
   const updateUser = (user) => {
     setUsers((users) => {

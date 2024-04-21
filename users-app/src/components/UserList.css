@@ -5,6 +5,7 @@
     width: 91.5%;
     height: 540px;
     border-radius: 4px;
+    overflow: auto;
 }
 
 .user {
