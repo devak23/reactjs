@@ -14,8 +14,7 @@
 - Step 4: Define Reducers
 - Step 5: Dispatch Actions
 - Step 6: Subscribe-Unsubscribe
-- Step 7: Folder Structure
-- Duck pattern
+- Step 7: Folder Structure and Duck pattern
 ```
 
 ### SECTION 01
