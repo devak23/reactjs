@@ -1,4 +1,4 @@
-import {ADD_TASK, COMPLETE_TASK, REMOVE_TASK} from './actionTypes';
+import { ADD_TASK, REMOVE_TASK } from './actionTypes';
 
 export const addTask = (taskName) => {
   return {
@@ -15,14 +15,5 @@ export const removeTask = (taskId) => {
     payload: {
       id: taskId,
     },
-  };
-};
-
-export const completeTask = (taskId) => {
-  return {
-    type: COMPLETE_TASK,
-    payload: {
-      id: taskId
-    }
   };
 };
