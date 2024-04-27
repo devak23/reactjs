@@ -1,4 +1,4 @@
-import {ADD_TASK, REMOVE_TASK} from "./constants";
+import { ADD_TASK, REMOVE_TASK } from './actionTypes';
 
 let index = 0;
 

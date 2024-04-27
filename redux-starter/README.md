@@ -316,7 +316,7 @@ array.
 
 Now that the redux store is ready, let's send some actions to it. This is done using the ```dispatch()``` function
 of the store. So open the ``` index.js ``` and try to "dispatch an action" for adding a new task. Since the dispatch is
-taking the action object, we need to pass it the structure that we decided for our action objects. In case of  
+taking the action object, we need to pass it the structure that we decided for our action objects. In case of
 'ADD_TASK', this is how it will look:
 
 ```
@@ -388,9 +388,7 @@ console.log('State after removing task = ', store.getState());
 ```
 
 However, the problem is our ```addTask()``` and ```removeTask()``` are pretty much static and always give the same
-value.
-So lets
-make it dynamic by adding parameters so that both the functions become generic. So we now have
+value. So lets make it dynamic by adding parameters so that both the functions become generic. So we now have
 
 ```
 export const addTask = (taskName) => {
@@ -431,7 +429,7 @@ console.log('State after removing task = ', store.getState());
 If you notice the ```actions.js``` and ```reducer.js``` they both work because of the constant values of 'ADD_TASK' and
 'REMOVE_TASK'. Since javascript is a very forgiving language, there is a potential for a typo and the actions and
 reducers would just ignore your commands. In order to make sure there are no typos, lets create a constants file
-which defines the static strings. Let's call this file ```constants.js```
+which defines the static strings. Let's call this file ```actionTypes.js```
 
 ```
 export const ADD_TASK = 'ADD_TASK';
@@ -443,7 +441,7 @@ and then import the file in ```actions.js``` and ```reducer.js``` and replace th
 variables.
 
 ```
-import { ADD_TASK, REMOVE_TASK } from './constants';
+import { ADD_TASK, REMOVE_TASK } from './actionTypes';
 
 export const addTask = (taskName) => {
   return {
@@ -468,7 +466,7 @@ export const removeTask = (taskId) => {
 and
 
 ```
-import {ADD_TASK, REMOVE_TASK} from "./constants";
+import {ADD_TASK, REMOVE_TASK} from "./actionTypes";
 
 let index = 0;
 
