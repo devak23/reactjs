@@ -1,6 +1,8 @@
+import { ADD_TASK, REMOVE_TASK } from './constants';
+
 export const addTask = (taskName) => {
   return {
-    type: 'ADD_TASK',
+    type: ADD_TASK,
     payload: {
       task: taskName,
     },
@@ -9,7 +11,7 @@ export const addTask = (taskName) => {
 
 export const removeTask = (taskId) => {
   return {
-    type: 'REMOVE_TASK',
+    type: REMOVE_TASK,
     payload: {
       id: taskId,
     },

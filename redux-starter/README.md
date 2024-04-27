@@ -387,7 +387,9 @@ console.log('State after removing task = ', store.getState());
 
 ```
 
-However the problem is our addTask() and removeTask() are pretty much static and always give the same value. So lets
+However, the problem is our ```addTask()``` and ```removeTask()``` are pretty much static and always give the same
+value.
+So lets
 make it dynamic by adding parameters so that both the functions become generic. So we now have
 
 ```
@@ -425,3 +427,69 @@ store.dispatch(removeTask(0));
 console.log('State after removing task = ', store.getState());
 
 ```
+
+If you notice the ```actions.js``` and ```reducer.js``` they both work because of the constant values of 'ADD_TASK' and
+'REMOVE_TASK'. Since javascript is a very forgiving language, there is a potential for a typo and the actions and
+reducers would just ignore your commands. In order to make sure there are no typos, lets create a constants file
+which defines the static strings. Let's call this file ```constants.js```
+
+```
+export const ADD_TASK = 'ADD_TASK';
+export const REMOVE_TASK = 'REMOVE_TASK';
+
+```
+
+and then import the file in ```actions.js``` and ```reducer.js``` and replace those constants with the constant
+variables.
+
+```
+import { ADD_TASK, REMOVE_TASK } from './constants';
+
+export const addTask = (taskName) => {
+  return {
+    type: ADD_TASK,
+    payload: {
+      task: taskName,
+    },
+  };
+};
+
+export const removeTask = (taskId) => {
+  return {
+    type: REMOVE_TASK,
+    payload: {
+      id: taskId,
+    },
+  };
+};
+
+```
+
+and
+
+```
+import {ADD_TASK, REMOVE_TASK} from "./constants";
+
+let index = 0;
+
+export default function reducer(state = [], action) {
+  switch (action.type) {
+    case ADD_TASK:
+      return [
+        ...state,
+        {
+          id: index++,
+          task: action.payload.task,
+        },
+      ];
+
+    case REMOVE_TASK:
+      return state.filter((task) => task.id !== action.payload.id);
+
+    default:
+      return state;
+  }
+}
+```
+
+This way, there cannot be any typo and if there is, your editor will flag it immediately.
