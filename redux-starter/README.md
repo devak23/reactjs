@@ -1,30 +1,21 @@
 # My Notes on Redux
 
-TO RUN THIS PROJECT:
+#### To run this project, run the following on the command prompt:
 
 1. npm install
 2. npm start
 
-# Topics
+# Topics to discuss
 
 ```
-- Full redux workflow
-- Create Redux Store
-- Define Actions
-- Define Reducers
-- Dispatch Actions
-- Subscribe-Unsubscribe
-- Folder Structure
+- Step 1: Full redux workflow
+- Step 2: Create Redux Store
+- Step 3: Define Actions
+- Step 4: Define Reducers
+- Step 5: Dispatch Actions
+- Step 6: Subscribe-Unsubscribe
+- Step 7: Folder Structure
 - Duck pattern
-```
-
-## TODO Application
-
-```
-1. Designing the store
-2. List actions (what to do)
-3. Create reducers (how to do)
-4. Create redux store
 ```
 
 ### SECTION 01
@@ -491,3 +482,38 @@ export default function reducer(state = [], action) {
 ```
 
 This way, there cannot be any typo and if there is, your editor will flag it immediately.
+
+### SECTION 6: Subscribe and Unsubscribe to the store.
+
+```subscribe``` will run every time there is an update to the redux store. Add the following line right after all
+the imports in   ```index.js```
+
+```
+store.subscribe(() => {
+   console.log("Updated: ", store.getState())
+});
+```
+
+where is this useful? It is generally useful in making UI updates. For ex: in React, we can re-render the component
+when the state changes. The ```subscribe()``` function returns a reference of the ```unsubscribe()``` function! This
+function can be used to stop listening to the store changes. For ex:
+
+```
+const unsubscribe = store.subscribe(() => {
+  console.log('Updated: ', store.getState());
+});
+
+store.dispatch(addTask('Create Project Plan'));
+console.log('State after adding Task = ', store.getState());
+
+store.dispatch(addTask('Another task'));
+
+unsubscribe();
+
+store.dispatch(removeTask(0));
+
+console.log('State after removing task = ', store.getState());
+
+```
+
+The ```unsubscribe()``` doesn't print the updates to the store after the ```removeTask``` action is invoked.
