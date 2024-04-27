@@ -517,3 +517,38 @@ console.log('State after removing task = ', store.getState());
 ```
 
 The ```unsubscribe()``` doesn't print the updates to the store after the ```removeTask``` action is invoked.
+The ```unsubscribe()``` doesn't print the updates to the configureStore after the ```removeTask``` action is invoked.
+
+### SECTION 7: Folder structure
+Although we have coded the reducers and the actions and actionTypes all in different files, there isn't a proper 
+folder structure that we have followed and that's because this is a toy example. The commonly followed folder 
+structure for a redux applications goes something on the lines of: 
+
+```
+/src
+   /configureStore
+      - configureStore.js
+      /tasks
+         - actions.js
+         - reducer.js
+         - actionTypes.js
+      /employees
+         - actions.js
+         - reducer.js
+         - actionTypes.js
+```
+There is nothing wrong with this approach. However, if there is anything that we need to change in future or add 
+something, we have to change in these 3 different files. There is a better way to arrange the code and its called 
+the "Duck Module" approach. In this approach we combine all the 3 files into one file which takes the name of the 
+"slice" or the parent folder. In this case, all the code under ```/tasks``` will be combined into a single file 
+called ```tasks.js``` and similarly under ```/employees``` you will find ```employees.js``` Now if you want to 
+change something, you will do so only in 1 file and that's improves the maintainability of the code. Also since all 
+these folders will now contain a single file, we could get rid of the folders and place all of them at the level of 
+```configureStore.js```. So that looks like this:
+
+```
+/src
+   - configureStore.js
+   - tasks.js
+   - employees.js
+```
