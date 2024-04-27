@@ -1,3 +1,5 @@
+# My Notes on Redux
+
 TO RUN THIS PROJECT:
 
 1. npm install
@@ -157,13 +159,13 @@ const addTaskAction = {
 }
 ```
 
-Here we are using string, but some developers use numbers like 1,2 or 3. I like Strings because it is more descriptive
-than number. We can easily understand that this action will add a new task. Here some developers use the value in all
-upper case. But you can also use 'tasksAdded' or anything you want to.
+Here we are using string, but some developers use numbers like 1,2 or 3. Strings are more
+descriptive and are therefore better than numbers. We can easily understand that this action will add a new task. Here
+some developers use the value in all upper case. But you can also use 'tasksAdded' or anything you want to.
 
-I personally prefer all upper case. You can use whatever you want to but stick with that for the rest of that
-application. Now after that you can pass data inside this object. So for ADD_TASK, we send the task details, and this is
-completely fine.
+Again, upper case letter feels better and give you the notion of a "constant". You can use whatever you want to but
+stick with that for the rest of that application. Now after that you can pass data inside this object. So for ADD_TASK,
+we send the task details, and this is completely fine.
 
 ```
 const addTaskAction = {
@@ -346,4 +348,80 @@ console.log(store.getState());
 ```
 
 As you can see the dispatch function parameters start looking clumsy. So we define an ``` actions.js``` which will
-have all the tasks we want to define. So let's create a new file ```actions.js``` and define our actions there
+have all the tasks we want to define. So let's create a new file ```actions.js``` and define our actions there.
+
+```
+export const addTask = () => {
+  return {
+    type: 'ADD_TASK',
+    payload: {
+      task: 'This is a new Action',
+    },
+  };
+};
+
+export const removeTask = () => {
+  return {
+    type: 'REMOVE_TASK',
+    payload: {
+      id: 0,
+    },
+  };
+};
+
+```
+
+Now our dispatch actions become very clean
+
+```
+import store from './store';
+import {addTask, removeTask} from "./actions";
+
+
+store.dispatch(addTask());
+console.log('State after adding Task = ', store.getState());
+
+store.dispatch(removeTask());
+
+console.log('State after removing task = ', store.getState());
+
+```
+
+However the problem is our addTask() and removeTask() are pretty much static and always give the same value. So lets
+make it dynamic by adding parameters so that both the functions become generic. So we now have
+
+```
+export const addTask = (taskName) => {
+  return {
+    type: 'ADD_TASK',
+    payload: {
+      task: taskName,
+    },
+  };
+};
+
+export const removeTask = (taskId) => {
+  return {
+    type: 'REMOVE_TASK',
+    payload: {
+      id: taskId,
+    },
+  };
+};
+
+```
+
+and therefore now, our ```index.js``` looks:
+
+```
+import store from './store';
+import { addTask, removeTask } from './actions';
+
+store.dispatch(addTask('Create Project Plan'));
+console.log('State after adding Task = ', store.getState());
+
+store.dispatch(removeTask(0));
+
+console.log('State after removing task = ', store.getState());
+
+```
