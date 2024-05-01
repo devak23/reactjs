@@ -29,6 +29,17 @@ export const completeTask = (taskId) => {
   };
 };
 
+export const fetchTodo = () => {
+  return async function (dispatch, getState) {
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/todos/1',
+    );
+    console.log(response);
+    const task = await response.json();
+    dispatch(addTask(task.title));
+  };
+};
+
 let index = 0;
 
 export default function reducer(state = [], action) {
